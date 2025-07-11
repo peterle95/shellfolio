@@ -30,7 +30,7 @@ export default function Home() {
             <div className="relative w-full h-full bg-card/30 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden border-2 border-white/10 p-2">
               <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-2 bg-transparent border-2 border-gray-500 rounded-full z-10"></div>
               <Image
-                src="/images/profile.png"
+                src="/images/batch.jpeg"
                 alt="Photo of Peter Mölzer"
                 layout="fill"
                 objectFit="cover"

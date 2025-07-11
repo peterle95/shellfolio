@@ -84,9 +84,9 @@ export const Contact = () => (
     <div>
         <p>Feel free to reach out. I'm always open to connecting!</p>
         <ul className="mt-2 space-y-1">
-            <li><span className="font-bold w-16 inline-block">Email:</span> <a href="mailto:peter.molzer@example.com" className="text-primary hover:underline">peter.molzer@example.com</a></li>
-            <li><span className="font-bold w-16 inline-block">LinkedIn:</span> <a href="https://linkedin.com/in/peter-molzer" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">linkedin.com/in/peter-molzer</a></li>
-            <li><span className="font-bold w-16 inline-block">GitHub:</span> <a href="https://github.com/petermolzer" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">github.com/petermolzer</a></li>
+            <li><span className="font-bold w-16 inline-block">Email:</span> <a href="mailto:moelzerpeter@gmail.com" className="text-primary hover:underline">moelzerpeter@gmail.com</a></li>
+            <li><span className="font-bold w-16 inline-block">LinkedIn:</span> <a href="https://www.linkedin.com/in/peter-moelzer/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">linkedin.com/in/peter-moelzer</a></li>
+            <li><span className="font-bold w-16 inline-block">GitHub:</span> <a href="https://github.com/peterle95" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">github.com/peterle95</a></li>
         </ul>
     </div>
 );
