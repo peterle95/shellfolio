@@ -13,7 +13,7 @@ interface HistoryItem {
 
 const Prompt = ({ command }: { command: string }) => (
     <div className="flex">
-        <span className="text-primary font-bold mr-2">shellfolio&gt;</span>
+        <span className="text-primary font-bold mr-2">shellfolio></span>
         <span className="flex-1">{command}</span>
     </div>
 );
@@ -93,7 +93,7 @@ export function Terminal() {
 
     return (
         <Card 
-            className="w-full h-full p-2 sm:p-4 flex flex-col overflow-hidden shadow-2xl" 
+            className="w-full h-full p-2 sm:p-4 flex flex-col overflow-hidden shadow-2xl bg-card text-card-foreground border-none" 
             onClick={() => inputRef.current?.focus()}>
             <CardContent ref={scrollRef} className="flex-1 overflow-y-auto p-2 pr-4 space-y-4">
                 {history.map((item) => (
@@ -103,7 +103,7 @@ export function Terminal() {
                     </div>
                 ))}
                 <div className="flex w-full">
-                    <span className="text-primary font-bold mr-2">shellfolio&gt;</span>
+                    <span className="text-primary font-bold mr-2">shellfolio></span>
                     <div className="flex-1 relative">
                         <span className="break-all">{input}</span>
                         <span className="inline-block w-2 h-[1.2em] bg-foreground ml-1 animate-blink align-bottom"></span>

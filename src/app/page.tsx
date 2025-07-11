@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-background p-4 sm:p-8">
       <div className="w-full max-w-7xl h-[80vh] min-h-[500px] flex flex-col md:flex-row gap-8">
-        <div className="md:w-1/3 flex items-center justify-center">
+        <div className="hidden md:w-1/3 md:flex items-center justify-center">
           <div className="relative group w-[300px] h-[400px] animate-float">
 
             {/* Lanyard Strap */}
@@ -42,7 +42,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="md:w-2/3 h-full">
+        <div className="w-full md:w-2/3 h-full">
           <Terminal />
         </div>
       </div>
