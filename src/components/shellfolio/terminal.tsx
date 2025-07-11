@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { commands } from './commands';
 import { Welcome, NotFound } from './outputs';
 import { Card, CardContent } from "@/components/ui/card";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface HistoryItem {
     id: number;
@@ -24,7 +25,7 @@ export function Terminal() {
     const [commandHistory, setCommandHistory] = useState<string[]>([]);
     const [historyIndex, setHistoryIndex] = useState(-1);
     const inputRef = useRef<HTMLInputElement>(null);
-    const scrollRef = useRef<HTMLDivElement>(null);
+    const scrollViewportRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         setHistory([{ id: 0, command: '', output: <Welcome /> }]);
@@ -32,8 +33,8 @@ export function Terminal() {
     }, []);
 
     useEffect(() => {
-        if (scrollRef.current) {
-            scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+        if (scrollViewportRef.current) {
+            scrollViewportRef.current.scrollTop = scrollViewportRef.current.scrollHeight;
         }
     }, [history]);
 
@@ -95,33 +96,35 @@ export function Terminal() {
         <Card 
             className="w-full h-full p-2 sm:p-4 flex flex-col overflow-hidden shadow-2xl bg-card text-card-foreground border-none" 
             onClick={() => inputRef.current?.focus()}>
-            <CardContent ref={scrollRef} className="flex-1 overflow-y-auto p-2 pr-4 space-y-4">
-                {history.map((item) => (
-                    <div key={item.id}>
-                        {item.command && <Prompt command={item.command} />}
-                        <div>{item.output}</div>
+            <ScrollArea className="flex-1" viewportRef={scrollViewportRef}>
+                <CardContent className="p-2 pr-4 space-y-4">
+                    {history.map((item) => (
+                        <div key={item.id}>
+                            {item.command && <Prompt command={item.command} />}
+                            <div>{item.output}</div>
+                        </div>
+                    ))}
+                    <div className="flex w-full">
+                        <span className="text-primary font-bold mr-2">moelzerpeter$></span>
+                        <div className="flex-1 relative">
+                            <span className="break-all">{input}</span>
+                            <span className="inline-block w-2 h-[1.2em] bg-foreground ml-1 animate-blink align-bottom"></span>
+                            <input
+                                ref={inputRef}
+                                type="text"
+                                value={input}
+                                onChange={handleInputChange}
+                                onKeyDown={handleKeyDown}
+                                className="absolute top-0 left-0 w-full h-full bg-transparent border-none outline-none text-transparent caret-transparent"
+                                autoComplete="off"
+                                autoCapitalize="off"
+                                autoCorrect="off"
+                                spellCheck="false"
+                            />
+                        </div>
                     </div>
-                ))}
-                <div className="flex w-full">
-                    <span className="text-primary font-bold mr-2">moelzerpeter$></span>
-                    <div className="flex-1 relative">
-                        <span className="break-all">{input}</span>
-                        <span className="inline-block w-2 h-[1.2em] bg-foreground ml-1 animate-blink align-bottom"></span>
-                        <input
-                            ref={inputRef}
-                            type="text"
-                            value={input}
-                            onChange={handleInputChange}
-                            onKeyDown={handleKeyDown}
-                            className="absolute top-0 left-0 w-full h-full bg-transparent border-none outline-none text-transparent caret-transparent"
-                            autoComplete="off"
-                            autoCapitalize="off"
-                            autoCorrect="off"
-                            spellCheck="false"
-                        />
-                    </div>
-                </div>
-            </CardContent>
+                </CardContent>
+            </ScrollArea>
         </Card>
     );
 }
