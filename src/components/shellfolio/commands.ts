@@ -1,0 +1,20 @@
+import React from 'react';
+import { About, Contact, Help, Projects, Resume, NotFound } from './outputs';
+
+export const commandList = [
+    { cmd: 'about', desc: 'Learn more about me.' },
+    { cmd: 'projects', desc: 'View my recent projects.' },
+    { cmd: 'resume', desc: 'Get a copy of my resume.' },
+    { cmd: 'contact', desc: 'Find out how to reach me.' },
+    { cmd: 'help', desc: 'Display this list of commands.' },
+    { cmd: 'clear', desc: 'Clear the terminal screen.' },
+];
+
+export const commands: { [key: string]: () => React.ReactNode } = {
+  help: () => React.createElement(Help),
+  about: () => React.createElement(About),
+  projects: () => React.createElement(Projects),
+  resume: () => React.createElement(Resume),
+  contact: () => React.createElement(Contact),
+  whoops: () => React.createElement(NotFound),
+};

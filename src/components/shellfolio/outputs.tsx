@@ -1,0 +1,98 @@
+import React from 'react';
+import { commandList } from './commands';
+
+export const Welcome = () => (
+    <div>
+        <h1 className="text-2xl font-bold text-primary mb-4">Welcome to Shellfolio!</h1>
+        <p>This is my interactive portfolio. It looks and feels like a terminal.</p>
+        <p className="mt-2">Type <span className="font-bold text-primary">'help'</span> to see a list of available commands.</p>
+    </div>
+);
+
+export const Help = () => (
+    <div>
+        <p className="mb-2">Here are the available commands:</p>
+        <ul className="space-y-1">
+            {commandList.map(({ cmd, desc }) => (
+                <li key={cmd} className="flex items-start">
+                    <span className="text-primary font-bold w-24 inline-block shrink-0">{cmd}</span>
+                    <span className="flex-1">- {desc}</span>
+                </li>
+            ))}
+        </ul>
+    </div>
+);
+
+export const About = () => (
+    <div>
+        <p>I am a passionate and creative full-stack developer with a knack for building beautiful, intuitive, and highly performant web applications. With a strong foundation in modern JavaScript frameworks like React and Next.js, I thrive on turning complex problems into elegant, user-friendly solutions.</p>
+        <p className="mt-2">My journey in tech is driven by a curiosity to learn and a desire to build things that make a difference. This portfolio is a testament to that spirit, built to showcase my skills in a way that's both functional and fun.</p>
+    </div>
+);
+
+const projectData = [
+    {
+        title: "Project Alpha",
+        description: "A comprehensive e-commerce platform built with Next.js, TypeScript, and Stripe, featuring a fully-integrated CMS for product management and a seamless checkout experience.",
+        stack: "Next.js, TypeScript, Stripe, Tailwind CSS",
+        live: "#",
+        repo: "#",
+    },
+    {
+        title: "Project Beta",
+        description: "An interactive data visualization dashboard that provides real-time analytics using D3.js and React. It's designed to handle large datasets with optimal performance.",
+        stack: "React, D3.js, Node.js, WebSocket",
+        live: "#",
+        repo: "#",
+    },
+    {
+        title: "Project Gamma",
+        description: "A collaborative project management tool inspired by Trello, featuring drag-and-drop functionality, real-time updates via Firebase, and a clean, minimalist UI.",
+        stack: "React, Firebase, Mantine UI",
+        live: "#",
+        repo: "#",
+    }
+];
+
+export const Projects = () => (
+    <div>
+        {projectData.map((project, index) => (
+            <div key={index} className="mb-4 last:mb-0">
+                <h3 className="text-lg font-bold text-primary">{project.title}</h3>
+                <p className="mt-1">{project.description}</p>
+                <p className="mt-2 text-sm"><span className="font-bold">Stack:</span> {project.stack}</p>
+                <div className="flex gap-4 mt-2">
+                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Live Demo</a>
+                    <a href={project.repo} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GitHub Repo</a>
+                </div>
+            </div>
+        ))}
+    </div>
+);
+
+export const Resume = () => (
+    <div>
+        <p>You can view or download my resume by clicking the link below.</p>
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline mt-2 inline-block">
+            Download Resume (PDF)
+        </a>
+    </div>
+);
+
+export const Contact = () => (
+    <div>
+        <p>Feel free to reach out. I'm always open to connecting!</p>
+        <ul className="mt-2 space-y-1">
+            <li><span className="font-bold w-16 inline-block">Email:</span> <a href="mailto:hello@example.com" className="text-primary hover:underline">hello@example.com</a></li>
+            <li><span className="font-bold w-16 inline-block">LinkedIn:</span> <a href="#" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">linkedin.com/in/your-profile</a></li>
+            <li><span className="font-bold w-16 inline-block">GitHub:</span> <a href="#" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">github.com/your-username</a></li>
+        </ul>
+    </div>
+);
+
+export const NotFound = ({ command }: { command?: string }) => (
+    <div>
+        <p>Command not found: <span className="text-destructive">{command}</span></p>
+        <p>Type <span className="font-bold text-primary">'help'</span> for a list of available commands.</p>
+    </div>
+);
