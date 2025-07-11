@@ -13,7 +13,7 @@ interface HistoryItem {
 
 const Prompt = ({ command }: { command: string }) => (
     <div className="flex">
-        <span className="text-primary font-bold mr-2">shellfolio></span>
+        <span className="text-primary font-bold mr-2">moelzerpeter$</span>
         <span className="flex-1">{command}</span>
     </div>
 );
@@ -103,7 +103,7 @@ export function Terminal() {
                     </div>
                 ))}
                 <div className="flex w-full">
-                    <span className="text-primary font-bold mr-2">shellfolio></span>
+                    <span className="text-primary font-bold mr-2">moelzerpeter$</span>
                     <div className="flex-1 relative">
                         <span className="break-all">{input}</span>
                         <span className="inline-block w-2 h-[1.2em] bg-foreground ml-1 animate-blink align-bottom"></span>
