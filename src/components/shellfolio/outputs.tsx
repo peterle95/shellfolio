@@ -91,14 +91,14 @@ export const WorkExperience = () => (
     <div>
         <h3 className="text-lg font-bold text-primary mb-2">Work Experience</h3>
         <div className="mb-4">
+            <div>
+            <p className="font-bold">Klarna</p>
+            <p>Development Manager</p>
+            <p className="text-sm text-muted-foreground">2022 - 2023</p>
+            </div>
             <p className="font-bold">Clark</p>
             <p>Partnerships Manager</p>
-            <p className="text-sm text-muted-foreground">2020 - 2022</p>
-        </div>
-        <div>
-            <p className="font-bold">Klarna</p>
-            <p>Business Development Manager</p>
-            <p className="text-sm text-muted-foreground">2019 - 2020</p>
+            <p className="text-sm text-muted-foreground">2021 - 2022</p>
         </div>
     </div>
 );
@@ -107,7 +107,7 @@ export const WorkExperience = () => (
 export const Resume = () => (
     <div>
         <p>You can view or download my resume by clicking the link below.</p>
-        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline mt-2 inline-block">
+        <a href="/files/CVen.pdf" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline mt-2 inline-block">
             Download Resume (PDF)
         </a>
     </div>
