@@ -31,11 +31,10 @@ export default function Home() {
               <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-2 bg-transparent border-2 border-gray-500 rounded-full"></div>
               <div className="p-2 h-full">
                 <Image
-                  src="https://placehold.co/300x400.png"
-                  alt="Peter Mölzer"
+                  src="/images/profile.png"
+                  alt="A photo of Peter Mölzer"
                   width={300}
                   height={400}
-                  data-ai-hint="man portrait"
                   className="rounded-lg object-cover w-full h-full"
                 />
               </div>
