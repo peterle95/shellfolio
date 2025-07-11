@@ -1,3 +1,3 @@
 # Shellfolio
 
-This is my program
+This is my portofolio displayed ini a shell fashion
