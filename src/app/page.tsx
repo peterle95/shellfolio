@@ -31,7 +31,7 @@ export default function Home() {
               <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-2 bg-transparent border-2 border-gray-500 rounded-full z-10"></div>
               <Image
                 src="/images/profile.png"
-                alt="A photo of Peter Mölzer"
+                alt="Photo of Peter Mölzer"
                 layout="fill"
                 objectFit="cover"
                 className="rounded-lg"
