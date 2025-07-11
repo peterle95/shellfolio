@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Shellfolio',
-  description: 'An interactive terminal portfolio.',
+  title: 'Peter Mölzer',
+  description: 'An interactive terminal portfolio for Peter Mölzer.',
 };
 
 export default function RootLayout({

@@ -3,7 +3,7 @@ import { commandList } from './commands';
 
 export const Welcome = () => (
     <div>
-        <h1 className="text-2xl font-bold text-primary mb-4">Welcome to Shellfolio!</h1>
+        <h1 className="text-2xl font-bold text-primary mb-4">Welcome to Peter Mölzer's Shellfolio!</h1>
         <p>This is my interactive portfolio. It looks and feels like a terminal.</p>
         <p className="mt-2">Type <span className="font-bold text-primary">'help'</span> to see a list of available commands.</p>
     </div>
@@ -25,8 +25,9 @@ export const Help = () => (
 
 export const About = () => (
     <div>
-        <p>I am a passionate and creative full-stack developer with a knack for building beautiful, intuitive, and highly performant web applications. With a strong foundation in modern JavaScript frameworks like React and Next.js, I thrive on turning complex problems into elegant, user-friendly solutions.</p>
-        <p className="mt-2">My journey in tech is driven by a curiosity to learn and a desire to build things that make a difference. This portfolio is a testament to that spirit, built to showcase my skills in a way that's both functional and fun.</p>
+        <p>I was born in Genoa (Italy) and since 2014 I live in Berlin. I have a bachelor of science degree from Humboldt Universität zu Berlin in the field of economics and currently finishing my further training in computer science at the 42 school.</p>
+        <p className="mt-2">Economist transitioning into software engineering, driven by a fascination with how technology—particularly AI—can transform data into actionable insights. After analyzing markets and building partnerships (Klarna, Clark), I pursued computer science at 42 School to bridge business strategy with technical execution, build and create new software.</p>
+        <p className="mt-2">I generally like to read books, write, play the guitar and dj.</p>
     </div>
 );
 
@@ -83,9 +84,9 @@ export const Contact = () => (
     <div>
         <p>Feel free to reach out. I'm always open to connecting!</p>
         <ul className="mt-2 space-y-1">
-            <li><span className="font-bold w-16 inline-block">Email:</span> <a href="mailto:hello@example.com" className="text-primary hover:underline">hello@example.com</a></li>
-            <li><span className="font-bold w-16 inline-block">LinkedIn:</span> <a href="#" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">linkedin.com/in/your-profile</a></li>
-            <li><span className="font-bold w-16 inline-block">GitHub:</span> <a href="#" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">github.com/your-username</a></li>
+            <li><span className="font-bold w-16 inline-block">Email:</span> <a href="mailto:peter.molzer@example.com" className="text-primary hover:underline">peter.molzer@example.com</a></li>
+            <li><span className="font-bold w-16 inline-block">LinkedIn:</span> <a href="https://linkedin.com/in/peter-molzer" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">linkedin.com/in/peter-molzer</a></li>
+            <li><span className="font-bold w-16 inline-block">GitHub:</span> <a href="https://github.com/petermolzer" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">github.com/petermolzer</a></li>
         </ul>
     </div>
 );
