@@ -27,17 +27,15 @@ export default function Home() {
 
 
             {/* The Badge */}
-            <div className="relative w-full h-full bg-card/30 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden border-2 border-white/10">
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-2 bg-transparent border-2 border-gray-500 rounded-full"></div>
-              <div className="p-2 h-full">
-                <Image
-                  src="/images/profile.png"
-                  alt="A photo of Peter Mölzer"
-                  width={300}
-                  height={400}
-                  className="rounded-lg object-cover w-full h-full"
-                />
-              </div>
+            <div className="relative w-full h-full bg-card/30 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden border-2 border-white/10 p-2">
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-2 bg-transparent border-2 border-gray-500 rounded-full z-10"></div>
+              <Image
+                src="/images/profile.png"
+                alt="A photo of Peter Mölzer"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg"
+              />
             </div>
           </div>
         </div>
