@@ -93,11 +93,16 @@ export default {
             opacity: '0',
           },
         },
+        'float': {
+          '0%, 100%': { transform: 'translateY(-2px) rotate(-1deg)' },
+          '50%': { transform: 'translateY(2px) rotate(1deg)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'blink': 'blink 1s step-end infinite',
+        'float': 'float 6s ease-in-out infinite',
       },
     },
   },
