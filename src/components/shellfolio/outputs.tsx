@@ -71,6 +71,39 @@ export const Projects = () => (
     </div>
 );
 
+export const Education = () => (
+    <div>
+        <h3 className="text-lg font-bold text-primary mb-2">Education</h3>
+        <div className="mb-4">
+            <p className="font-bold">42 Berlin</p>
+            <p>Computer Science & Software Engineering</p>
+            <p className="text-sm text-muted-foreground">2022 - Present</p>
+        </div>
+        <div>
+            <p className="font-bold">Humboldt-Universität zu Berlin</p>
+            <p>Bachelor of Science, Economics</p>
+            <p className="text-sm text-muted-foreground">2015 - 2019</p>
+        </div>
+    </div>
+);
+
+export const WorkExperience = () => (
+    <div>
+        <h3 className="text-lg font-bold text-primary mb-2">Work Experience</h3>
+        <div className="mb-4">
+            <p className="font-bold">Clark</p>
+            <p>Partnerships Manager</p>
+            <p className="text-sm text-muted-foreground">2020 - 2022</p>
+        </div>
+        <div>
+            <p className="font-bold">Klarna</p>
+            <p>Business Development Manager</p>
+            <p className="text-sm text-muted-foreground">2019 - 2020</p>
+        </div>
+    </div>
+);
+
+
 export const Resume = () => (
     <div>
         <p>You can view or download my resume by clicking the link below.</p>
