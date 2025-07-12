@@ -15,7 +15,7 @@ export const Help = () => (
         <ul className="space-y-1">
             {commandList.map(({ cmd, desc }) => (
                 <li key={cmd} className="flex items-start">
-                    <span className="text-primary font-bold w-28 inline-block shrink-0">{cmd.trim()}</span>
+                    <span className="text-primary font-bold w-32 inline-block shrink-0">{cmd.trim()}</span>
                     <span className="flex-1">- {desc}</span>
                 </li>
             ))}
@@ -136,9 +136,9 @@ export const Contact = () => (
     <div>
         <p>Feel free to reach out. I'm always open to connecting!</p>
         <ul className="mt-2 space-y-1">
-            <li><span className="font-bold w-16 inline-block">Email:</span> <a href="mailto:moelzerpeter@gmail.com" className="text-primary hover:underline">moelzerpeter@gmail.com</a></li>
-            <li><span className="font-bold w-16 inline-block">LinkedIn:  </span> <a href="https://www.linkedin.com/in/peter-moelzer/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">linkedin.com/in/peter-moelzer</a></li>
-            <li><span className="font-bold w-16 inline-block">GitHub:</span> <a href="https://github.com/peterle95" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">github.com/peterle95</a></li>
+            <li><span className="font-bold w-24 inline-block">Email:</span> <a href="mailto:moelzerpeter@gmail.com" className="text-primary hover:underline">moelzerpeter@gmail.com</a></li>
+            <li><span className="font-bold w-24 inline-block">LinkedIn:</span> <a href="https://www.linkedin.com/in/peter-moelzer/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">linkedin.com/in/peter-moelzer</a></li>
+            <li><span className="font-bold w-24 inline-block">GitHub:</span> <a href="https://github.com/peterle95" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">github.com/peterle95</a></li>
         </ul>
     </div>
 );
