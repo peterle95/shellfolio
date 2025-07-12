@@ -8,7 +8,7 @@ export const commandList = [
     { cmd: 'work', desc: 'Show my work experience.' },
     { cmd: 'resume', desc: 'Get a copy of my resume.' },
     { cmd: 'contact', desc: 'Find out how to reach me.' },
-    { cmd: 'credentials  ', desc: 'View my credentials and certifications.' },
+    { cmd: 'credentials', desc: 'View my credentials and certifications.' },
     { cmd: 'help', desc: 'Display this list of commands.' },
     { cmd: 'clear', desc: 'Clear the terminal screen.' },
 ];

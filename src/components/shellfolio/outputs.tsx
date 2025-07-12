@@ -15,7 +15,7 @@ export const Help = () => (
         <ul className="space-y-1">
             {commandList.map(({ cmd, desc }) => (
                 <li key={cmd} className="flex items-start">
-                    <span className="text-primary font-bold w-24 inline-block shrink-0">{cmd}</span>
+                    <span className="text-primary font-bold w-28 inline-block shrink-0">{cmd.trim()}</span>
                     <span className="flex-1">- {desc}</span>
                 </li>
             ))}
