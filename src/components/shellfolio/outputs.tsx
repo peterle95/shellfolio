@@ -103,6 +103,25 @@ export const WorkExperience = () => (
     </div>
 );
 
+export const Credentials = () => (
+    <div>
+        <h3 className="text-lg font-bold text-primary mb-2">Credentials and Certifications</h3>
+        <div className="mb-4">
+            <div>
+            <p className="font-bold">Coursera</p>
+                <a href="/files/Coursera.pdf" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline mt-2 inline-block">
+                    Meta Front-End Developer Specialization (PDF)
+                </a>
+            <p className="text-sm text-muted-foreground">2023</p>
+            </div>
+            <p className="font-bold">Leapsome</p>
+                <a href="/files/Security_Basics.pdf" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline mt-2 inline-block">
+                    Security Basics (PDF)
+                </a>
+            <p className="text-sm text-muted-foreground">2021</p>
+        </div>
+    </div>
+);
 
 export const Resume = () => (
     <div>
@@ -118,7 +137,7 @@ export const Contact = () => (
         <p>Feel free to reach out. I'm always open to connecting!</p>
         <ul className="mt-2 space-y-1">
             <li><span className="font-bold w-16 inline-block">Email:</span> <a href="mailto:moelzerpeter@gmail.com" className="text-primary hover:underline">moelzerpeter@gmail.com</a></li>
-            <li><span className="font-bold w-16 inline-block">LinkedIn:</span> <a href="https://www.linkedin.com/in/peter-moelzer/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">linkedin.com/in/peter-moelzer</a></li>
+            <li><span className="font-bold w-16 inline-block">LinkedIn:  </span> <a href="https://www.linkedin.com/in/peter-moelzer/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">linkedin.com/in/peter-moelzer</a></li>
             <li><span className="font-bold w-16 inline-block">GitHub:</span> <a href="https://github.com/peterle95" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">github.com/peterle95</a></li>
         </ul>
     </div>
