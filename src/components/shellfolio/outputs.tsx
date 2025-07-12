@@ -106,19 +106,21 @@ export const WorkExperience = () => (
 export const Credentials = () => (
     <div>
         <h3 className="text-lg font-bold text-primary mb-2">Credentials and Certifications</h3>
-        <div className="mb-4">
-            <div>
-            <p className="font-bold">Coursera</p>
-                <a href="/files/Coursera.pdf" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline mt-2 inline-block">
+        <div className="pl-4">
+            <div className="mb-4">
+                <p className="font-bold">Coursera</p>
+                <a href="/files/Coursera.pdf" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline mt-1 inline-block">
                     Meta Front-End Developer Specialization (PDF)
                 </a>
-            <p className="text-sm text-muted-foreground">2023</p>
+                <p className="text-sm text-muted-foreground mt-1">2023</p>
             </div>
-            <p className="font-bold">Leapsome</p>
-                <a href="/files/Security_Basics.pdf" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline mt-2 inline-block">
+            <div>
+                <p className="font-bold">Leapsome</p>
+                <a href="/files/Security_Basics.pdf" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline mt-1 inline-block">
                     Security Basics (PDF)
                 </a>
-            <p className="text-sm text-muted-foreground">2021</p>
+                <p className="text-sm text-muted-foreground mt-1">2021</p>
+            </div>
         </div>
     </div>
 );
