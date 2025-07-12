@@ -21,7 +21,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon-16x16.png" type="image/jpeg" />
       </head>
       <body className="font-body antialiased">
-        {children}
+        {children} 
         <Toaster />
       </body>
     </html>
