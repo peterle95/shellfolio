@@ -108,6 +108,13 @@ export const Credentials = () => (
         <h3 className="text-lg font-bold text-primary mb-2">Credentials and Certifications</h3>
         <div className="pl-4">
             <div className="mb-4">
+                <p className="font-bold">freeCodeCamp</p>
+                <a href="/files/Coursera.pdf" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline mt-1 inline-block">
+                    Legacy Full Stack Certification (PDF)
+                </a>
+                <p className="text-sm text-muted-foreground mt-1">2025</p>
+            </div>
+            <div className="mb-4">
                 <p className="font-bold">Coursera</p>
                 <a href="/files/Coursera.pdf" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline mt-1 inline-block">
                     Meta Front-End Developer Specialization (PDF)

@@ -95,7 +95,7 @@ export function Terminal() {
 
     return (
         <Card 
-            className="w-full h-full p-2 sm:p-4 flex flex-col overflow-hidden shadow-2xl bg-card text-card-foreground border-none" 
+            className="w-full h-full p-2 sm:p-4 flex flex-col overflow-hidden shadow-2xl bg-card text-card-foreground border-4 border-green-900" 
             onClick={() => inputRef.current?.focus()}>
             <ScrollArea className="flex-1" viewportRef={scrollViewportRef}>
                 <CardContent className="p-2 pr-4 space-y-4">

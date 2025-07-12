@@ -5,8 +5,8 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-background p-2 sm:p-8">
-      <div className="w-full max-w-7xl h-[80vh] min-h-[500px] flex flex-col md:flex-row gap-8">
+    <div className="min-h-screen w-full bg-green-900 flex items-center justify-center">
+      <main className="w-full max-w-7xl h-[80vh] min-h-[500px] flex flex-col md:flex-row gap-8 p-2 sm:p-8">
         <div className="hidden md:w-1/3 md:flex items-center justify-center">
           <div className="relative group w-[300px] h-[400px] animate-float">
 
@@ -27,7 +27,7 @@ export default function Home() {
 
 
             {/* The Badge */}
-            <div className="relative w-full h-full bg-card/30 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden border-2 border-white/10 p-2">
+            <div className="relative w-full h-full bg-card/30 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden border-4 border-green-900 p-2">
               <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-2 bg-transparent border-2 border-gray-500 rounded-full z-10"></div>
               <Image
                 src="/images/batch.jpeg"
@@ -42,7 +42,7 @@ export default function Home() {
         <div className="w-full md:w-2/3 h-full">
           <Terminal />
         </div>
-      </div>
+      </main>
       <style jsx>{`
         .clip-path-hook {
           clip-path: path('M5,0 A5,5 0 0 1 15,0 L15,15 A5,5 0 0 1 5,15 Z M7,2 L7,13 A3,3 0 0 0 13,13 L13,2 A3,3 0 0 0 7,2 Z');
@@ -50,6 +50,6 @@ export default function Home() {
           transform: translateX(-50%) scale(0.6);
         }
       `}</style>
-    </main>
+    </div>
   );
 }
