@@ -4,7 +4,7 @@
 
 - Terminal Interface: Simulate a bash-like terminal interface within the web browser.
 - List Commands: Display the available commands in a dedicated section with descriptions of what they do.
-- Custom Commands: Implement custom commands like 'about', 'projects', 'resume', and 'contact' to display relevant information about the user.
+- Custom Commands: Implement custom commands like 'about', 'projects', 'cv', and 'contact' to display relevant information about the user.
 - Format output: Format command outputs with appropriate styling to mimic a real terminal (e.g., colors, indentation).
 - Enhance the Description: Use generative AI tool to make the interaction and description better for the end-user and recruiters.
 

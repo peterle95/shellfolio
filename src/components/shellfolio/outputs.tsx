@@ -33,6 +33,13 @@ export const About = () => (
 
 const projectData = [
     {
+        title: "EcoConnect",
+        description: "A green platform for connecting Users and Business for increasing urban sustainability. (Currently in development)",
+        stack: "React, React Native, Tailwind CSS",
+        live: "#",
+        repo: "#",
+    },
+    {
         title: "Shellfolio",
         description: "A collaborative project management tool inspired by Trello, featuring drag-and-drop functionality, real-time updates via Firebase, and a clean, minimalist UI.",
         stack: "TypeScript, CSS",
@@ -140,11 +147,11 @@ export const Credentials = () => (
     </div>
 );
 
-export const Resume = () => (
+export const cv = () => (
     <div>
-        <p>You can view or download my resume by clicking the link below.</p>
+        <p>You can view or download my cv by clicking the link below.</p>
         <a href="/files/CVen.pdf" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline mt-2 inline-block">
-            Download Resume (PDF)
+            Download cv (PDF)
         </a>
     </div>
 );
