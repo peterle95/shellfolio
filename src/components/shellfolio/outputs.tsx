@@ -52,7 +52,14 @@ const projectData = [
         stack: "React, Firebase, Mantine UI",
         live: "#",
         repo: "#",
-    }
+    },
+    {
+        title: "Minishell",
+        description: "A lightweight Unix shell implementation that supports basic command execution, piping, and redirection. Designed for educational purposes to deepen understanding of shell internals and process management.",
+        stack: "C, Unix, Shell Scripting",
+        live: "#",
+        repo: "https://github.com/peterle95/minishell",
+    },
 ];
 
 export const Projects = () => (
