@@ -33,31 +33,30 @@ export const About = () => (
 
 const projectData = [
     {
-        title: "Project Alpha",
-        description: "A comprehensive e-commerce platform built with Next.js, TypeScript, and Stripe, featuring a fully-integrated CMS for product management and a seamless checkout experience.",
-        stack: "Next.js, TypeScript, Stripe, Tailwind CSS",
-        live: "#",
-        repo: "#",
-    },
-    {
-        title: "Project Beta",
-        description: "An interactive data visualization dashboard that provides real-time analytics using D3.js and React. It's designed to handle large datasets with optimal performance.",
-        stack: "React, D3.js, Node.js, WebSocket",
-        live: "#",
-        repo: "#",
-    },
-    {
-        title: "Project Gamma",
+        title: "Shellfolio",
         description: "A collaborative project management tool inspired by Trello, featuring drag-and-drop functionality, real-time updates via Firebase, and a clean, minimalist UI.",
-        stack: "React, Firebase, Mantine UI",
+        stack: "TypeScript, CSS",
+        live: "https://petermoelzer-shellfolio.vercel.app/",
+        repo: "https://github.com/peterle95/shellfolio",
+    },
+    {
+        title: "cub3d",
+        description: "A simple 3D raycasting engine inspired by Wolfenstein 3D, built using the miniLibX graphics library.",
+        stack: "C, miniLibX",
         live: "#",
-        repo: "#",
+        repo: "https://github.com/peterle95/cub3d",
+    },
+    {
+        title: "Yellow Real Estate",
+        description: "Landingpage for a real estate business based in Italy.",
+        stack: "JavaScript",
+        live: "https://yellow-real-estate.vercel.app/",
+        repo: "https://github.com/peterle95/yellow-real-estate",
     },
     {
         title: "Minishell",
         description: "A lightweight Unix shell implementation that supports basic command execution, piping, and redirection. Designed for educational purposes to deepen understanding of shell internals and process management.",
         stack: "C, Unix, Shell Scripting",
-        live: "#",
         repo: "https://github.com/peterle95/minishell",
     },
 ];
@@ -70,7 +69,9 @@ export const Projects = () => (
                 <p className="mt-1">{project.description}</p>
                 <p className="mt-2 text-sm"><span className="font-bold">Stack:</span> {project.stack}</p>
                 <div className="flex gap-4 mt-2">
-                    <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Live Demo</a>
+                    {project.live && project.live !== "#" && project.title !== "cub3d" && project.title !== "Minishell" && (
+                        <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Live Demo</a>
+                    )}
                     <a href={project.repo} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GitHub Repo</a>
                 </div>
             </div>
