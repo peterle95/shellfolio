@@ -26,7 +26,7 @@ export const Help = () => (
 export const About = () => (
     <div>
         <p>I was born in Genoa (Italy) and since 2014 I live in Berlin. I have a bachelor of science degree from Humboldt Universität zu Berlin in the field of economics and currently finishing my further training in computer science at the 42 school.</p>
-        <p className="mt-2">Economist transitioning into software engineering, driven by a fascination with how technology—particularly AI—can transform data into actionable insights. After analyzing markets and building partnerships (Klarna, Clark), I pursued computer science at 42 School to bridge business strategy with technical execution, build and create new software.</p>
+        <p className="mt-2">Economist transitioning into software engineering, driven by a fascination with how technology, particularly AI, can transform data into actionable insights. After analyzing markets and building partnerships (Klarna, Clark), I pursued computer science at 42 School to bridge business strategy with technical execution, build and create new software.</p>
         <p className="mt-2">I generally like to read books, write, play the guitar and dj.</p>
     </div>
 );
@@ -113,6 +113,11 @@ export const WorkExperience = () => (
     <div>
         <h3 className="text-lg font-bold text-primary mb-2">Work Experience</h3>
         <div className="mb-4">
+            <div>
+            <p className="font-bold">InnoBee</p>
+            <p>Fullstack Developer</p>
+            <p className="text-sm text-muted-foreground">2025 - Present</p>
+            </div>
             <div>
             <p className="font-bold">Klarna</p>
             <p>Development Manager</p>
