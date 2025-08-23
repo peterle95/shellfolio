@@ -42,7 +42,7 @@ const projectData = [
     {
         title: "EcoConnect (MVP)",
         description: "A green platform for connecting Users and Business for increasing urban sustainability. (Currently in development)",
-        stack: "React, React Native, Tailwind CSS",
+        stack: "React, React Native, Tailwind CSS, Next.js",
         live: "https://ecoconnect-ten.vercel.app/",
         repo: "https://github.com/peterle95/EcoConnect",
     },
