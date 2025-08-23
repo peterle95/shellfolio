@@ -73,6 +73,12 @@ const projectData = [
         stack: "C, Unix, Shell Scripting",
         repo: "https://github.com/peterle95/minishell",
     },
+    {
+        title: "More Projects",
+        description: "Check out my GitHub for more projects and contributions.",
+        stack: "C, C++, JavaScript, TypeScript, React, ...",
+        repo: "https://github.com/peterle95/"
+    },
 ];
 
 export const Projects = () => (
