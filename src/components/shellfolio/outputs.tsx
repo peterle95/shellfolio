@@ -33,11 +33,18 @@ export const About = () => (
 
 const projectData = [
     {
-        title: "EcoConnect",
+        title: "Webserv",
+        description: "Custom HTTP server implemented in C++98. This project aims to provide a deep understanding of how HTTP servers operate, focusing on core network aspects and non-blocking behavior to handle multiple concurrent connections efficiently. The server's primary function is to receive HTTP requests from clients, process these requests, and send appropriate HTTP responses back.",
+        stack: "C++98, Unix, Nginx, JavaScript, HTML, CSS",
+        live: "#",
+        repo: "https://github.com/peterle95/webserv",
+    },
+    {
+        title: "EcoConnect (MVP)",
         description: "A green platform for connecting Users and Business for increasing urban sustainability. (Currently in development)",
         stack: "React, React Native, Tailwind CSS",
-        live: "#",
-        repo: "#",
+        live: "https://ecoconnect-ten.vercel.app/",
+        repo: "https://github.com/peterle95/EcoConnect",
     },
     {
         title: "Shellfolio",
