@@ -43,7 +43,7 @@ export default function Home() {
         /> */}
       </div>
       {/* Badge Container */}
-      <div className="hidden md:block absolute top-0 left-[7%] w-[300px] h-screen z-20 pointer-events-none overflow-visible">
+      <div className="hidden md:block absolute top-0 left-[7%] w-[600px] -ml-[150px] h-screen z-20 pointer-events-none overflow-visible">
         <div className="w-full h-full pointer-events-auto">
           <Badge />
         </div>
