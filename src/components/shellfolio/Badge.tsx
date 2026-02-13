@@ -11,7 +11,6 @@ extend({ MeshLineGeometry, MeshLineMaterial })
 
 useGLTF.preload('https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/5huRVDzcoDwnbgrKUo1Lzs/53b6dd7d6b4ffcdbd338fa60265949e1/tag.glb')
 useTexture.preload('https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/SOT1hmCesOHxEYxL7vkoZ/c57b29c85912047c414311723320c16b/band.jpg')
-useTexture.preload('/images/batch.jpeg')
 
 export default function Badge() {
     return (
@@ -20,7 +19,8 @@ export default function Badge() {
             <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
                 <Band />
             </Physics>
-            <Environment blur={0.75}>
+            <Environment background blur={0.75}>
+                <color attach="background" args={['black']} />
                 <Lightformer intensity={2} color="white" position={[0, -1, 5]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
                 <Lightformer intensity={3} color="white" position={[-1, -1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
                 <Lightformer intensity={3} color="white" position={[1, 1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
@@ -52,7 +52,6 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
     // @ts-ignore
     const { nodes, materials } = useGLTF('https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/5huRVDzcoDwnbgrKUo1Lzs/53b6dd7d6b4ffcdbd338fa60265949e1/tag.glb')
     const texture = useTexture('https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/SOT1hmCesOHxEYxL7vkoZ/c57b29c85912047c414311723320c16b/band.jpg')
-    const badgeTexture = useTexture('/images/batch.jpeg')
     const { width, height } = useThree((state) => state.size)
     const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]))
     const [dragged, drag] = useState<false | THREE.Vector3>(false)
@@ -140,7 +139,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
                         // @ts-ignore
                         onPointerDown={(e) => (e.target.setPointerCapture(e.pointerId), drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation()))))}>
                         <mesh geometry={nodes.card.geometry}>
-                            <meshPhysicalMaterial map={badgeTexture} mapAnisotropy={16} clearcoat={1} clearcoatRoughness={0.15} roughness={0.3} metalness={0.5} />
+                            <meshPhysicalMaterial map={materials.base.map} mapAnisotropy={16} clearcoat={1} clearcoatRoughness={0.15} roughness={0.3} metalness={0.5} />
                         </mesh>
                         <mesh geometry={nodes.clip.geometry} material={materials.metal} material-roughness={0.3} />
                         <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
