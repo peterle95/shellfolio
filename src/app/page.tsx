@@ -42,11 +42,16 @@ export default function Home() {
           speed={1}
         /> */}
       </div>
+      {/* Badge Container */}
+      <div className="hidden md:block absolute top-0 left-[7%] w-[300px] h-screen z-20 pointer-events-none overflow-visible">
+        <div className="w-full h-full pointer-events-auto">
+          <Badge />
+        </div>
+      </div>
+
       <div className="relative z-10 w-full max-w-7xl h-[80vh] min-h-[500px] flex flex-col md:flex-row gap-8">
-        <div className="hidden md:w-1/3 md:flex items-center justify-center">
-          <div className="relative w-full h-full">
-            <Badge />
-          </div>
+        <div className="hidden md:w-1/3 md:flex">
+          {/* Spacer */}
         </div>
         <div className="w-full md:w-2/3 h-full">
           <Terminal />
