@@ -2,11 +2,47 @@
 
 import { Terminal } from '@/components/shellfolio/terminal';
 import Image from 'next/image';
+import Grainient from '@/components/shellfolio/Grainient';
+// import Iridescence from '@/components/shellfolio/Iridescence';
+
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-background p-2 sm:p-8">
-      <div className="w-full max-w-7xl h-[80vh] min-h-[500px] flex flex-col md:flex-row gap-8">
+    <main className="relative flex min-h-screen items-center justify-center p-2 sm:p-8">
+      {/* Animated Grainient background */}
+      <div className="fixed inset-0 z-0">
+        <Grainient
+          color1="#FF9FFC"
+          color2="#5227FF"
+          color3="#B19EEF"
+          timeSpeed={0.25}
+          colorBalance={0}
+          warpStrength={1}
+          warpFrequency={5}
+          warpSpeed={2}
+          warpAmplitude={50}
+          blendAngle={0}
+          blendSoftness={0.05}
+          rotationAmount={500}
+          noiseScale={2}
+          grainAmount={0.1}
+          grainScale={2}
+          grainAnimated={false}
+          contrast={1.5}
+          gamma={1}
+          saturation={1}
+          centerX={0}
+          centerY={0}
+          zoom={0.9}
+        />
+        {/* <Iridescence
+          color={[0.5, 0.6, 0.8]}
+          mouseReact
+          amplitude={0.1}
+          speed={1}
+        /> */}
+      </div>
+      <div className="relative z-10 w-full max-w-7xl h-[80vh] min-h-[500px] flex flex-col md:flex-row gap-8">
         <div className="hidden md:w-1/3 md:flex items-center justify-center">
           <div className="relative group w-[300px] h-[400px] animate-float">
 
@@ -21,7 +57,7 @@ export default function Home() {
                 <div className="w-4 h-full border-l-2 border-gray-500 absolute left-1"></div>
               </div>
             </div>
-            
+
             {/* Hook */}
             <div className="absolute top-[8px] left-1/2 -translate-x-1/2 w-4 h-6 bg-gray-800 rounded-b-full border-2 border-gray-600 clip-path-hook"></div>
 
