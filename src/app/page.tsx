@@ -3,6 +3,8 @@
 import { Terminal } from '@/components/shellfolio/terminal';
 import Image from 'next/image';
 import Grainient from '@/components/shellfolio/Grainient';
+// import Iridescence from '@/components/shellfolio/Iridescence';
+
 
 export default function Home() {
   return (
@@ -33,6 +35,12 @@ export default function Home() {
           centerY={0}
           zoom={0.9}
         />
+        {/* <Iridescence
+          color={[0.5, 0.6, 0.8]}
+          mouseReact
+          amplitude={0.1}
+          speed={1}
+        /> */}
       </div>
       <div className="relative z-10 w-full max-w-7xl h-[80vh] min-h-[500px] flex flex-col md:flex-row gap-8">
         <div className="hidden md:w-1/3 md:flex items-center justify-center">
