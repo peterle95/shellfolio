@@ -15,7 +15,7 @@ interface HistoryItem {
 
 const Prompt = ({ command }: { command: string }) => (
     <div className="flex">
-        <span className="text-primary font-bold mr-2">moelzerpeter$></span>
+        <span className="text-primary font-bold mr-2">moelzerpeter${'>'}</span>
         <span className="flex-1">{command}</span>
     </div>
 );
@@ -52,7 +52,7 @@ export function Terminal() {
         }
 
         const output = commands[commandName] ? commands[commandName]() : <NotFound command={commandName} />;
-        
+
         const newHistoryItem: HistoryItem = {
             id: history.length + 1,
             command: cmd,
@@ -71,7 +71,7 @@ export function Terminal() {
                 processCommand(input);
                 setInput('');
             } else {
-                 setHistory(prev => [...prev, {id: prev.length, command: '', output: ''}]);
+                setHistory(prev => [...prev, { id: prev.length, command: '', output: '' }]);
             }
         } else if (e.key === 'ArrowUp') {
             e.preventDefault();
@@ -94,8 +94,8 @@ export function Terminal() {
     };
 
     return (
-        <Card 
-            className="w-full h-full p-2 sm:p-4 flex flex-col overflow-hidden shadow-2xl bg-card text-card-foreground border-4 border-green-900" 
+        <Card
+            className="w-full h-full p-2 sm:p-4 flex flex-col overflow-hidden shadow-2xl bg-card text-card-foreground border-4 border-green-900"
             onClick={() => inputRef.current?.focus()}>
             <ScrollArea className="flex-1" viewportRef={scrollViewportRef}>
                 <CardContent className="p-2 pr-4 space-y-4">
@@ -106,7 +106,7 @@ export function Terminal() {
                         </div>
                     ))}
                     <div className="flex w-full">
-                        <span className="text-primary font-bold mr-2">moelzerpeter$></span>
+                        <span className="text-primary font-bold mr-2">moelzerpeter${'>'}</span>
                         <div className="flex-1 relative">
                             <span className="break-all">{input}</span>
                             <span className="inline-block w-2 h-[1.2em] bg-foreground ml-1 animate-blink align-bottom"></span>
