@@ -32,19 +32,20 @@ export const About = () => (
 );
 
 const projectData = [
+    
+    {
+        title: "Transcendence",
+        description: "A green platform for connecting Users and Business for increasing urban sustainability. (Currently in development)",
+        stack: "React, React Native, Tailwind CSS, Next.js",
+        live: "#",
+        repo: "https://github.com/peterle95/transcendence",
+    },
     {
         title: "Webserv",
         description: "Custom HTTP server implemented in C++98. This project aims to provide a deep understanding of how HTTP servers operate, focusing on core network aspects and non-blocking behavior to handle multiple concurrent connections efficiently. The server's primary function is to receive HTTP requests from clients, process these requests, and send appropriate HTTP responses back.",
         stack: "C++98, Unix, Nginx, JavaScript, HTML, CSS",
         live: "#",
         repo: "https://github.com/peterle95/webserv",
-    },
-    {
-        title: "EcoConnect (MVP)",
-        description: "A green platform for connecting Users and Business for increasing urban sustainability. (Currently in development)",
-        stack: "React, React Native, Tailwind CSS, Next.js",
-        live: "https://ecoconnect-ten.vercel.app/",
-        repo: "https://github.com/peterle95/EcoConnect",
     },
     {
         title: "Shellfolio",
@@ -59,13 +60,6 @@ const projectData = [
         stack: "C, miniLibX",
         live: "#",
         repo: "https://github.com/peterle95/cub3d",
-    },
-    {
-        title: "Yellow Real Estate",
-        description: "Landingpage for a real estate business based in Italy.",
-        stack: "JavaScript",
-        live: "https://yellow-real-estate.vercel.app/",
-        repo: "https://github.com/peterle95/yellow-real-estate",
     },
     {
         title: "Minishell",
@@ -168,7 +162,7 @@ export const Credentials = () => (
 export const cv = () => (
     <div>
         <p>You can view or download my cv by clicking the link below.</p>
-        <a href="/files/CVen.pdf" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline mt-2 inline-block">
+        <a href="/files/peter_moelzer_cv.pdf" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline mt-2 inline-block">
             Download cv (PDF)
         </a>
     </div>
