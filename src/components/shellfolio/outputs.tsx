@@ -43,7 +43,7 @@ const projectData = [
     {
         title: "Webserv",
         description: "Custom HTTP server implemented in C++98. This project aims to provide a deep understanding of how HTTP servers operate, focusing on core network aspects and non-blocking behavior to handle multiple concurrent connections efficiently. The server's primary function is to receive HTTP requests from clients, process these requests, and send appropriate HTTP responses back.",
-        stack: "C++98, Unix, Nginx, JavaScript, HTML, CSS",
+        stack: "C++98, Unix, Nginx, JavaScript, HTML, CSS, Python",
         live: "#",
         repo: "https://github.com/peterle95/webserv",
     },
