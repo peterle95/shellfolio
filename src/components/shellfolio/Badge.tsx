@@ -3,9 +3,9 @@
 import * as THREE from 'three'
 import { useEffect, useRef, useState } from 'react'
 import { Canvas, extend, useThree, useFrame } from '@react-three/fiber'
-import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei'
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier'
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline'
+import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei'
 
 extend({ MeshLineGeometry, MeshLineMaterial })
 
@@ -30,6 +30,9 @@ export default function Badge() {
 }
 
 function Band({ maxSpeed = 50, minSpeed = 10 }) {
+    const profileTexture = useTexture('/images/badge_sq.png')
+    profileTexture.colorSpace = THREE.SRGBColorSpace
+    profileTexture.flipY = false
     // @ts-ignore
     const band = useRef(null)
     // @ts-ignore
@@ -138,8 +141,16 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
                         // @ts-ignore
                         onPointerDown={(e) => (e.target.setPointerCapture(e.pointerId), drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation()))))}>
                         <mesh geometry={nodes.card.geometry}>
-                            <meshPhysicalMaterial map={materials.base.map} mapAnisotropy={16} clearcoat={1} clearcoatRoughness={0.15} roughness={0.3} metalness={0.5} />
+                            <meshPhysicalMaterial
+                                map={profileTexture}
+                                mapAnisotropy={16}
+                                clearcoat={1}
+                                clearcoatRoughness={0.15}
+                                roughness={0.3}
+                                metalness={0.5}
+                            />
                         </mesh>
+
                         <mesh geometry={nodes.clip.geometry} material={materials.metal} material-roughness={0.3} />
                         <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
                     </group>
