@@ -30,9 +30,12 @@ export default function Badge() {
 }
 
 function Band({ maxSpeed = 50, minSpeed = 10 }) {
-    const profileTexture = useTexture('/images/badge_sq.png')
+    const profileTexture = useTexture('/images/badge_cc.png')
     profileTexture.colorSpace = THREE.SRGBColorSpace
     profileTexture.flipY = false
+    profileTexture.anisotropy = 8
+    profileTexture.repeat.set(2, 2)
+    profileTexture.offset.set(-0.1, -0.1)
     // @ts-ignore
     const band = useRef(null)
     // @ts-ignore
@@ -143,7 +146,6 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
                         <mesh geometry={nodes.card.geometry}>
                             <meshPhysicalMaterial
                                 map={profileTexture}
-                                mapAnisotropy={16}
                                 clearcoat={1}
                                 clearcoatRoughness={0.15}
                                 roughness={0.3}
