@@ -33,9 +33,8 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
     const profileTexture = useTexture('/images/badge_cc.png')
     profileTexture.colorSpace = THREE.SRGBColorSpace
     profileTexture.flipY = false
-    profileTexture.anisotropy = 8
     profileTexture.repeat.set(2, 2)
-    profileTexture.offset.set(-0.1, -0.1)
+    profileTexture.offset.set(-0.1, -0.3)
     // @ts-ignore
     const band = useRef(null)
     // @ts-ignore
