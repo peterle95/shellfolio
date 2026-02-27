@@ -4,7 +4,7 @@ import { commandList } from './commands';
 export const Welcome = () => (
     <div>
         <h1 className="text-2xl font-bold text-primary mb-4">Welcome to Peter Mölzer's Shellfolio!</h1>
-        <p>This is my interactive portfolio. It looks and feels like a terminal.</p>
+        <p>This is my interactive portfolio.</p>
         <p className="mt-2">Type <span className="font-bold text-primary">'help'</span> to see a list of available commands.</p>
     </div>
 );
