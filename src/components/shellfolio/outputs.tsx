@@ -49,7 +49,7 @@ const projectData = [
     },
     {
         title: "Shellfolio",
-        description: "A collaborative project management tool inspired by Trello, featuring drag-and-drop functionality, real-time updates via Firebase, and a clean, minimalist UI.",
+        description: "Personal portfolio webpage simulating shell. It makes my projects and other information interactive and fun.",
         stack: "TypeScript, React, Next.js",
         live: "https://petermoelzer-shellfolio.vercel.app/",
         repo: "https://github.com/peterle95/shellfolio",
