@@ -35,8 +35,8 @@ const projectData = [
     
     {
         title: "Transcendence",
-        description: "A green platform for connecting Users and Business for increasing urban sustainability. (Currently in development)",
-        stack: "React, React Native, Tailwind CSS, Next.js",
+        description: "Final project of 42 Core Curriculum. Together we 4 other fellow 42oers we created a platform for multiple games showcasing different technologies and games. (Currently in development)",
+        stack: ", Next.js, TypeScript, React, Prisma, Tailwind CSS",
         live: "#",
         repo: "https://github.com/peterle95/transcendence",
     },
