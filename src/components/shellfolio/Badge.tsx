@@ -38,12 +38,20 @@ function LoadingFallback() {
 }
 
 export default function Badge() {
+    const [interactive, setInteractive] = useState(false)
+
     return (
-        <Canvas camera={{ position: [0, 0, 13], fov: 25 }}>
+        <Canvas 
+            camera={{ position: [0, 0, 13], fov: 25 }}
+            style={{ pointerEvents: interactive ? 'auto' : 'none' }}
+            // @ts-ignore
+            eventSource={typeof document !== 'undefined' ? document.body : undefined}
+            eventPrefix="client"
+        >
             <ambientLight intensity={Math.PI} />
             <Suspense fallback={<LoadingFallback />}>
                 <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
-                    <Band />
+                    <Band setInteractive={setInteractive} />
                 </Physics>
             </Suspense>
             <Environment background={false} blur={0.75}>
@@ -56,7 +64,7 @@ export default function Badge() {
     )
 }
 
-function Band({ maxSpeed = 50, minSpeed = 10 }) {
+function Band({ maxSpeed = 50, minSpeed = 10, setInteractive }: any) {
     const profileTexture = useTexture('/images/badge_cc.png')
     profileTexture.colorSpace = THREE.SRGBColorSpace
     profileTexture.flipY = false
@@ -95,11 +103,12 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
     useSphericalJoint(j3, card, [[0, 0, 0], [0, 1.45, 0]])
 
     useEffect(() => {
+        setInteractive(hovered || dragged !== false)
         if (hovered) {
             document.body.style.cursor = dragged ? 'grabbing' : 'grab'
             return () => void (document.body.style.cursor = 'auto')
         }
-    }, [hovered, dragged])
+    }, [hovered, dragged, setInteractive])
 
     useFrame((state, delta) => {
         if (dragged) {

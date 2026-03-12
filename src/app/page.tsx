@@ -44,7 +44,7 @@ export default function Home() {
       </div>
       {/* Badge Container - full viewport so canvas isn't clipped when dragging */}
       <div className="hidden md:block fixed inset-0 z-20 pointer-events-none">
-        <div className="w-full h-full pointer-events-auto">
+        <div className="w-full h-full">
           <Badge />
         </div>
       </div>
