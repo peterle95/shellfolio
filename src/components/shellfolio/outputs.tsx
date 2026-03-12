@@ -134,12 +134,19 @@ export const Credentials = () => (
     <div>
         <h3 className="text-lg font-bold text-primary mb-2">Credentials and Certifications</h3>
         <div className="pl-4">
-            <div className="mb-4">
+            {/* <div className="mb-4">
                 <p className="font-bold">freeCodeCamp</p>
                 <a href="/files/Coursera.pdf" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline mt-1 inline-block">
                     Legacy Full Stack Certification (PDF)
                 </a>
                 <p className="text-sm text-muted-foreground mt-1">2025</p>
+            </div> */}
+            <div className="mb-4">
+                <p className="font-bold">Anthropic</p>
+                <a href="/files/AI Anthropic.pdf" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline mt-1 inline-block">
+                    Anthropic - AI Fluency: Framework & Foundations (PDF)
+                </a>
+                <p className="text-sm text-muted-foreground mt-1">2026</p>
             </div>
             <div className="mb-4">
                 <p className="font-bold">Coursera</p>
