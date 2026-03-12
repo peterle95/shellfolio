@@ -42,9 +42,9 @@ export default function Home() {
           speed={1}
         /> */}
       </div>
-      {/* Badge Container */}
-      <div className="hidden md:block absolute top-0 left-[7%] w-[600px] -ml-[173px] h-screen z-20 pointer-events-none overflow-visible">
-        <div className="w-full h-full pointer-events-auto">
+      {/* Badge Container - full viewport so canvas isn't clipped when dragging */}
+      <div className="hidden md:block fixed inset-0 z-20 pointer-events-none">
+        <div className="w-full h-full">
           <Badge />
         </div>
       </div>

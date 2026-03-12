@@ -1,24 +1,59 @@
 "use client";
 
 import * as THREE from 'three'
-import { useEffect, useRef, useState } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 import { Canvas, extend, useThree, useFrame } from '@react-three/fiber'
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier'
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline'
-import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei'
+import { useGLTF, useTexture, Environment, Lightformer, Html } from '@react-three/drei'
 
 extend({ MeshLineGeometry, MeshLineMaterial })
 
-useGLTF.preload('https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/5huRVDzcoDwnbgrKUo1Lzs/53b6dd7d6b4ffcdbd338fa60265949e1/tag.glb')
-useTexture.preload('https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/SOT1hmCesOHxEYxL7vkoZ/c57b29c85912047c414311723320c16b/band.jpg')
+useGLTF.preload('/models/tag.glb')
+useTexture.preload('/images/band.jpg')
+
+function LoadingFallback() {
+    return (
+        <Html center>
+            <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '12px',
+                color: 'white',
+                fontFamily: 'monospace',
+            }}>
+                <div style={{
+                    width: '32px',
+                    height: '32px',
+                    border: '3px solid rgba(255,255,255,0.2)',
+                    borderTop: '3px solid white',
+                    borderRadius: '50%',
+                    animation: 'badge-spin 0.8s linear infinite',
+                }} />
+                <style>{`@keyframes badge-spin { to { transform: rotate(360deg) } }`}</style>
+            </div>
+        </Html>
+    )
+}
 
 export default function Badge() {
+    const [interactive, setInteractive] = useState(false)
+
     return (
-        <Canvas camera={{ position: [0, 0, 13], fov: 25 }}>
+        <Canvas 
+            camera={{ position: [0, 0, 13], fov: 25 }}
+            style={{ pointerEvents: interactive ? 'auto' : 'none' }}
+            // @ts-ignore
+            eventSource={typeof document !== 'undefined' ? document.body : undefined}
+            eventPrefix="client"
+        >
             <ambientLight intensity={Math.PI} />
-            <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
-                <Band />
-            </Physics>
+            <Suspense fallback={<LoadingFallback />}>
+                <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
+                    <Band setInteractive={setInteractive} />
+                </Physics>
+            </Suspense>
             <Environment background={false} blur={0.75}>
                 <Lightformer intensity={2} color="white" position={[0, -1, 5]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
                 <Lightformer intensity={3} color="white" position={[-1, -1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
@@ -29,7 +64,7 @@ export default function Badge() {
     )
 }
 
-function Band({ maxSpeed = 50, minSpeed = 10 }) {
+function Band({ maxSpeed = 50, minSpeed = 10, setInteractive }: any) {
     const profileTexture = useTexture('/images/badge_cc.png')
     profileTexture.colorSpace = THREE.SRGBColorSpace
     profileTexture.flipY = false
@@ -54,9 +89,10 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
     // @ts-ignore
     const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 2, linearDamping: 2 }
     // @ts-ignore
-    const { nodes, materials } = useGLTF('https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/5huRVDzcoDwnbgrKUo1Lzs/53b6dd7d6b4ffcdbd338fa60265949e1/tag.glb')
-    const texture = useTexture('https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/SOT1hmCesOHxEYxL7vkoZ/c57b29c85912047c414311723320c16b/band.jpg')
+    const { nodes, materials } = useGLTF('/models/tag.glb')
+    const texture = useTexture('/images/band.jpg')
     const { width, height } = useThree((state) => state.size)
+    const viewport = useThree((state) => state.viewport)
     const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]))
     const [dragged, drag] = useState<false | THREE.Vector3>(false)
     const [hovered, hover] = useState(false)
@@ -67,11 +103,12 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
     useSphericalJoint(j3, card, [[0, 0, 0], [0, 1.45, 0]])
 
     useEffect(() => {
+        setInteractive(hovered || dragged !== false)
         if (hovered) {
             document.body.style.cursor = dragged ? 'grabbing' : 'grab'
             return () => void (document.body.style.cursor = 'auto')
         }
-    }, [hovered, dragged])
+    }, [hovered, dragged, setInteractive])
 
     useFrame((state, delta) => {
         if (dragged) {
@@ -119,7 +156,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
 
     return (
         <>
-            <group position={[0, 4, 0]}>
+            <group position={[-viewport.width / 2 + 2.5, 4, 0]}>
                 <RigidBody ref={fixed} {...segmentProps} type="fixed" />
                 <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps}>
                     <BallCollider args={[0.1]} />
