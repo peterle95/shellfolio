@@ -6,10 +6,10 @@ export const TerminalWelcome = () => {
             <div className="mb-4 hidden sm:flex items-start gap-8 overflow-x-auto">
                 <pre className="shrink-0 mt-2 text-xs sm:text-sm font-bold opacity-90" style={{ color: 'var(--terminal-prompt-user)' }}>
 {`
- ___ _        _ _  __            
-/ __| |_  ___| | |/ _|___ (_) ___   
-\\__ \\ ' \\/ -_) | |  _/ _ \\ | / _ \\  
-|___/_||_\\___|_|_|_| \\___/ | \\___/  
+ ___ _        _ _  __      _      
+/ __| |_  ___| | |/ _|___ | |(_)___   
+\\__ \\ ' \\/ -_) | |  _/ _ \\| | |/ _ \\  
+|___/_||_\\___|_|_|_| \\___/|_| |\\___/  
 `}
                 </pre>
                 <pre className="shrink-0 text-[6px] leading-[7px] sm:text-[7px] sm:leading-[8px] font-bold opacity-90" style={{ color: 'var(--terminal-prompt-user)' }}>

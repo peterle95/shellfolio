@@ -43,17 +43,17 @@ export default function Home() {
         /> */}
       </div>
       {/* Badge Container - full viewport so canvas isn't clipped when dragging */}
-      <div className="hidden md:block fixed inset-0 z-20 pointer-events-none">
+      <div className="hidden min-[1400px]:block fixed inset-0 z-20 pointer-events-none">
         <div className="w-full h-full">
           <Badge />
         </div>
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl h-[80vh] min-h-[500px] flex flex-col md:flex-row gap-8">
-        <div className="hidden md:w-1/3 md:flex">
+      <div className="relative z-10 w-full max-w-7xl h-[80vh] min-h-[500px] flex flex-col min-[1400px]:flex-row gap-0 min-[1400px]:gap-8">
+        <div className="hidden min-[1400px]:flex min-[1400px]:w-1/3 shrink-0">
           {/* Spacer */}
         </div>
-        <div className="w-full md:w-2/3 h-full">
+        <div className="w-full min-[1400px]:flex-1 h-full min-w-0">
           <Terminal />
         </div>
       </div>
