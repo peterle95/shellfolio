@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import { VirtualFileSystem } from './virtual-filesystem';
-import { ThemeManager } from './theme-manager';
 import { HistoryStore } from './history-store';
 
 export interface VFSNode {
@@ -43,7 +42,6 @@ export interface CommandContext {
     cwd: string;
     setCwd: (path: string) => void;
     vfs: VirtualFileSystem;
-    themeManager: ThemeManager;
     historyStore: HistoryStore;
     pushHistory: (entry: Omit<HistoryItem, 'id' | 'timestamp'>) => void;
     clearHistory: () => void;

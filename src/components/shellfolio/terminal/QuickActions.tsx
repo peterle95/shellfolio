@@ -10,7 +10,6 @@ export const QuickActions = () => {
         { label: 'projects', cmd: 'projects' },
         { label: 'cv', cmd: 'cv' },
         { label: 'contact', cmd: 'contact' },
-        { label: 'themes', cmd: 'themes' },
     ];
 
     return (

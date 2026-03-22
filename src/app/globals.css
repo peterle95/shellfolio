@@ -29,6 +29,22 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+
+    --terminal-bg: hsl(220 13% 18% / 0.85);
+    --terminal-fg: hsl(210 40% 98%);
+    --terminal-prompt-user: hsl(300 100% 80%);
+    --terminal-prompt-host: hsl(210 40% 98%);
+    --terminal-prompt-path: hsl(190 80% 60%);
+    --terminal-prompt-symbol: hsl(210 40% 98%);
+    --terminal-caret: hsl(300 100% 80%);
+    --terminal-selection: hsl(300 100% 80% / 0.3);
+    --terminal-success: hsl(140 70% 50%);
+    --terminal-error: hsl(0 70% 60%);
+    --terminal-warning: hsl(40 90% 60%);
+    --terminal-muted: hsl(215 20% 65%);
+    --terminal-link: hsl(300 100% 80%);
+    --terminal-border: hsl(217 33% 17%);
+    --terminal-header: hsl(220 15% 12%);
   }
 
   .dark {

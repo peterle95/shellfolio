@@ -5,8 +5,6 @@ import { lsCommand } from './ls';
 import { cdCommand } from './cd';
 import { catCommand } from './cat';
 import { pwdCommand } from './pwd';
-import { themeCommand } from './theme';
-import { themesCommand } from './themes';
 import { aboutCommand } from './about';
 import { projectsCommand } from './projects';
 import { educationCommand } from './education';
@@ -22,8 +20,6 @@ export const predefinedCommands = [
     cdCommand,
     catCommand,
     pwdCommand,
-    themeCommand,
-    themesCommand,
     aboutCommand,
     projectsCommand,
     educationCommand,

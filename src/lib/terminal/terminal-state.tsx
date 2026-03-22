@@ -2,7 +2,6 @@
 
 import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 import { VirtualFileSystem } from './virtual-filesystem';
-import { ThemeManager } from './theme-manager';
 import { HistoryStore } from './history-store';
 import { CommandRegistry } from './command-registry';
 import { AutocompleteEngine } from './autocomplete-engine';
@@ -13,7 +12,6 @@ import { CommandParser } from './command-parser';
 
 // Default instances
 const vfsInstance = new VirtualFileSystem(portfolioContent);
-const themeManagerInstance = typeof window !== 'undefined' ? new ThemeManager() : null;
 const historyStoreInstance = typeof window !== 'undefined' ? new HistoryStore(200) : null;
 const registryInstance = new CommandRegistry();
 predefinedCommands.forEach(cmd => registryInstance.register(cmd));
@@ -22,14 +20,11 @@ const autocompleteInstance = new AutocompleteEngine(registryInstance);
 interface TerminalProviderState {
     cwd: string;
     setCwd: (path: string) => void;
-    theme: string;
-    setTheme: (name: string) => void;
     history: HistoryItem[];
     pushHistory: (entry: Omit<HistoryItem, 'id' | 'timestamp'>) => void;
     clearHistory: () => void;
     executeCommand: (cmdStr: string) => void;
     vfs: VirtualFileSystem;
-    themeManager: ThemeManager | null;
     historyStore: HistoryStore | null;
     registry: CommandRegistry;
     autocomplete: AutocompleteEngine;
@@ -47,21 +42,11 @@ export const useTerminal = () => {
 
 export const TerminalProvider = ({ children }: { children: ReactNode }) => {
     const [cwd, setCwd] = useState('/');
-    const [theme, setThemeState] = useState(themeManagerInstance?.current.name || 'modern-dark');
     const [history, setHistory] = useState<HistoryItem[]>([]);
 
     useEffect(() => {
         if (historyStoreInstance) {
             setHistory(historyStoreInstance.getAll());
-        }
-        if (themeManagerInstance) {
-            themeManagerInstance.apply();
-        }
-    }, []);
-
-    const setTheme = useCallback((name: string) => {
-        if (themeManagerInstance && themeManagerInstance.setTheme(name)) {
-            setThemeState(name);
         }
     }, []);
 
@@ -91,7 +76,6 @@ export const TerminalProvider = ({ children }: { children: ReactNode }) => {
             cwd,
             setCwd,
             vfs: vfsInstance,
-            themeManager: themeManagerInstance as ThemeManager,
             historyStore: historyStoreInstance as HistoryStore,
             pushHistory,
             clearHistory,
@@ -108,14 +92,11 @@ export const TerminalProvider = ({ children }: { children: ReactNode }) => {
     const value: TerminalProviderState = {
         cwd,
         setCwd,
-        theme,
-        setTheme,
         history,
         pushHistory,
         clearHistory,
         executeCommand,
         vfs: vfsInstance,
-        themeManager: themeManagerInstance,
         historyStore: historyStoreInstance,
         registry: registryInstance,
         autocomplete: autocompleteInstance

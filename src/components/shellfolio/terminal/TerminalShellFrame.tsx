@@ -1,10 +1,7 @@
 import React, { ReactNode } from 'react';
-import { useTerminal } from '@/lib/terminal/terminal-state';
 import { Maximize2, Minus, X } from 'lucide-react';
 
 export const TerminalShellFrame = ({ children }: { children: ReactNode }) => {
-    const { theme } = useTerminal();
-
     return (
         <div 
             className="w-full h-full flex flex-col overflow-hidden shadow-2xl rounded-xl transition-colors duration-300"
