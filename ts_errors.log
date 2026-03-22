@@ -1,0 +1,32 @@
+src/components/shellfolio/Badge.tsx(100,18): error TS2345: Argument of type 'RefObject<null>' is not assignable to parameter of type 'RefObject<RigidBody>'.
+  Type 'null' is not assignable to type 'RigidBody'.
+src/components/shellfolio/Badge.tsx(101,18): error TS2345: Argument of type 'RefObject<null>' is not assignable to parameter of type 'RefObject<RigidBody>'.
+  Type 'null' is not assignable to type 'RigidBody'.
+src/components/shellfolio/Badge.tsx(102,18): error TS2345: Argument of type 'RefObject<null>' is not assignable to parameter of type 'RefObject<RigidBody>'.
+  Type 'null' is not assignable to type 'RigidBody'.
+src/components/shellfolio/Badge.tsx(103,23): error TS2345: Argument of type 'RefObject<null>' is not assignable to parameter of type 'RefObject<RigidBody>'.
+  Type 'null' is not assignable to type 'RigidBody'.
+src/components/shellfolio/Badge.tsx(119,74): error TS2339: Property 'wakeUp' does not exist on type 'never'.
+src/components/shellfolio/Badge.tsx(160,18): error TS2322: Type '{ type: "fixed"; canSleep: boolean; colliders: boolean; angularDamping: number; linearDamping: number; ref: RefObject<null>; }' is not assignable to type 'RigidBodyProps'.
+  Types of property 'colliders' are incompatible.
+    Type 'boolean' is not assignable to type 'RigidBodyAutoCollider | undefined'.
+src/components/shellfolio/Badge.tsx(161,18): error TS2322: Type '{ children: Element; type: string; canSleep: boolean; colliders: boolean; angularDamping: number; linearDamping: number; position: [number, number, number]; ref: RefObject<null>; }' is not assignable to type 'RigidBodyProps'.
+  Types of property 'type' are incompatible.
+    Type 'string' is not assignable to type 'RigidBodyTypeString | undefined'.
+src/components/shellfolio/Badge.tsx(164,18): error TS2322: Type '{ children: Element; type: string; canSleep: boolean; colliders: boolean; angularDamping: number; linearDamping: number; position: [number, number, number]; ref: RefObject<null>; }' is not assignable to type 'RigidBodyProps'.
+  Types of property 'type' are incompatible.
+    Type 'string' is not assignable to type 'RigidBodyTypeString | undefined'.
+src/components/shellfolio/Badge.tsx(167,18): error TS2322: Type '{ children: Element; type: string; canSleep: boolean; colliders: boolean; angularDamping: number; linearDamping: number; position: [number, number, number]; ref: RefObject<null>; }' is not assignable to type 'RigidBodyProps'.
+  Types of property 'type' are incompatible.
+    Type 'string' is not assignable to type 'RigidBodyTypeString | undefined'.
+src/components/shellfolio/Badge.tsx(182,52): error TS2339: Property 'geometry' does not exist on type 'Object3D<Object3DEventMap>'.
+src/components/shellfolio/Badge.tsx(192,52): error TS2339: Property 'geometry' does not exist on type 'Object3D<Object3DEventMap>'.
+src/components/shellfolio/Badge.tsx(193,53): error TS2339: Property 'geometry' does not exist on type 'Object3D<Object3DEventMap>'.
+src/components/shellfolio/terminal/TerminalViewport.tsx(26,13): error TS2322: Type 'RefObject<HTMLDivElement | null>' is not assignable to type 'RefObject<HTMLDivElement>'.
+  Type 'HTMLDivElement | null' is not assignable to type 'HTMLDivElement'.
+    Type 'null' is not assignable to type 'HTMLDivElement'.
+src/lib/terminal/commands/cat.tsx(43,20): error TS2339: Property 'autocomplete' does not exist on type 'CommandContext'.
+src/lib/terminal/vfs-content.ts(12,13): error TS2353: Object literal may only specify known properties, and 'children' does not exist in type 'VFSNode'.
+src/lib/terminal/vfs-content.ts(33,13): error TS2353: Object literal may only specify known properties, and 'children' does not exist in type 'VFSNode'.
+src/lib/terminal/vfs-content.ts(65,13): error TS2353: Object literal may only specify known properties, and 'children' does not exist in type 'VFSNode'.
+src/lib/terminal/vfs-content.ts(83,13): error TS2353: Object literal may only specify known properties, and 'children' does not exist in type 'VFSNode'.
