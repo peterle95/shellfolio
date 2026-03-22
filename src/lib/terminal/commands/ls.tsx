@@ -15,14 +15,14 @@ export const lsCommand: Command = {
         }
 
         return (
-            <div className="flex flex-wrap gap-x-6 gap-y-2 mt-2">
+            <div className="flex flex-wrap mt-2">
                 {res.map(node => (
-                    <span 
+                    <span
                         key={node.name}
-                        className={node.type === 'directory' ? 'font-bold' : ''}
+                        className={`${node.type === 'directory' ? 'font-bold' : ''} inline-block mr-6 mb-2`}
                         style={{ color: node.type === 'directory' ? 'var(--terminal-prompt-path)' : 'inherit' }}
                     >
-                        {node.name}{node.type === 'directory' ? '/' : ''}
+                        {node.name}
                     </span>
                 ))}
             </div>
