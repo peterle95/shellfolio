@@ -5,10 +5,11 @@ import { OutputText, OutputHeading, OutputDivider } from '@/components/shellfoli
 // A bit of a hack to get the predefined commands locally, it won't include dynamically runtime registered ones,
 // but for this portfolio it's fine.
 import { predefinedCommands } from './index';
+import { HELP_MENU, HELP_MENU_ORDER } from './help-menu';
 
 export const helpCommand: Command = {
     name: 'help',
-    description: 'Display information about builtin commands',
+    description: HELP_MENU.help,
     execute: (parsed, ctx) => {
         if (parsed.args[0]) {
             const cmd = predefinedCommands.find(c => c.name === parsed.args[0] || c.aliases?.includes(parsed.args[0]));
@@ -31,15 +32,15 @@ export const helpCommand: Command = {
                 <OutputHeading>Available Commands</OutputHeading>
                 <OutputDivider />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 mt-4">
-                    {predefinedCommands.map(cmd => (
-                        <div key={cmd.name} className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+                    {HELP_MENU_ORDER.map((name) => (
+                        <div key={name} className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
                             <span 
                                 className="font-bold min-w-[100px]" 
                                 style={{ color: 'var(--terminal-prompt-user)' }}
                             >
-                                {cmd.name}
+                                {name}
                             </span>
-                            <span className="opacity-80 text-sm">{cmd.description}</span>
+                            <span className="opacity-80 text-sm">{HELP_MENU[name]}</span>
                         </div>
                     ))}
                 </div>

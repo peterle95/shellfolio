@@ -1,15 +1,11 @@
 import React from 'react';
 import { Command } from '../types';
+import { HELP_MENU } from './help-menu';
+import { Projects } from '@/components/shellfolio/outputs';
 
 export const projectsCommand: Command = {
     name: 'projects',
     aliases: ['portfolio'],
-    description: 'List my recent projects',
-    execute: (parsed, ctx) => {
-        ctx.executeCommand('ls projects');
-        return '';
-    }
+    description: HELP_MENU.projects,
+    execute: () => <Projects />,
 };
-
-// We could make a project command for deep dives, but for now ls/cat on projects/ works well enough.
-// Shell UX prefers cat projects/transcendence.json over custom non-standard command.

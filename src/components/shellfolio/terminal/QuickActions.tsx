@@ -6,9 +6,9 @@ export const QuickActions = () => {
 
     const actions = [
         { label: 'help', cmd: 'help' },
-        { label: 'about', cmd: 'cat about/bio.txt' },
+        { label: 'about', cmd: 'about' },
         { label: 'projects', cmd: 'projects' },
-        { label: 'resume', cmd: 'open resume/peter-moelzer-cv.pdf' },
+        { label: 'cv', cmd: 'cv' },
         { label: 'contact', cmd: 'contact' },
         { label: 'themes', cmd: 'themes' },
     ];

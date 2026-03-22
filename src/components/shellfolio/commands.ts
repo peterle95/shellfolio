@@ -1,5 +1,5 @@
 import React from 'react';
-import { About, Contact, Help, Projects, cv, NotFound, Education, WorkExperience, Credentials } from './outputs';
+import { About, Contact, Help, Projects, Cv, NotFound, Education, WorkExperience, Credentials } from './outputs';
 
 export const commandList = [
     { cmd: 'about', desc: 'Learn more about me.' },
@@ -17,7 +17,7 @@ export const commands: { [key: string]: () => React.ReactNode } = {
   help: () => React.createElement(Help),
   about: () => React.createElement(About),
   projects: () => React.createElement(Projects),
-  cv: () => React.createElement(cv),
+  cv: () => React.createElement(Cv),
   contact: () => React.createElement(Contact),
   education: () => React.createElement(Education),
   work: () => React.createElement(WorkExperience),

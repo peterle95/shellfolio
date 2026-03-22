@@ -9,7 +9,11 @@ import { themeCommand } from './theme';
 import { themesCommand } from './themes';
 import { aboutCommand } from './about';
 import { projectsCommand } from './projects';
+import { educationCommand } from './education';
+import { workCommand } from './work';
+import { cvCommand } from './cv';
 import { contactCommand } from './contact';
+import { credentialsCommand } from './credentials';
 
 export const predefinedCommands = [
     helpCommand,
@@ -22,5 +26,9 @@ export const predefinedCommands = [
     themesCommand,
     aboutCommand,
     projectsCommand,
+    educationCommand,
+    workCommand,
+    cvCommand,
     contactCommand,
+    credentialsCommand,
 ];

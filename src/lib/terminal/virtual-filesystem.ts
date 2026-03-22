@@ -1,23 +1,25 @@
 import { ReactNode } from 'react';
 
-// Simplified local VFS Node types for pure TS module
-export interface VFSNode {
-    type: 'file' | 'directory';
+/** Shared fields; use {@link VFSNode} (union) for values in the tree. */
+interface VFSNodeBase {
     name: string;
     path: string;
 }
 
-export interface VFSFile extends VFSNode {
+export interface VFSFile extends VFSNodeBase {
     type: 'file';
     content?: string | ReactNode;
     fileType: 'text' | 'markdown' | 'json' | 'link' | 'component' | 'pdf';
     targetUrl?: string; // used for links
 }
 
-export interface VFSDirectory extends VFSNode {
+export interface VFSDirectory extends VFSNodeBase {
     type: 'directory';
     children: Record<string, VFSNode>;
 }
+
+/** Discriminated union so nested `children` literals type-check. */
+export type VFSNode = VFSFile | VFSDirectory;
 
 export class VirtualFileSystem {
     private root: VFSDirectory;
