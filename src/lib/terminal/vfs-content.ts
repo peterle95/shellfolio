@@ -146,7 +146,7 @@ export const portfolioContent: VFSDirectory = {
                     content: JSON.stringify({ items: credentialItems }, null, 2),
                 },
             },
-        },
+        }/*,
         system: {
             type: 'directory',
             name: 'system',
@@ -157,9 +157,9 @@ export const portfolioContent: VFSDirectory = {
                     name: 'motd.txt',
                     path: '/system/motd.txt',
                     fileType: 'text',
-                    content: 'Welcome to Shellfolio OS v1.0.0.',
+                    content: 'Welcome to Shellfolio v2.1.4.',
                 },
             },
-        },
+        }, */
     },
 };
