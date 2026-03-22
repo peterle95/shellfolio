@@ -28,7 +28,7 @@ const TerminalContent = () => {
                         {item.command && (
                             <div className="flex items-start w-full relative mb-2 opacity-70">
                                 <div className="flex items-center shrink-0 mr-3 select-none">
-                                    <span style={{ color: 'var(--terminal-prompt-user)' }}>peter</span>
+                                    <span style={{ color: 'var(--terminal-prompt-user)' }}>moelzerpeter</span>
                                     <span className="opacity-50">@</span>
                                     <span style={{ color: 'var(--terminal-prompt-host)' }}>shellfolio</span>
                                     <span className="opacity-60 mx-1">:</span>

@@ -60,7 +60,7 @@ export const TerminalPromptLine = ({
     return (
         <div className="flex items-start w-full relative mt-2 group/prompt">
             <div className="flex items-center shrink-0 mr-3 select-none">
-                <span className="font-bold" style={{ color: 'var(--terminal-prompt-user)' }}>peter</span>
+                <span className="font-bold" style={{ color: 'var(--terminal-prompt-user)' }}>moelzerpeter</span>
                 <span className="opacity-50">@</span>
                 <span className="font-bold" style={{ color: 'var(--terminal-prompt-host)' }}>shellfolio</span>
                 <span className="opacity-60 mx-1">:</span>
