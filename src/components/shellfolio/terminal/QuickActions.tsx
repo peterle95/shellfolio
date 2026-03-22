@@ -1,23 +1,16 @@
 import React from 'react';
 import { useTerminal } from '@/lib/terminal/terminal-state';
+import { HELP_MENU_ORDER } from '@/lib/terminal/commands/help-menu';
 
 export const QuickActions = () => {
     const { executeCommand } = useTerminal();
 
-    const actions = [
-        { label: 'help', cmd: 'help' },
-        { label: 'about', cmd: 'about' },
-        { label: 'projects', cmd: 'projects' },
-        { label: 'cv', cmd: 'cv' },
-        { label: 'contact', cmd: 'contact' },
-    ];
-
     return (
         <div className="flex flex-wrap gap-2 mt-4 mb-2 animate-in fade-in slide-in-from-bottom-2 duration-500 delay-300 fill-mode-both">
-            {actions.map((action) => (
+            {HELP_MENU_ORDER.map((cmd) => (
                 <button
-                    key={action.cmd}
-                    onClick={() => executeCommand(action.cmd)}
+                    key={cmd}
+                    onClick={() => executeCommand(cmd)}
                     className="px-3 py-1.5 text-xs sm:text-sm font-medium rounded-md transition-colors border opacity-80 hover:opacity-100"
                     style={{ 
                         borderColor: 'var(--terminal-border)',
@@ -25,7 +18,7 @@ export const QuickActions = () => {
                         color: 'var(--terminal-fg)'
                     }}
                 >
-                    {action.label}
+                    {cmd}
                 </button>
             ))}
         </div>
