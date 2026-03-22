@@ -122,7 +122,7 @@ export const portfolioContent: VFSDirectory = {
                     fileType: 'text',
                     content:
                         'Peter Mölzer — CV\n\n' +
-                        `PDF: open ${cvPdfPublicPath} in the browser or run: cat cv/peter_moelzer_cv.pdf\n`,
+                        `Open PDF in the browser run: cat peter_moelzer_cv.pdf\n`,
                 },
                 'peter_moelzer_cv.pdf': {
                     type: 'file',
