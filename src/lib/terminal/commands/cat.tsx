@@ -38,8 +38,5 @@ export const catCommand: Command = {
             default:
                 return <OutputText>{res.content as React.ReactNode}</OutputText>;
         }
-    },
-    autocomplete: (partial, ctx) => {
-        return ctx.autocomplete?.completePath(partial.split(' ')[1] || '', ctx.cwd, ctx.vfs) || [];
     }
 };

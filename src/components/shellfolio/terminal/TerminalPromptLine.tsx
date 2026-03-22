@@ -6,7 +6,7 @@ export const TerminalPromptLine = ({
 }: {
     autoFocus?: boolean
 }) => {
-    const { cwd, executeCommand, historyStore, autocomplete } = useTerminal();
+    const { cwd, executeCommand, historyStore, autocomplete, registry, vfs } = useTerminal();
     const [input, setInput] = useState('');
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -47,9 +47,17 @@ export const TerminalPromptLine = ({
             e.preventDefault();
             // Basic autocomplete
             if (!input.trim()) return;
-            const completions = autocomplete.complete(input, useTerminal().registry as any); // hack to get around ctx requirement for now. Actually context isn't fully built here. 
-            // Wait, we can pass pseudo context or just build it directly.
-            // Let's implement full autocomplete later.
+            const context = {
+                cwd,
+                vfs,
+                autocomplete,
+                historyStore,
+                pushHistory: () => {},
+                clearHistory: () => {},
+                executeCommand,
+                setCwd: () => {}
+            };
+            const completions = autocomplete.complete(input, context);
         } else if (e.key === 'l' && (e.ctrlKey || e.metaKey)) {
             e.preventDefault();
             executeCommand('clear');

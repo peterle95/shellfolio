@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { VirtualFileSystem } from './virtual-filesystem';
 import { HistoryStore } from './history-store';
+import { AutocompleteEngine } from './autocomplete-engine';
 
 export interface VFSNode {
     type: 'file' | 'directory';
@@ -46,7 +47,7 @@ export interface CommandContext {
     pushHistory: (entry: Omit<HistoryItem, 'id' | 'timestamp'>) => void;
     clearHistory: () => void;
     executeCommand: (cmdStr: string) => void;
-    autocomplete?: any; // Avoiding circular dependency for now
+    autocomplete?: AutocompleteEngine;
 }
 
 export interface Command {

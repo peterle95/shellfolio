@@ -79,7 +79,8 @@ export const TerminalProvider = ({ children }: { children: ReactNode }) => {
             historyStore: historyStoreInstance as HistoryStore,
             pushHistory,
             clearHistory,
-            executeCommand: executeCommand // Allow commands to trigger other commands
+            executeCommand: executeCommand, // Allow commands to trigger other commands
+            autocomplete: autocompleteInstance
         };
 
         const output = registryInstance.execute(parsed, ctx);
