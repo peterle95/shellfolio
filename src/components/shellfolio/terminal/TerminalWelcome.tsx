@@ -3,7 +3,7 @@ import React from 'react';
 export const TerminalWelcome = () => {
     return (
         <div className="mb-6 animate-in fade-in duration-700">
-            <div className="mb-4 flex items-start gap-8 overflow-x-auto">
+            <div className="mb-4 hidden sm:flex items-start gap-8 overflow-x-auto">
                 <pre className="shrink-0 mt-2 text-xs sm:text-sm font-bold opacity-90" style={{ color: 'var(--terminal-prompt-user)' }}>
 {`
  ___ _        _ _  __            
