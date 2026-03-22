@@ -58,6 +58,22 @@ export const TerminalPromptLine = ({
                 setCwd: () => {}
             };
             const completions = autocomplete.complete(input, context);
+            
+            if (completions.length > 0) {
+                // For now, just take the first completion
+                // In the future, we could show multiple options or cycle through them
+                const completion = completions[0];
+                const parts = input.split(' ');
+                
+                if (parts.length === 1) {
+                    // Autocomplete command name
+                    setInput(completion);
+                } else {
+                    // Autocomplete file path
+                    parts[parts.length - 1] = completion;
+                    setInput(parts.join(' '));
+                }
+            }
         } else if (e.key === 'l' && (e.ctrlKey || e.metaKey)) {
             e.preventDefault();
             executeCommand('clear');
