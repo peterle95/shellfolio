@@ -34,16 +34,7 @@ export const TerminalShellFrame = ({ children }: { children: ReactNode }) => {
                     </div>
                 </div>
 
-                {/* Session Title */}
-                <div className="flex-1 flex justify-center items-center">
-                    <div className="flex items-center gap-2 text-xs font-semibold tracking-wide opacity-80">
-                        <span style={{ color: 'var(--terminal-prompt-user)' }}>peter</span>
-                        <span className="opacity-50">@</span>
-                        <span style={{ color: 'var(--terminal-prompt-host)' }}>shellfolio</span>
-                        <span className="opacity-50 mx-1">—</span>
-                        <span className="opacity-70 font-normal">~</span>
-                    </div>
-                </div>
+                <div className="flex-1" />
 
                 {/* Spacer for centering */}
                 <div className="w-[52px]"></div>
