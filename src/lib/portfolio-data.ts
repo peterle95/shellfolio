@@ -127,3 +127,69 @@ export function projectJsonFilename(title: string): string {
         .replace(/[^a-z0-9-]/g, '');
     return `${base || 'project'}.json`;
 }
+
+/** JSON-style records for terminal / structured UI (array of string-only objects). */
+export type StringRecord = Record<string, string>;
+
+export function aboutAsRecords(): StringRecord[] {
+    return aboutParagraphs.map((text) => ({ paragraph: text }));
+}
+
+export function projectsAsRecords(): StringRecord[] {
+    return portfolioProjects.map((p) => {
+        const r: StringRecord = {
+            title: p.title,
+            description: p.description,
+            stack: p.stack,
+            repo: p.repo,
+        };
+        if (p.live && p.live !== '#') {
+            r.live = p.live;
+        }
+        return r;
+    });
+}
+
+export function educationAsRecords(): StringRecord[] {
+    return educationHistory.map((e) => ({
+        institution: e.institution,
+        program: e.program,
+        period: e.period,
+    }));
+}
+
+export function workAsRecords(): StringRecord[] {
+    return workExperience.map((w) => ({
+        company: w.company,
+        role: w.role,
+        period: w.period,
+    }));
+}
+
+export function credentialsAsRecords(): StringRecord[] {
+    return credentialItems.map((c) => ({
+        issuer: c.issuer,
+        title: c.title,
+        href: c.href,
+        year: c.year,
+    }));
+}
+
+export function contactAsRecords(): StringRecord[] {
+    return [
+        {
+            email: contactLinks.email,
+            github: contactLinks.github,
+            linkedin: contactLinks.linkedin,
+        },
+    ];
+}
+
+export function cvAsRecords(): StringRecord[] {
+    return [
+        {
+            message: 'You can view or download my cv by clicking the link below.',
+            pdf: cvPdfPublicPath,
+        },
+    ];
+}

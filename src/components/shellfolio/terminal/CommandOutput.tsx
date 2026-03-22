@@ -28,17 +28,19 @@ export const OutputCode = ({ children }: { children: ReactNode }) => (
     </pre>
 );
 
-export const OutputLink = ({ href, children }: { href: string; children: ReactNode }) => (
-    <a 
-        href={href} 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="underline underline-offset-4 hover:opacity-80 transition-opacity"
-        style={{ color: 'var(--terminal-link)' }}
-    >
-        {children}
-    </a>
-);
+export const OutputLink = ({ href, children }: { href: string; children: ReactNode }) => {
+    const isMailto = href.startsWith('mailto:');
+    return (
+        <a
+            href={href}
+            {...(isMailto ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
+            className="underline underline-offset-4 hover:opacity-80 transition-opacity break-all"
+            style={{ color: 'var(--terminal-link)' }}
+        >
+            {children}
+        </a>
+    );
+};
 
 export const OutputError = ({ children }: { children: ReactNode }) => (
     <div className="flex items-start gap-2 my-2 py-2 px-3 rounded border-l-2" style={{ borderColor: 'var(--terminal-error)', backgroundColor: 'var(--terminal-error)20' }}>
