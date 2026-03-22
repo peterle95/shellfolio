@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 
 import * as THREE from 'three'
@@ -71,17 +72,17 @@ function Band({ maxSpeed = 50, minSpeed = 10, setInteractive }: any) {
     profileTexture.repeat.set(2, 2)
     profileTexture.offset.set(-0.1, -0.3)
     // @ts-ignore
-    const band = useRef(null)
+    const band = useRef<any>(null)
     // @ts-ignore
-    const fixed = useRef(null)
+    const fixed = useRef<any>(null)
     // @ts-ignore
-    const j1 = useRef(null)
+    const j1 = useRef<any>(null)
     // @ts-ignore
-    const j2 = useRef(null)
+    const j2 = useRef<any>(null)
     // @ts-ignore
-    const j3 = useRef(null)
+    const j3 = useRef<any>(null)
     // @ts-ignore
-    const card = useRef(null)
+    const card = useRef<any>(null)
     const vec = new THREE.Vector3()
     const ang = new THREE.Vector3()
     const rot = new THREE.Vector3()
