@@ -1,8 +1,8 @@
 /** Single source for portfolio copy — used by outputs.tsx and vfs-content.ts */
 
 export const aboutParagraphs = [
-    'I was born in Genoa (Italy) and since 2014 I live in Berlin. I have a bachelor of science degree from Humboldt Universität zu Berlin in the field of economics and currently finishing my further training in computer science at the 42 school.',
-    'Economist transitioning into software engineering, driven by a fascination with how technology, particularly AI, can transform data into actionable insights. After analyzing markets and building partnerships (Klarna, Clark), I pursued computer science at 42 School to bridge business strategy with technical execution, build and create new software.',
+    'I was born in Genoa (Italy) and since 2014 I live in Berlin.',
+    'Software Engineer combining a rigorous computer science education from 42 Berlin with a B.Sc. in Economics at Humboldt University. Bringing professional experience from leading European FinTechs (Klarna, Clark). I specialize in TypeScript, React, and Next.js, with a proven ability to bridge complex business logic, such as revenue sharing and market analytics, with scalable technical execution.',
     'I generally like to read books, write, play the guitar and dj.',
 ];
 
@@ -17,6 +17,14 @@ export type PortfolioProject = {
 };
 
 export const portfolioProjects: PortfolioProject[] = [
+    {
+        title: 'WEB CONSULTANT & DEVELOPER – I PELOSETTI DI SILVANA ONLUS',
+        description:
+            'Provided pro-bono technical consulting for a non-profit animal shelter, diagnosing and resolving critical WordPress/WooCommerce issues affecting animal listing pages and site SEO',
+        stack: 'WordPress, WooCommerce, Elementor',
+        live: 'https://pelosettidisilvana.org/',
+        repo: '#',
+    },
     {
         title: 'Transcendence',
         description:
@@ -41,7 +49,7 @@ export const portfolioProjects: PortfolioProject[] = [
         live: 'https://petermoelzer-shellfolio.vercel.app/',
         repo: 'https://github.com/peterle95/shellfolio',
     },
-    {
+    /* {
         title: 'cub3d',
         description:
             'A simple 3D raycasting engine inspired by Wolfenstein 3D, built using the miniLibX graphics library.',
@@ -55,7 +63,7 @@ export const portfolioProjects: PortfolioProject[] = [
             'A lightweight Unix shell implementation that supports basic command execution, piping, and redirection. Designed for educational purposes to deepen understanding of shell internals and process management.',
         stack: 'C, Unix, Shell Scripting',
         repo: 'https://github.com/peterle95/minishell',
-    },
+    }, */
     {
         title: 'More Projects',
         description: 'Check out my GitHub for more projects and contributions.',
@@ -68,7 +76,7 @@ export const educationHistory = [
     {
         institution: '42 Berlin',
         program: 'Computer Science & Software Engineering',
-        period: '2022 - Present',
+        period: '2023 - 2026',
     },
     {
         institution: 'Humboldt-Universität zu Berlin',
@@ -118,7 +126,7 @@ export const contactLinks = {
 };
 
 /** Public URL for CV download (matches outputs.tsx) */
-export const cvPdfPublicPath = '/files/peter_moelzer_cv.pdf';
+export const cvPdfPublicPath = '/files/petermoelzerEN.pdf';
 
 export function projectJsonFilename(title: string): string {
     const base = title
