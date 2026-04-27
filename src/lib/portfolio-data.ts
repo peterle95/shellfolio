@@ -31,7 +31,7 @@ export const portfolioProjects: PortfolioProject[] = [
             'Final project of 42 Core Curriculum. Together we 4 other fellow 42oers we created a platform for multiple games showcasing different technologies and games. (Currently in development)',
         stack: 'Next.js, TypeScript, React, Prisma, Tailwind CSS',
         live: '#',
-        repo: 'https://github.com/peterle95/transcendence',
+        repo: 'https://github.com/transcendence42spacewars/transcendence',
     },
     {
         title: 'Webserv',
