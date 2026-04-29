@@ -43,3 +43,8 @@ next-env.d.ts
 # firebase
 firebase-debug.log
 firestore-debug.log
+
+/public/files/BScEconomics.pdf
+/public/files/certificate_core_completion.pdf
+/public/files/certificate_transcender_internship_one.pdf
+

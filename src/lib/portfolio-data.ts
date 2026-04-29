@@ -76,11 +76,13 @@ export const educationHistory = [
     {
         institution: '42 Berlin',
         program: 'Computer Science & Software Engineering',
+        href: '/files/certificate_core_completion.pdf',
         period: '2023 - 2026',
     },
     {
         institution: 'Humboldt-Universität zu Berlin',
         program: 'Bachelor of Science, Economics',
+        href: '/files/BScEconomics.pdf',
         period: '2015 - 2019',
     },
 ];
@@ -162,6 +164,7 @@ export function educationAsRecords(): StringRecord[] {
     return educationHistory.map((e) => ({
         institution: e.institution,
         program: e.program,
+        href: e.href,
         period: e.period,
     }));
 }
