@@ -66,7 +66,7 @@ export default function Badge() {
 }
 
 function Band({ maxSpeed = 50, minSpeed = 10, setInteractive }: any) {
-    const profileTexture = useTexture('/images/badge_cc.png')
+    const profileTexture = useTexture('/images/badge_cc_reduced.png')
     profileTexture.colorSpace = THREE.SRGBColorSpace
     profileTexture.flipY = false
     profileTexture.repeat.set(2, 2)
