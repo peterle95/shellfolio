@@ -1,6 +1,6 @@
 import React from 'react';
-import { commandList } from './commands';
 import { StructuredRecordsOutput } from '@/components/shellfolio/terminal/StructuredRecordsOutput';
+import { HELP_MENU, HELP_MENU_ORDER } from '@/lib/terminal/commands/help-menu';
 import {
     aboutAsRecords,
     projectsAsRecords,
@@ -21,9 +21,9 @@ export const Welcome = () => (
 
 export const Help = () => (
     <StructuredRecordsOutput
-        records={commandList.map(({ cmd, desc }) => ({
-            command: cmd.trim(),
-            description: desc,
+        records={HELP_MENU_ORDER.map((command) => ({
+            command,
+            description: HELP_MENU[command],
         }))}
     />
 );

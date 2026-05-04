@@ -1,10 +1,13 @@
 import React, { ReactNode } from 'react';
-import { CornerUpLeft, Maximize2, Minus, X } from 'lucide-react';
-import { useTerminal } from '@/lib/terminal/terminal-state';
+import { Maximize2, Minus, X } from 'lucide-react';
 
-export const TerminalShellFrame = ({ children }: { children: ReactNode }) => {
-    const { history, clearHistory, setCwd } = useTerminal();
-
+export const TerminalShellFrame = ({
+    actions,
+    children,
+}: {
+    actions?: ReactNode;
+    children: ReactNode;
+}) => {
     return (
         <div 
             className="w-full h-full flex flex-col overflow-hidden shadow-2xl rounded-xl transition-colors duration-300"
@@ -41,25 +44,7 @@ export const TerminalShellFrame = ({ children }: { children: ReactNode }) => {
 
                 {/* Spacer for centering */}
                 <div className="w-[52px] flex items-center justify-end">
-                    {history.length > 0 && (
-                        <button
-                            type="button"
-                            onClick={() => {
-                                setCwd('/');
-                                clearHistory();
-                            }}
-                            className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-md transition-colors border opacity-80 hover:opacity-100"
-                            style={{
-                                borderColor: 'var(--terminal-border)',
-                                backgroundColor: 'var(--terminal-header)',
-                                color: 'var(--terminal-fg)'
-                            }}
-                            aria-label="Back to welcome screen"
-                        >
-                            <CornerUpLeft className="w-3.5 h-3.5" />
-                            back
-                        </button>
-                    )}
+                    {actions}
                 </div>
             </div>
 
