@@ -150,3 +150,17 @@ The component logic is also clearer:
 - Legacy or unused client entry points are gone.
 
 That is the main SSR win for this app: not making everything server-rendered, but putting each part of the experience on the side where it belongs.
+
+## Why Removing `"use client"` Works Now
+
+Removing `"use client"` from `src/app/page.tsx` by itself broke the app because the old page was doing client-only work directly in the route component. The page was not just static layout; it also imported browser-heavy visual components and contained a `style jsx` block. Once the route becomes a Server Component, code in that file must be safe to render on the server.
+
+The current version works because the server/client boundary was moved before removing `"use client"`:
+
+- `src/app/page.tsx` now only renders server-safe layout, the static fallback background, and component boundaries.
+- Browser-only visual rendering lives in `VisualEffects`, which is explicitly a Client Component.
+- `Grainient` and `Badge` are loaded with `next/dynamic` inside that client wrapper, so WebGL, Three.js, `window`, `document`, canvas setup, and viewport checks stay in the browser.
+- The old `style jsx` block was removed from the route. Styling that belongs to the page fallback now lives in `globals.css`, which is safe for server-rendered routes.
+- The terminal wrapper is no longer entirely client-side. Static chrome and welcome content can render from the server, while prompt input, history, quick actions, reset behavior, and scrolling remain in small client components.
+
+So the fix was not simply "delete the directive." The fix was to make `page.tsx` server-safe first, then keep `"use client"` only on the files that actually need browser APIs, React state, effects, or event handlers.
