@@ -47,6 +47,8 @@ export const TerminalPromptLine = ({
             e.preventDefault();
             // Basic autocomplete
             if (!input.trim()) return;
+            if (!historyStore) return;
+
             const context = {
                 cwd,
                 vfs,

@@ -1,7 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import { useTerminal } from '@/lib/terminal/terminal-state';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { ParsedCommand } from '@/lib/terminal/types';
 
 export const TerminalViewport = ({ 
     children 
@@ -9,7 +7,7 @@ export const TerminalViewport = ({
     children: React.ReactNode 
 }) => {
     const { history } = useTerminal();
-    const scrollViewportRef = useRef<HTMLDivElement>(null as any);
+    const scrollViewportRef = useRef<HTMLDivElement>(null);
 
     // Auto-scroll to bottom on new history item
     useEffect(() => {
@@ -21,13 +19,17 @@ export const TerminalViewport = ({
     }, [history]);
 
     return (
-        <ScrollArea 
-            className="flex-1 h-full w-full" 
-            viewportRef={scrollViewportRef}
+        <div
+            ref={scrollViewportRef}
+            className="flex-1 h-full w-full overflow-y-auto overflow-x-hidden terminal-scrollbar-none"
+            style={{
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+            }}
         >
             <div className="flex flex-col gap-6 pr-4 pb-4 w-full text-sm sm:text-base selection:bg-[var(--terminal-selection)]">
                 {children}
             </div>
-        </ScrollArea>
+        </div>
     );
 };

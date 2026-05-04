@@ -83,3 +83,15 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .terminal-scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .shellfolio-visual-fallback {
+    background:
+      linear-gradient(135deg, rgba(255, 159, 252, 0.88), rgba(82, 39, 255, 0.92) 46%, rgba(177, 158, 239, 0.9)),
+      #5227ff;
+  }
+}

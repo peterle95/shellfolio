@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { useTerminal } from '@/lib/terminal/terminal-state';
 import { HELP_MENU_ORDER } from '@/lib/terminal/commands/help-menu';
