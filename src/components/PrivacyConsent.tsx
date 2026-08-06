@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 const CONSENT_KEY = 'shellfolio_privacy_consent';
 const CONSENT_CHANGED = 'shellfolio:consent-changed';
 const CONSENT_MAX_AGE = 180 * 24 * 60 * 60 * 1000;
+const DEFAULT_CONSENT = { analytics: true, performance: true, clarity: true };
 
 export type Consent = {
   analytics: boolean;
@@ -43,21 +44,26 @@ function saveConsent(value: Omit<Consent, 'updatedAt'>) {
 export function PrivacyConsent() {
   const [consent, setConsent] = useState<Consent | null | undefined>(undefined);
   const [open, setOpen] = useState(false);
-  const [draft, setDraft] = useState({ analytics: false, performance: false, clarity: false });
+  const [draft, setDraft] = useState(DEFAULT_CONSENT);
   const dialogRef = useRef<HTMLElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
 
   const openSettings = () => {
     previousFocusRef.current = document.activeElement as HTMLElement;
-    setDraft(consent ?? { analytics: false, performance: false, clarity: false });
+    setDraft(consent ?? DEFAULT_CONSENT);
     setOpen(true);
   };
 
   useEffect(() => {
     const stored = readConsent();
-    setConsent(stored);
-    setDraft(stored ?? { analytics: false, performance: false, clarity: false });
-    setOpen(stored === null);
+    if (stored) {
+      setConsent(stored);
+    } else {
+      saveConsent(DEFAULT_CONSENT);
+      setConsent({ ...DEFAULT_CONSENT, updatedAt: Date.now() });
+    }
+    setDraft(stored ?? DEFAULT_CONSENT);
+    setOpen(!stored);
   }, []);
 
   useEffect(() => {
@@ -118,7 +124,7 @@ export function PrivacyConsent() {
     >
       <h2 id="privacy-title" className="mb-2 text-base font-bold">Privacy settings</h2>
       <p id="privacy-description" className="mb-4 text-white/80">
-        This site uses necessary first-party storage for preferences and terminal features. Optional analytics and session insights are off until you allow them. You can change this choice anytime.
+        This site uses necessary first-party storage for preferences and terminal features. Optional analytics and session insights are enabled by default. You can change this choice anytime.
       </p>
       <fieldset className="mb-4 space-y-2">
         <legend className="sr-only">Optional services</legend>

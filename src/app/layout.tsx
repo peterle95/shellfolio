@@ -3,6 +3,7 @@ import './globals.css';
 import { Source_Code_Pro } from 'next/font/google';
 import { PrivacyConsent } from '@/components/PrivacyConsent';
 import { Telemetry } from '@/components/Telemetry';
+import { LegalLinks } from '@/components/LegalLinks';
 
 const sourceCodePro = Source_Code_Pro({
   subsets: ['latin'],
@@ -28,6 +29,7 @@ export default function RootLayout({
         {children} 
         <Telemetry />
         <PrivacyConsent />
+        <LegalLinks />
       </body>
     </html>
   );
