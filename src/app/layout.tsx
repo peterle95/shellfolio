@@ -1,8 +1,13 @@
 import type {Metadata} from 'next';
 import './globals.css';
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { MicrosoftClarity } from '@/components/MicrosoftClarity';
+import { Source_Code_Pro } from 'next/font/google';
+import { PrivacyConsent } from '@/components/PrivacyConsent';
+import { Telemetry } from '@/components/Telemetry';
+
+const sourceCodePro = Source_Code_Pro({
+  subsets: ['latin'],
+  variable: '--font-source-code-pro',
+});
 
 export const metadata: Metadata = {
   title: 'Peter Mölzer',
@@ -17,16 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet" />
         <link rel="icon" href="/favicon-16x16.png" type="image/jpeg" />
       </head>
-      <body className="font-body antialiased">
+      <body className={`${sourceCodePro.variable} font-body antialiased`}>
         {children} 
-        <Analytics />
-        <SpeedInsights />
-        <MicrosoftClarity />
+        <Telemetry />
+        <PrivacyConsent />
       </body>
     </html>
   );
