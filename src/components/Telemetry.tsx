@@ -3,20 +3,20 @@
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { useEffect, useState } from 'react';
-import { CONSENT_CHANGED, isAnalyticsAllowed } from './PrivacyConsent';
+import { CONSENT_CHANGED, readConsent, type Consent } from './PrivacyConsent';
 import { MicrosoftClarity } from './MicrosoftClarity';
 
 export function Telemetry() {
-  const [allowed, setAllowed] = useState(false);
+  const [consent, setConsent] = useState<Consent | null>(null);
 
   useEffect(() => {
-    setAllowed(isAnalyticsAllowed());
+    setConsent(readConsent());
 
-    const update = (event: Event) => setAllowed((event as CustomEvent<{ analytics: boolean }>).detail.analytics);
+    const update = (event: Event) => setConsent((event as CustomEvent<Consent>).detail);
     window.addEventListener(CONSENT_CHANGED, update);
     return () => window.removeEventListener(CONSENT_CHANGED, update);
   }, []);
 
-  if (!allowed) return null;
-  return <><Analytics /><SpeedInsights /><MicrosoftClarity /></>;
+  if (!consent) return null;
+  return <>{consent.analytics && <Analytics />}{consent.performance && <SpeedInsights />}{consent.clarity && <MicrosoftClarity />}</>;
 }

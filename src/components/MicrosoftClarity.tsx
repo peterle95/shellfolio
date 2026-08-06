@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Clarity from '@microsoft/clarity';
-import { CONSENT_CHANGED, isAnalyticsAllowed } from './PrivacyConsent';
+import { CONSENT_CHANGED, isConsentAllowed } from './PrivacyConsent';
 
 let clarityInitialized = false;
 
@@ -16,13 +16,13 @@ export function MicrosoftClarity() {
     if (!projectId) return;
 
     const handleConsent = (event: Event) => {
-      const allowed = (event as CustomEvent<{ analytics: boolean }>).detail.analytics;
+      const allowed = (event as CustomEvent<{ clarity: boolean }>).detail.clarity;
       Clarity.consent(allowed);
     };
     window.addEventListener(CONSENT_CHANGED, handleConsent);
 
-    if (clarityInitialized || !isAnalyticsAllowed()) {
-      if (clarityInitialized && isAnalyticsAllowed()) Clarity.consent(true);
+    if (clarityInitialized || !isConsentAllowed('clarity')) {
+      if (clarityInitialized && isConsentAllowed('clarity')) Clarity.consent(true);
       return () => window.removeEventListener(CONSENT_CHANGED, handleConsent);
     }
 
@@ -39,7 +39,7 @@ export function MicrosoftClarity() {
       pathname?.startsWith(path)
     );
 
-    if (isBlockedPath) return;
+    if (isBlockedPath) return () => window.removeEventListener(CONSENT_CHANGED, handleConsent);
 
     Clarity.init(projectId);
     clarityInitialized = true;
