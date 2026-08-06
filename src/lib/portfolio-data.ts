@@ -122,7 +122,7 @@ export const credentialItems: CredentialItem[] = [
 ];
 
 export const contactLinks = {
-    email: 'moelzerpeter@gmail.com',
+    email: 'moelzerpeter@proton.me',
     github: 'https://github.com/peterle95',
     linkedin: 'https://www.linkedin.com/in/peter-moelzer/',
 };

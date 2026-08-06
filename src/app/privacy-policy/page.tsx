@@ -4,7 +4,7 @@ export default function PrivacyPolicyPage() {
   return (
     <LegalPage title="Privacy Policy">
       <p>Last updated: August 6, 2026</p>
-      <p>Peter Mölzer operates this personal portfolio website. Contact: <a className="text-fuchsia-300 underline" href="mailto:moelzerpeter@gmail.com">moelzerpeter@gmail.com</a>.</p>
+      <p>Peter Mölzer operates this personal portfolio website. Contact: <a className="text-fuchsia-300 underline" href="mailto:moelzerpeter@proton.me">moelzerpeter@proton.me</a>.</p>
       <h2 className="font-bold text-white">What this site processes</h2>
       <p>The site may process technical request data, browser storage used for preferences and terminal features, and optional analytics data from Vercel Analytics, Vercel Speed Insights, and Microsoft Clarity. External links only load when you select them.</p>
       <h2 className="font-bold text-white">Purpose and choices</h2>
