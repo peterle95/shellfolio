@@ -13,7 +13,6 @@ export default function PrivacyPolicyPage() {
       <p>Subject to GDPR conditions, you may request access, correction, deletion, restriction, portability, or object to processing. Where processing relies on consent, withdraw it through Privacy settings. You may also complain to a data protection supervisory authority.</p>
       <h2 className="font-bold text-white">Providers and retention</h2>
       <p>Hosting, delivery, and optional measurement providers may process technical data according to their own terms and privacy notices. Retention depends on the provider and site operation; no contact form or account system is provided by this site.</p>
-      <p>This summary is not legal advice. Provider configuration, retention, transfers, and applicable German requirements should be reviewed before relying on this policy.</p>
     </LegalPage>
   );
 }

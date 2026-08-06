@@ -1,11 +1,14 @@
 import React, { ReactNode } from 'react';
 import { Maximize2, Minus, X } from 'lucide-react';
+import Link from 'next/link';
 
 export const TerminalShellFrame = ({
     actions,
+    closeHref,
     children,
 }: {
     actions?: ReactNode;
+    closeHref?: string;
     children: ReactNode;
 }) => {
     return (
@@ -29,9 +32,11 @@ export const TerminalShellFrame = ({
             >
                 {/* Traffic Lights */}
                 <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-500 flex items-center justify-center group/btn relative cursor-pointer">
+                    {closeHref ? <Link href={closeHref} aria-label="Close" className="w-3 h-3 rounded-full bg-red-500 flex items-center justify-center group/btn relative cursor-pointer">
                         <X className="w-2 h-2 text-black/50 opacity-0 group-hover/btn:opacity-100" />
-                    </div>
+                    </Link> : <div className="w-3 h-3 rounded-full bg-red-500 flex items-center justify-center group/btn relative cursor-pointer">
+                        <X className="w-2 h-2 text-black/50 opacity-0 group-hover/btn:opacity-100" />
+                    </div>}
                     <div className="w-3 h-3 rounded-full bg-yellow-500 flex items-center justify-center group/btn relative cursor-pointer">
                         <Minus className="w-2 h-2 text-black/50 opacity-0 group-hover/btn:opacity-100" />
                     </div>

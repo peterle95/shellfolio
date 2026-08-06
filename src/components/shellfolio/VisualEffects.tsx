@@ -28,8 +28,8 @@ function useLargeViewport() {
     return matches;
 }
 
-export function VisualEffects() {
-    const showBadge = useLargeViewport();
+export function VisualEffects({ showBadge = true }: { showBadge?: boolean }) {
+    const isLargeViewport = useLargeViewport();
 
     return (
         <>
@@ -59,7 +59,7 @@ export function VisualEffects() {
                     zoom={0.9}
                 />
             </div>
-            {showBadge && (
+            {showBadge && isLargeViewport && (
                 <div aria-hidden="true" className="fixed inset-0 z-20 pointer-events-none">
                     <div className="w-full h-full">
                         <Badge />
