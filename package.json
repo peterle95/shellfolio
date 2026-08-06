@@ -51,7 +51,7 @@
     "genkit": "^1.13.0",
     "lucide-react": "^0.475.0",
     "meshline": "^3.3.1",
-    "next": "15.3.8",
+    "next": "^16.3.0",
     "ogl": "^1.0.11",
     "patch-package": "^8.0.0",
     "react": "^19.0.0",
