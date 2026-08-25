@@ -18,12 +18,28 @@ export type PortfolioProject = {
 
 export const portfolioProjects: PortfolioProject[] = [
     {
+        title: 'FermentStation',
+        description:
+            'Local-first fermentation tracker. 70+ tests, desktop + Android packaging',
+        stack: 'React, TypeScript, Vite, Tauri 2, Capacitor',
+        live: '#',
+        repo: 'https://github.com/peterle95/fermentstation',
+    },
+    {
         title: 'WEB CONSULTANT & DEVELOPER – I PELOSETTI DI SILVANA ONLUS',
         description:
             'Provided pro-bono technical consulting for a non-profit animal shelter, diagnosing and resolving critical WordPress/WooCommerce issues affecting animal listing pages and site SEO',
         stack: 'WordPress, WooCommerce, Elementor',
         live: 'https://pelosettidisilvana.org/',
         repo: '#',
+    },
+    {
+        title: 'Printing Press CLIs',
+        description:
+            'WSL monorepo of 23 CLI tools wrapping public APIs for agent-friendly automation. ',
+        stack: 'Go/Cobra, Python, Node/TypeScript',
+        live: '#',
+        repo: 'https://github.com/peterle95/printing-press-clis',
     },
     {
         title: 'Transcendence',
