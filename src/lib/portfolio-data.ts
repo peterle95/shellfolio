@@ -104,7 +104,7 @@ export const educationHistory = [
 ];
 
 export const workExperience = [
-    { company: 'InnoBee', role: 'Fullstack Developer', period: '2025 - Present' },
+    { company: 'InnoBee', role: 'Fullstack Developer', period: '2025 - 2026' },
     { company: 'Klarna', role: 'Development Manager', period: '2022 - 2023' },
     { company: 'Clark', role: 'Partnerships Manager', period: '2021 - 2022' },
 ];
