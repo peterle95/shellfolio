@@ -1,0 +1,668 @@
+{
+  "C:\\Users\\molze\\GitHub\\shellfolio\\.vscode\\settings.json": {
+    "mtime": 1777314612.6060314,
+    "seen": 1788073904.8435028,
+    "ast_hash": "45744d9ce7c1ae735ec1f6e0aec26d82",
+    "semantic_hash": "45744d9ce7c1ae735ec1f6e0aec26d82"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\components.json": {
+    "mtime": 1777314612.6320312,
+    "seen": 1788073904.8435028,
+    "ast_hash": "d64ed1dcdd64e8e058fff89877b36c37",
+    "semantic_hash": "d64ed1dcdd64e8e058fff89877b36c37"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\next.config.ts": {
+    "mtime": 1777314612.6580346,
+    "seen": 1788073904.8435028,
+    "ast_hash": "9c8cc6cb108e3df1610280455a7a7580",
+    "semantic_hash": "9c8cc6cb108e3df1610280455a7a7580"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\package.json": {
+    "mtime": 1777893015.6336114,
+    "seen": 1788073904.8435028,
+    "ast_hash": "d5f796d2f8914be74c4d2556011e930c",
+    "semantic_hash": "d5f796d2f8914be74c4d2556011e930c"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\postcss.config.mjs": {
+    "mtime": 1777314612.7135618,
+    "seen": 1788073904.8435028,
+    "ast_hash": "b7941c02b947e17ae32f67ae7e664ec8",
+    "semantic_hash": "b7941c02b947e17ae32f67ae7e664ec8"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\ai\\dev.ts": {
+    "mtime": 1777314612.741563,
+    "seen": 1788073904.8435028,
+    "ast_hash": "63691f9d907f771b840d08ad1fe86cea",
+    "semantic_hash": "63691f9d907f771b840d08ad1fe86cea"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\ai\\genkit.ts": {
+    "mtime": 1777314612.762564,
+    "seen": 1788073904.8440197,
+    "ast_hash": "af9eb64d5c117fc670ab6ee2261273c6",
+    "semantic_hash": "af9eb64d5c117fc670ab6ee2261273c6"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\app\\layout.tsx": {
+    "mtime": 1777898109.718388,
+    "seen": 1788073904.8440197,
+    "ast_hash": "f22aea066bd52e17676a2f151da744ff",
+    "semantic_hash": "f22aea066bd52e17676a2f151da744ff"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\app\\page.tsx": {
+    "mtime": 1777898109.7437553,
+    "seen": 1788073904.8440197,
+    "ast_hash": "9b8928386201c25a15f6e487cb9becf0",
+    "semantic_hash": "9b8928386201c25a15f6e487cb9becf0"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\MicrosoftClarity.tsx": {
+    "mtime": 1777893015.840484,
+    "seen": 1788073904.8440197,
+    "ast_hash": "dd63170629ea21c643a04f3b2ccbfd83",
+    "semantic_hash": "dd63170629ea21c643a04f3b2ccbfd83"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\shellfolio\\Badge.tsx": {
+    "mtime": 1777893015.8925898,
+    "seen": 1788073904.8440197,
+    "ast_hash": "12acb5828ae4d0f4b3bab37c8c36d540",
+    "semantic_hash": "12acb5828ae4d0f4b3bab37c8c36d540"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\shellfolio\\Grainient.tsx": {
+    "mtime": 1777310519.1139326,
+    "seen": 1788073904.8440197,
+    "ast_hash": "dd98ce2f27a7402b4cbb0a0facb37e32",
+    "semantic_hash": "dd98ce2f27a7402b4cbb0a0facb37e32"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\shellfolio\\Iridescence.tsx": {
+    "mtime": 1777310519.1139326,
+    "seen": 1788073904.8440197,
+    "ast_hash": "cd839d2218553e4fb4c89735ae698395",
+    "semantic_hash": "cd839d2218553e4fb4c89735ae698395"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\shellfolio\\VisualEffects.tsx": {
+    "mtime": 1777898109.778217,
+    "seen": 1788073904.8440197,
+    "ast_hash": "4dc71ff28b73f072ea7be64c48f4f47e",
+    "semantic_hash": "4dc71ff28b73f072ea7be64c48f4f47e"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\shellfolio\\outputs.tsx": {
+    "mtime": 1777898109.8134158,
+    "seen": 1788073904.8440197,
+    "ast_hash": "ae25b24944aa7eeb7073d901e8831f75",
+    "semantic_hash": "ae25b24944aa7eeb7073d901e8831f75"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\shellfolio\\terminal.tsx": {
+    "mtime": 1777898109.848836,
+    "seen": 1788073904.8440197,
+    "ast_hash": "f3f6662fb9bfbc1ed74610d885f1c33d",
+    "semantic_hash": "f3f6662fb9bfbc1ed74610d885f1c33d"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\shellfolio\\terminal\\CommandOutput.tsx": {
+    "mtime": 1777314612.95383,
+    "seen": 1788073904.8440197,
+    "ast_hash": "b2b7dc31503b9de6eab91fc1c95b2002",
+    "semantic_hash": "b2b7dc31503b9de6eab91fc1c95b2002"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\shellfolio\\terminal\\QuickActions.tsx": {
+    "mtime": 1777898109.9108129,
+    "seen": 1788073904.8440197,
+    "ast_hash": "def046ac3aaf51ca65bfc03640663411",
+    "semantic_hash": "def046ac3aaf51ca65bfc03640663411"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\shellfolio\\terminal\\StructuredRecordsOutput.tsx": {
+    "mtime": 1777314613.0063653,
+    "seen": 1788073904.8440197,
+    "ast_hash": "cefc863cba7c96720f50821965b1b980",
+    "semantic_hash": "cefc863cba7c96720f50821965b1b980"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\shellfolio\\terminal\\TerminalInteractiveViewport.tsx": {
+    "mtime": 1777898109.953756,
+    "seen": 1788073904.8440197,
+    "ast_hash": "98ae055de9946435224d30660f13a2cc",
+    "semantic_hash": "98ae055de9946435224d30660f13a2cc"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\shellfolio\\terminal\\TerminalPromptLine.tsx": {
+    "mtime": 1777898109.9936378,
+    "seen": 1788073904.8440197,
+    "ast_hash": "3354555247e2e8eeee6613d15820fbe7",
+    "semantic_hash": "3354555247e2e8eeee6613d15820fbe7"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\shellfolio\\terminal\\TerminalResetButton.tsx": {
+    "mtime": 1777898110.0166202,
+    "seen": 1788073904.8440197,
+    "ast_hash": "56e2add620f702c13f3cc43c0f5ed720",
+    "semantic_hash": "56e2add620f702c13f3cc43c0f5ed720"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\shellfolio\\terminal\\TerminalShellFrame.tsx": {
+    "mtime": 1777898110.0469959,
+    "seen": 1788073904.8440197,
+    "ast_hash": "a4df1ac01dd658172a0d91cf63b0b4a0",
+    "semantic_hash": "a4df1ac01dd658172a0d91cf63b0b4a0"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\shellfolio\\terminal\\TerminalViewport.tsx": {
+    "mtime": 1777898110.0841632,
+    "seen": 1788073904.8440197,
+    "ast_hash": "6037065365704395a3d2902c1c4afd3c",
+    "semantic_hash": "6037065365704395a3d2902c1c4afd3c"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\shellfolio\\terminal\\TerminalWelcome.tsx": {
+    "mtime": 1777314613.1148891,
+    "seen": 1788073904.8440197,
+    "ast_hash": "3bbc347b703ecf182475673cf861cf59",
+    "semantic_hash": "3bbc347b703ecf182475673cf861cf59"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\accordion.tsx": {
+    "mtime": 1777314613.1408863,
+    "seen": 1788073904.8440197,
+    "ast_hash": "561bb8af4899db592c7623851235979a",
+    "semantic_hash": "561bb8af4899db592c7623851235979a"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\alert-dialog.tsx": {
+    "mtime": 1777314613.1598835,
+    "seen": 1788073904.8440197,
+    "ast_hash": "7ea51ecae01882dedbbf317c61624f4a",
+    "semantic_hash": "7ea51ecae01882dedbbf317c61624f4a"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\alert.tsx": {
+    "mtime": 1777314613.1758823,
+    "seen": 1788073904.8440197,
+    "ast_hash": "48dac79c18e0c3ff687c320c6fcf1590",
+    "semantic_hash": "48dac79c18e0c3ff687c320c6fcf1590"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\avatar.tsx": {
+    "mtime": 1777314613.194891,
+    "seen": 1788073904.8440197,
+    "ast_hash": "0008445bf0b90f231d702bcd9141726c",
+    "semantic_hash": "0008445bf0b90f231d702bcd9141726c"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\badge.tsx": {
+    "mtime": 1777314613.2139373,
+    "seen": 1788073904.8440197,
+    "ast_hash": "f9c097d427c421f83eb92772a4b8ec06",
+    "semantic_hash": "f9c097d427c421f83eb92772a4b8ec06"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\button.tsx": {
+    "mtime": 1777314613.2309418,
+    "seen": 1788073904.8440197,
+    "ast_hash": "33f8ef5c351115f8904b2a2f3decef54",
+    "semantic_hash": "33f8ef5c351115f8904b2a2f3decef54"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\calendar.tsx": {
+    "mtime": 1777314613.2499402,
+    "seen": 1788073904.8440197,
+    "ast_hash": "1b468ca586d18f4f9ae0c74c25335b55",
+    "semantic_hash": "1b468ca586d18f4f9ae0c74c25335b55"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\card.tsx": {
+    "mtime": 1777314613.268941,
+    "seen": 1788073904.8440197,
+    "ast_hash": "4be937e00a434ffa44e7f0e82ae79d17",
+    "semantic_hash": "4be937e00a434ffa44e7f0e82ae79d17"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\carousel.tsx": {
+    "mtime": 1777314613.2879426,
+    "seen": 1788073904.8440197,
+    "ast_hash": "8b579b3df0997a3ef3924099697a3670",
+    "semantic_hash": "8b579b3df0997a3ef3924099697a3670"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\chart.tsx": {
+    "mtime": 1777314613.3054538,
+    "seen": 1788073904.8440197,
+    "ast_hash": "48cf3765c84639f37af7b91ff3df5171",
+    "semantic_hash": "48cf3765c84639f37af7b91ff3df5171"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\checkbox.tsx": {
+    "mtime": 1777314613.3234544,
+    "seen": 1788073904.8440197,
+    "ast_hash": "83336efee701dce6b2b2f6490e6d61dd",
+    "semantic_hash": "83336efee701dce6b2b2f6490e6d61dd"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\collapsible.tsx": {
+    "mtime": 1777314613.343459,
+    "seen": 1788073904.8440197,
+    "ast_hash": "87cce2923d03d5560ae6838e54e87f60",
+    "semantic_hash": "87cce2923d03d5560ae6838e54e87f60"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\dialog.tsx": {
+    "mtime": 1777314613.3604555,
+    "seen": 1788073904.8440197,
+    "ast_hash": "1cee7ad259ba50554280a78f4a280f8c",
+    "semantic_hash": "1cee7ad259ba50554280a78f4a280f8c"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\dropdown-menu.tsx": {
+    "mtime": 1777314613.380454,
+    "seen": 1788073904.8440197,
+    "ast_hash": "f5ec5c19d1c912a1f62695ec8556a284",
+    "semantic_hash": "f5ec5c19d1c912a1f62695ec8556a284"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\form.tsx": {
+    "mtime": 1777314613.3989778,
+    "seen": 1788073904.8440197,
+    "ast_hash": "1df53cf0afd884a27f799b2ce9917799",
+    "semantic_hash": "1df53cf0afd884a27f799b2ce9917799"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\input.tsx": {
+    "mtime": 1777314613.417976,
+    "seen": 1788073904.8440197,
+    "ast_hash": "c7cbc8cd45d01649277bd7107581cb36",
+    "semantic_hash": "c7cbc8cd45d01649277bd7107581cb36"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\label.tsx": {
+    "mtime": 1777314613.4359808,
+    "seen": 1788073904.8440197,
+    "ast_hash": "14579f07e6e3133b6ee65d3ec778b013",
+    "semantic_hash": "14579f07e6e3133b6ee65d3ec778b013"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\menubar.tsx": {
+    "mtime": 1777314613.4549794,
+    "seen": 1788073904.8440197,
+    "ast_hash": "58cf7fc18611a53a35131555279c211b",
+    "semantic_hash": "58cf7fc18611a53a35131555279c211b"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\popover.tsx": {
+    "mtime": 1777314613.475978,
+    "seen": 1788073904.8440197,
+    "ast_hash": "c8bf2474f9dd4584188af696af1fb0ad",
+    "semantic_hash": "c8bf2474f9dd4584188af696af1fb0ad"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\progress.tsx": {
+    "mtime": 1777314613.4995048,
+    "seen": 1788073904.8440197,
+    "ast_hash": "f99d4c689a0cac272cb0b1e7ea222ba8",
+    "semantic_hash": "f99d4c689a0cac272cb0b1e7ea222ba8"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\radio-group.tsx": {
+    "mtime": 1777314613.5185041,
+    "seen": 1788073904.8440197,
+    "ast_hash": "58ddcb1875be36f21402c1ddcc328867",
+    "semantic_hash": "58ddcb1875be36f21402c1ddcc328867"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\scroll-area.tsx": {
+    "mtime": 1777314613.5335057,
+    "seen": 1788073904.8440197,
+    "ast_hash": "9f52c88c78fc57a68db715ded8adb05c",
+    "semantic_hash": "9f52c88c78fc57a68db715ded8adb05c"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\select.tsx": {
+    "mtime": 1777314613.5535028,
+    "seen": 1788073904.8440197,
+    "ast_hash": "03ecf87b3b0eff2ad63d279e3a6b6b9f",
+    "semantic_hash": "03ecf87b3b0eff2ad63d279e3a6b6b9f"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\separator.tsx": {
+    "mtime": 1777314613.572503,
+    "seen": 1788073904.8440197,
+    "ast_hash": "85fd1a835601a122f1f226ccb31a0d67",
+    "semantic_hash": "85fd1a835601a122f1f226ccb31a0d67"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\sheet.tsx": {
+    "mtime": 1777314613.5915096,
+    "seen": 1788073904.8440197,
+    "ast_hash": "9ef21bceff143bfe214ff398ec382dc5",
+    "semantic_hash": "9ef21bceff143bfe214ff398ec382dc5"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\sidebar.tsx": {
+    "mtime": 1777314613.6140273,
+    "seen": 1788073904.8440197,
+    "ast_hash": "2706af11f2ddba94a367c2a2f8227503",
+    "semantic_hash": "2706af11f2ddba94a367c2a2f8227503"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\skeleton.tsx": {
+    "mtime": 1777314613.6310265,
+    "seen": 1788073904.8440197,
+    "ast_hash": "a5a4d6d5551d4c7feb8176a23e7eb07c",
+    "semantic_hash": "a5a4d6d5551d4c7feb8176a23e7eb07c"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\slider.tsx": {
+    "mtime": 1777314613.6490252,
+    "seen": 1788073904.8440197,
+    "ast_hash": "6920b37928705eb8de5ca91ba528225d",
+    "semantic_hash": "6920b37928705eb8de5ca91ba528225d"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\switch.tsx": {
+    "mtime": 1777314613.6680264,
+    "seen": 1788073904.8440197,
+    "ast_hash": "368340dd3f28bce468a5ffdebb321520",
+    "semantic_hash": "368340dd3f28bce468a5ffdebb321520"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\table.tsx": {
+    "mtime": 1777314613.6860373,
+    "seen": 1788073904.8440197,
+    "ast_hash": "efdbaeb9710b2f60de7c0e18bd4e3528",
+    "semantic_hash": "efdbaeb9710b2f60de7c0e18bd4e3528"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\tabs.tsx": {
+    "mtime": 1777314613.7065544,
+    "seen": 1788073904.8440197,
+    "ast_hash": "2dbb55bc73557d9794b1f166bb7e903b",
+    "semantic_hash": "2dbb55bc73557d9794b1f166bb7e903b"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\textarea.tsx": {
+    "mtime": 1777314613.7265575,
+    "seen": 1788073904.8440197,
+    "ast_hash": "b63a8a05a639e87859c69f452e11bc29",
+    "semantic_hash": "b63a8a05a639e87859c69f452e11bc29"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\toast.tsx": {
+    "mtime": 1777314613.7515545,
+    "seen": 1788073904.8440197,
+    "ast_hash": "76897a3e705e7de71984e7a6d6caff4c",
+    "semantic_hash": "76897a3e705e7de71984e7a6d6caff4c"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\toaster.tsx": {
+    "mtime": 1777314613.7725544,
+    "seen": 1788073904.8440197,
+    "ast_hash": "fcdccc15f76eb7acaa4e68813634da20",
+    "semantic_hash": "fcdccc15f76eb7acaa4e68813634da20"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\components\\ui\\tooltip.tsx": {
+    "mtime": 1777314613.7925668,
+    "seen": 1788073904.8440197,
+    "ast_hash": "0b8fb484cf602fe973d2e0f2f39973fb",
+    "semantic_hash": "0b8fb484cf602fe973d2e0f2f39973fb"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\hooks\\use-mobile.tsx": {
+    "mtime": 1777314613.817088,
+    "seen": 1788073904.8440197,
+    "ast_hash": "209b5193af16624cdd89d3591480dd48",
+    "semantic_hash": "209b5193af16624cdd89d3591480dd48"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\hooks\\use-toast.ts": {
+    "mtime": 1777314613.8360856,
+    "seen": 1788073904.8440197,
+    "ast_hash": "8be7876e08c12ac4eea618920cd25285",
+    "semantic_hash": "8be7876e08c12ac4eea618920cd25285"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\portfolio-data.ts": {
+    "mtime": 1777893015.9413655,
+    "seen": 1788073904.8440197,
+    "ast_hash": "de3a969c4321da5272763a48a948dea6",
+    "semantic_hash": "de3a969c4321da5272763a48a948dea6"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\autocomplete-engine.ts": {
+    "mtime": 1777314613.8910923,
+    "seen": 1788073904.8440197,
+    "ast_hash": "f39e8bb19e6f4f39f1bbc2728ca25ef2",
+    "semantic_hash": "f39e8bb19e6f4f39f1bbc2728ca25ef2"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\command-parser.ts": {
+    "mtime": 1777314613.913266,
+    "seen": 1788073904.8440197,
+    "ast_hash": "380ceb82fecafb64919e824770bc079a",
+    "semantic_hash": "380ceb82fecafb64919e824770bc079a"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\command-registry.ts": {
+    "mtime": 1777314613.9352677,
+    "seen": 1788073904.8440197,
+    "ast_hash": "2c850f4d016da4323a2073e31213b3e3",
+    "semantic_hash": "2c850f4d016da4323a2073e31213b3e3"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\commands\\about.tsx": {
+    "mtime": 1777314613.9702644,
+    "seen": 1788073904.8440197,
+    "ast_hash": "8122861be60e069af77ece9e733f099a",
+    "semantic_hash": "8122861be60e069af77ece9e733f099a"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\commands\\cat.tsx": {
+    "mtime": 1777314613.9922793,
+    "seen": 1788073904.8440197,
+    "ast_hash": "0673f20d085e7226dc84aa0c09f1c66f",
+    "semantic_hash": "0673f20d085e7226dc84aa0c09f1c66f"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\commands\\cd.tsx": {
+    "mtime": 1777314614.0175545,
+    "seen": 1788073904.8440197,
+    "ast_hash": "fac90c4b47861aad674b01137e1511e0",
+    "semantic_hash": "fac90c4b47861aad674b01137e1511e0"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\commands\\clear.tsx": {
+    "mtime": 1777314614.040553,
+    "seen": 1788073904.8440197,
+    "ast_hash": "75e049d4b40d08b88f808339f4e7b301",
+    "semantic_hash": "75e049d4b40d08b88f808339f4e7b301"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\commands\\contact.tsx": {
+    "mtime": 1777314614.0635607,
+    "seen": 1788073904.8440197,
+    "ast_hash": "8772d14b6fb9e13ff7cd89fa90042a86",
+    "semantic_hash": "8772d14b6fb9e13ff7cd89fa90042a86"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\commands\\credentials.tsx": {
+    "mtime": 1777314614.0865612,
+    "seen": 1788073904.8440197,
+    "ast_hash": "ff63087201d5075ba72a10c4d110e46f",
+    "semantic_hash": "ff63087201d5075ba72a10c4d110e46f"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\commands\\cv.tsx": {
+    "mtime": 1777314614.1090822,
+    "seen": 1788073904.8440197,
+    "ast_hash": "6d896c78812b326536a6731f5d48d13d",
+    "semantic_hash": "6d896c78812b326536a6731f5d48d13d"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\commands\\education.tsx": {
+    "mtime": 1777314614.1340866,
+    "seen": 1788073904.8440197,
+    "ast_hash": "505b5e2006389cc8dc653ced6ef78b1f",
+    "semantic_hash": "505b5e2006389cc8dc653ced6ef78b1f"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\commands\\help-menu.ts": {
+    "mtime": 1777314614.1640856,
+    "seen": 1788073904.8440197,
+    "ast_hash": "e8bcba3f60aff54da247b74ea7c23b5a",
+    "semantic_hash": "e8bcba3f60aff54da247b74ea7c23b5a"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\commands\\help.tsx": {
+    "mtime": 1777314614.1900916,
+    "seen": 1788073904.8440197,
+    "ast_hash": "5f7104c287f43c9de37db7bfe02d8d0d",
+    "semantic_hash": "5f7104c287f43c9de37db7bfe02d8d0d"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\commands\\index.ts": {
+    "mtime": 1777314614.2116203,
+    "seen": 1788073904.8440197,
+    "ast_hash": "36877276e945992c7b724eba228d2cb8",
+    "semantic_hash": "36877276e945992c7b724eba228d2cb8"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\commands\\ls.tsx": {
+    "mtime": 1777314614.2326167,
+    "seen": 1788073904.8440197,
+    "ast_hash": "5c72d2f27a2568d96d5319f1148756af",
+    "semantic_hash": "5c72d2f27a2568d96d5319f1148756af"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\commands\\projects.tsx": {
+    "mtime": 1777314614.252616,
+    "seen": 1788073904.8440197,
+    "ast_hash": "ba4166b0c4a6109dfa863aead95aad45",
+    "semantic_hash": "ba4166b0c4a6109dfa863aead95aad45"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\commands\\pwd.tsx": {
+    "mtime": 1777314614.2716153,
+    "seen": 1788073904.8440197,
+    "ast_hash": "bbdea447b3295d662eee54de48b70b2a",
+    "semantic_hash": "bbdea447b3295d662eee54de48b70b2a"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\commands\\theme.tsx": {
+    "mtime": 1777314614.2896318,
+    "seen": 1788073904.8440197,
+    "ast_hash": "e2ebd7ddedcadeeadbf819c35985c768",
+    "semantic_hash": "e2ebd7ddedcadeeadbf819c35985c768"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\commands\\themes.tsx": {
+    "mtime": 1777314614.30914,
+    "seen": 1788073904.8440197,
+    "ast_hash": "e2ebd7ddedcadeeadbf819c35985c768",
+    "semantic_hash": "e2ebd7ddedcadeeadbf819c35985c768"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\commands\\work.tsx": {
+    "mtime": 1777314614.3301382,
+    "seen": 1788073904.8440197,
+    "ast_hash": "0a7c4eca0d03fb2c5764eeca9c358810",
+    "semantic_hash": "0a7c4eca0d03fb2c5764eeca9c358810"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\history-store.ts": {
+    "mtime": 1777314614.3491373,
+    "seen": 1788073904.8440197,
+    "ast_hash": "b97b970924dc31c79fef29a79d07daef",
+    "semantic_hash": "b97b970924dc31c79fef29a79d07daef"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\terminal-state.tsx": {
+    "mtime": 1777314614.3691373,
+    "seen": 1788073904.8440197,
+    "ast_hash": "9ee211a30c34796dd205aefda68302ff",
+    "semantic_hash": "9ee211a30c34796dd205aefda68302ff"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\theme-manager.ts": {
+    "mtime": 1777314614.3901494,
+    "seen": 1788073904.8440197,
+    "ast_hash": "bba164edbc5005815ddfc7f400398292",
+    "semantic_hash": "bba164edbc5005815ddfc7f400398292"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\themes.ts": {
+    "mtime": 1777314614.4126742,
+    "seen": 1788073904.8440197,
+    "ast_hash": "089c09db1d3dabe4110f39a104d8776a",
+    "semantic_hash": "089c09db1d3dabe4110f39a104d8776a"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\types.ts": {
+    "mtime": 1777314614.433198,
+    "seen": 1788073904.8440197,
+    "ast_hash": "19169667660071dea8467a869fd9d360",
+    "semantic_hash": "19169667660071dea8467a869fd9d360"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\vfs-content.ts": {
+    "mtime": 1777314614.4531975,
+    "seen": 1788073904.8440197,
+    "ast_hash": "36dbeec3726a30d8e0af71eb7e0d4594",
+    "semantic_hash": "36dbeec3726a30d8e0af71eb7e0d4594"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\terminal\\virtual-filesystem.ts": {
+    "mtime": 1777314614.4731944,
+    "seen": 1788073904.8440197,
+    "ast_hash": "de9508f8777c28cac76d7448c950fb67",
+    "semantic_hash": "de9508f8777c28cac76d7448c950fb67"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\src\\lib\\utils.ts": {
+    "mtime": 1777314614.4902036,
+    "seen": 1788073904.8440197,
+    "ast_hash": "5a6fd53fdcf2be529e9cc0b718fde352",
+    "semantic_hash": "5a6fd53fdcf2be529e9cc0b718fde352"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\tailwind.config.ts": {
+    "mtime": 1777314614.5007286,
+    "seen": 1788073904.8440197,
+    "ast_hash": "ac47070b3c9e2de3a19eb82de8913d79",
+    "semantic_hash": "ac47070b3c9e2de3a19eb82de8913d79"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\tsconfig.json": {
+    "mtime": 1777314614.5207336,
+    "seen": 1788073904.8440197,
+    "ast_hash": "0cf97a81150d3b8904f285780896980d",
+    "semantic_hash": "0cf97a81150d3b8904f285780896980d"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\README.md": {
+    "mtime": 1777314612.6160324,
+    "seen": 1788073904.8440197,
+    "ast_hash": "1463586cab98bd7853073bd3e859d2b9",
+    "semantic_hash": "1463586cab98bd7853073bd3e859d2b9"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\apphosting.yaml": {
+    "mtime": 1777314612.6240344,
+    "seen": 1788073904.8440197,
+    "ast_hash": "66b66dcf03140222743f6d18e119e729",
+    "semantic_hash": "66b66dcf03140222743f6d18e119e729"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\dev_log.txt": {
+    "mtime": 1777310519.0465126,
+    "seen": 1788073904.8440197,
+    "ast_hash": "d290f5845c470cf30f3021f36c58b020",
+    "semantic_hash": "d290f5845c470cf30f3021f36c58b020"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\docs\\blueprint.md": {
+    "mtime": 1777314612.6480315,
+    "seen": 1788073904.8440197,
+    "ast_hash": "590b7bb1961784949824f89dd383696d",
+    "semantic_hash": "590b7bb1961784949824f89dd383696d"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\docs\\ssr-migration.md": {
+    "mtime": 1777909181.2693863,
+    "seen": 1788073904.8440197,
+    "ast_hash": "c96f189f890b6399195034885a9f14e8",
+    "semantic_hash": "c96f189f890b6399195034885a9f14e8"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\public\\files\\AI Anthropic.pdf": {
+    "mtime": 1777310519.0550241,
+    "seen": 1788073904.8440197,
+    "ast_hash": "478ca9770534c18f8fe6780ee4026203",
+    "semantic_hash": "478ca9770534c18f8fe6780ee4026203"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\public\\files\\Coursera.pdf": {
+    "mtime": 1777310519.0580242,
+    "seen": 1788073904.8440197,
+    "ast_hash": "522a33448a5321c3a04d74cbd7b27be7",
+    "semantic_hash": "522a33448a5321c3a04d74cbd7b27be7"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\public\\files\\Security_Basics.pdf": {
+    "mtime": 1777310519.059024,
+    "seen": 1788073904.8440197,
+    "ast_hash": "5014a6f5e6d654f0e7d6d4313b2fdabc",
+    "semantic_hash": "5014a6f5e6d654f0e7d6d4313b2fdabc"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\public\\files\\petermoelzerEN.pdf": {
+    "mtime": 1777310519.0623188,
+    "seen": 1788073904.8440197,
+    "ast_hash": "d9a802a9c463b4a817ea8a83d799c021",
+    "semantic_hash": "d9a802a9c463b4a817ea8a83d799c021"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\.idx\\icon.png": {
+    "mtime": 1777310519.0425117,
+    "seen": 1788073904.8440197,
+    "ast_hash": "f56bb8c4f5e40d11e34be5228692891b",
+    "semantic_hash": "f56bb8c4f5e40d11e34be5228692891b"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\public\\favicon-16x16.png": {
+    "mtime": 1777310519.0530255,
+    "seen": 1788073904.8440197,
+    "ast_hash": "4f5d4c1bfcc915556a958f2841dc3fcf",
+    "semantic_hash": "4f5d4c1bfcc915556a958f2841dc3fcf"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\public\\images\\badge_cc.png": {
+    "mtime": 1777310519.0948522,
+    "seen": 1788073904.8440197,
+    "ast_hash": "2c9975727907bc18bfc7f7e35489144f",
+    "semantic_hash": "2c9975727907bc18bfc7f7e35489144f"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\public\\images\\badge_cc_reduced.png": {
+    "mtime": 1777893015.7618155,
+    "seen": 1788073904.8440197,
+    "ast_hash": "7a321cb3304d8a8e24c5d3dada88c503",
+    "semantic_hash": "7a321cb3304d8a8e24c5d3dada88c503"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\public\\images\\badge_main.png": {
+    "mtime": 1777310519.0978515,
+    "seen": 1788073904.8440197,
+    "ast_hash": "710036b5112b8f6325743196817d273a",
+    "semantic_hash": "710036b5112b8f6325743196817d273a"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\public\\images\\badge_sq.png": {
+    "mtime": 1777310519.1014123,
+    "seen": 1788073904.8440197,
+    "ast_hash": "7fc8039b555637481e7ab4f0defe3959",
+    "semantic_hash": "7fc8039b555637481e7ab4f0defe3959"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\public\\images\\band.jpg": {
+    "mtime": 1777310519.102413,
+    "seen": 1788073904.8440197,
+    "ast_hash": "86eadd097e1fdf2d1ecd48cea1bbda9b",
+    "semantic_hash": "86eadd097e1fdf2d1ecd48cea1bbda9b"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\public\\images\\band_new.jpg": {
+    "mtime": 1777310519.102413,
+    "seen": 1788073904.8440197,
+    "ast_hash": "6aed583eb54702f7ed7400cf2105c58b",
+    "semantic_hash": "6aed583eb54702f7ed7400cf2105c58b"
+  },
+  "C:\\Users\\molze\\GitHub\\shellfolio\\public\\images\\batch.jpeg": {
+    "mtime": 1777310519.1034124,
+    "seen": 1788073904.8440197,
+    "ast_hash": "60e6dc67e53f4a51a6a563ee47248121",
+    "semantic_hash": "60e6dc67e53f4a51a6a563ee47248121"
+  }
+}
