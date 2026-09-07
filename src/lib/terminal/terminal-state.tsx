@@ -64,7 +64,7 @@ export const TerminalProvider = ({ children }: { children: ReactNode }) => {
         }
     }, []);
 
-    const executeCommand = useCallback((cmdStr: string) => {
+    const executeCommand = useCallback(async (cmdStr: string) => {
         if (!cmdStr.trim()) {
             pushHistory({ command: '', output: '' });
             return;
@@ -83,7 +83,7 @@ export const TerminalProvider = ({ children }: { children: ReactNode }) => {
             autocomplete: autocompleteInstance
         };
 
-        const output = registryInstance.execute(parsed, ctx);
+        const output = await registryInstance.execute(parsed, ctx);
         pushHistory({ command: cmdStr, output });
         if (historyStoreInstance) {
             historyStoreInstance.resetNavigation();
