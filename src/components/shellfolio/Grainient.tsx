@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
 
 interface GrainientProps {
@@ -152,15 +152,36 @@ const Grainient: React.FC<GrainientProps> = ({
     className = ''
 }) => {
     const containerRef = useRef<HTMLDivElement | null>(null);
+    const [enabled, setEnabled] = useState(false);
 
     useEffect(() => {
-        if (!containerRef.current) return;
+        const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const connection = (navigator as Navigator & {
+            connection?: EventTarget & { saveData?: boolean };
+        }).connection;
+        const update = () => setEnabled(!motion.matches && !connection?.saveData);
+        update();
+        motion.addEventListener('change', update);
+        connection?.addEventListener('change', update);
+        return () => {
+            motion.removeEventListener('change', update);
+            connection?.removeEventListener('change', update);
+        };
+    }, []);
+
+    useEffect(() => {
+        // Leave the server CSS fallback visible without allocating a renderer.
+        if (!enabled || !containerRef.current) return;
+
+        // Conservative device policy, not measured performance adaptation.
+        const mobile = window.matchMedia('(pointer: coarse), (max-width: 767px)');
+        const getDpr = () => Math.min(window.devicePixelRatio || 1, mobile.matches ? 1.5 : 2);
 
         const renderer = new Renderer({
             webgl: 2,
             alpha: true,
             antialias: false,
-            dpr: Math.min(window.devicePixelRatio || 1, 2)
+            dpr: getDpr()
         });
 
         const gl = renderer.gl;
@@ -209,6 +230,7 @@ const Grainient: React.FC<GrainientProps> = ({
             const rect = container.getBoundingClientRect();
             const width = Math.max(1, Math.floor(rect.width));
             const height = Math.max(1, Math.floor(rect.height));
+            renderer.dpr = getDpr();
             renderer.setSize(width, height);
             const res = (program.uniforms.iResolution as { value: Float32Array }).value;
             res[0] = gl.drawingBufferWidth;
@@ -217,27 +239,58 @@ const Grainient: React.FC<GrainientProps> = ({
 
         const ro = new ResizeObserver(setSize);
         ro.observe(container);
-        setSize();
+        window.addEventListener('resize', setSize);
+        mobile.addEventListener('change', setSize);
+        let resolution: MediaQueryList;
+        const watchDpr = () => {
+            resolution?.removeEventListener('change', watchDpr);
+            setSize();
+            resolution = window.matchMedia(`(resolution: ${window.devicePixelRatio || 1}dppx)`);
+            resolution.addEventListener('change', watchDpr);
+        };
+        watchDpr();
 
-        let raf = 0;
+        let raf: number | null = null;
+        let nextFrame = 0;
         const t0 = performance.now();
         const loop = (t: number) => {
-            (program.uniforms.iTime as { value: number }).value = (t - t0) * 0.001;
-            renderer.render({ scene: mesh });
+            raf = null;
+            if (document.hidden) return;
+            const interval = 1000 / (mobile.matches ? 30 : 60);
+            if (t >= nextFrame - 0.01) {
+                (program.uniforms.iTime as { value: number }).value = (t - t0) * 0.001;
+                renderer.render({ scene: mesh });
+                // Keep cadence across high-refresh displays, without catch-up renders.
+                nextFrame = Math.max(nextFrame + interval, t + interval - interval / 2);
+            }
             raf = requestAnimationFrame(loop);
         };
-        raf = requestAnimationFrame(loop);
-
-        return () => {
-            cancelAnimationFrame(raf);
-            ro.disconnect();
-            try {
-                container.removeChild(canvas);
-            } catch {
-                // Ignore
+        const visibility = () => {
+            if (document.hidden) {
+                if (raf !== null) cancelAnimationFrame(raf);
+                raf = null;
+            } else if (raf === null) {
+                nextFrame = 0;
+                raf = requestAnimationFrame(loop);
             }
         };
+        document.addEventListener('visibilitychange', visibility);
+        visibility();
+
+        return () => {
+            if (raf !== null) cancelAnimationFrame(raf);
+            document.removeEventListener('visibilitychange', visibility);
+            window.removeEventListener('resize', setSize);
+            mobile.removeEventListener('change', setSize);
+            resolution.removeEventListener('change', watchDpr);
+            ro.disconnect();
+            canvas.remove();
+            geometry.remove();
+            program.remove();
+            gl.getExtension('WEBGL_lose_context')?.loseContext();
+        };
     }, [
+        enabled,
         timeSpeed,
         colorBalance,
         warpStrength,
