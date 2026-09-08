@@ -23,7 +23,7 @@ export class CommandRegistry {
         return Array.from(this.commands.values());
     }
 
-    execute(parsed: ParsedCommand, ctx: CommandContext): ReactNode | string {
+    async execute(parsed: ParsedCommand, ctx: CommandContext): Promise<ReactNode> {
         if (!parsed.name) {
             return '';
         }
@@ -34,7 +34,7 @@ export class CommandRegistry {
         }
 
         try {
-            return command.execute(parsed, ctx);
+            return await command.execute(parsed, ctx);
         } catch (error) {
             console.error(`Error executing ${parsed.name}:`, error);
             return `error executing ${parsed.name}: ${(error as Error).message}`;

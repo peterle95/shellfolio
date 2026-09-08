@@ -56,7 +56,7 @@ export interface Command {
     description: string;
     usage?: string;
     examples?: string[];
-    execute: (parsed: ParsedCommand, ctx: CommandContext) => string | ReactNode;
+    execute: (parsed: ParsedCommand, ctx: CommandContext) => ReactNode | Promise<ReactNode>;
     autocomplete?: (partial: string, ctx: CommandContext) => string[];
 }
 

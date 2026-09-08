@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, useRef, ReactNode } from 'react';
 import { VirtualFileSystem } from './virtual-filesystem';
 import { HistoryStore } from './history-store';
 import { CommandRegistry } from './command-registry';
@@ -41,8 +41,15 @@ export const useTerminal = () => {
 };
 
 export const TerminalProvider = ({ children }: { children: ReactNode }) => {
-    const [cwd, setCwd] = useState('/');
+    const [cwd, setCwdState] = useState('/');
+    const cwdRef = useRef(cwd);
+    const commandQueue = useRef<Promise<void>>(Promise.resolve());
     const [history, setHistory] = useState<HistoryItem[]>([]);
+
+    const setCwd = useCallback((path: string) => {
+        cwdRef.current = path;
+        setCwdState(path);
+    }, []);
 
     useEffect(() => {
         if (historyStoreInstance) {
@@ -65,30 +72,35 @@ export const TerminalProvider = ({ children }: { children: ReactNode }) => {
     }, []);
 
     const executeCommand = useCallback((cmdStr: string) => {
-        if (!cmdStr.trim()) {
-            pushHistory({ command: '', output: '' });
-            return;
-        }
+        const execution = commandQueue.current.then(async () => {
+            if (!cmdStr.trim()) {
+                pushHistory({ command: '', output: '' });
+                return;
+            }
 
-        const parsed = CommandParser.parse(cmdStr);
-        
-        const ctx: CommandContext = {
-            cwd,
-            setCwd,
-            vfs: vfsInstance,
-            historyStore: historyStoreInstance as HistoryStore,
-            pushHistory,
-            clearHistory,
-            executeCommand: executeCommand, // Allow commands to trigger other commands
-            autocomplete: autocompleteInstance
-        };
+            const parsed = CommandParser.parse(cmdStr);
 
-        const output = registryInstance.execute(parsed, ctx);
-        pushHistory({ command: cmdStr, output });
-        if (historyStoreInstance) {
-            historyStoreInstance.resetNavigation();
-        }
-    }, [cwd, pushHistory, clearHistory]);
+            const ctx: CommandContext = {
+                cwd: cwdRef.current,
+                setCwd,
+                vfs: vfsInstance,
+                historyStore: historyStoreInstance as HistoryStore,
+                pushHistory,
+                clearHistory,
+                executeCommand: executeCommand, // Allow commands to trigger other commands
+                autocomplete: autocompleteInstance
+            };
+
+            const output = await registryInstance.execute(parsed, ctx);
+            pushHistory({ command: cmdStr, output });
+            if (historyStoreInstance) {
+                historyStoreInstance.resetNavigation();
+            }
+        });
+        // Recover the queue tail, while preserving failures on the returned promise.
+        commandQueue.current = execution.catch(() => {});
+        return execution;
+    }, [setCwd, pushHistory, clearHistory]);
 
     const value: TerminalProviderState = {
         cwd,

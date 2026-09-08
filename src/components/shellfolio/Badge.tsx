@@ -2,47 +2,31 @@
 "use client";
 
 import * as THREE from 'three'
-import { Suspense, useEffect, useRef, useState } from 'react'
+import { Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { Canvas, extend, useThree, useFrame } from '@react-three/fiber'
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier'
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline'
-import { useGLTF, useTexture, Environment, Lightformer, Html } from '@react-three/drei'
+import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei'
 
 extend({ MeshLineGeometry, MeshLineMaterial })
 
 useGLTF.preload('/models/tag.glb')
 useTexture.preload('/images/band.jpg')
 
-function LoadingFallback() {
-    return (
-        <Html center>
-            <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '12px',
-                color: 'white',
-                fontFamily: 'monospace',
-            }}>
-                <div style={{
-                    width: '32px',
-                    height: '32px',
-                    border: '3px solid rgba(255,255,255,0.2)',
-                    borderTop: '3px solid white',
-                    borderRadius: '50%',
-                    animation: 'badge-spin 0.8s linear infinite',
-                }} />
-                <style>{`@keyframes badge-spin { to { transform: rotate(360deg) } }`}</style>
-            </div>
-        </Html>
-    )
-}
-
-export default function Badge() {
+export default function Badge({ onReady, onFailure }) {
     const [interactive, setInteractive] = useState(false)
+    const [visible, setVisible] = useState(() => !document.hidden)
+    useEffect(() => {
+        const update = () => setVisible(!document.hidden)
+        document.addEventListener('visibilitychange', update)
+        update()
+        return () => document.removeEventListener('visibilitychange', update)
+    }, [])
 
     return (
-        <Canvas 
+        <Canvas
+            frameloop={visible ? 'demand' : 'never'}
+            fallback={null}
             camera={{ position: [0, 0, 13], fov: 25 }}
             style={{ pointerEvents: interactive ? 'auto' : 'none' }}
             // @ts-ignore
@@ -50,9 +34,9 @@ export default function Badge() {
             eventPrefix="client"
         >
             <ambientLight intensity={Math.PI} />
-            <Suspense fallback={<LoadingFallback />}>
-                <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
-                    <Band setInteractive={setInteractive} />
+            <Suspense fallback={null}>
+                <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60} updateLoop="follow" paused={!visible}>
+                    <ResponsiveBand setInteractive={setInteractive} visible={visible} onReady={onReady} onFailure={onFailure} />
                 </Physics>
             </Suspense>
             <Environment background={false} blur={0.75}>
@@ -65,8 +49,14 @@ export default function Badge() {
     )
 }
 
-function Band({ maxSpeed = 50, minSpeed = 10, setInteractive }: any) {
-    const profileTexture = useTexture('/images/badge_cc_reduced.png')
+function ResponsiveBand(props) {
+    const width = useThree((state) => state.viewport.width)
+    // Rapier caches the inverse parent matrix: recreate bodies AND joints when the anchor moves.
+    return <Band key={width} {...props} />
+}
+
+function Band({ maxSpeed = 50, minSpeed = 10, setInteractive, visible, onReady, onFailure }: any) {
+    const profileTexture = useTexture('/images/badge-texture.webp')
     profileTexture.colorSpace = THREE.SRGBColorSpace
     profileTexture.flipY = false
     profileTexture.repeat.set(2, 2)
@@ -97,6 +87,51 @@ function Band({ maxSpeed = 50, minSpeed = 10, setInteractive }: any) {
     const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]))
     const [dragged, drag] = useState<false | THREE.Vector3>(false)
     const [hovered, hover] = useState(false)
+    const capture = useRef(null)
+    const ready = useRef(false)
+    const resting = useRef(false)
+    const { invalidate, gl, clock } = useThree()
+    const wake = useCallback(() => {
+        ;[card, j1, j2, j3].forEach((ref) => ref.current?.wakeUp())
+        resting.current = false
+        // Demand mode's clock may have been idle for minutes.
+        clock.start()
+        invalidate()
+    }, [clock, invalidate])
+    const release = useCallback((event?) => {
+        const pointer = capture.current
+        if (event && (!pointer || pointer.id !== event.pointerId)) return
+        capture.current = null
+        if (pointer?.target.hasPointerCapture(pointer.id)) pointer.target.releasePointerCapture(pointer.id)
+        drag(false)
+        hover(false)
+        wake()
+    }, [wake])
+
+    useEffect(() => {
+        const eventSource = document.body
+        const lost = () => onFailure()
+        gl.domElement.addEventListener('webglcontextlost', lost)
+        window.addEventListener('pointerup', release)
+        window.addEventListener('pointercancel', release)
+        // Native capture can belong to an element behind the pointer-transparent canvas.
+        eventSource.addEventListener('lostpointercapture', release, true)
+        return () => {
+            gl.domElement.removeEventListener('webglcontextlost', lost)
+            window.removeEventListener('pointerup', release)
+            window.removeEventListener('pointercancel', release)
+            eventSource.removeEventListener('lostpointercapture', release, true)
+            const pointer = capture.current
+            capture.current = null
+            if (pointer?.target.hasPointerCapture(pointer.id)) pointer.target.releasePointerCapture(pointer.id)
+            setInteractive(false)
+        }
+    }, [gl, release, onFailure, setInteractive])
+
+    useEffect(() => {
+        if (visible) wake()
+        else release()
+    }, [visible, wake, release])
 
     useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1])
     useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1])
@@ -104,20 +139,26 @@ function Band({ maxSpeed = 50, minSpeed = 10, setInteractive }: any) {
     useSphericalJoint(j3, card, [[0, 0, 0], [0, 1.45, 0]])
 
     useEffect(() => {
-        setInteractive(hovered || dragged !== false)
-        if (hovered) {
+        setInteractive(visible && (hovered || dragged !== false))
+        if (visible && (hovered || dragged)) {
+            const previous = document.body.style.cursor
             document.body.style.cursor = dragged ? 'grabbing' : 'grab'
-            return () => void (document.body.style.cursor = 'auto')
+            return () => void (document.body.style.cursor = previous)
         }
-    }, [hovered, dragged, setInteractive])
+    }, [hovered, dragged, visible, setInteractive])
 
     useFrame((state, delta) => {
+        if (!visible || !card.current || !j1.current || !j2.current || !j3.current) return
+        const asleep = !dragged && [card, j1, j2, j3].every((ref) => ref.current.isSleeping())
+        if (asleep && resting.current) return
+        delta = Math.min(delta, 1 / 30)
         if (dragged) {
+            invalidate()
             // @ts-ignore
             vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera)
             dir.copy(vec).sub(state.camera.position).normalize()
             vec.add(dir.multiplyScalar(state.camera.position.length()))
-                ;[card, j1, j2, j3, fixed].forEach((ref) => ref.current?.wakeUp())
+                ;[card, j1, j2, j3].forEach((ref) => ref.current?.wakeUp())
             // @ts-ignore
             card.current?.setNextKinematicTranslation({ x: vec.x - dragged.x, y: vec.y - dragged.y, z: vec.z - dragged.z })
         }
@@ -129,7 +170,8 @@ function Band({ maxSpeed = 50, minSpeed = 10, setInteractive }: any) {
                 // @ts-ignore
                 const clampedDistance = Math.max(0.1, Math.min(1, ref.current.lerped.distanceTo(ref.current.translation())))
                 // @ts-ignore
-                ref.current.lerped.lerp(ref.current.translation(), delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed)))
+                if (asleep) ref.current.lerped.copy(ref.current.translation())
+                else ref.current.lerped.lerp(ref.current.translation(), Math.min(1, delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed))))
             })
             // Calculate catmul curve
             // @ts-ignore
@@ -142,13 +184,15 @@ function Band({ maxSpeed = 50, minSpeed = 10, setInteractive }: any) {
             curve.points[3].copy(fixed.current.translation())
             // @ts-ignore
             band.current.geometry.setPoints(curve.getPoints(32))
+            resting.current = asleep
+            if (asleep) return
             // Tilt it back towards the screen
             // @ts-ignore
             ang.copy(card.current.angvel())
             // @ts-ignore
             rot.copy(card.current.rotation())
             // @ts-ignore
-            card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z })
+            card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z }, false)
         }
     })
 
@@ -177,10 +221,21 @@ function Band({ maxSpeed = 50, minSpeed = 10, setInteractive }: any) {
                         onPointerOver={() => hover(true)}
                         onPointerOut={() => hover(false)}
                         // @ts-ignore
-                        onPointerUp={(e) => (e.target.releasePointerCapture(e.pointerId), drag(false))}
+                        onPointerUp={release}
+                        onPointerCancel={release}
                         // @ts-ignore
-                        onPointerDown={(e) => (e.target.setPointerCapture(e.pointerId), drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation()))))}>
-                        <mesh geometry={nodes.card.geometry}>
+                        onPointerDown={(e) => {
+                            e.target.setPointerCapture(e.pointerId)
+                            capture.current = { target: e.target, id: e.pointerId }
+                            wake()
+                            drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())))
+                        }}>
+                        <mesh geometry={nodes.card.geometry} onAfterRender={() => {
+                            if (!ready.current) {
+                                ready.current = true
+                                onReady()
+                            }
+                        }}>
                             <meshPhysicalMaterial
                                 map={profileTexture}
                                 clearcoat={1}
