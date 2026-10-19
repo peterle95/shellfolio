@@ -104,9 +104,10 @@ export const educationHistory = [
 ];
 
 export const workExperience = [
-    { company: 'InnoBee', role: 'Fullstack Developer', period: '2025 - 2026' },
-    { company: 'Klarna', role: 'Development Manager', period: '2022 - 2023' },
-    { company: 'Clark', role: 'Partnerships Manager', period: '2021 - 2022' },
+    { company: 'InnoBee', role: 'Frontend Developer', period: '2025 - 2026' },
+    { company: 'Yellow Srl', role: 'Web Development Intern', period: '2024 - 2025' },
+    { company: 'Klarna', role: 'Business Development Associate', period: '2022 - 2023' },
+    { company: 'Clark', role: 'Junior Partnership Marketing', period: '2021 - 2022' },
 ];
 
 export type CredentialItem = {
