@@ -293,8 +293,13 @@ async function navigation() {
             await send(page, 'pwd');
             assert.equal((await viewport(page).boundingBox()).width, expanded.width);
             // Every section alias must restore layout, without removing either project output.
-            for (const section of ['about', 'education', 'jobs', 'resume', 'social', 'certs', 'help']) {
+            for (const [section, content] of Object.entries({
+                about: 'I was born in Genoa (Italy)', education: 'Computer Science & Software Engineering',
+                jobs: 'Business Development Associate', resume: '/files/petermoelzerEN.pdf',
+                social: 'moelzerpeter@proton.me', certs: 'AI Fluency', help: 'View my recent projects.',
+            })) {
                 await send(page, section);
+                await expect(page.locator('[data-terminal-entry]').last().locator('pre')).toContainText(content);
                 await expect(page.locator('[data-badge-ready]')).toBeVisible();
                 assert.equal((await viewport(page).boundingBox()).width, normal.width);
                 await expect(projects(page)).toHaveCount(1);
@@ -386,6 +391,54 @@ async function responsive() {
     console.log('Selected production image URLs:', JSON.stringify(selected));
 }
 
+async function virtualFilesAndRecall() {
+    const { context, page, requests, errors } = await session();
+    try {
+        await boot(page);
+        await send(page, 'projects');
+        await send(page, 'ls /projects');
+        const entries = page.locator('[data-terminal-entry]');
+        // These records are already checked against the pre-feature hash above.
+        const files = portfolioContent.children.projects.children;
+        for (const filename of Object.keys(files)) {
+            await expect(entries.last().getByText(filename, { exact: true })).toBeVisible();
+        }
+        for (const [filename, file] of Object.entries(files)) {
+            await send(page, `cat /projects/${filename}`);
+            assert.deepEqual(JSON.parse(await entries.last().locator('code').textContent()), JSON.parse(file.content));
+        }
+        await send(page, 'cd /projects');
+        await send(page, 'pwd');
+        await expect(entries.last().getByText('/projects', { exact: true })).toBeVisible();
+        await send(page, 'cat fermentstation.json');
+        assert.deepEqual(JSON.parse(await entries.last().locator('code').textContent()), JSON.parse(files['fermentstation.json'].content));
+        const input = page.getByRole('textbox', { name: 'Terminal input' });
+        await input.press('ArrowUp');
+        await expect(input).toHaveValue('cat fermentstation.json');
+        await input.press('ArrowUp');
+        await expect(input).toHaveValue('pwd');
+        await input.press('ArrowDown');
+        await expect(input).toHaveValue('cat fermentstation.json');
+        await input.press('ArrowDown');
+        await expect(input).toBeEmpty();
+        const count = await entries.count();
+        await page.reload({ waitUntil: 'networkidle' });
+        await expect(entries).toHaveCount(count);
+        await expect(projects(page)).toHaveCount(0); // Existing persistence saves commands, not React outputs.
+        await expect(entries.last().getByText('cat fermentstation.json', { exact: true })).toBeVisible();
+        // Both baseline and candidate need a new command to initialize the restored
+        // recall cursor; retain this known limitation in docs/project-verification-37.md.
+        await send(page, 'pwd');
+        await input.press('ArrowUp');
+        await expect(input).toHaveValue('pwd');
+        await input.press('ArrowUp');
+        await expect(input).toHaveValue('cat fermentstation.json');
+        noVideo(requests);
+        assert.deepEqual(errors, []);
+    } finally { await context.close(); }
+    console.log('PASS all virtual project paths/records, relative paths, history recall and reload persistence');
+}
+
 async function delayedAndBroken() {
     for (const broken of [false, true]) {
         const { context, page, requests, errors } = await session(390);
@@ -470,6 +523,7 @@ async function optionalMediaFixture() {
         await playbackOwnership();
         await videoFailureAndCancellation();
         await navigation();
+        await virtualFilesAndRecall();
         await responsive();
         await delayedAndBroken();
         await optionalMediaFixture();
