@@ -6,7 +6,7 @@ export const TerminalPromptLine = ({
 }: {
     autoFocus?: boolean
 }) => {
-    const { cwd, executeCommand, historyStore, autocomplete, registry, vfs } = useTerminal();
+    const { cwd, executeCommand, historyStore, autocomplete, vfs } = useTerminal();
     const [input, setInput] = useState('');
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -16,9 +16,10 @@ export const TerminalPromptLine = ({
             inputRef.current.focus();
         }
 
-        const handleGlobalClick = () => {
+        const handleGlobalClick = (event: MouseEvent) => {
+            if (event.target instanceof Element && event.target.closest('a, button, input, textarea, select, video, article')) return;
             if (window.getSelection()?.toString().length === 0) {
-                inputRef.current?.focus();
+                inputRef.current?.focus({ preventScroll: true });
             }
         };
 
@@ -43,7 +44,7 @@ export const TerminalPromptLine = ({
                 const next = historyStore.next();
                 if (next !== null) setInput(next);
             }
-        } else if (e.key === 'Tab') {
+        } else if (e.key === 'Tab' && !e.shiftKey && input.trim()) {
             e.preventDefault();
             // Basic autocomplete
             if (!input.trim()) return;
@@ -96,7 +97,7 @@ export const TerminalPromptLine = ({
                 <span className="ml-2 font-bold" style={{ color: 'var(--terminal-prompt-symbol)' }}>$</span>
             </div>
             
-            <div className="flex-1 relative min-h-[1.5em] flex">
+            <div className="flex-1 min-w-0 relative min-h-[1.5em] flex">
                 <span className="whitespace-pre-wrap break-all pointer-events-none z-10">{input}</span>
                 <span 
                     className="inline-block w-2.5 h-[1.2em] animate-[blink_1s_step-end_infinite] shrink-0 ml-[1px] translate-y-[2px]" 

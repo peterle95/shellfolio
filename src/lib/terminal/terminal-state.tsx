@@ -7,8 +7,9 @@ import { CommandRegistry } from './command-registry';
 import { AutocompleteEngine } from './autocomplete-engine';
 import { portfolioContent } from './vfs-content';
 import { predefinedCommands } from './commands';
-import { HistoryItem, CommandContext, ParsedCommand } from './types';
+import { HistoryItem, CommandContext } from './types';
 import { CommandParser } from './command-parser';
+import { HELP_MENU } from './commands/help-menu';
 
 // Default instances
 const vfsInstance = new VirtualFileSystem(portfolioContent);
@@ -21,6 +22,7 @@ interface TerminalProviderState {
     cwd: string;
     setCwd: (path: string) => void;
     history: HistoryItem[];
+    activeSection: string | null;
     pushHistory: (entry: Omit<HistoryItem, 'id' | 'timestamp'>) => void;
     clearHistory: () => void;
     executeCommand: (cmdStr: string) => void;
@@ -45,6 +47,7 @@ export const TerminalProvider = ({ children }: { children: ReactNode }) => {
     const cwdRef = useRef(cwd);
     const commandQueue = useRef<Promise<void>>(Promise.resolve());
     const [history, setHistory] = useState<HistoryItem[]>([]);
+    const [activeSection, setActiveSection] = useState<string | null>(null);
 
     const setCwd = useCallback((path: string) => {
         cwdRef.current = path;
@@ -58,6 +61,7 @@ export const TerminalProvider = ({ children }: { children: ReactNode }) => {
     }, []);
 
     const clearHistory = useCallback(() => {
+        setActiveSection(null);
         if (historyStoreInstance) {
             historyStoreInstance.clear();
             setHistory([]);
@@ -92,6 +96,10 @@ export const TerminalProvider = ({ children }: { children: ReactNode }) => {
             };
 
             const output = await registryInstance.execute(parsed, ctx);
+            const section = registryInstance.get(parsed.name)?.name;
+            if (section && section in HELP_MENU && React.isValidElement(output)) {
+                setActiveSection(section);
+            }
             pushHistory({ command: cmdStr, output });
             if (historyStoreInstance) {
                 historyStoreInstance.resetNavigation();
@@ -106,6 +114,7 @@ export const TerminalProvider = ({ children }: { children: ReactNode }) => {
         cwd,
         setCwd,
         history,
+        activeSection,
         pushHistory,
         clearHistory,
         executeCommand,

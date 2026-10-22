@@ -8,17 +8,38 @@ export const aboutParagraphs = [
 
 export const aboutBioPlainText = aboutParagraphs.join('\n\n');
 
+export type ProjectImage = {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+    caption?: string;
+};
+
+// Owner-approved release exception and exact copy: docs/project-content-34.md.
+const sharedFinancePoster: ProjectImage = {
+    src: '/videos/finance_tracker-poster.webp',
+    alt: 'Shared placeholder: Finance Tracker dashboard with a daily spending target and expense list.',
+    width: 1280,
+    height: 720,
+    caption: 'Shared placeholder: Finance Tracker, not a preview of this project.',
+};
+
 export type PortfolioProject = {
     title: string;
     description: string;
+    shortDescription: string;
     stack: string;
     live?: string;
     repo: string;
+    image?: ProjectImage;
 };
 
 export const portfolioProjects: PortfolioProject[] = [
     {
         title: 'FermentStation',
+        shortDescription: 'Track fermentation locally, on desktop or Android.',
+        image: sharedFinancePoster,
         description:
             'Local-first fermentation tracker. 70+ tests, desktop + Android packaging',
         stack: 'React, TypeScript, Vite, Tauri 2, Capacitor',
@@ -27,6 +48,8 @@ export const portfolioProjects: PortfolioProject[] = [
     },
     {
         title: 'WEB CONSULTANT & DEVELOPER – I PELOSETTI DI SILVANA ONLUS',
+        shortDescription: 'Pro-bono WordPress fixes for animal listings and SEO.',
+        image: sharedFinancePoster,
         description:
             'Provided pro-bono technical consulting for a non-profit animal shelter, diagnosing and resolving critical WordPress/WooCommerce issues affecting animal listing pages and site SEO',
         stack: 'WordPress, WooCommerce, Elementor',
@@ -35,6 +58,8 @@ export const portfolioProjects: PortfolioProject[] = [
     },
     {
         title: 'Printing Press CLIs',
+        shortDescription: '23 command-line tools for API automation.',
+        image: sharedFinancePoster,
         description:
             'WSL monorepo of 23 CLI tools wrapping public APIs for agent-friendly automation. ',
         stack: 'Go/Cobra, Python, Node/TypeScript',
@@ -43,6 +68,8 @@ export const portfolioProjects: PortfolioProject[] = [
     },
     {
         title: 'Transcendence',
+        shortDescription: 'A multi-game platform built at 42, currently in development.',
+        image: sharedFinancePoster,
         description:
             'Final project of 42 Core Curriculum. Together we 4 other fellow 42oers we created a platform for multiple games showcasing different technologies and games. (Currently in development)',
         stack: 'Next.js, TypeScript, React, Prisma, Tailwind CSS',
@@ -51,6 +78,8 @@ export const portfolioProjects: PortfolioProject[] = [
     },
     {
         title: 'Webserv',
+        shortDescription: 'A custom HTTP server built in C++98.',
+        image: sharedFinancePoster,
         description:
             "Custom HTTP server implemented in C++98. This project aims to provide a deep understanding of how HTTP servers operate, focusing on core network aspects and non-blocking behavior to handle multiple concurrent connections efficiently. The server's primary function is to receive HTTP requests from clients, process these requests, and send appropriate HTTP responses back.",
         stack: 'C++98, Unix, Nginx, JavaScript, HTML, CSS, Python',
@@ -59,6 +88,8 @@ export const portfolioProjects: PortfolioProject[] = [
     },
     {
         title: 'Shellfolio',
+        shortDescription: 'An interactive portfolio styled as a command-line shell.',
+        image: sharedFinancePoster,
         description:
             'Personal portfolio webpage simulating shell. It makes my projects and other information interactive and fun.',
         stack: 'TypeScript, React, Next.js',
@@ -82,6 +113,8 @@ export const portfolioProjects: PortfolioProject[] = [
     }, */
     {
         title: 'More Projects',
+        shortDescription: 'Explore more projects and contributions on GitHub.',
+        image: sharedFinancePoster,
         description: 'Check out my GitHub for more projects and contributions.',
         stack: 'C, C++, JavaScript, TypeScript, React, ...',
         repo: 'https://github.com/peterle95/',

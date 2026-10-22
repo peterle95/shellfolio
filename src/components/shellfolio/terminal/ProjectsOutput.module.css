@@ -1,0 +1,106 @@
+.projects {
+    container-type: inline-size;
+}
+
+.list {
+    display: grid;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    display: grid;
+    gap: 1.25rem;
+    padding: 1rem;
+    border: 1px solid var(--terminal-border);
+    border-radius: 0.75rem;
+    background: var(--terminal-header);
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.copy, .preview {
+    min-width: 0;
+}
+
+.title {
+    margin: 0 0 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--terminal-prompt-user);
+}
+
+.fullDescription, .stack {
+    display: none;
+}
+
+.stack {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    margin-top: 0.75rem;
+}
+
+.link {
+    display: inline-block;
+    padding: 0.5rem 0;
+    color: var(--terminal-link);
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+}
+
+.link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+.preview {
+    margin: 0;
+}
+
+.imageFrame {
+    display: grid;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: var(--terminal-bg);
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.caption, .unavailable {
+    font-size: 0.75rem;
+    line-height: 1.5;
+}
+
+.caption {
+    margin-top: 0.5rem;
+}
+
+.unavailable {
+    padding: 1rem;
+}
+
+/* Copy gets room before introducing two columns; queries follow content, not devices. */
+@container (min-width: 36rem) {
+    .shortDescription { display: none; }
+    .fullDescription, .stack { display: block; }
+}
+
+/* At 52rem each column retains roughly 24rem of readable space. */
+@container (min-width: 52rem) {
+    .withMedia { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}

@@ -13,7 +13,7 @@ export function TerminalInteractiveViewport({ children }: { children: ReactNode 
             {history.length === 0 && children}
 
             {history.map(item => (
-                <div key={item.id} className="w-full mb-4 last:mb-0">
+                <div key={item.id} data-terminal-entry className="w-full mb-4 last:mb-0">
                     {item.command && (
                         <div className="flex items-start w-full relative mb-2 opacity-70">
                             <div className="flex items-center shrink-0 mr-3 select-none">

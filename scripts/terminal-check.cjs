@@ -18,6 +18,7 @@ function terminal() {
     const react = {
         createContext: () => ({ Provider: 'Provider' }),
         createElement: (type, props, ...children) => ({ type, props: { ...props, children } }),
+        isValidElement: value => value !== null && typeof value === 'object' && 'type' in value,
         useState(initial) {
             const slot = index++;
             if (!(slot in slots)) slots[slot] = initial;
@@ -88,6 +89,24 @@ function terminal() {
 }
 
 const checks = {
+    async 'latest section controls presentation across aliases and retained history'() {
+        const t = terminal();
+        assert.equal(t.render().activeSection, null);
+        await t.api.executeCommand('portfolio');
+        assert.equal(t.render().activeSection, 'projects');
+        await t.api.executeCommand('pwd');
+        await t.api.executeCommand('not-a-command');
+        assert.equal(t.render().activeSection, 'projects', 'shell commands do not open another section');
+        await t.api.executeCommand('jobs');
+        assert.equal(t.render().activeSection, 'work');
+        assert.deepEqual(t.commands(), ['portfolio', 'pwd', 'not-a-command', 'jobs']);
+        await t.api.executeCommand('projects');
+        await t.api.executeCommand('help');
+        assert.equal(t.render().activeSection, 'help');
+        await t.api.executeCommand('projects');
+        await t.api.executeCommand('clear');
+        assert.equal(t.render().activeSection, null);
+    },
     async 'slow projects then clear'() {
         const t = terminal(), gate = t.gate('projects');
         const first = t.api.executeCommand('projects');
@@ -130,6 +149,7 @@ const checks = {
         assert.deepEqual(t.commands(), ['projects', 'pwd']);
         assert.match(t.api.historyStore.getAll()[0].output, /load failed/);
         assert.equal(t.errors.length, 1);
+        assert.equal(t.render().activeSection, null, 'failed loading must not expand the page');
     },
     async 'unexpected failure does not poison queue'() {
         const t = terminal(), store = t.api.historyStore, push = store.push;

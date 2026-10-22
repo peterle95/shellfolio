@@ -1,9 +1,10 @@
 import React from 'react';
 import { StructuredRecordsOutput } from '@/components/shellfolio/terminal/StructuredRecordsOutput';
+import { ProjectsOutput } from '@/components/shellfolio/terminal/ProjectsOutput';
 import { HELP_MENU, HELP_MENU_ORDER } from '@/lib/terminal/commands/help-menu';
 import {
     aboutAsRecords,
-    projectsAsRecords,
+    portfolioProjects,
     educationAsRecords,
     workAsRecords,
     credentialsAsRecords,
@@ -30,7 +31,7 @@ export const Help = () => (
 
 export const About = () => <StructuredRecordsOutput records={aboutAsRecords()} />;
 
-export const Projects = () => <StructuredRecordsOutput records={projectsAsRecords()} />;
+export const Projects = () => <ProjectsOutput projects={portfolioProjects} />;
 
 export const Education = () => <StructuredRecordsOutput records={educationAsRecords()} />;
 
