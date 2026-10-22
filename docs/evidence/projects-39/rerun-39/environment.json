@@ -1,0 +1,65 @@
+{
+  "purpose": "Issue 39 rerun; original issue 37 captures are stored separately",
+  "os": {
+    "name": "Microsoft Windows 11 Home",
+    "version": "10.0.26200",
+    "architecture": "64-bit"
+  },
+  "processor": {
+    "name": "13th Gen Intel(R) Core(TM) i7-1355U",
+    "physicalCores": 10,
+    "logicalProcessors": 12
+  },
+  "physicalMemoryBytes": 16890322944,
+  "node": "v24.18.0",
+  "npm": "11.16.0",
+  "browserExecutable": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+  "browserFileVersion": "155.0.8059.86",
+  "baselineRevision": "c9922bde43836a370ed426b13d93bb805f1ce1ab",
+  "showcaseRevision": "dc0f1e60c404e256c74a8c7b6729b0e3f72290c1",
+  "verificationRevision": "088424942f6196a784c7e78623d34e83e258cd5d",
+  "benchmarkSHA256": "b9edde74665231183cc1a613f335b2ffd9b2ce2dc8235f6fbea76b9b8e40a931",
+  "browserCheckSHA256": "500c834f3d60b0b3cf5ed5eb12848bba277dcc451a0b5e9f3f85c605843e3a06",
+  "lockfileSHA256": "df192e3e682401fe4d0edb53945f225b3238dd765fc552556f87895f6927a058",
+  "baselineLockfileSHA256": "e166743d0e939a0013a15876ad9daa2d27c6637b2e7447ca1403d7441bf4fa74",
+  "preparation": {
+    "installs": "npm ci in each clean detached worktree; both succeeded",
+    "builds": "npm run build in each worktree; both succeeded",
+    "typechecks": "node node_modules/typescript/bin/tsc --noEmit in each worktree; both succeeded",
+    "generatedSourceChanges": "Only Next.js automatic tsconfig.json JSX/include settings in each temporary worktree",
+    "warmup": "One 390px run per target, excluded from the ten measured runs per viewport",
+    "measuredOrder": "All baseline runs, then all showcase runs; no concurrent builds, tests or browser checks",
+    "excludedAttempt": "First baseline batch stopped after 28 runs with ERR_CONNECTION_REFUSED; no completed JSON. Both detached server PIDs disappeared with no crash in stderr. Exact cause unknown. Exclude all partial timings; restart using tool-managed servers and new warm-ups.",
+    "auditAdvisories": {
+      "low": 3,
+      "moderate": 74,
+      "high": 34,
+      "critical": 4,
+      "total": 115
+    }
+  },
+  "approvedPosterSHA256": "ffb5ce198ad2b6478b2ba4579eac58eef88d9d6414596527929887b9f6539665",
+  "approvedSilentVideoSHA256": "682a05c1b387e8b5b3c2f45fcd911f9c4fa529357afc13914a22c8b7b3f3ff87",
+  "limitations": [
+    "Local production servers, not a CDN",
+    "Desktop Chromium with resized viewports and reduced motion, not physical devices",
+    "No control of background host scheduling, power or thermal state",
+    "Input/command event-to-render proxies are not INP",
+    "Whole-journey layout-shift sums are not Web Vitals CLS",
+    "Shared approved poster/video URLs do not characterize distinct per-project media"
+  ],
+  "summaryScript": "scripts/projects-budget-check.cjs",
+  "summaryScriptSHA256": "25488291d4a56cc081b8c6978df41623caedb1ae0d4b88f17ea7aee3ac6372cf",
+  "approvedBudgets": "docs/project-performance-budgets.json",
+  "approvedBudgetsSHA256": "b9915db3c5475dfbb0e7fc9b949cfd45e2a3f575437dba1d2c4a7f6dd1625707",
+  "verification": {
+    "cliTests": "7 passed",
+    "browserSuite": "passed; browser-check.log and screenshots",
+    "terminalBadgeGrainient": "passed",
+    "typecheck": "passed in verification checkout and each clean target",
+    "focusedESLint": "passed for both new scripts",
+    "repositoryLint": "80 errors, 7 warnings outside this change",
+    "budgetGate": "exit 1; 13 timing breaches, as approved; all transfer maxima pass",
+    "screenshots": "Projects views visually inspected at 390, 900 and 1600px"
+  }
+}

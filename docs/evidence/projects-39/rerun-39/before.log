@@ -1,0 +1,34 @@
+
+> nextn@0.1.0 benchmark:projects
+> node scripts/projects-benchmark.cjs --url=http://localhost:9391 --baseline --runs=10 --revision=c9922bde43836a370ed426b13d93bb805f1ce1ab --report=docs/evidence/projects-39/rerun-39/before.json
+
+Measured 390px run 1: projects=864.9ms, pwd=99.9ms, portfolio=304.5ms, about=328.8ms, projects=233.4ms, contact=347.0ms, projects=244.9ms
+Measured 390px run 2: projects=963.5ms, pwd=154.7ms, portfolio=331.2ms, about=270.1ms, projects=227.6ms, contact=343.3ms, projects=250.1ms
+Measured 390px run 3: projects=938.6ms, pwd=91.4ms, portfolio=234.5ms, about=300.4ms, projects=361.0ms, contact=425.6ms, projects=389.1ms
+Measured 390px run 4: projects=220.2ms, pwd=44.8ms, portfolio=40.6ms, about=266.3ms, projects=192.6ms, contact=269.8ms, projects=88.2ms
+Measured 390px run 5: projects=782.3ms, pwd=146.7ms, portfolio=637.2ms, about=527.5ms, projects=623.7ms, contact=369.2ms, projects=383.4ms
+Measured 390px run 6: projects=1085.8ms, pwd=107.8ms, portfolio=338.2ms, about=501.4ms, projects=323.0ms, contact=349.7ms, projects=313.6ms
+Measured 390px run 7: projects=921.6ms, pwd=114.9ms, portfolio=302.2ms, about=384.0ms, projects=247.8ms, contact=319.0ms, projects=476.2ms
+Measured 390px run 8: projects=1022.9ms, pwd=146.4ms, portfolio=361.0ms, about=392.8ms, projects=402.8ms, contact=366.7ms, projects=335.3ms
+Measured 390px run 9: projects=1257.0ms, pwd=120.6ms, portfolio=374.2ms, about=483.4ms, projects=507.0ms, contact=384.6ms, projects=456.8ms
+Measured 390px run 10: projects=964.3ms, pwd=110.2ms, portfolio=384.2ms, about=383.9ms, projects=300.1ms, contact=405.7ms, projects=408.1ms
+Measured 900px run 1: projects=994.0ms, pwd=136.6ms, portfolio=397.7ms, about=393.3ms, projects=358.3ms, contact=373.0ms, projects=325.6ms
+Measured 900px run 2: projects=1394.7ms, pwd=102.1ms, portfolio=635.7ms, about=417.0ms, projects=398.3ms, contact=410.7ms, projects=298.1ms
+Measured 900px run 3: projects=788.6ms, pwd=119.3ms, portfolio=79.0ms, about=553.9ms, projects=652.4ms, contact=360.8ms, projects=263.0ms
+Measured 900px run 4: projects=1112.3ms, pwd=114.5ms, portfolio=179.9ms, about=480.9ms, projects=329.8ms, contact=471.1ms, projects=475.4ms
+Measured 900px run 5: projects=1277.2ms, pwd=150.1ms, portfolio=659.1ms, about=449.0ms, projects=458.2ms, contact=416.1ms, projects=426.2ms
+Measured 900px run 6: projects=928.7ms, pwd=94.4ms, portfolio=270.3ms, about=289.1ms, projects=265.4ms, contact=326.1ms, projects=303.3ms
+Measured 900px run 7: projects=1111.5ms, pwd=83.3ms, portfolio=292.6ms, about=449.6ms, projects=269.9ms, contact=259.7ms, projects=213.0ms
+Measured 900px run 8: projects=868.7ms, pwd=94.4ms, portfolio=286.7ms, about=372.3ms, projects=234.9ms, contact=327.1ms, projects=256.4ms
+Measured 900px run 9: projects=831.9ms, pwd=167.4ms, portfolio=263.2ms, about=266.1ms, projects=244.9ms, contact=297.3ms, projects=366.1ms
+Measured 900px run 10: projects=1127.0ms, pwd=113.1ms, portfolio=274.6ms, about=296.6ms, projects=240.7ms, contact=263.6ms, projects=227.1ms
+Measured 1600px run 1: projects=781.3ms, pwd=114.7ms, portfolio=234.7ms, about=298.3ms, projects=219.7ms, contact=280.7ms, projects=269.0ms
+Measured 1600px run 2: projects=1100.4ms, pwd=122.9ms, portfolio=237.1ms, about=370.8ms, projects=277.2ms, contact=279.2ms, projects=289.7ms
+Measured 1600px run 3: projects=885.5ms, pwd=57.1ms, portfolio=78.0ms, about=171.7ms, projects=115.2ms, contact=178.0ms, projects=75.3ms
+Measured 1600px run 4: projects=603.8ms, pwd=74.9ms, portfolio=244.0ms, about=174.5ms, projects=89.3ms, contact=185.1ms, projects=66.9ms
+Measured 1600px run 5: projects=277.9ms, pwd=46.8ms, portfolio=83.3ms, about=195.1ms, projects=84.7ms, contact=175.4ms, projects=78.5ms
+Measured 1600px run 6: projects=398.1ms, pwd=42.3ms, portfolio=146.1ms, about=197.4ms, projects=148.8ms, contact=504.9ms, projects=415.7ms
+Measured 1600px run 7: projects=1078.9ms, pwd=81.3ms, portfolio=420.8ms, about=346.5ms, projects=325.2ms, contact=441.8ms, projects=496.1ms
+Measured 1600px run 8: projects=678.9ms, pwd=106.1ms, portfolio=220.2ms, about=365.5ms, projects=180.3ms, contact=293.0ms, projects=143.5ms
+Measured 1600px run 9: projects=817.8ms, pwd=92.1ms, portfolio=132.9ms, about=285.1ms, projects=247.7ms, contact=301.8ms, projects=197.8ms
+Measured 1600px run 10: projects=1165.3ms, pwd=139.3ms, portfolio=306.2ms, about=326.2ms, projects=374.2ms, contact=417.2ms, projects=218.5ms

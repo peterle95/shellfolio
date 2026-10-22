@@ -1,0 +1,42 @@
+
+> nextn@0.1.0 benchmark:projects
+> node scripts/projects-benchmark.cjs --url=http://localhost:9391 --baseline --runs=10 --revision=c9922bde43836a370ed426b13d93bb805f1ce1ab --report=docs/evidence/projects-39/rerun-39/before.json
+
+Measured 390px run 1: projects=2119.0ms, pwd=135.5ms, portfolio=403.5ms, about=317.7ms, projects=374.2ms, contact=428.7ms, projects=428.0ms
+Measured 390px run 2: projects=1148.5ms, pwd=161.9ms, portfolio=388.9ms, about=289.7ms, projects=271.8ms, contact=309.5ms, projects=274.9ms
+Measured 390px run 3: projects=836.8ms, pwd=97.9ms, portfolio=247.2ms, about=286.0ms, projects=223.2ms, contact=352.8ms, projects=231.8ms
+Measured 390px run 4: projects=718.5ms, pwd=101.0ms, portfolio=271.3ms, about=337.9ms, projects=284.5ms, contact=327.1ms, projects=258.8ms
+Measured 390px run 5: projects=866.7ms, pwd=105.9ms, portfolio=231.7ms, about=264.4ms, projects=295.3ms, contact=273.9ms, projects=241.4ms
+Measured 390px run 6: projects=789.3ms, pwd=107.5ms, portfolio=214.2ms, about=287.8ms, projects=222.5ms, contact=289.0ms, projects=175.6ms
+Measured 390px run 7: projects=772.7ms, pwd=79.1ms, portfolio=214.0ms, about=320.0ms, projects=211.2ms, contact=311.3ms, projects=232.8ms
+Measured 390px run 8: projects=720.6ms, pwd=171.5ms, portfolio=236.2ms, about=272.9ms, projects=370.6ms, contact=407.0ms, projects=230.9ms
+Measured 390px run 9: projects=902.8ms, pwd=100.3ms, portfolio=279.7ms, about=271.9ms, projects=269.5ms, contact=244.1ms, projects=178.6ms
+Measured 390px run 10: projects=934.0ms, pwd=122.7ms, portfolio=189.3ms, about=250.6ms, projects=172.4ms, contact=227.8ms, projects=161.2ms
+Measured 900px run 1: projects=761.6ms, pwd=180.9ms, portfolio=264.9ms, about=271.3ms, projects=311.6ms, contact=375.2ms, projects=163.6ms
+Measured 900px run 2: projects=900.2ms, pwd=109.2ms, portfolio=228.0ms, about=391.2ms, projects=245.5ms, contact=316.5ms, projects=172.4ms
+Measured 900px run 3: projects=683.2ms, pwd=75.5ms, portfolio=288.8ms, about=230.1ms, projects=152.1ms, contact=357.3ms, projects=235.5ms
+Measured 900px run 4: projects=638.6ms, pwd=83.8ms, portfolio=256.9ms, about=241.9ms, projects=91.8ms, contact=217.2ms, projects=89.2ms
+Measured 900px run 5: projects=333.7ms, pwd=50.3ms, portfolio=105.4ms, about=186.5ms, projects=94.5ms, contact=181.3ms, projects=80.0ms
+Measured 900px run 6: projects=571.6ms, pwd=83.7ms, portfolio=235.7ms, about=229.3ms, projects=163.6ms, contact=272.6ms, projects=176.5ms
+Measured 900px run 7: projects=324.2ms, pwd=48.5ms, portfolio=71.7ms, about=173.4ms, projects=100.4ms, contact=179.8ms, projects=69.9ms
+Measured 900px run 8: projects=419.6ms, pwd=46.4ms, portfolio=80.0ms, about=184.2ms, projects=78.4ms, contact=160.7ms, projects=70.6ms
+Measured 900px run 9: projects=464.6ms, pwd=45.4ms, portfolio=255.4ms, about=163.9ms, projects=79.5ms, contact=172.8ms, projects=93.5ms
+Measured 900px run 10: projects=320.2ms, pwd=45.9ms, portfolio=69.5ms, about=187.6ms, projects=66.6ms, contact=184.3ms, projects=65.9ms
+Measured 1600px run 1: projects=552.2ms, pwd=56.7ms, portfolio=176.4ms, about=219.1ms, projects=73.0ms, contact=178.1ms, projects=74.9ms
+Measured 1600px run 2: projects=300.8ms, pwd=69.2ms, portfolio=94.8ms, about=172.4ms, projects=65.4ms, contact=171.7ms, projects=76.9ms
+Measured 1600px run 3: projects=361.8ms, pwd=47.7ms, portfolio=84.8ms, about=162.0ms, projects=105.0ms, contact=186.0ms, projects=77.2ms
+Measured 1600px run 4: projects=470.5ms, pwd=92.8ms, portfolio=240.8ms, about=157.4ms, projects=71.4ms, contact=170.6ms, projects=72.4ms
+Measured 1600px run 5: projects=326.9ms, pwd=58.3ms, portfolio=71.3ms, about=216.8ms, projects=81.1ms, contact=264.5ms, projects=74.3ms
+Measured 1600px run 6: projects=381.7ms, pwd=62.1ms, portfolio=73.1ms, about=176.5ms, projects=83.9ms, contact=158.3ms, projects=151.4ms
+Measured 1600px run 7: projects=613.4ms, pwd=83.0ms, portfolio=77.4ms, about=170.1ms, projects=73.7ms, contact=177.6ms, projects=72.1ms
+Measured 1600px run 8: projects=608.7ms, pwd=88.7ms, portfolio=158.4ms, about=952.0ms, projects=359.7ms, contact=756.6ms, projects=407.1ms
+page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:9391/
+Call log:
+  - navigating to "http://localhost:9391/", waiting until "networkidle"
+
+    at C:\Users\molze\GitHub\shellfolio\scripts\projects-benchmark.cjs:132:28 {
+  log: [
+    '  - navigating to "http://localhost:9391/", waiting until "networkidle"'
+  ],
+  name: 'Error'
+}

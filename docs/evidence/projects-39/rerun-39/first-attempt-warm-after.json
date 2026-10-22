@@ -1,0 +1,2077 @@
+{
+  "measuredAt": "2026-10-22T10:35:53.998Z",
+  "url": "http://localhost:9390",
+  "revision": "dc0f1e60c404e256c74a8c7b6729b0e3f72290c1",
+  "baseline": false,
+  "browser": "155.0.8059.86",
+  "node": "v24.18.0",
+  "platform": "win32",
+  "conditions": {
+    "cache": "disabled; fresh context per run",
+    "cpuSlowdown": 4,
+    "latencyMs": 80,
+    "downloadBytesPerSecond": 200000,
+    "uploadBytesPerSecond": 93750,
+    "deviceScaleFactor": 1,
+    "reducedMotion": "reduce",
+    "runsPerViewport": 1,
+    "viewportHeight": 900,
+    "widths": [
+      390
+    ],
+    "historySeed": [
+      "pwd",
+      "pwd",
+      "pwd",
+      "pwd",
+      "pwd"
+    ],
+    "journey": [
+      "projects",
+      "pwd",
+      "portfolio",
+      "about",
+      "projects",
+      "contact",
+      "projects"
+    ],
+    "note": "Input-to-double-RAF and Enter-to-rendered-history-plus-double-RAF command proxies, not INP. Local production server; optional telemetry disabled. Shift sums are not windowed CLS. Incomplete receivedEncodedBytes exclude response headers."
+  },
+  "runs": [
+    {
+      "width": 390,
+      "run": 1,
+      "phase": "journey",
+      "shifts": 0,
+      "allShifts": 0.39511861981639745,
+      "shiftEntries": [
+        {
+          "startMs": 4544.70000000298,
+          "value": 0.2698980056980057,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 4879.20000000298,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 4951.60000000149,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 5206.10000000149,
+          "value": 0.0044639126305792975,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 5738.60000000149,
+          "value": 0.0044639126305792975,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 5890.9000000059605,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 5953.10000000149,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 6241.20000000298,
+          "value": 0.0044639126305792975,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 6800.9000000059605,
+          "value": 0.004475213675213675,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 7719.80000000447,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 7811.10000000149,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 8001.70000000298,
+          "value": 0.00006672997784108895,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 8708.70000000298,
+          "value": 0.020341880341880343,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 9428.20000000298,
+          "value": 0.0044639126305792975,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 9612.10000000149,
+          "value": 0.000007293447293447293,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 9677.10000000149,
+          "value": 0.000006027223805001583,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 9727.20000000298,
+          "value": 0.000007293447293447293,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 9799.60000000149,
+          "value": 0.000007293447293447293,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 9906,
+          "value": 0.000006027223805001583,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 10466.10000000149,
+          "value": 0.020341880341880343,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 10650.5,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 10724.20000000298,
+          "value": 0.000006403925292814181,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 10882.90000000596,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 10990.10000000149,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 11393.40000000596,
+          "value": 0.014798987021209242,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 11638.10000000149,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 11709,
+          "value": 0.000006403925292814181,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 11799.5,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 11867.40000000596,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 11936.10000000149,
+          "value": 0.000006403925292814181,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 12677.20000000298,
+          "value": 0.020341880341880343,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 12896.90000000596,
+          "value": 0.000007293447293447293,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 13020.30000000447,
+          "value": 0.000007293447293447293,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 13972.5,
+          "value": 0.006473884140550807,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 14679.70000000298,
+          "value": 0.000006403925292814181,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 14745.80000000447,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 14820.90000000596,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 15283.30000000447,
+          "value": 0.020341880341880343,
+          "hadRecentInput": true
+        }
+      ],
+      "inputs": [
+        {
+          "phase": "populated-history",
+          "startMs": 3923.4000000059605,
+          "ms": 292.59999999403954
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 4195.80000000447,
+          "ms": 95.39999999850988
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 4281.5,
+          "ms": 81.20000000298023
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 4854.20000000298,
+          "ms": 48
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 4929.10000000149,
+          "ms": 39.5
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 5009.30000000447,
+          "ms": 41.100000001490116
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 5360.30000000447,
+          "ms": 43.899999998509884
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 5445.30000000447,
+          "ms": 42
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 5543.30000000447,
+          "ms": 40.19999999552965
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 5873.4000000059605,
+          "ms": 32.399999998509884
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 5935.20000000298,
+          "ms": 33.899999998509884
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 6002.20000000298,
+          "ms": 37.29999999701977
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 6417.9000000059605,
+          "ms": 82.69999999552965
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 6494,
+          "ms": 31.700000002980232
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 6568,
+          "ms": 22.600000001490116
+        },
+        {
+          "phase": "journey",
+          "startMs": 7012,
+          "ms": 49.70000000298023
+        },
+        {
+          "phase": "journey",
+          "startMs": 7106.30000000447,
+          "ms": 56
+        },
+        {
+          "phase": "journey",
+          "startMs": 7240.30000000447,
+          "ms": 49.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 7330.60000000149,
+          "ms": 51.899999998509884
+        },
+        {
+          "phase": "journey",
+          "startMs": 7451.60000000149,
+          "ms": 40.399999998509884
+        },
+        {
+          "phase": "journey",
+          "startMs": 7553.30000000447,
+          "ms": 52.100000001490116
+        },
+        {
+          "phase": "journey",
+          "startMs": 7687.60000000149,
+          "ms": 56.80000000447035
+        },
+        {
+          "phase": "journey",
+          "startMs": 7788,
+          "ms": 44.600000001490116
+        },
+        {
+          "phase": "journey",
+          "startMs": 9043.30000000447,
+          "ms": 92.10000000149012
+        },
+        {
+          "phase": "journey",
+          "startMs": 9127.60000000149,
+          "ms": 48.100000001490116
+        },
+        {
+          "phase": "journey",
+          "startMs": 9246.70000000298,
+          "ms": 40.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 9514,
+          "ms": 36.600000001490116
+        },
+        {
+          "phase": "journey",
+          "startMs": 9593.60000000149,
+          "ms": 30.30000000447035
+        },
+        {
+          "phase": "journey",
+          "startMs": 9655.30000000447,
+          "ms": 35.100000001490116
+        },
+        {
+          "phase": "journey",
+          "startMs": 9719.70000000298,
+          "ms": 18.399999998509884
+        },
+        {
+          "phase": "journey",
+          "startMs": 9784.20000000298,
+          "ms": 31
+        },
+        {
+          "phase": "journey",
+          "startMs": 9869.70000000298,
+          "ms": 76.39999999850988
+        },
+        {
+          "phase": "journey",
+          "startMs": 9996.30000000447,
+          "ms": 47.100000001490116
+        },
+        {
+          "phase": "journey",
+          "startMs": 10068.30000000447,
+          "ms": 38.100000001490116
+        },
+        {
+          "phase": "journey",
+          "startMs": 10145.10000000149,
+          "ms": 39.399999998509884
+        },
+        {
+          "phase": "journey",
+          "startMs": 10561,
+          "ms": 27.200000002980232
+        },
+        {
+          "phase": "journey",
+          "startMs": 10640.60000000149,
+          "ms": 38.399999998509884
+        },
+        {
+          "phase": "journey",
+          "startMs": 10708.90000000596,
+          "ms": 30.399999998509884
+        },
+        {
+          "phase": "journey",
+          "startMs": 10830,
+          "ms": 157.70000000298023
+        },
+        {
+          "phase": "journey",
+          "startMs": 10980.20000000298,
+          "ms": 24.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 11534.5,
+          "ms": 36.900000005960464
+        },
+        {
+          "phase": "journey",
+          "startMs": 11620.70000000298,
+          "ms": 33.899999998509884
+        },
+        {
+          "phase": "journey",
+          "startMs": 11686.40000000596,
+          "ms": 40.399999998509884
+        },
+        {
+          "phase": "journey",
+          "startMs": 11783.5,
+          "ms": 31.600000001490116
+        },
+        {
+          "phase": "journey",
+          "startMs": 11847.40000000596,
+          "ms": 37.899999998509884
+        },
+        {
+          "phase": "journey",
+          "startMs": 11921.90000000596,
+          "ms": 29.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 11985.80000000447,
+          "ms": 30.799999997019768
+        },
+        {
+          "phase": "journey",
+          "startMs": 12068,
+          "ms": 34.20000000298023
+        },
+        {
+          "phase": "journey",
+          "startMs": 12869,
+          "ms": 56.20000000298023
+        },
+        {
+          "phase": "journey",
+          "startMs": 12979.40000000596,
+          "ms": 81.19999999552965
+        },
+        {
+          "phase": "journey",
+          "startMs": 13134.10000000149,
+          "ms": 36.600000001490116
+        },
+        {
+          "phase": "journey",
+          "startMs": 13216.60000000149,
+          "ms": 52
+        },
+        {
+          "phase": "journey",
+          "startMs": 13291.80000000447,
+          "ms": 48.29999999701977
+        },
+        {
+          "phase": "journey",
+          "startMs": 13370.70000000298,
+          "ms": 46.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 13458,
+          "ms": 61.30000000447035
+        },
+        {
+          "phase": "journey",
+          "startMs": 14250.5,
+          "ms": 46.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 14345.40000000596,
+          "ms": 44.599999994039536
+        },
+        {
+          "phase": "journey",
+          "startMs": 14427.5,
+          "ms": 90.60000000149012
+        },
+        {
+          "phase": "journey",
+          "startMs": 14510.80000000447,
+          "ms": 78.69999999552965
+        },
+        {
+          "phase": "journey",
+          "startMs": 14574.80000000447,
+          "ms": 55.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 14661.70000000298,
+          "ms": 46
+        },
+        {
+          "phase": "journey",
+          "startMs": 14730.5,
+          "ms": 46.80000000447035
+        },
+        {
+          "phase": "journey",
+          "startMs": 14805.70000000298,
+          "ms": 31.399999998509884
+        }
+      ],
+      "commands": [
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 4456.30000000447,
+          "ms": 121.10000000149012
+        },
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 5143.30000000447,
+          "ms": 98.60000000149012
+        },
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 5672.20000000298,
+          "ms": 93.10000000149012
+        },
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 6162.80000000447,
+          "ms": 121.69999999552965
+        },
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 6730.70000000298,
+          "ms": 133.39999999850988
+        },
+        {
+          "phase": "journey",
+          "command": "projects",
+          "startMs": 7949.20000000298,
+          "ms": 912
+        },
+        {
+          "phase": "journey",
+          "command": "pwd",
+          "startMs": 9400.70000000298,
+          "ms": 48.600000001490116
+        },
+        {
+          "phase": "journey",
+          "command": "portfolio",
+          "startMs": 10279.80000000447,
+          "ms": 224.19999999552965
+        },
+        {
+          "phase": "journey",
+          "command": "about",
+          "startMs": 11135.60000000149,
+          "ms": 295.6000000014901
+        },
+        {
+          "phase": "journey",
+          "command": "projects",
+          "startMs": 12220.5,
+          "ms": 529.9000000059605
+        },
+        {
+          "phase": "journey",
+          "command": "contact",
+          "startMs": 13676.80000000447,
+          "ms": 465
+        },
+        {
+          "phase": "journey",
+          "command": "projects",
+          "startMs": 14931.30000000447,
+          "ms": 443.6000000014901
+        }
+      ],
+      "plays": [],
+      "playing": [],
+      "navigation": {
+        "domContentLoadedMs": 467,
+        "loadMs": 2788.5
+      },
+      "firstContentfulPaintMs": 1648,
+      "images": [
+        {
+          "url": "http://localhost:9390/_next/image?url=%2Fvideos%2Ffinance_tracker-poster.webp&w=384&q=75",
+          "transferBytes": 5182,
+          "bodyBytes": 4882,
+          "startMs": 8804.5,
+          "responseStartMs": 9267.40000000596,
+          "durationMs": 499.90000000596046
+        }
+      ],
+      "initialTransfers": [
+        {
+          "url": "http://localhost:9390/",
+          "type": "Document",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "text/html",
+          "transferBytes": 6074,
+          "startMs": 1.2669999996433035,
+          "responseStartMs": 106.59400001168251,
+          "endMs": 141.26499999838416
+        },
+        {
+          "url": "http://localhost:9390/_next/static/media/c9e42e3eae6237c2-s.p.2s-4kwv_nqb0b.woff2",
+          "type": "Font",
+          "receivedEncodedBytes": 21968,
+          "status": 200,
+          "mimeType": "font/woff2",
+          "transferBytes": 22268,
+          "startMs": 157.59800000523683,
+          "responseStartMs": 1306.7799999989802,
+          "endMs": 687.1640000026673
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/2kfwp24idcw7k.css",
+          "type": "Stylesheet",
+          "receivedEncodedBytes": 10992,
+          "status": 200,
+          "mimeType": "text/css",
+          "transferBytes": 11357,
+          "startMs": 164.85100000863895,
+          "responseStartMs": 267.414000001736,
+          "endMs": 421.02900000463706
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/3s6nzrbk-8mnv.js",
+          "type": "Script",
+          "receivedEncodedBytes": 2046,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 2425,
+          "startMs": 167.74299999815412,
+          "responseStartMs": 378.5470000002533,
+          "endMs": 374.27000000025146
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/0-ljw4yjmmjzb.js",
+          "type": "Script",
+          "receivedEncodedBytes": 8939,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 9318,
+          "startMs": 170.83700001239777,
+          "responseStartMs": 1289.5340000104625,
+          "endMs": 584.1420000069775
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/4561u0v7ysn3r.js",
+          "type": "Script",
+          "receivedEncodedBytes": 71614,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 71994,
+          "startMs": 174.78300000948366,
+          "responseStartMs": 1380.8500000013737,
+          "endMs": 1233.8010000094073
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/40yvc5291olz9.js",
+          "type": "Script",
+          "receivedEncodedBytes": 43490,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 43870,
+          "startMs": 176.29200000374112,
+          "responseStartMs": 1363.1380000006175,
+          "endMs": 1096.6230000049109
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/turbopack-2ifmdymbnr2xs.js",
+          "type": "Script",
+          "receivedEncodedBytes": 3850,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 4229,
+          "startMs": 176.40000001119915,
+          "responseStartMs": 1284.4800000020768,
+          "endMs": 577.9770000081044
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/2zrf11hkzrgar.js",
+          "type": "Script",
+          "receivedEncodedBytes": 10404,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 10783,
+          "startMs": 176.4980000007199,
+          "responseStartMs": 1329.2829999991227,
+          "endMs": 779.9990000057733
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/0f1v3rn6hl5i9.js",
+          "type": "Script",
+          "receivedEncodedBytes": 444,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 822,
+          "startMs": 176.96700000669807,
+          "responseStartMs": 1295.8179999986896,
+          "endMs": 703.0260000028647
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/1y28p4907gvx8.js",
+          "type": "Script",
+          "receivedEncodedBytes": 11987,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 12366,
+          "startMs": 177.06600000383332,
+          "responseStartMs": 1352.2510000038892,
+          "endMs": 905.9960000013234
+        },
+        {
+          "url": "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=",
+          "type": "Image",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "image/gif",
+          "transferBytes": 0,
+          "startMs": 261.410999999498,
+          "responseStartMs": 262.45000000926666,
+          "endMs": 262.4670000077458
+        }
+      ],
+      "beforePlay": [
+        {
+          "url": "http://localhost:9390/",
+          "type": "Document",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "text/html",
+          "transferBytes": 6074,
+          "startMs": 1.2669999996433035,
+          "responseStartMs": 106.59400001168251,
+          "endMs": 141.26499999838416
+        },
+        {
+          "url": "http://localhost:9390/_next/static/media/c9e42e3eae6237c2-s.p.2s-4kwv_nqb0b.woff2",
+          "type": "Font",
+          "receivedEncodedBytes": 21968,
+          "status": 200,
+          "mimeType": "font/woff2",
+          "transferBytes": 22268,
+          "startMs": 157.59800000523683,
+          "responseStartMs": 1306.7799999989802,
+          "endMs": 687.1640000026673
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/2kfwp24idcw7k.css",
+          "type": "Stylesheet",
+          "receivedEncodedBytes": 10992,
+          "status": 200,
+          "mimeType": "text/css",
+          "transferBytes": 11357,
+          "startMs": 164.85100000863895,
+          "responseStartMs": 267.414000001736,
+          "endMs": 421.02900000463706
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/3s6nzrbk-8mnv.js",
+          "type": "Script",
+          "receivedEncodedBytes": 2046,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 2425,
+          "startMs": 167.74299999815412,
+          "responseStartMs": 378.5470000002533,
+          "endMs": 374.27000000025146
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/0-ljw4yjmmjzb.js",
+          "type": "Script",
+          "receivedEncodedBytes": 8939,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 9318,
+          "startMs": 170.83700001239777,
+          "responseStartMs": 1289.5340000104625,
+          "endMs": 584.1420000069775
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/4561u0v7ysn3r.js",
+          "type": "Script",
+          "receivedEncodedBytes": 71614,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 71994,
+          "startMs": 174.78300000948366,
+          "responseStartMs": 1380.8500000013737,
+          "endMs": 1233.8010000094073
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/40yvc5291olz9.js",
+          "type": "Script",
+          "receivedEncodedBytes": 43490,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 43870,
+          "startMs": 176.29200000374112,
+          "responseStartMs": 1363.1380000006175,
+          "endMs": 1096.6230000049109
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/turbopack-2ifmdymbnr2xs.js",
+          "type": "Script",
+          "receivedEncodedBytes": 3850,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 4229,
+          "startMs": 176.40000001119915,
+          "responseStartMs": 1284.4800000020768,
+          "endMs": 577.9770000081044
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/2zrf11hkzrgar.js",
+          "type": "Script",
+          "receivedEncodedBytes": 10404,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 10783,
+          "startMs": 176.4980000007199,
+          "responseStartMs": 1329.2829999991227,
+          "endMs": 779.9990000057733
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/0f1v3rn6hl5i9.js",
+          "type": "Script",
+          "receivedEncodedBytes": 444,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 822,
+          "startMs": 176.96700000669807,
+          "responseStartMs": 1295.8179999986896,
+          "endMs": 703.0260000028647
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/1y28p4907gvx8.js",
+          "type": "Script",
+          "receivedEncodedBytes": 11987,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 12366,
+          "startMs": 177.06600000383332,
+          "responseStartMs": 1352.2510000038892,
+          "endMs": 905.9960000013234
+        },
+        {
+          "url": "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=",
+          "type": "Image",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "image/gif",
+          "transferBytes": 0,
+          "startMs": 261.410999999498,
+          "responseStartMs": 262.45000000926666,
+          "endMs": 262.4670000077458
+        },
+        {
+          "url": "http://localhost:9390/favicon-16x16.png",
+          "type": "Other",
+          "receivedEncodedBytes": 754,
+          "status": 200,
+          "mimeType": "image/png",
+          "transferBytes": 1032,
+          "startMs": 3101.8980000080774,
+          "responseStartMs": 3253.8469999999506,
+          "endMs": 3203.436000010697
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/10_09bgl0p9d0.js",
+          "type": "Script",
+          "receivedEncodedBytes": 15228,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 15607,
+          "startMs": 3969.2590000049677,
+          "responseStartMs": 4245.683000001009,
+          "endMs": 4154.928000003565
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/4088ypmnt4jmo.js",
+          "type": "Script",
+          "receivedEncodedBytes": 7325,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 7704,
+          "startMs": 7957.382000007783,
+          "responseStartMs": 8124.357000007876,
+          "endMs": 8118.8530000072205
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/3c0j_kxek-8cg.css",
+          "type": "Stylesheet",
+          "receivedEncodedBytes": 827,
+          "status": 200,
+          "mimeType": "text/css",
+          "transferBytes": 1191,
+          "startMs": 7975.583999999799,
+          "responseStartMs": 8090.679000000819,
+          "endMs": 8088.103000001865
+        },
+        {
+          "url": "http://localhost:9390/_next/image?url=%2Fvideos%2Ffinance_tracker-poster.webp&w=384&q=75",
+          "type": "Image",
+          "receivedEncodedBytes": 4882,
+          "status": 200,
+          "mimeType": "image/webp",
+          "transferBytes": 5320,
+          "startMs": 8799.932000008994,
+          "responseStartMs": 9278.05600001011,
+          "endMs": 9304.407000003266
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/17qmrmdx20lv0.js",
+          "type": "Script",
+          "receivedEncodedBytes": 7313,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 7692,
+          "startMs": 11144.613000011304,
+          "responseStartMs": 11284.49800000817,
+          "endMs": 11282.2950000118
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/2d0r5zffqw72x.js",
+          "type": "Script",
+          "receivedEncodedBytes": 7328,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 7707,
+          "startMs": 13691.958000010345,
+          "responseStartMs": 13838.748000009218,
+          "endMs": 13835.208000004059
+        }
+      ],
+      "playback": {
+        "phase": "video-loading",
+        "shifts": 0,
+        "allShifts": 0.3951405223171888,
+        "shiftEntries": [
+          {
+            "startMs": 4544.70000000298,
+            "value": 0.2698980056980057,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 4879.20000000298,
+            "value": 0.000007749287749287749,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 4951.60000000149,
+            "value": 0.000007749287749287749,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 5206.10000000149,
+            "value": 0.0044639126305792975,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 5738.60000000149,
+            "value": 0.0044639126305792975,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 5890.9000000059605,
+            "value": 0.000007749287749287749,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 5953.10000000149,
+            "value": 0.000007749287749287749,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 6241.20000000298,
+            "value": 0.0044639126305792975,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 6800.9000000059605,
+            "value": 0.004475213675213675,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 7719.80000000447,
+            "value": 0.000007749287749287749,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 7811.10000000149,
+            "value": 0.000007749287749287749,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 8001.70000000298,
+            "value": 0.00006672997784108895,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 8708.70000000298,
+            "value": 0.020341880341880343,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 9428.20000000298,
+            "value": 0.0044639126305792975,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 9612.10000000149,
+            "value": 0.000007293447293447293,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 9677.10000000149,
+            "value": 0.000006027223805001583,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 9727.20000000298,
+            "value": 0.000007293447293447293,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 9799.60000000149,
+            "value": 0.000007293447293447293,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 9906,
+            "value": 0.000006027223805001583,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 10466.10000000149,
+            "value": 0.020341880341880343,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 10650.5,
+            "value": 0.000007749287749287749,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 10724.20000000298,
+            "value": 0.000006403925292814181,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 10882.90000000596,
+            "value": 0.000007749287749287749,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 10990.10000000149,
+            "value": 0.000007749287749287749,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 11393.40000000596,
+            "value": 0.014798987021209242,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 11638.10000000149,
+            "value": 0.000007749287749287749,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 11709,
+            "value": 0.000006403925292814181,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 11799.5,
+            "value": 0.000007749287749287749,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 11867.40000000596,
+            "value": 0.000007749287749287749,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 11936.10000000149,
+            "value": 0.000006403925292814181,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 12677.20000000298,
+            "value": 0.020341880341880343,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 12896.90000000596,
+            "value": 0.000007293447293447293,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 13020.30000000447,
+            "value": 0.000007293447293447293,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 13972.5,
+            "value": 0.006473884140550807,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 14679.70000000298,
+            "value": 0.000006403925292814181,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 14745.80000000447,
+            "value": 0.000007749287749287749,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 14820.90000000596,
+            "value": 0.000007749287749287749,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 15283.30000000447,
+            "value": 0.020341880341880343,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 18719.20000000298,
+            "value": 0.000006403925292814181,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 18800,
+            "value": 0.000007749287749287749,
+            "hadRecentInput": true
+          },
+          {
+            "startMs": 18889.90000000596,
+            "value": 0.000007749287749287749,
+            "hadRecentInput": true
+          }
+        ],
+        "inputs": [
+          {
+            "phase": "populated-history",
+            "startMs": 3923.4000000059605,
+            "ms": 292.59999999403954,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "populated-history",
+            "startMs": 4195.80000000447,
+            "ms": 95.39999999850988,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "populated-history",
+            "startMs": 4281.5,
+            "ms": 81.20000000298023,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "populated-history",
+            "startMs": 4854.20000000298,
+            "ms": 48,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "populated-history",
+            "startMs": 4929.10000000149,
+            "ms": 39.5,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "populated-history",
+            "startMs": 5009.30000000447,
+            "ms": 41.100000001490116,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "populated-history",
+            "startMs": 5360.30000000447,
+            "ms": 43.899999998509884,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "populated-history",
+            "startMs": 5445.30000000447,
+            "ms": 42,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "populated-history",
+            "startMs": 5543.30000000447,
+            "ms": 40.19999999552965,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "populated-history",
+            "startMs": 5873.4000000059605,
+            "ms": 32.399999998509884,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "populated-history",
+            "startMs": 5935.20000000298,
+            "ms": 33.899999998509884,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "populated-history",
+            "startMs": 6002.20000000298,
+            "ms": 37.29999999701977,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "populated-history",
+            "startMs": 6417.9000000059605,
+            "ms": 82.69999999552965,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "populated-history",
+            "startMs": 6494,
+            "ms": 31.700000002980232,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "populated-history",
+            "startMs": 6568,
+            "ms": 22.600000001490116,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 7012,
+            "ms": 49.70000000298023,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 7106.30000000447,
+            "ms": 56,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 7240.30000000447,
+            "ms": 49.5,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 7330.60000000149,
+            "ms": 51.899999998509884,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 7451.60000000149,
+            "ms": 40.399999998509884,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 7553.30000000447,
+            "ms": 52.100000001490116,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 7687.60000000149,
+            "ms": 56.80000000447035,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 7788,
+            "ms": 44.600000001490116,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 9043.30000000447,
+            "ms": 92.10000000149012,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 9127.60000000149,
+            "ms": 48.100000001490116,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 9246.70000000298,
+            "ms": 40.5,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 9514,
+            "ms": 36.600000001490116,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 9593.60000000149,
+            "ms": 30.30000000447035,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 9655.30000000447,
+            "ms": 35.100000001490116,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 9719.70000000298,
+            "ms": 18.399999998509884,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 9784.20000000298,
+            "ms": 31,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 9869.70000000298,
+            "ms": 76.39999999850988,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 9996.30000000447,
+            "ms": 47.100000001490116,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 10068.30000000447,
+            "ms": 38.100000001490116,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 10145.10000000149,
+            "ms": 39.399999998509884,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 10561,
+            "ms": 27.200000002980232,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 10640.60000000149,
+            "ms": 38.399999998509884,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 10708.90000000596,
+            "ms": 30.399999998509884,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 10830,
+            "ms": 157.70000000298023,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 10980.20000000298,
+            "ms": 24.5,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 11534.5,
+            "ms": 36.900000005960464,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 11620.70000000298,
+            "ms": 33.899999998509884,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 11686.40000000596,
+            "ms": 40.399999998509884,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 11783.5,
+            "ms": 31.600000001490116,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 11847.40000000596,
+            "ms": 37.899999998509884,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 11921.90000000596,
+            "ms": 29.5,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 11985.80000000447,
+            "ms": 30.799999997019768,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 12068,
+            "ms": 34.20000000298023,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 12869,
+            "ms": 56.20000000298023,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 12979.40000000596,
+            "ms": 81.19999999552965,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 13134.10000000149,
+            "ms": 36.600000001490116,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 13216.60000000149,
+            "ms": 52,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 13291.80000000447,
+            "ms": 48.29999999701977,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 13370.70000000298,
+            "ms": 46.5,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 13458,
+            "ms": 61.30000000447035,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 14250.5,
+            "ms": 46.5,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 14345.40000000596,
+            "ms": 44.599999994039536,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 14427.5,
+            "ms": 90.60000000149012,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 14510.80000000447,
+            "ms": 78.69999999552965,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 14574.80000000447,
+            "ms": 55.5,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 14661.70000000298,
+            "ms": 46,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 14730.5,
+            "ms": 46.80000000447035,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "startMs": 14805.70000000298,
+            "ms": 31.399999998509884,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "video-loading",
+            "startMs": 17328,
+            "ms": 42.5,
+            "duringVideoRequest": true
+          },
+          {
+            "phase": "video-loading",
+            "startMs": 17401.5,
+            "ms": 97.5,
+            "duringVideoRequest": true
+          },
+          {
+            "phase": "video-loading",
+            "startMs": 17481.30000000447,
+            "ms": 53.29999999701977,
+            "duringVideoRequest": true
+          },
+          {
+            "phase": "video-loading",
+            "startMs": 18084.70000000298,
+            "ms": 46.5,
+            "duringVideoRequest": true
+          },
+          {
+            "phase": "video-loading",
+            "startMs": 18162.30000000447,
+            "ms": 48.29999999701977,
+            "duringVideoRequest": true
+          },
+          {
+            "phase": "video-loading",
+            "startMs": 18256.10000000149,
+            "ms": 41.600000001490116,
+            "duringVideoRequest": true
+          },
+          {
+            "phase": "video-loading",
+            "startMs": 18342.80000000447,
+            "ms": 90.10000000149012,
+            "duringVideoRequest": true
+          },
+          {
+            "phase": "video-loading",
+            "startMs": 18418.5,
+            "ms": 88.60000000149012,
+            "duringVideoRequest": true
+          },
+          {
+            "phase": "video-loading",
+            "startMs": 18486.60000000149,
+            "ms": 89.10000000149012,
+            "duringVideoRequest": true
+          },
+          {
+            "phase": "video-loading",
+            "startMs": 18561.90000000596,
+            "ms": 80.29999999701977,
+            "duringVideoRequest": true
+          },
+          {
+            "phase": "video-loading",
+            "startMs": 18629.10000000149,
+            "ms": 47.30000000447035,
+            "duringVideoRequest": true
+          },
+          {
+            "phase": "video-loading",
+            "startMs": 18700.70000000298,
+            "ms": 49.899999998509884,
+            "duringVideoRequest": true
+          },
+          {
+            "phase": "video-loading",
+            "startMs": 18782.30000000447,
+            "ms": 43.69999999552965,
+            "duringVideoRequest": true
+          },
+          {
+            "phase": "video-loading",
+            "startMs": 18861,
+            "ms": 69.20000000298023,
+            "duringVideoRequest": true
+          }
+        ],
+        "commands": [
+          {
+            "phase": "populated-history",
+            "command": "pwd",
+            "startMs": 4456.30000000447,
+            "ms": 121.10000000149012,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "populated-history",
+            "command": "pwd",
+            "startMs": 5143.30000000447,
+            "ms": 98.60000000149012,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "populated-history",
+            "command": "pwd",
+            "startMs": 5672.20000000298,
+            "ms": 93.10000000149012,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "populated-history",
+            "command": "pwd",
+            "startMs": 6162.80000000447,
+            "ms": 121.69999999552965,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "populated-history",
+            "command": "pwd",
+            "startMs": 6730.70000000298,
+            "ms": 133.39999999850988,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "command": "projects",
+            "startMs": 7949.20000000298,
+            "ms": 912,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "command": "pwd",
+            "startMs": 9400.70000000298,
+            "ms": 48.600000001490116,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "command": "portfolio",
+            "startMs": 10279.80000000447,
+            "ms": 224.19999999552965,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "command": "about",
+            "startMs": 11135.60000000149,
+            "ms": 295.6000000014901,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "command": "projects",
+            "startMs": 12220.5,
+            "ms": 529.9000000059605,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "command": "contact",
+            "startMs": 13676.80000000447,
+            "ms": 465,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "journey",
+            "command": "projects",
+            "startMs": 14931.30000000447,
+            "ms": 443.6000000014901,
+            "duringVideoRequest": false
+          },
+          {
+            "phase": "video-loading",
+            "command": "pwd",
+            "startMs": 17749.30000000447,
+            "ms": 170.89999999850988,
+            "duringVideoRequest": true
+          },
+          {
+            "phase": "video-loading",
+            "command": "ls projects",
+            "startMs": 19011.30000000447,
+            "ms": 258.69999999552965,
+            "duringVideoRequest": true
+          }
+        ],
+        "plays": [
+          16232
+        ],
+        "playing": [
+          17342
+        ]
+      },
+      "transfers": [
+        {
+          "url": "http://localhost:9390/",
+          "type": "Document",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "text/html",
+          "transferBytes": 6074,
+          "startMs": 1.2669999996433035,
+          "responseStartMs": 106.59400001168251,
+          "endMs": 141.26499999838416
+        },
+        {
+          "url": "http://localhost:9390/_next/static/media/c9e42e3eae6237c2-s.p.2s-4kwv_nqb0b.woff2",
+          "type": "Font",
+          "receivedEncodedBytes": 21968,
+          "status": 200,
+          "mimeType": "font/woff2",
+          "transferBytes": 22268,
+          "startMs": 157.59800000523683,
+          "responseStartMs": 1306.7799999989802,
+          "endMs": 687.1640000026673
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/2kfwp24idcw7k.css",
+          "type": "Stylesheet",
+          "receivedEncodedBytes": 10992,
+          "status": 200,
+          "mimeType": "text/css",
+          "transferBytes": 11357,
+          "startMs": 164.85100000863895,
+          "responseStartMs": 267.414000001736,
+          "endMs": 421.02900000463706
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/3s6nzrbk-8mnv.js",
+          "type": "Script",
+          "receivedEncodedBytes": 2046,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 2425,
+          "startMs": 167.74299999815412,
+          "responseStartMs": 378.5470000002533,
+          "endMs": 374.27000000025146
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/0-ljw4yjmmjzb.js",
+          "type": "Script",
+          "receivedEncodedBytes": 8939,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 9318,
+          "startMs": 170.83700001239777,
+          "responseStartMs": 1289.5340000104625,
+          "endMs": 584.1420000069775
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/4561u0v7ysn3r.js",
+          "type": "Script",
+          "receivedEncodedBytes": 71614,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 71994,
+          "startMs": 174.78300000948366,
+          "responseStartMs": 1380.8500000013737,
+          "endMs": 1233.8010000094073
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/40yvc5291olz9.js",
+          "type": "Script",
+          "receivedEncodedBytes": 43490,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 43870,
+          "startMs": 176.29200000374112,
+          "responseStartMs": 1363.1380000006175,
+          "endMs": 1096.6230000049109
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/turbopack-2ifmdymbnr2xs.js",
+          "type": "Script",
+          "receivedEncodedBytes": 3850,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 4229,
+          "startMs": 176.40000001119915,
+          "responseStartMs": 1284.4800000020768,
+          "endMs": 577.9770000081044
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/2zrf11hkzrgar.js",
+          "type": "Script",
+          "receivedEncodedBytes": 10404,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 10783,
+          "startMs": 176.4980000007199,
+          "responseStartMs": 1329.2829999991227,
+          "endMs": 779.9990000057733
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/0f1v3rn6hl5i9.js",
+          "type": "Script",
+          "receivedEncodedBytes": 444,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 822,
+          "startMs": 176.96700000669807,
+          "responseStartMs": 1295.8179999986896,
+          "endMs": 703.0260000028647
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/1y28p4907gvx8.js",
+          "type": "Script",
+          "receivedEncodedBytes": 11987,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 12366,
+          "startMs": 177.06600000383332,
+          "responseStartMs": 1352.2510000038892,
+          "endMs": 905.9960000013234
+        },
+        {
+          "url": "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=",
+          "type": "Image",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "image/gif",
+          "transferBytes": 0,
+          "startMs": 261.410999999498,
+          "responseStartMs": 262.45000000926666,
+          "endMs": 262.4670000077458
+        },
+        {
+          "url": "http://localhost:9390/favicon-16x16.png",
+          "type": "Other",
+          "receivedEncodedBytes": 754,
+          "status": 200,
+          "mimeType": "image/png",
+          "transferBytes": 1032,
+          "startMs": 3101.8980000080774,
+          "responseStartMs": 3253.8469999999506,
+          "endMs": 3203.436000010697
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/10_09bgl0p9d0.js",
+          "type": "Script",
+          "receivedEncodedBytes": 15228,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 15607,
+          "startMs": 3969.2590000049677,
+          "responseStartMs": 4245.683000001009,
+          "endMs": 4154.928000003565
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/4088ypmnt4jmo.js",
+          "type": "Script",
+          "receivedEncodedBytes": 7325,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 7704,
+          "startMs": 7957.382000007783,
+          "responseStartMs": 8124.357000007876,
+          "endMs": 8118.8530000072205
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/3c0j_kxek-8cg.css",
+          "type": "Stylesheet",
+          "receivedEncodedBytes": 827,
+          "status": 200,
+          "mimeType": "text/css",
+          "transferBytes": 1191,
+          "startMs": 7975.583999999799,
+          "responseStartMs": 8090.679000000819,
+          "endMs": 8088.103000001865
+        },
+        {
+          "url": "http://localhost:9390/_next/image?url=%2Fvideos%2Ffinance_tracker-poster.webp&w=384&q=75",
+          "type": "Image",
+          "receivedEncodedBytes": 4882,
+          "status": 200,
+          "mimeType": "image/webp",
+          "transferBytes": 5320,
+          "startMs": 8799.932000008994,
+          "responseStartMs": 9278.05600001011,
+          "endMs": 9304.407000003266
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/17qmrmdx20lv0.js",
+          "type": "Script",
+          "receivedEncodedBytes": 7313,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 7692,
+          "startMs": 11144.613000011304,
+          "responseStartMs": 11284.49800000817,
+          "endMs": 11282.2950000118
+        },
+        {
+          "url": "http://localhost:9390/_next/static/chunks/2d0r5zffqw72x.js",
+          "type": "Script",
+          "receivedEncodedBytes": 7328,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 7707,
+          "startMs": 13691.958000010345,
+          "responseStartMs": 13838.748000009218,
+          "endMs": 13835.208000004059
+        },
+        {
+          "url": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgMjQgMjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI1NSAyNTU7IiB4bWw6c3BhY2U9InByZXNlcnZlIiBmaWxsPSJXaW5kb3ciPgo8Zz4KCTxjaXJjbGUgY3g9IjEyIiBjeT0iNiIgcj0iMiIvPgoJPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMiIvPgoJPGNpcmNsZSBjeD0iMTIiIGN5PSIxOCIgcj0iMiIvPgo8L2c+Cjwvc3ZnPgo=",
+          "type": "Image",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "image/svg+xml",
+          "transferBytes": 0,
+          "startMs": 16335.555000012391,
+          "responseStartMs": 16338.967000003322,
+          "endMs": 16339.382000005571
+        },
+        {
+          "url": "http://localhost:9390/videos/finance_tracker-silent.mp4",
+          "type": "Media",
+          "range": "bytes=0-",
+          "receivedEncodedBytes": 3061715,
+          "status": 206,
+          "mimeType": "video/mp4",
+          "contentRange": "bytes 0-3061714/3061715",
+          "transferBytes": 3062053,
+          "startMs": 16651.405000011437,
+          "responseStartMs": 16935.275000010733,
+          "endMs": 32252.83300000592
+        },
+        {
+          "url": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxOTYgMTk2IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxOTYgMTk2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik05OCw0OXY0Yy0yNC45LDAtNDUsMjAuMS00NSw0NQoJYzAsMTgsMTAuNiwzMy42LDI1LjksNDAuOGwtMS43LDMuNmMwLjEsMCwwLjIsMC4xLDAuMywwLjFjLTAuMSwwLTAuMi0wLjEtMC4zLTAuMWwwLDBDNjAuNSwxMzQuNSw0OSwxMTcuNiw0OSw5OAoJQzQ5LDcwLjksNzAuOSw0OSw5OCw0OXoiLz4KPC9zdmc+Cg==",
+          "type": "Image",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "image/svg+xml",
+          "transferBytes": 0,
+          "startMs": 16695.848000003025,
+          "responseStartMs": 16696.890999999596,
+          "endMs": 16696.90300000366
+        },
+        {
+          "url": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxOTYgMTk2IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxOTYgMTk2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xNDcsOThjMCwxOS42LTExLjUsMzYuNS0yOC4yLDQ0LjRsMCwwYy0wLjEsMC0wLjIsMC4xLTAuMywwLjEKCWMwLjEsMCwwLjItMC4xLDAuMy0wLjFsLTEuNy0zLjZDMTMyLjQsMTMxLjYsMTQzLDExNiwxNDMsOThjMC0yNC45LTIwLjEtNDUtNDUtNDV2LTRDMTI1LjEsNDksMTQ3LDcwLjksMTQ3LDk4eiIvPgo8L3N2Zz4K",
+          "type": "Image",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "image/svg+xml",
+          "transferBytes": 0,
+          "startMs": 16720.8810000011,
+          "responseStartMs": 16722.96600000118,
+          "endMs": 16723.767000003136
+        },
+        {
+          "url": "data:image/svg+xml;base64,PHN2ZyBmaWxsPSJXaW5kb3ciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHBhdGggZD0iTTYgMTloNFY1SDZ2MTR6bTgtMTR2MTRoNFY1aC00eiIvPgogICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPgo8L3N2Zz4K",
+          "type": "Image",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "image/svg+xml",
+          "transferBytes": 0,
+          "startMs": 16751.994999998715,
+          "responseStartMs": 16754.532000006293,
+          "endMs": 16754.750000007334
+        },
+        {
+          "url": "data:image/svg+xml;base64,PHN2ZyBmaWxsPSJXaW5kb3ciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHBhdGggZD0iTTMgOXY2aDRsNSA1VjRMNyA5SDN6bTEzLjUgM2MwLTEuNzctMS4wMi0zLjI5LTIuNS00LjAzdjguMDVjMS40OC0uNzMgMi41LTIuMjUgMi41LTQuMDJ6TTE0IDMuMjN2Mi4wNmMyLjg5Ljg2IDUgMy41NCA1IDYuNzFzLTIuMTEgNS44NS01IDYuNzF2Mi4wNmM0LjAxLS45MSA3LTQuNDkgNy04Ljc3cy0yLjk5LTcuODYtNy04Ljc3eiIvPgogICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPgo8L3N2Zz4K",
+          "type": "Image",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "image/svg+xml",
+          "transferBytes": 0,
+          "startMs": 16782.147999998415,
+          "responseStartMs": 16784.950000001118,
+          "endMs": 16785.362000009627
+        },
+        {
+          "url": "data:image/svg+xml;base64,PHN2ZyBmaWxsPSJXaW5kb3ciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPgogICAgPHBhdGggZD0iTTcgMTRINXY1aDV2LTJIN3YtM3ptLTItNGgyVjdoM1Y1SDV2NXptMTIgN2gtM3YyaDV2LTVoLTJ2M3pNMTQgNXYyaDN2M2gyVjVoLTV6Ii8+Cjwvc3ZnPgo=",
+          "type": "Image",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "image/svg+xml",
+          "transferBytes": 0,
+          "startMs": 16807.689000008395,
+          "responseStartMs": 16809.560000008787,
+          "endMs": 16809.994000010192
+        },
+        {
+          "url": "data:image/svg+xml;base64,PHN2ZyBmaWxsPSJXaW5kb3ciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHBhdGggZD0iTTggNXYxNGwxMS03eiIvPgogICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPgo8L3N2Zz4K",
+          "type": "Image",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "image/svg+xml",
+          "transferBytes": 0,
+          "startMs": 17155.872000003,
+          "responseStartMs": 17156.88800001226,
+          "endMs": 17157.0800000045
+        }
+      ]
+    }
+  ]
+}

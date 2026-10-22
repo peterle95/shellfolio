@@ -1,0 +1,1108 @@
+{
+  "measuredAt": "2026-10-22T10:53:43.044Z",
+  "url": "http://localhost:9391",
+  "revision": "c9922bde43836a370ed426b13d93bb805f1ce1ab",
+  "baseline": true,
+  "browser": "155.0.8059.86",
+  "node": "v24.18.0",
+  "platform": "win32",
+  "conditions": {
+    "cache": "disabled; fresh context per run",
+    "cpuSlowdown": 4,
+    "latencyMs": 80,
+    "downloadBytesPerSecond": 200000,
+    "uploadBytesPerSecond": 93750,
+    "deviceScaleFactor": 1,
+    "reducedMotion": "reduce",
+    "runsPerViewport": 1,
+    "viewportHeight": 900,
+    "widths": [
+      390
+    ],
+    "historySeed": [
+      "pwd",
+      "pwd",
+      "pwd",
+      "pwd",
+      "pwd"
+    ],
+    "journey": [
+      "projects",
+      "pwd",
+      "portfolio",
+      "about",
+      "projects",
+      "contact",
+      "projects"
+    ],
+    "note": "Input-to-double-RAF and Enter-to-rendered-history-plus-double-RAF command proxies, not INP. Local production server; optional telemetry disabled. Shift sums are not windowed CLS. Incomplete receivedEncodedBytes exclude response headers."
+  },
+  "runs": [
+    {
+      "width": 390,
+      "run": 1,
+      "phase": "journey",
+      "shifts": 0,
+      "allShifts": 0.3306833175055397,
+      "shiftEntries": [
+        {
+          "startMs": 6147.79999999702,
+          "value": 0.2698980056980057,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 7988.9000000059605,
+          "value": 0.0044639126305792975,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 8917.90000000596,
+          "value": 0.0044639126305792975,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 9806.29999999702,
+          "value": 0.0044639126305792975,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 10052,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 10734.59999999404,
+          "value": 0.0044639126305792975,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 11748.20000000298,
+          "value": 0.000006403925292814181,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 11873.5,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 11963.5,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 12694.59999999404,
+          "value": 0.020341880341880343,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 14075.20000000298,
+          "value": 0.00010655270655270655,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 14703.79999999702,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 14803.20000000298,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 14894.5,
+          "value": 0.000006403925292814181,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 14992.20000000298,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 15931.90000000596,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 16040.70000000298,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 16148.70000000298,
+          "value": 0.000006403925292814181,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 16856.40000000596,
+          "value": 0.015538936372269706,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 17052.90000000596,
+          "value": 0.000007293447293447293,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 17784.09999999404,
+          "value": 0.000007293447293447293,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 18774.59999999404,
+          "value": 0.000006403925292814181,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 18863.40000000596,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 18945.70000000298,
+          "value": 0.000007749287749287749,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 19050.70000000298,
+          "value": 0.000006403925292814181,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 19786,
+          "value": 0.006797578347578348,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 20807.40000000596,
+          "value": 0.000006027223805001583,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 20910.70000000298,
+          "value": 0.000007293447293447293,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 20990.5,
+          "value": 0.000007293447293447293,
+          "hadRecentInput": true
+        }
+      ],
+      "inputs": [
+        {
+          "phase": "populated-history",
+          "startMs": 4740.70000000298,
+          "ms": 398.70000000298023
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 5111.4000000059605,
+          "ms": 126.79999999701977
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 5215.0999999940395,
+          "ms": 69.5
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 7264,
+          "ms": 189.20000000298023
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 7428.5999999940395,
+          "ms": 67.6000000089407
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 7553.5999999940395,
+          "ms": 98.30000001192093
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 8331.70000000298,
+          "ms": 139.29999999701977
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 8451.90000000596,
+          "ms": 52.8999999910593
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 8560.70000000298,
+          "ms": 73.3999999910593
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 9261,
+          "ms": 59.400000005960464
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 9396,
+          "ms": 72.70000000298023
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 9516.5,
+          "ms": 66.09999999403954
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 9997.20000000298,
+          "ms": 182.8999999910593
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 10147,
+          "ms": 222
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 10325,
+          "ms": 106.29999999701977
+        },
+        {
+          "phase": "journey",
+          "startMs": 11129.09999999404,
+          "ms": 189.6000000089407
+        },
+        {
+          "phase": "journey",
+          "startMs": 11290.5,
+          "ms": 65.59999999403954
+        },
+        {
+          "phase": "journey",
+          "startMs": 11411.40000000596,
+          "ms": 138.29999999701977
+        },
+        {
+          "phase": "journey",
+          "startMs": 11530.5,
+          "ms": 52.79999999701977
+        },
+        {
+          "phase": "journey",
+          "startMs": 11625.20000000298,
+          "ms": 44.70000000298023
+        },
+        {
+          "phase": "journey",
+          "startMs": 11719.20000000298,
+          "ms": 52.8999999910593
+        },
+        {
+          "phase": "journey",
+          "startMs": 11821.09999999404,
+          "ms": 88.6000000089407
+        },
+        {
+          "phase": "journey",
+          "startMs": 11942.79999999702,
+          "ms": 49.29999999701977
+        },
+        {
+          "phase": "journey",
+          "startMs": 13381.70000000298,
+          "ms": 185.79999999701977
+        },
+        {
+          "phase": "journey",
+          "startMs": 13540.09999999404,
+          "ms": 79.6000000089407
+        },
+        {
+          "phase": "journey",
+          "startMs": 13659,
+          "ms": 52
+        },
+        {
+          "phase": "journey",
+          "startMs": 14361.70000000298,
+          "ms": 53.599999994039536
+        },
+        {
+          "phase": "journey",
+          "startMs": 14489.59999999404,
+          "ms": 55
+        },
+        {
+          "phase": "journey",
+          "startMs": 14587.59999999404,
+          "ms": 44.400000005960464
+        },
+        {
+          "phase": "journey",
+          "startMs": 14666.79999999702,
+          "ms": 66.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 14772.29999999702,
+          "ms": 60.20000000298023
+        },
+        {
+          "phase": "journey",
+          "startMs": 14872.29999999702,
+          "ms": 44.900000005960464
+        },
+        {
+          "phase": "journey",
+          "startMs": 14965.40000000596,
+          "ms": 47.19999998807907
+        },
+        {
+          "phase": "journey",
+          "startMs": 15065.59999999404,
+          "ms": 60.70000000298023
+        },
+        {
+          "phase": "journey",
+          "startMs": 15169.90000000596,
+          "ms": 45.3999999910593
+        },
+        {
+          "phase": "journey",
+          "startMs": 15906.5,
+          "ms": 52.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 16009.5,
+          "ms": 119.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 16105.79999999702,
+          "ms": 190
+        },
+        {
+          "phase": "journey",
+          "startMs": 16262,
+          "ms": 79.40000000596046
+        },
+        {
+          "phase": "journey",
+          "startMs": 16381.29999999702,
+          "ms": 54.6000000089407
+        },
+        {
+          "phase": "journey",
+          "startMs": 17034.5,
+          "ms": 42.79999999701977
+        },
+        {
+          "phase": "journey",
+          "startMs": 17111.40000000596,
+          "ms": 110.59999999403954
+        },
+        {
+          "phase": "journey",
+          "startMs": 17204,
+          "ms": 68.40000000596046
+        },
+        {
+          "phase": "journey",
+          "startMs": 17363.59999999404,
+          "ms": 54.1000000089407
+        },
+        {
+          "phase": "journey",
+          "startMs": 17451.5,
+          "ms": 106
+        },
+        {
+          "phase": "journey",
+          "startMs": 17535.5,
+          "ms": 65.40000000596046
+        },
+        {
+          "phase": "journey",
+          "startMs": 17663.40000000596,
+          "ms": 59.599999994039536
+        },
+        {
+          "phase": "journey",
+          "startMs": 17757.09999999404,
+          "ms": 69.90000000596046
+        },
+        {
+          "phase": "journey",
+          "startMs": 18461.20000000298,
+          "ms": 63.8999999910593
+        },
+        {
+          "phase": "journey",
+          "startMs": 18632.79999999702,
+          "ms": 128.90000000596046
+        },
+        {
+          "phase": "journey",
+          "startMs": 18743.70000000298,
+          "ms": 65.20000000298023
+        },
+        {
+          "phase": "journey",
+          "startMs": 18833.20000000298,
+          "ms": 107
+        },
+        {
+          "phase": "journey",
+          "startMs": 18920.59999999404,
+          "ms": 51.400000005960464
+        },
+        {
+          "phase": "journey",
+          "startMs": 19023.20000000298,
+          "ms": 51.8999999910593
+        },
+        {
+          "phase": "journey",
+          "startMs": 19119.40000000596,
+          "ms": 67
+        },
+        {
+          "phase": "journey",
+          "startMs": 20101,
+          "ms": 162.90000000596046
+        },
+        {
+          "phase": "journey",
+          "startMs": 20227.70000000298,
+          "ms": 217.29999999701977
+        },
+        {
+          "phase": "journey",
+          "startMs": 20407.79999999702,
+          "ms": 172.1000000089407
+        },
+        {
+          "phase": "journey",
+          "startMs": 20560,
+          "ms": 136.40000000596046
+        },
+        {
+          "phase": "journey",
+          "startMs": 20676.90000000596,
+          "ms": 119.29999999701977
+        },
+        {
+          "phase": "journey",
+          "startMs": 20779.40000000596,
+          "ms": 64.29999999701977
+        },
+        {
+          "phase": "journey",
+          "startMs": 20884.5,
+          "ms": 94.20000000298023
+        },
+        {
+          "phase": "journey",
+          "startMs": 20963.59999999404,
+          "ms": 60.900000005960464
+        }
+      ],
+      "commands": [
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 5710.5999999940395,
+          "ms": 592.3000000119209
+        },
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 7855.5,
+          "ms": 224.90000000596046
+        },
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 8759,
+          "ms": 253.59999999403954
+        },
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 9726.20000000298,
+          "ms": 123.8999999910593
+        },
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 10580.90000000596,
+          "ms": 239.79999999701977
+        },
+        {
+          "phase": "journey",
+          "command": "projects",
+          "startMs": 12087,
+          "ms": 1029.5
+        },
+        {
+          "phase": "journey",
+          "command": "pwd",
+          "startMs": 13931.79999999702,
+          "ms": 235.29999999701977
+        },
+        {
+          "phase": "journey",
+          "command": "portfolio",
+          "startMs": 15334.5,
+          "ms": 440.29999999701977
+        },
+        {
+          "phase": "journey",
+          "command": "about",
+          "startMs": 16553.70000000298,
+          "ms": 366
+        },
+        {
+          "phase": "journey",
+          "command": "projects",
+          "startMs": 17993.90000000596,
+          "ms": 207.29999999701977
+        },
+        {
+          "phase": "journey",
+          "command": "contact",
+          "startMs": 19465.40000000596,
+          "ms": 431.3999999910593
+        },
+        {
+          "phase": "journey",
+          "command": "projects",
+          "startMs": 21174.5,
+          "ms": 331.29999999701977
+        }
+      ],
+      "plays": [],
+      "playing": [],
+      "navigation": {
+        "domContentLoadedMs": 522.4000000059605,
+        "loadMs": 3129.7999999970198
+      },
+      "firstContentfulPaintMs": 1716,
+      "images": [],
+      "initialTransfers": [
+        {
+          "url": "http://localhost:9391/",
+          "type": "Document",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "text/html",
+          "transferBytes": 6043,
+          "startMs": 1.1939999967580661,
+          "responseStartMs": 114.1570000036154,
+          "endMs": 132.36799999140203
+        },
+        {
+          "url": "http://localhost:9391/_next/static/media/c9e42e3eae6237c2-s.p.2s-4kwv_nqb0b.woff2",
+          "type": "Font",
+          "receivedEncodedBytes": 21968,
+          "status": 200,
+          "mimeType": "font/woff2",
+          "transferBytes": 22268,
+          "startMs": 195.55899999977555,
+          "responseStartMs": 1354.3970000027912,
+          "endMs": 690.4510000022128
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/11wrg8fiv6otf.css",
+          "type": "Stylesheet",
+          "receivedEncodedBytes": 10935,
+          "status": 200,
+          "mimeType": "text/css",
+          "transferBytes": 11300,
+          "startMs": 203.78499999060296,
+          "responseStartMs": 321.12799999595154,
+          "endMs": 469.742999994196
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/310vm2bl3xxpt.js",
+          "type": "Script",
+          "receivedEncodedBytes": 1987,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 2366,
+          "startMs": 207.30500000354368,
+          "responseStartMs": 448.7809999991441,
+          "endMs": 438.0410000012489
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/0ufyxag_pxqbt.js",
+          "type": "Script",
+          "receivedEncodedBytes": 7515,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 7901,
+          "startMs": 210.42299999680836,
+          "responseStartMs": 1328.8769999926444,
+          "endMs": 579.3859999976121
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/08ttfj81-47mu.js",
+          "type": "Script",
+          "receivedEncodedBytes": 71666,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 72046,
+          "startMs": 212.90199999930337,
+          "responseStartMs": 1435.8939999947324,
+          "endMs": 1263.9070000004722
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/3l72_erbcyau4.js",
+          "type": "Script",
+          "receivedEncodedBytes": 44805,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 45185,
+          "startMs": 214.15099999285303,
+          "responseStartMs": 1391.9309999910183,
+          "endMs": 1140.5419999937294
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/turbopack-350sllz-678lp.js",
+          "type": "Script",
+          "receivedEncodedBytes": 3847,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 4226,
+          "startMs": 216.8519999977434,
+          "responseStartMs": 1336.0419999953592,
+          "endMs": 643.4310000040568
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/030-mzdd8231n.js",
+          "type": "Script",
+          "receivedEncodedBytes": 10415,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 10794,
+          "startMs": 217.88399999786634,
+          "responseStartMs": 1376.137999992352,
+          "endMs": 831.5629999997327
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/124ccg6ow23vo.js",
+          "type": "Script",
+          "receivedEncodedBytes": 421,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 799,
+          "startMs": 219.15299999818671,
+          "responseStartMs": 1347.6919999957317,
+          "endMs": 706.7509999906179
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/3ihezsi0z91_0.js",
+          "type": "Script",
+          "receivedEncodedBytes": 11064,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 11443,
+          "startMs": 221.8179999908898,
+          "responseStartMs": 1383.9869999937946,
+          "endMs": 940.6860000017332
+        },
+        {
+          "url": "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=",
+          "type": "Image",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "image/gif",
+          "transferBytes": 0,
+          "startMs": 314.4109999993816,
+          "responseStartMs": 314.85999999858905,
+          "endMs": 314.870999995037
+        }
+      ],
+      "beforePlay": [
+        {
+          "url": "http://localhost:9391/",
+          "type": "Document",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "text/html",
+          "transferBytes": 6043,
+          "startMs": 1.1939999967580661,
+          "responseStartMs": 114.1570000036154,
+          "endMs": 132.36799999140203
+        },
+        {
+          "url": "http://localhost:9391/_next/static/media/c9e42e3eae6237c2-s.p.2s-4kwv_nqb0b.woff2",
+          "type": "Font",
+          "receivedEncodedBytes": 21968,
+          "status": 200,
+          "mimeType": "font/woff2",
+          "transferBytes": 22268,
+          "startMs": 195.55899999977555,
+          "responseStartMs": 1354.3970000027912,
+          "endMs": 690.4510000022128
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/11wrg8fiv6otf.css",
+          "type": "Stylesheet",
+          "receivedEncodedBytes": 10935,
+          "status": 200,
+          "mimeType": "text/css",
+          "transferBytes": 11300,
+          "startMs": 203.78499999060296,
+          "responseStartMs": 321.12799999595154,
+          "endMs": 469.742999994196
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/310vm2bl3xxpt.js",
+          "type": "Script",
+          "receivedEncodedBytes": 1987,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 2366,
+          "startMs": 207.30500000354368,
+          "responseStartMs": 448.7809999991441,
+          "endMs": 438.0410000012489
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/0ufyxag_pxqbt.js",
+          "type": "Script",
+          "receivedEncodedBytes": 7515,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 7901,
+          "startMs": 210.42299999680836,
+          "responseStartMs": 1328.8769999926444,
+          "endMs": 579.3859999976121
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/08ttfj81-47mu.js",
+          "type": "Script",
+          "receivedEncodedBytes": 71666,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 72046,
+          "startMs": 212.90199999930337,
+          "responseStartMs": 1435.8939999947324,
+          "endMs": 1263.9070000004722
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/3l72_erbcyau4.js",
+          "type": "Script",
+          "receivedEncodedBytes": 44805,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 45185,
+          "startMs": 214.15099999285303,
+          "responseStartMs": 1391.9309999910183,
+          "endMs": 1140.5419999937294
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/turbopack-350sllz-678lp.js",
+          "type": "Script",
+          "receivedEncodedBytes": 3847,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 4226,
+          "startMs": 216.8519999977434,
+          "responseStartMs": 1336.0419999953592,
+          "endMs": 643.4310000040568
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/030-mzdd8231n.js",
+          "type": "Script",
+          "receivedEncodedBytes": 10415,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 10794,
+          "startMs": 217.88399999786634,
+          "responseStartMs": 1376.137999992352,
+          "endMs": 831.5629999997327
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/124ccg6ow23vo.js",
+          "type": "Script",
+          "receivedEncodedBytes": 421,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 799,
+          "startMs": 219.15299999818671,
+          "responseStartMs": 1347.6919999957317,
+          "endMs": 706.7509999906179
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/3ihezsi0z91_0.js",
+          "type": "Script",
+          "receivedEncodedBytes": 11064,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 11443,
+          "startMs": 221.8179999908898,
+          "responseStartMs": 1383.9869999937946,
+          "endMs": 940.6860000017332
+        },
+        {
+          "url": "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=",
+          "type": "Image",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "image/gif",
+          "transferBytes": 0,
+          "startMs": 314.4109999993816,
+          "responseStartMs": 314.85999999858905,
+          "endMs": 314.870999995037
+        },
+        {
+          "url": "http://localhost:9391/favicon-16x16.png",
+          "type": "Other",
+          "receivedEncodedBytes": 754,
+          "status": 200,
+          "mimeType": "image/png",
+          "transferBytes": 1032,
+          "startMs": 3773.073000003933,
+          "responseStartMs": 4009.288999994169,
+          "endMs": 3902.1800000045914
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/10_09bgl0p9d0.js",
+          "type": "Script",
+          "receivedEncodedBytes": 15228,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 15607,
+          "startMs": 4832.318999993731,
+          "responseStartMs": 5261.434999993071,
+          "endMs": 5020.877000002656
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/3mfppeouo2w99.js",
+          "type": "Script",
+          "receivedEncodedBytes": 426,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 804,
+          "startMs": 12097.890999997617,
+          "responseStartMs": 12220.037999999477,
+          "endMs": 12214.208999997936
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/0egxins7sggd6.js",
+          "type": "Script",
+          "receivedEncodedBytes": 997,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 1344,
+          "startMs": 16563.94100000034,
+          "responseStartMs": 16706.151999998838,
+          "endMs": 16677.21100000199
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/2n08ll8pmll30.js",
+          "type": "Script",
+          "receivedEncodedBytes": 431,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 809,
+          "startMs": 19491.035999992164,
+          "responseStartMs": 19637.979999999516,
+          "endMs": 19628.455999991274
+        }
+      ],
+      "playback": null,
+      "transfers": [
+        {
+          "url": "http://localhost:9391/",
+          "type": "Document",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "text/html",
+          "transferBytes": 6043,
+          "startMs": 1.1939999967580661,
+          "responseStartMs": 114.1570000036154,
+          "endMs": 132.36799999140203
+        },
+        {
+          "url": "http://localhost:9391/_next/static/media/c9e42e3eae6237c2-s.p.2s-4kwv_nqb0b.woff2",
+          "type": "Font",
+          "receivedEncodedBytes": 21968,
+          "status": 200,
+          "mimeType": "font/woff2",
+          "transferBytes": 22268,
+          "startMs": 195.55899999977555,
+          "responseStartMs": 1354.3970000027912,
+          "endMs": 690.4510000022128
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/11wrg8fiv6otf.css",
+          "type": "Stylesheet",
+          "receivedEncodedBytes": 10935,
+          "status": 200,
+          "mimeType": "text/css",
+          "transferBytes": 11300,
+          "startMs": 203.78499999060296,
+          "responseStartMs": 321.12799999595154,
+          "endMs": 469.742999994196
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/310vm2bl3xxpt.js",
+          "type": "Script",
+          "receivedEncodedBytes": 1987,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 2366,
+          "startMs": 207.30500000354368,
+          "responseStartMs": 448.7809999991441,
+          "endMs": 438.0410000012489
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/0ufyxag_pxqbt.js",
+          "type": "Script",
+          "receivedEncodedBytes": 7515,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 7901,
+          "startMs": 210.42299999680836,
+          "responseStartMs": 1328.8769999926444,
+          "endMs": 579.3859999976121
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/08ttfj81-47mu.js",
+          "type": "Script",
+          "receivedEncodedBytes": 71666,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 72046,
+          "startMs": 212.90199999930337,
+          "responseStartMs": 1435.8939999947324,
+          "endMs": 1263.9070000004722
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/3l72_erbcyau4.js",
+          "type": "Script",
+          "receivedEncodedBytes": 44805,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 45185,
+          "startMs": 214.15099999285303,
+          "responseStartMs": 1391.9309999910183,
+          "endMs": 1140.5419999937294
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/turbopack-350sllz-678lp.js",
+          "type": "Script",
+          "receivedEncodedBytes": 3847,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 4226,
+          "startMs": 216.8519999977434,
+          "responseStartMs": 1336.0419999953592,
+          "endMs": 643.4310000040568
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/030-mzdd8231n.js",
+          "type": "Script",
+          "receivedEncodedBytes": 10415,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 10794,
+          "startMs": 217.88399999786634,
+          "responseStartMs": 1376.137999992352,
+          "endMs": 831.5629999997327
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/124ccg6ow23vo.js",
+          "type": "Script",
+          "receivedEncodedBytes": 421,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 799,
+          "startMs": 219.15299999818671,
+          "responseStartMs": 1347.6919999957317,
+          "endMs": 706.7509999906179
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/3ihezsi0z91_0.js",
+          "type": "Script",
+          "receivedEncodedBytes": 11064,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 11443,
+          "startMs": 221.8179999908898,
+          "responseStartMs": 1383.9869999937946,
+          "endMs": 940.6860000017332
+        },
+        {
+          "url": "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=",
+          "type": "Image",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "image/gif",
+          "transferBytes": 0,
+          "startMs": 314.4109999993816,
+          "responseStartMs": 314.85999999858905,
+          "endMs": 314.870999995037
+        },
+        {
+          "url": "http://localhost:9391/favicon-16x16.png",
+          "type": "Other",
+          "receivedEncodedBytes": 754,
+          "status": 200,
+          "mimeType": "image/png",
+          "transferBytes": 1032,
+          "startMs": 3773.073000003933,
+          "responseStartMs": 4009.288999994169,
+          "endMs": 3902.1800000045914
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/10_09bgl0p9d0.js",
+          "type": "Script",
+          "receivedEncodedBytes": 15228,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 15607,
+          "startMs": 4832.318999993731,
+          "responseStartMs": 5261.434999993071,
+          "endMs": 5020.877000002656
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/3mfppeouo2w99.js",
+          "type": "Script",
+          "receivedEncodedBytes": 426,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 804,
+          "startMs": 12097.890999997617,
+          "responseStartMs": 12220.037999999477,
+          "endMs": 12214.208999997936
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/0egxins7sggd6.js",
+          "type": "Script",
+          "receivedEncodedBytes": 997,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 1344,
+          "startMs": 16563.94100000034,
+          "responseStartMs": 16706.151999998838,
+          "endMs": 16677.21100000199
+        },
+        {
+          "url": "http://localhost:9391/_next/static/chunks/2n08ll8pmll30.js",
+          "type": "Script",
+          "receivedEncodedBytes": 431,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 809,
+          "startMs": 19491.035999992164,
+          "responseStartMs": 19637.979999999516,
+          "endMs": 19628.455999991274
+        }
+      ]
+    }
+  ]
+}

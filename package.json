@@ -12,7 +12,9 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit",
     "test:projects": "node scripts/projects-browser-check.cjs",
-    "benchmark:projects": "node scripts/projects-benchmark.cjs"
+    "benchmark:projects": "node scripts/projects-benchmark.cjs",
+    "check:projects-budget": "node scripts/projects-budget-check.cjs",
+    "test:projects-budget": "node --test scripts/projects-budget-check.test.cjs"
   },
   "dependencies": {
     "@genkit-ai/googleai": "^1.13.0",

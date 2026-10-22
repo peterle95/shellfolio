@@ -141,9 +141,12 @@ These expose variation hidden by the medians above.
 
 The commands below regenerate full JSON with individual input/command samples,
 layout-shift entries, and timestamped request/transfer records. Original captures
-remain local under `%LOCALAPPDATA%/Temp/opencode/projects-37-before.json`,
-`projects-37-after.json` and `projects-37-screenshots/`; they are not hosted
-artifacts. The tables above publish the run-level loading evidence and summaries.
+remained local under `%LOCALAPPDATA%/Temp/opencode/projects-37-before.json`,
+`projects-37-after.json` and `projects-37-screenshots/`. Follow-up #39 preserves
+[those original JSON captures and screenshots](evidence/projects-39/README.md)
+as versioned, downloadable artifacts. The tables above describe the original
+three-run experiment; the [#39 report](project-performance-39.md) keeps its larger
+rerun separate.
 
 ## Reproduce
 
