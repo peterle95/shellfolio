@@ -1,5 +1,6 @@
 // Run against production: npm run build && npm start -- --port 9350
 // npm run test:projects -- --url=http://localhost:9350 --screenshots=C:/path/to/screenshots
+// Add --history-only for the focused virtual-files/reload-recall check.
 // Uses BROWSER_PATH, installed Chrome/Edge on Windows, or `npx playwright install chromium`.
 /* eslint-disable @typescript-eslint/no-require-imports -- Standalone CommonJS check, matching scripts/*.cjs. */
 const assert = require('node:assert/strict');
@@ -16,6 +17,7 @@ const { chromium, expect } = require('@playwright/test');
 const { values } = parseArgs({ options: {
     url: { type: 'string', default: 'http://localhost:9350' },
     screenshots: { type: 'string' },
+    'history-only': { type: 'boolean', default: false },
 } });
 const root = path.resolve(__dirname, '..');
 const cache = new Map();
@@ -160,9 +162,21 @@ async function clickToPlay() {
                 await expect.poll(() => player.evaluate(el => document.fullscreenElement === el)).toBe(true);
                 await page.evaluate(() => document.exitFullscreen());
             }
+            const entries = page.locator('[data-terminal-entry]');
+            const count = await entries.count();
+            requests.length = 0;
+            await page.reload({ waitUntil: 'networkidle' });
+            await expect(entries).toHaveCount(count);
+            await expect(projects(page)).toHaveCount(0);
+            await expect(page.locator('video')).toHaveCount(0);
+            await expect(entries.locator('pre, code')).toHaveCount(0);
+            const input = page.getByRole('textbox', { name: 'Terminal input' });
+            await input.press('ArrowUp');
+            await expect(input).toHaveValue('portfolio');
+            noVideo(requests);
             assert.deepEqual(errors, []);
         } finally { await context.close(); }
-        console.log(`PASS explicit keyboard Play, actual silent video, native controls/fullscreen and geometry: ${width}px`);
+        console.log(`PASS explicit keyboard Play, actual video/geometry, and command-only reload without playback: ${width}px`);
     }
 }
 
@@ -395,6 +409,18 @@ async function virtualFilesAndRecall() {
     const { context, page, requests, errors } = await session();
     try {
         await boot(page);
+        const input = page.getByRole('textbox', { name: 'Terminal input' });
+        for (const key of ['ArrowUp', 'ArrowDown', 'ArrowUp']) {
+            await input.press(key);
+            await expect(input).toBeEmpty();
+        }
+        await send(page, '');
+        await send(page, '   ');
+        await page.reload({ waitUntil: 'networkidle' });
+        for (const key of ['ArrowUp', 'ArrowDown']) {
+            await input.press(key);
+            await expect(input).toBeEmpty();
+        }
         await send(page, 'projects');
         await send(page, 'ls /projects');
         const entries = page.locator('[data-terminal-entry]');
@@ -412,7 +438,6 @@ async function virtualFilesAndRecall() {
         await expect(entries.last().getByText('/projects', { exact: true })).toBeVisible();
         await send(page, 'cat fermentstation.json');
         assert.deepEqual(JSON.parse(await entries.last().locator('code').textContent()), JSON.parse(files['fermentstation.json'].content));
-        const input = page.getByRole('textbox', { name: 'Terminal input' });
         await input.press('ArrowUp');
         await expect(input).toHaveValue('cat fermentstation.json');
         await input.press('ArrowUp');
@@ -425,9 +450,28 @@ async function virtualFilesAndRecall() {
         await page.reload({ waitUntil: 'networkidle' });
         await expect(entries).toHaveCount(count);
         await expect(projects(page)).toHaveCount(0); // Existing persistence saves commands, not React outputs.
+        await expect(entries.locator('pre, code, video')).toHaveCount(0);
         await expect(entries.last().getByText('cat fermentstation.json', { exact: true })).toBeVisible();
-        // Both baseline and candidate need a new command to initialize the restored
-        // recall cursor; retain this known limitation in docs/project-verification-37.md.
+        const commands = ['projects', 'ls /projects', ...Object.keys(files).map(filename => `cat /projects/${filename}`),
+            'cd /projects', 'pwd', 'cat fermentstation.json'];
+        await input.press('ArrowUp');
+        await expect(input).toHaveValue('cat fermentstation.json');
+        await input.press('ArrowDown');
+        await expect(input).toBeEmpty();
+        for (const command of [...commands].reverse()) {
+            await input.press('ArrowUp');
+            await expect(input).toHaveValue(command);
+        }
+        await input.press('ArrowUp');
+        await expect(input).toHaveValue('projects');
+        for (const command of [...commands.slice(1), '', '']) {
+            await input.press('ArrowDown');
+            await expect(input).toHaveValue(command);
+        }
+        await expect(entries).toHaveCount(count);
+        await send(page, '');
+        await input.press('ArrowUp');
+        await expect(input).toHaveValue('cat fermentstation.json');
         await send(page, 'pwd');
         await input.press('ArrowUp');
         await expect(input).toHaveValue('pwd');
@@ -436,7 +480,7 @@ async function virtualFilesAndRecall() {
         noVideo(requests);
         assert.deepEqual(errors, []);
     } finally { await context.close(); }
-    console.log('PASS all virtual project paths/records, relative paths, history recall and reload persistence');
+    console.log('PASS virtual project records, immediate reload recall, ordered boundaries and blank/empty history');
 }
 
 async function delayedAndBroken() {
@@ -519,6 +563,7 @@ async function optionalMediaFixture() {
     browser = await chromium.launch({ executablePath, headless: true });
     console.log(`Browser ${browser.version()}; production target ${values.url}`);
     try {
+        if (values['history-only']) return await virtualFilesAndRecall();
         await clickToPlay();
         await playbackOwnership();
         await videoFailureAndCancellation();

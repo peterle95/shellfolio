@@ -11,6 +11,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit",
+    "test:history": "node --test scripts/history-store.test.cjs",
     "test:projects": "node scripts/projects-browser-check.cjs",
     "benchmark:projects": "node scripts/projects-benchmark.cjs",
     "check:projects-budget": "node scripts/projects-budget-check.cjs",
