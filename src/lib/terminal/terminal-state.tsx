@@ -23,6 +23,8 @@ interface TerminalProviderState {
     setCwd: (path: string) => void;
     history: HistoryItem[];
     activeSection: string | null;
+    activeProjectVideo: string | null;
+    playProjectVideo: (id: string) => void;
     pushHistory: (entry: Omit<HistoryItem, 'id' | 'timestamp'>) => void;
     clearHistory: () => void;
     executeCommand: (cmdStr: string) => void;
@@ -48,6 +50,7 @@ export const TerminalProvider = ({ children }: { children: ReactNode }) => {
     const commandQueue = useRef<Promise<void>>(Promise.resolve());
     const [history, setHistory] = useState<HistoryItem[]>([]);
     const [activeSection, setActiveSection] = useState<string | null>(null);
+    const [activeProjectVideo, setActiveProjectVideo] = useState<string | null>(null);
 
     const setCwd = useCallback((path: string) => {
         cwdRef.current = path;
@@ -62,6 +65,7 @@ export const TerminalProvider = ({ children }: { children: ReactNode }) => {
 
     const clearHistory = useCallback(() => {
         setActiveSection(null);
+        setActiveProjectVideo(null);
         if (historyStoreInstance) {
             historyStoreInstance.clear();
             setHistory([]);
@@ -98,6 +102,7 @@ export const TerminalProvider = ({ children }: { children: ReactNode }) => {
             const output = await registryInstance.execute(parsed, ctx);
             const section = registryInstance.get(parsed.name)?.name;
             if (section && section in HELP_MENU && React.isValidElement(output)) {
+                setActiveProjectVideo(null);
                 setActiveSection(section);
             }
             pushHistory({ command: cmdStr, output });
@@ -115,6 +120,8 @@ export const TerminalProvider = ({ children }: { children: ReactNode }) => {
         setCwd,
         history,
         activeSection,
+        activeProjectVideo,
+        playProjectVideo: setActiveProjectVideo,
         pushHistory,
         clearHistory,
         executeCommand,

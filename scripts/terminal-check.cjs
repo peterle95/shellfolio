@@ -89,6 +89,29 @@ function terminal() {
 }
 
 const checks = {
+    async 'project video ownership is replaced and cleared by section navigation or reset'() {
+        const t = terminal();
+        assert.equal(t.render().activeProjectVideo, null);
+        await t.api.executeCommand('projects');
+        t.api.playProjectVideo('first');
+        assert.equal(t.render().activeProjectVideo, 'first');
+        t.api.playProjectVideo('second');
+        assert.equal(t.render().activeProjectVideo, 'second');
+        await t.api.executeCommand('pwd');
+        assert.equal(t.render().activeProjectVideo, 'second', 'ordinary commands preserve one active player');
+        await t.api.executeCommand('portfolio');
+        assert.equal(t.render().activeProjectVideo, null, 'repeating the same section still releases playback');
+        t.api.playProjectVideo('retained');
+        await t.api.executeCommand('about');
+        assert.equal(t.render().activeProjectVideo, null);
+        t.api.playProjectVideo('retained');
+        await t.api.executeCommand('clear');
+        assert.equal(t.render().activeProjectVideo, null);
+        t.api.playProjectVideo('retained');
+        t.api.clearHistory();
+        assert.equal(t.render().activeProjectVideo, null);
+        assert.equal(t.render([]).activeProjectVideo, null, 'another provider starts without a playback owner');
+    },
     async 'latest section controls presentation across aliases and retained history'() {
         const t = terminal();
         assert.equal(t.render().activeSection, null);

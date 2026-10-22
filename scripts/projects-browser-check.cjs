@@ -20,7 +20,9 @@ const { values } = parseArgs({ options: {
 const root = path.resolve(__dirname, '..');
 const cache = new Map();
 function loadSource(base) {
-    const file = [base, `${base}.ts`, `${base}.tsx`].find(f => fs.existsSync(f));
+    const file = [base, `${base}.ts`, `${base}.tsx`, path.join(base, 'index.ts')]
+        .find(f => fs.existsSync(f) && fs.statSync(f).isFile());
+    assert.ok(file, `Cannot resolve ${base}`);
     if (cache.has(file)) return cache.get(file).exports;
     const compiled = { exports: {} };
     cache.set(file, compiled);
@@ -102,6 +104,174 @@ async function screenshot(page, name) {
 }
 function noVideo(requests) {
     assert.deepEqual(requests.filter(url => /\.(mp4|webm)(?:[?#]|$)/i.test(url)), []);
+}
+
+async function clickToPlay() {
+    for (const width of [390, 1600]) {
+        const { context, page, requests, errors } = await session(width);
+        try {
+            await boot(page);
+            await send(page, 'pwd');
+            await send(page, 'projects');
+            await send(page, 'portfolio');
+            const section = projects(page).last();
+            const article = section.getByRole('article').first();
+            const play = article.getByRole('button', { name: 'Play shared placeholder video for FermentStation', exact: true });
+            await expect(play).toBeVisible();
+            assert.equal((await play.textContent()).trim(), '', 'Play is an icon, not a visible text label');
+            await expect(play.locator('svg')).toBeVisible();
+            const posterBox = await article.getByRole('img', { name: alt }).boundingBox();
+            const playBox = await play.boundingBox();
+            assert.ok(playBox.width >= 44 && playBox.height >= 44, 'visible touch-sized Play action');
+            assert.ok(Math.abs(playBox.x + playBox.width / 2 - posterBox.x - posterBox.width / 2) < 1, 'Play is horizontally centered');
+            assert.ok(Math.abs(playBox.y + playBox.height / 2 - posterBox.y - posterBox.height / 2) < 1, 'Play is vertically centered');
+            await expect(article.getByText('Shared Finance Tracker demo, not a preview of this project. The clip records a grocery expense and shows a daily spending allowance, savings progress, and budget overview using fictional data.', { exact: true })).toBeVisible();
+            assert.equal(await page.locator('video[src], video source[src]').count(), 0, 'idle videos have no downloadable source');
+            await expect(page.locator('link[rel="preload"][as="video"]')).toHaveCount(0);
+            noVideo(requests);
+            await screenshot(page, `${width}-poster`);
+            const before = await article.boundingBox();
+            await play.focus();
+            await play.press(width === 390 ? 'Enter' : 'Space');
+            const player = article.locator('video');
+            await expect(player).toBeVisible();
+            await expect(player).toBeFocused();
+            await expect.poll(() => player.evaluate(el => !el.paused && el.currentTime > 0)).toBe(true);
+            assert.ok(requests.some(url => url.endsWith('/videos/finance_tracker-silent.mp4')), 'Play fetches the real approved clip');
+            assert.equal(requests.some(url => /\/finance_tracker\.mp4/.test(url)), false, 'never fetch the audio-bearing original');
+            assert.deepEqual(await player.evaluate(el => ({ controls: el.controls, autoplay: el.autoplay, inline: el.playsInline,
+                width: el.videoWidth, height: el.videoHeight, duration: el.duration })),
+            { controls: true, autoplay: false, inline: true, width: 1920, height: 1080, duration: 22 });
+            assert.equal((await article.boundingBox()).height, before.height, 'poster-to-player geometry is stable');
+            await expect(article.getByRole('link')).toHaveCount(1);
+            await noOverflow(page);
+            await screenshot(page, `${width}-video`);
+            // Exercise native keyboard controls, not a custom pause button.
+            await player.press('Space');
+            await expect.poll(() => player.evaluate(el => el.paused)).toBe(true);
+            await player.press('Space');
+            await expect.poll(() => player.evaluate(el => el.paused)).toBe(false);
+            if (await player.evaluate(el => document.fullscreenEnabled && typeof el.requestFullscreen === 'function')) {
+                // Trusted keyboard activation exercises the platform fullscreen API.
+                await player.evaluate(el => el.addEventListener('keydown', event => {
+                    if (event.key === 'f') void el.requestFullscreen();
+                }, { once: true }));
+                await player.press('f');
+                await expect.poll(() => player.evaluate(el => document.fullscreenElement === el)).toBe(true);
+                await page.evaluate(() => document.exitFullscreen());
+            }
+            assert.deepEqual(errors, []);
+        } finally { await context.close(); }
+        console.log(`PASS explicit keyboard Play, actual silent video, native controls/fullscreen and geometry: ${width}px`);
+    }
+}
+
+async function unloaded(player) {
+    await expect.poll(() => player.evaluate(el => ({ sourced: el.hasAttribute('src'), paused: el.paused,
+        readyState: el.readyState, networkState: el.networkState }))).toEqual({ sourced: false, paused: true, readyState: 0, networkState: 0 });
+}
+
+async function playbackOwnership() {
+    for (const width of [390, 1600]) {
+        const { context, page, requests, errors } = await session(width);
+        try {
+            await boot(page);
+            await send(page, 'projects');
+            const original = projects(page).first();
+            const first = original.getByRole('article').first();
+            const second = original.getByRole('article').nth(1);
+            await first.getByRole('button', { name: /^Play shared placeholder video/ }).click();
+            await expect.poll(() => first.locator('video').evaluate(el => !el.paused && el.currentTime > 0)).toBe(true);
+            await second.getByRole('button', { name: /^Play shared placeholder video/ }).click();
+            await expect.poll(() => second.locator('video').evaluate(el => !el.paused && el.currentTime > 0)).toBe(true);
+            await unloaded(first.locator('video'));
+            await expect(page.locator('video[src]')).toHaveCount(1);
+            const requestCount = requests.filter(url => url.endsWith('.mp4')).length;
+            for (const command of ['portfolio', 'projects']) {
+                await send(page, command);
+                await expect(page.locator('video[src]')).toHaveCount(0);
+                await unloaded(second.locator('video'));
+                assert.equal(requests.filter(url => url.endsWith('.mp4')).length, requestCount, 'new outputs must not initiate playback/download');
+            }
+            await expect(projects(page)).toHaveCount(3);
+            // Retained outputs can be explicitly played again without creating a second owner.
+            await first.getByRole('button', { name: /^Play shared placeholder video/ }).click();
+            await expect.poll(() => first.locator('video').evaluate(el => !el.paused)).toBe(true);
+            await send(page, 'pwd');
+            await expect(page.locator('video[src]')).toHaveCount(1);
+            await send(page, 'about');
+            await unloaded(first.locator('video'));
+            await expect(page.locator('video[src]')).toHaveCount(0);
+            await expect(projects(page)).toHaveCount(3);
+            // Clear/reset unmount real players; retained handles let us inspect their release.
+            for (const reset of ['clear', 'back']) {
+                await send(page, 'projects');
+                const article = projects(page).last().getByRole('article').first();
+                await article.getByRole('button', { name: /^Play shared placeholder video/ }).click();
+                await expect.poll(() => article.locator('video').evaluate(el => !el.paused)).toBe(true);
+                const handle = await article.locator('video').elementHandle();
+                if (reset === 'clear') await send(page, 'clear');
+                else await page.getByRole('button', { name: 'Back to welcome screen' }).click();
+                await expect(projects(page)).toHaveCount(0);
+                await unloaded(handle);
+                await handle.dispose();
+            }
+            assert.deepEqual(errors, []);
+        } finally { await context.close(); }
+        console.log(`PASS single playback owner, repeated outputs, retained history, section change and reset cleanup: ${width}px`);
+    }
+}
+
+async function videoFailureAndCancellation() {
+    for (const width of [390, 1600]) {
+        for (const broken of [false, true]) {
+            const { context, page, requests, errors } = await session(width);
+            let release;
+            const pending = new Promise(resolve => { release = resolve; });
+            try {
+                await page.route('**/videos/finance_tracker-silent.mp4', async route => {
+                    if (broken) await route.abort();
+                    else { await pending; await route.continue(); }
+                });
+                await boot(page);
+                await send(page, 'projects');
+                const original = projects(page).first();
+                const article = original.getByRole('article').first();
+                noVideo(requests);
+                const before = await article.boundingBox();
+                await article.getByRole('button', { name: /^Play shared placeholder video/ }).click();
+                await expect.poll(() => requests.some(url => url.endsWith('.mp4'))).toBe(true);
+                const player = article.locator('video');
+                if (broken) {
+                    await expect(article.getByRole('status')).toHaveText('Video unavailable. Project details and links are still available.');
+                    await unloaded(player);
+                } else {
+                    await expect(player).toBeVisible();
+                    assert.equal(await player.evaluate(el => el.readyState), 0, 'request remains held, without decoded video');
+                }
+                assert.equal((await article.boundingBox()).height, before.height, 'pending/failure preserves preview geometry');
+                await expect(article.getByRole('heading', { name: 'FermentStation', exact: true })).toBeVisible();
+                await expect(article.getByRole('link')).toHaveCount(1);
+                // Typing/execution must finish while video delivery is pending or failed.
+                const input = page.getByRole('textbox', { name: 'Terminal input' });
+                await input.fill('pwd');
+                await expect(input).toHaveValue('pwd');
+                await send(page, 'pwd');
+                const cancelled = broken ? null : page.waitForEvent('requestfailed', {
+                    predicate: request => request.url().endsWith('/videos/finance_tracker-silent.mp4'),
+                });
+                await send(page, 'portfolio');
+                await unloaded(player);
+                await expect(page.locator('video[src]')).toHaveCount(0);
+                release();
+                if (cancelled) assert.equal((await cancelled).failure().errorText, 'net::ERR_ABORTED', 'supersession cancels the outstanding browser request');
+                await expect(projects(page)).toHaveCount(2);
+                await noOverflow(page);
+                assert.deepEqual(errors, []);
+            } finally { release(); await context.close(); }
+            console.log(`PASS usable terminal/links, stable geometry and resource release: ${broken ? 'failed video' : 'pending video cancellation'}, ${width}px`);
+        }
+    }
 }
 
 async function navigation() {
@@ -186,13 +356,15 @@ async function responsive() {
             if ([390, 900, 1600].includes(width)) await screenshot(page, `${width}-projects`);
             await image.scrollIntoViewIfNeeded();
             const before = await viewport(page).evaluate(el => el.scrollTop);
-            await image.click();
+            await image.click({ position: { x: 8, y: 8 } });
             assert.equal(await viewport(page).evaluate(el => el.scrollTop), before, 'preview click must not jump to prompt');
             await viewport(page).focus();
             await page.keyboard.press('End');
             await expect.poll(() => viewport(page).evaluate(el => el.scrollTop)).toBeGreaterThan(before);
             // Empty prompt does not trap Tab; links retain native focus and activation.
             await page.getByRole('textbox', { name: 'Terminal input' }).focus();
+            await page.keyboard.press('Shift+Tab');
+            await expect(section.getByRole('button', { name: /^Play shared placeholder video/ }).last()).toBeFocused();
             await page.keyboard.press('Shift+Tab');
             await expect(section.getByRole('link').last()).toBeFocused();
             const link = section.getByRole('link').first();
@@ -252,8 +424,8 @@ async function optionalMediaFixture() {
     // The approved release has media on every entry. Exercise the same production
     // renderer with optional media omitted; no fixture route/flag ships in the app.
     const { ProjectsOutput } = loadSource(path.join(root, 'src/components/shellfolio/terminal/ProjectsOutput.tsx'));
-    const fixture = Array.from({ length: 12 }, (_, i) => ({ ...data.portfolioProjects[0], title: `Image fixture ${i}` }));
-    fixture.push({ ...data.portfolioProjects[0], title: 'Text-only fixture', image: undefined, repo: '#', live: '#' });
+    const fixture = Array.from({ length: 12 }, (_, i) => ({ ...data.portfolioProjects[0], title: `Image fixture ${i}`, video: undefined }));
+    fixture.push({ ...data.portfolioProjects[0], title: 'Text-only fixture', image: undefined, video: undefined, repo: '#', live: '#' });
     let imageIndex = 0;
     const markup = renderToString(React.createElement(ProjectsOutput, { projects: fixture }))
         .replace(/<img\b[^>]*>/g, tag => {
@@ -294,6 +466,9 @@ async function optionalMediaFixture() {
     browser = await chromium.launch({ executablePath, headless: true });
     console.log(`Browser ${browser.version()}; production target ${values.url}`);
     try {
+        await clickToPlay();
+        await playbackOwnership();
+        await videoFailureAndCancellation();
         await navigation();
         await responsive();
         await delayedAndBroken();
