@@ -64,6 +64,18 @@ test('rejects a partial batch instead of reducing the sample count', t => {
     assert.match(result.stderr, /runs/);
 });
 
+test('rejects empty or truncated transfer snapshots against the retained trace', t => {
+    for (const change of [
+        (_, after) => { for (const run of after.runs) run.beforePlay = []; },
+        (_, after) => { after.runs[0].beforePlay.pop(); },
+        before => { before.runs[0].beforePlay.pop(); },
+    ]) {
+        const result = check(...captures(t, change));
+        assert.equal(result.status, 2);
+        assert.match(result.stderr, /transfer|trace/);
+    }
+});
+
 test('rejects incomplete journeys, invalid timings and missing media evidence', t => {
     const corruptions = [
         after => after.runs[0].commands.pop(),

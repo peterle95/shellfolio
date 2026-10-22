@@ -49,11 +49,11 @@
     "Shared approved poster/video URLs do not characterize distinct per-project media"
   ],
   "summaryScript": "scripts/projects-budget-check.cjs",
-  "summaryScriptSHA256": "25488291d4a56cc081b8c6978df41623caedb1ae0d4b88f17ea7aee3ac6372cf",
+  "summaryScriptSHA256": "580b68b80cee66e6c68c733947978c0fb56bc39aef7f55aae1469d8046efa456",
   "approvedBudgets": "docs/project-performance-budgets.json",
   "approvedBudgetsSHA256": "b9915db3c5475dfbb0e7fc9b949cfd45e2a3f575437dba1d2c4a7f6dd1625707",
   "verification": {
-    "cliTests": "7 passed",
+    "cliTests": "8 passed, including empty/truncated transfer evidence rejection",
     "browserSuite": "passed; browser-check.log and screenshots",
     "terminalBadgeGrainient": "passed",
     "typecheck": "passed in verification checkout and each clean target",

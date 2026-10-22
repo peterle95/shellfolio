@@ -11,7 +11,7 @@ without raising the limits to force a pass**. The saved-report gate returns
 budgets pass at all viewports. This completes the budget/evidence work, not a
 performance-compliance or optimization claim. #42 retains the profiling work.
 
-Both fresh production builds, independent typechecks, seven CLI tests, the full
+Both fresh production builds, independent typechecks, eight CLI tests, the full
 production project browser suite and terminal/badge/Grainient checks passed.
 The new CLI/test files pass focused ESLint. Repository-wide lint still reports
 **80 errors and 7 warnings**, tracked separately in #41. No application code,
@@ -216,6 +216,9 @@ The CLI reports each viewport's sample count, minimum, median (middle-pair mean
 for even samples), nearest-rank p95 and maximum. It rejects different browser,
 Node, platform or test conditions, missing/duplicate runs, incomplete journeys,
 missing real-loading input/command samples and incomplete journey transfers.
+Transfer snapshots must be nonempty and match the retained timestamped request
+trace before Play (the complete trace for the baseline). Missing records must
+produce invalid evidence, not a zero-byte budget pass.
 Without `--budgets=<approved.json>`, it reports `not-evaluated` and exits zero
 only to indicate a valid summary. That exit code alone is **not** a budget pass.
 

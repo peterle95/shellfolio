@@ -29,6 +29,7 @@ function statistics(samples) {
 
 function samples(run, baseline) {
     const journey = run.commands.filter(sample => sample.phase === 'journey');
+    const loading = sample => sample.phase === 'video-loading' && sample.duringVideoRequest === true;
     const posters = run.images.filter(image => {
         const url = new URL(image.url);
         return url.pathname === '/_next/image' && url.searchParams.get('url') === '/videos/finance_tracker-poster.webp';
@@ -36,12 +37,13 @@ function samples(run, baseline) {
     assert.deepEqual(journey.map(sample => sample.command), journeyCommands, 'Incomplete command journey');
     assert.equal(run.inputs.filter(sample => sample.phase === 'journey').length, 48, 'Incomplete journey input samples');
     assert.ok([...run.inputs, ...run.commands].every(sample => Number.isFinite(sample.ms) && sample.ms >= 0), 'Invalid input/command timing');
+    assert.ok(run.beforePlay.length > 0, 'Missing pre-Play transfer evidence');
+    assert.ok(run.transfers.length && run.transfers.every(request => Number.isFinite(request.startMs)), 'Missing timestamped transfer trace');
     assert.ok(run.beforePlay.every(request => !videoURL(request.url)), 'Video request before Play');
     assert.ok(run.beforePlay.every(request => request.endMs != null && !request.error && Number.isFinite(request.transferBytes) && request.transferBytes >= 0),
         'Incomplete journey transfer evidence');
     if (!baseline) {
         assert.ok(run.playback, 'Missing real media-loading phase');
-        const loading = sample => sample.phase === 'video-loading' && sample.duringVideoRequest === true;
         assert.deepEqual(run.playback.commands.filter(loading).map(sample => sample.command), ['pwd', 'ls projects'], 'Missing commands during real video delivery');
         assert.equal(run.playback.inputs.filter(loading).length, 14, 'Missing input during real video delivery');
         assert.equal(run.playback.plays.length, 1, 'Missing explicit Play evidence');
@@ -51,8 +53,9 @@ function samples(run, baseline) {
         assert.ok(media.length && media.every(request => !request.error && request.endMs != null && request.transferBytes > 0), 'Incomplete video transfer evidence');
         assert.ok(media.every(request => new URL(request.url).pathname === '/videos/finance_tracker-silent.mp4'), 'Unapproved video scope; replacement assets need a new owner decision');
     }
+    const prePlayTrace = baseline ? run.transfers : run.transfers.filter(request => request.startMs < run.playback.plays[0]);
+    assert.deepEqual(run.beforePlay, prePlayTrace, 'Incomplete pre-Play transfer snapshot versus retained trace');
     const projects = journey.filter(sample => ['projects', 'portfolio'].includes(sample.command));
-    const loading = sample => sample.phase === 'video-loading' && sample.duringVideoRequest;
     const transfer = requests => requests.reduce((sum, request) => sum + (request.transferBytes ?? request.receivedEncodedBytes ?? 0), 0);
     const play = run.playback?.plays[0];
     const playing = run.playback?.playing.find(time => time >= play);
