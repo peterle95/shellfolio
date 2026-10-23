@@ -238,3 +238,21 @@ marker. The summary requires all seven journey markers per run, checks their
 durations against the page proxy within 5ms and bounds every category union
 by its marker window. No application behavior is changed, so no application
 test-first failure/fix cycle is claimed.
+
+Passed both measured production builds and their independent typechecks,
+repository-wide lint, all 14 Node tests, terminal/badge/Grainient regressions,
+and the complete project and lint browser checks. The final tracing smoke and
+default benchmark smoke also passed; the latter exercised real video loading,
+input overlap and cleanup without either new option. Smoke timings are excluded
+from the ten-run cohorts.
+
+Browser regressions used a separate task-start `308c629` checkout with its
+tracked media, not the owner's changing media working tree. Three dependency
+installation attempts timed out; verification then reused the existing main
+checkout's dependencies through a junction and built with `next build --webpack`.
+Its independent typecheck passed after moving the incomplete install outside
+the checkout. This regression-only build is **not** either measured build:
+both historical measurement targets were freshly built with Turbopack and
+their own existing lockfile installations, before all regression work.
+All measured batches and browser checks completed before the production server
+sessions later exited; no interrupted measurement is included.
