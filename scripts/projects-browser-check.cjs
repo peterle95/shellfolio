@@ -48,13 +48,13 @@ const { portfolioContent } = loadSource(path.join(root, 'src/lib/terminal/vfs-co
 const hash = value => crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
 // Owner-approved records and filenames, repinned with the 2026-10-23 media additions
 // (per-project videos and poster frames, finance placeholder retained on unmedia'd entries).
-assert.equal(hash(data.projectsAsRecords()), 'b4458cfe30b177ced0f4c0903af0b3cc24521819b316ffb8ae750ef368342817');
-assert.equal(hash(portfolioContent.children.projects), '80f7e7edbd4271708138f7036afff18e2925dfcf5de388c8deb216b6081fb9e7');
+assert.equal(hash(data.projectsAsRecords()), 'ce23d9e0d3a5763c0114fb1566dca8082523ade3b9f3b6b21710515858f74322');
+assert.equal(hash(portfolioContent.children.projects), 'e2ab6e6fd2c99620507f068e6a95f514bffc83cb7ab6b88354bea4f02c9b5bda');
 assert.deepEqual(data.portfolioProjects.slice(0, 2).map(p => p.title), [
     'Pet', 'WEB CONSULTANT & DEVELOPER – I PELOSETTI DI SILVANA ONLUS',
 ]);
 const approvedCopy = [
-    'Your desktop. Now with company.',
+    undefined,
     'Pro-bono WordPress fixes for animal listings and SEO.',
     'Evaluate job postings and tailor your next application.',
     'Track fermentation locally, on desktop or Android.',
@@ -84,7 +84,7 @@ const approvedVideoSources = [
     '/videos/finance_tracker/finance_tracker-silent.mp4',
     '/videos/finance_tracker/finance_tracker-silent.mp4',
     '/videos/finance_tracker/finance_tracker-silent.mp4',
-    '/videos/finance_tracker/finance_tracker-silent.mp4',
+    undefined,
 ];
 assert.deepEqual(data.portfolioProjects.map(p => p.shortDescription), approvedCopy);
 assert.deepEqual(data.portfolioProjects.map(p => p.image?.src), approvedPosterSources);
@@ -163,6 +163,7 @@ async function clickToPlay() {
             await send(page, 'portfolio');
             const section = projects(page).last();
             const article = jobFinderArticle(section);
+            await article.scrollIntoViewIfNeeded();
             const play = article.getByRole('button', { name: 'Play demonstration clip for jobFinder', exact: true });
             await expect(play).toBeVisible();
             assert.equal((await play.textContent()).trim(), '', 'Play is an icon, not a visible text label');
@@ -172,7 +173,24 @@ async function clickToPlay() {
             assert.ok(playBox.width >= 44 && playBox.height >= 44, 'visible touch-sized Play action');
             assert.ok(Math.abs(playBox.x + playBox.width / 2 - posterBox.x - posterBox.width / 2) < 1, 'Play is horizontally centered');
             assert.ok(Math.abs(playBox.y + playBox.height / 2 - posterBox.y - posterBox.height / 2) < 1, 'Play is vertically centered');
-            await expect(article.getByText(jobFinder.video.description, { exact: true })).toBeVisible();
+            const details = article.locator('figcaption');
+            const info = article.getByRole('button', { name: 'Preview information for jobFinder', exact: true });
+            const previewBefore = await article.locator('figure').boundingBox();
+            await expect(details).toHaveCSS('opacity', '0');
+            await info.click();
+            await expect(info).toHaveAttribute('aria-expanded', 'true');
+            await expect(details).toHaveCSS('opacity', '1');
+            await expect(details).toHaveText(jobFinder.description);
+            await expect(details.locator('p')).toHaveCount(1);
+            assert.deepEqual(await article.locator('figure').boundingBox(), previewBefore, 'overlay does not change preview geometry');
+            await info.click();
+            await page.mouse.move(0, 0);
+            await info.blur();
+            await expect(details).toHaveCSS('opacity', '0');
+            await article.locator('figure').hover();
+            await expect(details).toHaveCSS('opacity', '1');
+            await page.mouse.move(0, 0);
+            await expect(details).toHaveCSS('opacity', '0');
             assert.equal(await page.locator('video[src], video source[src]').count(), 0, 'idle videos have no downloadable source');
             await expect(page.locator('link[rel="preload"][as="video"]')).toHaveCount(0);
             noVideo(requests);
@@ -183,6 +201,8 @@ async function clickToPlay() {
             const player = article.locator('video');
             await expect(player).toBeVisible();
             await expect(player).toBeFocused();
+            await expect(details).toBeHidden();
+            await expect(info).toBeHidden();
             await expect.poll(() => player.evaluate(el => !el.paused && el.currentTime > 0)).toBe(true);
             assert.ok(requests.some(url => url.endsWith('/videos/jobFinder/jobFinder-silent.mp4')), 'Play fetches the silent owner-recorded jobFinder clip');
             assert.equal(requests.some(url => /\/finance_tracker\.mp4/.test(url)), false, 'never fetch the audio-bearing original');
@@ -440,6 +460,8 @@ async function responsive() {
             // Empty prompt does not trap Tab; links retain native focus and activation.
             await page.getByRole('textbox', { name: 'Terminal input' }).focus();
             await page.keyboard.press('Shift+Tab');
+            await expect(section.getByRole('button', { name: /^Preview information for / }).last()).toBeFocused();
+            await page.keyboard.press('Shift+Tab');
             await expect(section.getByRole('button', { name: /^Play (demonstration clip|shared placeholder video)/ }).last()).toBeFocused();
             await page.keyboard.press('Shift+Tab');
             await expect(section.getByRole('link').last()).toBeFocused();
@@ -658,7 +680,7 @@ async function distinctMediaDelivery() {
                 await article.getByRole('button', { name: /^Play / }).click();
                 const player = article.locator('video');
                 await expect(player).toBeFocused();
-                await expect(player).toHaveAccessibleDescription(project.video.description);
+                await expect(player).toHaveAccessibleDescription(project.description);
                 await expect.poll(() => player.evaluate(el => !el.paused && el.currentTime > 0)).toBe(true);
                 await expect.poll(() => player.evaluate(el => el.buffered.length > 0 && el.buffered.end(el.buffered.length - 1) >= el.duration - 0.1)).toBe(true);
                 await page.waitForLoadState('networkidle');

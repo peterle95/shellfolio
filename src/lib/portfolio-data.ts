@@ -13,19 +13,16 @@ export type ProjectImage = {
     alt: string;
     width: number;
     height: number;
-    caption?: string;
 };
 
 export type ProjectVideo = {
     src: string;
-    description: string;
     /** Marks the approved shared Finance Tracker placeholder (docs/project-content-34.md). */
     sharedPlaceholder?: boolean;
 };
 
 const sharedFinanceVideo: ProjectVideo = {
     src: '/videos/finance_tracker/finance_tracker-silent.mp4',
-    description: 'Shared Finance Tracker demo, not a preview of this project. The clip records a grocery expense and shows a daily spending allowance, savings progress, and budget overview using fictional data.',
     sharedPlaceholder: true,
 };
 
@@ -35,15 +32,13 @@ const sharedFinancePoster: ProjectImage = {
     alt: 'Shared placeholder: Finance Tracker dashboard with a daily spending target and expense list.',
     width: 1280,
     height: 720,
-    caption: 'Shared placeholder: Finance Tracker, not a preview of this project.',
 };
 
 // Owner-recorded project media. jobFinder's demo footer states:
 // "Demonstration · Fictional career materials · Sample provider outputs"
-// — video descriptions below say the same so no clip is mistaken for real output.
+// — the project description says the same so no clip is mistaken for real output.
 const fermentStationVideo: ProjectVideo = {
     src: '/videos/fermentStation/fermentStation-silent.mp4',
-    description: 'FermentStation demonstration: the clip opens on the app icon with the slogan "Good things take time.", skips ahead seven days, and shows the Today view, where the action queue flags a taste-and-smell check due today and Sunday\'s kombucha as ready to open.',
 };
 
 const fermentStationPoster: ProjectImage = {
@@ -51,12 +46,10 @@ const fermentStationPoster: ProjectImage = {
     alt: 'FermentStation illustration: a clip-top jar of fermenting vegetables beside the slogan "Good things take time."',
     width: 1280,
     height: 720,
-    caption: 'FermentStation: good things take time.',
 };
 
 const jobFinderVideo: ProjectVideo = {
     src: '/videos/jobFinder/jobFinder-silent.mp4',
-    description: 'jobFinder demonstration with fictional career materials and sample provider outputs: a job posting is evaluated as a partial match (70 of 100), strengths and gaps are reviewed against saved experience sources, and a tailored CV and cover letter for the fictional candidate are generated, edited, and saved as PDF.',
 };
 
 const jobFinderPoster: ProjectImage = {
@@ -64,12 +57,10 @@ const jobFinderPoster: ProjectImage = {
     alt: 'jobFinder evaluation screen: a 70 out of 100 partial-match recommendation beside a review of established strengths and experience to confirm.',
     width: 1280,
     height: 720,
-    caption: 'jobFinder demo, using fictional career materials and sample provider outputs.',
 };
 
 const petVideo: ProjectVideo = {
     src: '/videos/pet/pet-silent.mp4',
-    description: 'Pet demonstration on macOS: a pixel companion walks on the desktop next to Notes and can be dragged anywhere, a Pokéball-styled Pomodoro panel starts a 10-minute focus session, and a monthly task calendar tracks daily tasks such as reading and walks with streaks.',
 };
 
 const petPoster: ProjectImage = {
@@ -77,7 +68,6 @@ const petPoster: ProjectImage = {
     alt: 'Pet demonstration desktop: the slogan "Your desktop. Now with company." beside a pixel-art companion on a macOS desktop.',
     width: 1280,
     height: 720,
-    caption: 'Pet: your desktop, now with company.',
 };
 
 const pelosettiImage: ProjectImage = {
@@ -85,13 +75,19 @@ const pelosettiImage: ProjectImage = {
     alt: 'I Pelosetti di Silvana Onlus shelter website with sections for temporary fostering, fostering towards adoption, and social volunteering.',
     width: 1424,
     height: 728,
-    caption: 'I Pelosetti di Silvana Onlus: the shelter\'s WordPress site for fostering and adoption.',
+};
+
+const githubProfile: ProjectImage = {
+    src: '/images/github_profile.png',
+    alt: 'My GitHub profile screenshot showing repositories, contributions, and pinned projects.',
+    width: 1280,
+    height: 720,
 };
 
 export type PortfolioProject = {
     title: string;
     description: string;
-    shortDescription: string;
+    shortDescription?: string;
     stack: string;
     live?: string;
     repo: string;
@@ -104,11 +100,11 @@ export const portfolioProjects: PortfolioProject[] = [
     // Confirm the stack strings and add repo URLs before publication.
     {
         title: 'Pet',
-        shortDescription: 'Your desktop. Now with company.',
+        // shortDescription: 'Your desktop. Now with company.',
         image: petPoster,
         video: petVideo,
         description:
-            'Desktop companion for macOS: a pixel pet walks across your desktop while you work and can be dragged anywhere, paired with a Pokéball-styled Pomodoro focus timer and a task calendar that tracks daily tasks with streaks. Repository stays private for now.',
+            'Desktop companion: a pixel pet walks across your desktop while you work and can be dragged anywhere, paired with a Pokéball-styled Pomodoro focus timer and a task calendar that tracks daily tasks with streaks. Repository stays private for now.',
         stack: 'TypeScript',
         repo: '#',
     },
@@ -149,7 +145,7 @@ export const portfolioProjects: PortfolioProject[] = [
         image: sharedFinancePoster,
         video: sharedFinanceVideo,
         description:
-            'WSL monorepo of 23 CLI tools wrapping public APIs for agent-friendly automation. ',
+            'WSL monorepo of 23 CLI tools wrapping public APIs for agent-friendly automation. Preview: shared Finance Tracker placeholder, not this project, using fictional data.',
         stack: 'Go/Cobra, Python, Node/TypeScript',
         live: '#',
         repo: 'https://github.com/peterle95/printing-press-clis',
@@ -160,7 +156,7 @@ export const portfolioProjects: PortfolioProject[] = [
         image: sharedFinancePoster,
         video: sharedFinanceVideo,
         description:
-            'Final project of 42 Core Curriculum. Together we 4 other fellow 42oers we created a platform for multiple games showcasing different technologies and games. (Currently in development)',
+            'Final project of 42 Core Curriculum. Together we 4 other fellow 42oers we created a platform for multiple games showcasing different technologies and games. (Currently in development) Preview: shared Finance Tracker placeholder, not this project, using fictional data.',
         stack: 'Next.js, TypeScript, React, Prisma, Tailwind CSS',
         live: '#',
         repo: 'https://github.com/transcendence42spacewars/transcendence',
@@ -171,7 +167,7 @@ export const portfolioProjects: PortfolioProject[] = [
         image: sharedFinancePoster,
         video: sharedFinanceVideo,
         description:
-            "Custom HTTP server implemented in C++98. This project aims to provide a deep understanding of how HTTP servers operate, focusing on core network aspects and non-blocking behavior to handle multiple concurrent connections efficiently. The server's primary function is to receive HTTP requests from clients, process these requests, and send appropriate HTTP responses back.",
+            "Custom HTTP server implemented in C++98. This project aims to provide a deep understanding of how HTTP servers operate, focusing on core network aspects and non-blocking behavior to handle multiple concurrent connections efficiently. The server's primary function is to receive HTTP requests from clients, process these requests, and send appropriate HTTP responses back. Preview: shared Finance Tracker placeholder, not this project, using fictional data.",
         stack: 'C++98, Unix, Nginx, JavaScript, HTML, CSS, Python',
         live: '#',
         repo: 'https://github.com/peterle95/webserv',
@@ -182,7 +178,7 @@ export const portfolioProjects: PortfolioProject[] = [
         image: sharedFinancePoster,
         video: sharedFinanceVideo,
         description:
-            'Personal portfolio webpage simulating shell. It makes my projects and other information interactive and fun.',
+            'Personal portfolio webpage simulating shell. It makes my projects and other information interactive and fun. Preview: shared Finance Tracker placeholder, not this project, using fictional data.',
         stack: 'TypeScript, React, Next.js',
         live: 'https://petermoelzer-shellfolio.vercel.app/',
         repo: 'https://github.com/peterle95/shellfolio',
@@ -205,8 +201,7 @@ export const portfolioProjects: PortfolioProject[] = [
     {
         title: 'More Projects',
         shortDescription: 'Explore more projects and contributions on GitHub.',
-        image: sharedFinancePoster,
-        video: sharedFinanceVideo,
+        image: githubProfile,
         description: 'Check out my GitHub for more projects and contributions.',
         stack: 'C, C++, JavaScript, TypeScript, React, ...',
         repo: 'https://github.com/peterle95/',

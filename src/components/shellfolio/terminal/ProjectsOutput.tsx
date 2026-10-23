@@ -64,31 +64,36 @@ function ProjectVideoPlayer({ video, title, descriptionId }: { video: ProjectVid
     );
 }
 
-function ProjectPreview({ image, video, title }: { image: ProjectImage; video?: ProjectVideo; title: string }) {
+function ProjectPreview({ image, video, title, description }: { image: ProjectImage; video?: ProjectVideo; title: string; description: string }) {
     const [failed, setFailed] = useState(false);
-    const descriptionId = useId();
+    const detailsId = useId();
+    const [detailsOpen, setDetailsOpen] = useState(false);
 
     return (
-        <figure className={styles.preview}>
-            <div className={styles.imageFrame} style={{ aspectRatio: `${image.width} / ${image.height}` }}>
-                {failed ? (
-                    <p className={styles.unavailable}>Preview unavailable. Project details and links are still available.</p>
-                ) : (
-                    <Image
-                        src={image.src}
-                        alt={image.alt}
-                        width={image.width}
-                        height={image.height}
-                        sizes="(min-width: 1400px) 600px, (min-width: 960px) calc(50vw - 80px), (min-width: 640px) calc(100vw - 130px), calc(100vw - 70px)"
-                        loading="lazy"
-                        onError={() => setFailed(true)}
-                        className={styles.image}
-                    />
-                )}
-                {video && <ProjectVideoPlayer video={video} title={title} descriptionId={descriptionId} />}
-            </div>
-            {image.caption && <figcaption className={styles.caption}>{image.caption}</figcaption>}
-            {video && <p id={descriptionId} className={styles.caption}>{video.description}</p>}
+        <figure className={`${styles.preview} ${styles.imageFrame}`} style={{ aspectRatio: `${image.width} / ${image.height}` }}>
+            {failed ? (
+                <p className={styles.unavailable}>Preview unavailable. Project details and links are still available.</p>
+            ) : (
+                <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={image.width}
+                    height={image.height}
+                    sizes="(min-width: 1400px) 600px, (min-width: 960px) calc(50vw - 80px), (min-width: 640px) calc(100vw - 130px), calc(100vw - 70px)"
+                    loading="lazy"
+                    onError={() => setFailed(true)}
+                    className={styles.image}
+                />
+            )}
+            {video && <ProjectVideoPlayer video={video} title={title} descriptionId={detailsId} />}
+            <button type="button" className={styles.info} aria-label={`Preview information for ${title}`}
+                aria-expanded={detailsOpen} aria-controls={detailsId}
+                onClick={() => setDetailsOpen(!detailsOpen)}>
+                <span aria-hidden="true">i</span>
+            </button>
+            <figcaption id={detailsId} className={styles.details} data-open={detailsOpen} tabIndex={detailsOpen ? 0 : -1}>
+                <p className={styles.caption}>{description}</p>
+            </figcaption>
         </figure>
     );
 }
@@ -116,7 +121,7 @@ export function ProjectsOutput({ projects }: { projects: PortfolioProject[] }) {
                                     ))}
                                 </nav>
                             </div>
-                            {project.image && <ProjectPreview image={project.image} video={project.video} title={project.title} />}
+                            {project.image && <ProjectPreview image={project.image} video={project.video} title={project.title} description={project.description} />}
                         </article>
                     </li>
                 ))}
