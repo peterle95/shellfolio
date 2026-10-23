@@ -1,13 +1,14 @@
 // Run against production: npm run build && npm start -- --port 9350
 // npm run test:projects -- --url=http://localhost:9350 --screenshots=C:/path/to/screenshots
 // Add --history-only for the focused virtual-files/reload-recall check.
-// Uses BROWSER_PATH, installed Chrome/Edge on Windows, or `npx playwright install chromium`.
+// Requires ffprobe. Uses BROWSER_PATH, installed Chrome/Edge on Windows, or `npx playwright install chromium`.
 /* eslint-disable @typescript-eslint/no-require-imports -- Standalone CommonJS check, matching scripts/*.cjs. */
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const crypto = require('node:crypto');
+const { execFileSync } = require('node:child_process');
 const { parseArgs } = require('node:util');
 const React = require('react');
 const { renderToString } = require('react-dom/server');
@@ -17,6 +18,7 @@ const { chromium, expect } = require('@playwright/test');
 const { values } = parseArgs({ options: {
     url: { type: 'string', default: 'http://localhost:9350' },
     screenshots: { type: 'string' },
+    report: { type: 'string' },
     'history-only': { type: 'boolean', default: false },
 } });
 const root = path.resolve(__dirname, '..');
@@ -64,26 +66,38 @@ const approvedPosterSources = [
     '/videos/pet/pet-poster.webp',
     '/videos/fermentStation/fermentStation-poster.webp',
     '/images/ipelosetti.png',
-    '/videos/finance_tracker-poster.webp',
-    '/videos/finance_tracker-poster.webp',
-    '/videos/finance_tracker-poster.webp',
-    '/videos/finance_tracker-poster.webp',
-    '/videos/finance_tracker-poster.webp',
+    '/videos/finance_tracker/finance_tracker-poster.webp',
+    '/videos/finance_tracker/finance_tracker-poster.webp',
+    '/videos/finance_tracker/finance_tracker-poster.webp',
+    '/videos/finance_tracker/finance_tracker-poster.webp',
+    '/videos/finance_tracker/finance_tracker-poster.webp',
 ];
 const approvedVideoSources = [
-    '/videos/jobFinder/jobFinder.mp4',
-    '/videos/pet/pet.mp4',
-    '/videos/fermentStation/fermentStation.mp4',
+    '/videos/jobFinder/jobFinder-silent.mp4',
+    '/videos/pet/pet-silent.mp4',
+    '/videos/fermentStation/fermentStation-silent.mp4',
     undefined,
-    '/videos/finance_tracker-silent.mp4',
-    '/videos/finance_tracker-silent.mp4',
-    '/videos/finance_tracker-silent.mp4',
-    '/videos/finance_tracker-silent.mp4',
-    '/videos/finance_tracker-silent.mp4',
+    '/videos/finance_tracker/finance_tracker-silent.mp4',
+    '/videos/finance_tracker/finance_tracker-silent.mp4',
+    '/videos/finance_tracker/finance_tracker-silent.mp4',
+    '/videos/finance_tracker/finance_tracker-silent.mp4',
+    '/videos/finance_tracker/finance_tracker-silent.mp4',
 ];
 assert.deepEqual(data.portfolioProjects.map(p => p.shortDescription), approvedCopy);
 assert.deepEqual(data.portfolioProjects.map(p => p.image?.src), approvedPosterSources);
 assert.deepEqual(data.portfolioProjects.map(p => p.video?.src), approvedVideoSources);
+
+// Inspect the actual public delivery files, not a mute setting or shared-URL fixture.
+for (const src of new Set(approvedVideoSources.filter(Boolean))) {
+    const file = path.join(root, 'public', src);
+    assert.ok(fs.existsSync(file), `Public video exists: ${src}`);
+    const probe = JSON.parse(execFileSync('ffprobe', ['-v', 'error', '-show_streams', '-of', 'json', file], { encoding: 'utf8' }));
+    assert.equal(probe.streams.filter(stream => stream.codec_type === 'audio').length, 0, `Silent delivery: ${src}`);
+    assert.equal(probe.streams.filter(stream => stream.codec_type === 'video').length, 1, `One video stream: ${src}`);
+}
+for (const src of new Set(approvedPosterSources)) {
+    assert.ok(fs.existsSync(path.join(root, 'public', src)), `Public poster exists: ${src}`);
+}
 
 const executablePath = process.env.BROWSER_PATH || [
     'C:/Program Files/Google/Chrome/Application/chrome.exe',
@@ -165,7 +179,7 @@ async function clickToPlay() {
             await expect(player).toBeVisible();
             await expect(player).toBeFocused();
             await expect.poll(() => player.evaluate(el => !el.paused && el.currentTime > 0)).toBe(true);
-            assert.ok(requests.some(url => url.endsWith('/videos/jobFinder/jobFinder.mp4')), 'Play fetches the owner-recorded jobFinder clip');
+            assert.ok(requests.some(url => url.endsWith('/videos/jobFinder/jobFinder-silent.mp4')), 'Play fetches the silent owner-recorded jobFinder clip');
             assert.equal(requests.some(url => /\/finance_tracker\.mp4/.test(url)), false, 'never fetch the audio-bearing original');
             assert.deepEqual(await player.evaluate(el => ({ controls: el.controls, autoplay: el.autoplay, inline: el.playsInline,
                 width: el.videoWidth, height: el.videoHeight })),
@@ -271,7 +285,7 @@ async function videoFailureAndCancellation() {
             let release;
             const pending = new Promise(resolve => { release = resolve; });
             try {
-                await page.route('**/videos/jobFinder/jobFinder.mp4', async route => {
+                await page.route('**/videos/jobFinder/jobFinder-silent.mp4', async route => {
                     if (broken) await route.abort();
                     else { await pending; await route.continue(); }
                 });
@@ -300,7 +314,7 @@ async function videoFailureAndCancellation() {
                 await expect(input).toHaveValue('pwd');
                 await send(page, 'pwd');
                 const cancelled = broken ? null : page.waitForEvent('requestfailed', {
-                    predicate: request => request.url().endsWith('/videos/jobFinder/jobFinder.mp4'),
+                    predicate: request => request.url().endsWith('/videos/jobFinder/jobFinder-silent.mp4'),
                 });
                 await send(page, 'portfolio');
                 await unloaded(player);
@@ -549,16 +563,9 @@ async function optionalMediaFixture() {
     // The approved release has media on every entry. Exercise the same production
     // renderer with optional media omitted; no fixture route/flag ships in the app.
     const { ProjectsOutput } = loadSource(path.join(root, 'src/components/shellfolio/terminal/ProjectsOutput.tsx'));
-    const fixture = Array.from({ length: 12 }, (_, i) => ({ ...data.portfolioProjects[0], title: `Image fixture ${i}`, video: undefined }));
+    const fixture = Array.from({ length: 12 }, (_, i) => ({ ...data.portfolioProjects[i === 11 ? 2 : 0], title: `Image fixture ${i}`, video: undefined }));
     fixture.push({ ...data.portfolioProjects[0], title: 'Text-only fixture', image: undefined, video: undefined, repo: '#', live: '#' });
-    let imageIndex = 0;
-    const markup = renderToString(React.createElement(ProjectsOutput, { projects: fixture }))
-        .replace(/<img\b[^>]*>/g, tag => {
-            // Distinguish cache keys only in this fixture's markup. Every response
-            // still comes from the real optimizer and the same approved local image.
-            const index = imageIndex++;
-            return tag.replaceAll('/_next/image?', `/_next/image?project-fixture=${index}&amp;`);
-        });
+    const markup = renderToString(React.createElement(ProjectsOutput, { projects: fixture }));
     const css = fs.readFileSync(path.join(root, 'src/components/shellfolio/terminal/ProjectsOutput.module.css'), 'utf8');
     const { context, page, requests } = await session(1200);
     try {
@@ -569,13 +576,13 @@ async function optionalMediaFixture() {
             <body><main style="margin:16px;color:var(--terminal-fg)"><div role="region" aria-label="Terminal history" style="height:600px;overflow:auto">${markup}</div></main></body></html>` }));
         requests.length = 0;
         await page.goto(`${values.url}/projects-fixture`, { waitUntil: 'networkidle' });
-        const images = projects(page).getByRole('img', { name: alt });
+        const images = projects(page).getByRole('img');
         await imageReady(images.first());
-        assert.equal(requests.some(url => url.includes('project-fixture=11')), false, 'far-offscreen image not fetched');
+        assert.equal(requests.some(url => url.includes('fermentStation-poster')), false, 'far-offscreen distinct approved poster not fetched');
         assert.equal(await images.last().evaluate(el => el.complete), false);
         await images.last().scrollIntoViewIfNeeded();
         await imageReady(images.last());
-        assert.ok(requests.some(url => url.includes('project-fixture=11')), 'scrolling triggers actual optimized request');
+        assert.ok(requests.some(url => url.includes('fermentStation-poster')), 'scrolling triggers distinct approved optimized request');
         const textOnly = projects(page).getByRole('article').last();
         await expect(textOnly.locator('figure, img')).toHaveCount(0);
         await expect(textOnly.getByRole('link')).toHaveCount(0);
@@ -585,6 +592,75 @@ async function optionalMediaFixture() {
         noVideo(requests);
     } finally { await context.close(); }
     console.log('PASS text-only full-width rendering and production lazy-image requests in representative fixture');
+}
+
+async function distinctMediaDelivery() {
+    const report = { measuredAt: new Date().toISOString(), browser: browser.version(),
+        conditions: 'Local production server; fresh context per width; DPR 1; cache disabled; no network/CPU throttle; reduced motion; telemetry declined. CDP transfer bytes include response overhead. One sample per width; not a comparative benchmark.', runs: [] };
+    for (const width of [390, 900, 1600]) {
+        const { context, page, requests, errors } = await session(width);
+        const cdp = await context.newCDPSession(page);
+        await cdp.send('Network.enable');
+        await cdp.send('Network.setCacheDisabled', { cacheDisabled: true });
+        const transfers = new Map();
+        let phase = 'before-play';
+        cdp.on('Network.requestWillBeSent', event => {
+            if (/\/_next\/image\?|\.mp4(?:[?#]|$)/.test(event.request.url)) {
+                transfers.set(event.requestId, { url: event.request.url, phase });
+            }
+        });
+        cdp.on('Network.responseReceived', event => {
+            if (transfers.has(event.requestId)) Object.assign(transfers.get(event.requestId), { status: event.response.status });
+        });
+        cdp.on('Network.loadingFinished', event => {
+            if (transfers.has(event.requestId)) Object.assign(transfers.get(event.requestId), { transferBytes: event.encodedDataLength });
+        });
+        try {
+            await boot(page);
+            await send(page, 'projects');
+            const articles = projects(page).getByRole('article');
+            const images = [];
+            for (const [index, project] of data.portfolioProjects.entries()) {
+                const article = articles.nth(index);
+                const image = article.getByRole('img');
+                await image.scrollIntoViewIfNeeded();
+                await imageReady(image);
+                const delivered = await image.evaluate(el => ({ src: el.currentSrc, width: el.width, height: el.height }));
+                assert.equal(new URL(delivered.src).searchParams.get('url'), project.image.src);
+                assert.ok(Math.abs(delivered.width / delivered.height - project.image.width / project.image.height) < 0.02);
+                images.push({ project: project.title, ...delivered });
+            }
+            await page.waitForLoadState('networkidle');
+            noVideo(requests);
+            const played = new Set();
+            for (const [index, project] of data.portfolioProjects.entries()) {
+                if (!project.video || played.has(project.video.src)) continue;
+                played.add(project.video.src);
+                phase = `play: ${project.title}`;
+                const article = articles.nth(index);
+                await article.scrollIntoViewIfNeeded();
+                const before = await article.boundingBox();
+                await article.getByRole('button', { name: /^Play / }).click();
+                const player = article.locator('video');
+                await expect(player).toBeFocused();
+                await expect(player).toHaveAccessibleDescription(project.video.description);
+                await expect.poll(() => player.evaluate(el => !el.paused && el.currentTime > 0)).toBe(true);
+                await expect.poll(() => player.evaluate(el => el.buffered.length > 0 && el.buffered.end(el.buffered.length - 1) >= el.duration - 0.1)).toBe(true);
+                await page.waitForLoadState('networkidle');
+                assert.equal((await article.boundingBox()).height, before.height);
+                await expect(page.locator('video[src]')).toHaveCount(1);
+            }
+            await send(page, 'about');
+            await expect(page.locator('video[src]')).toHaveCount(0);
+            assert.deepEqual(errors, []);
+            const mediaTransfers = [...transfers.values()];
+            assert.ok(mediaTransfers.every(item => [200, 206].includes(item.status) && item.transferBytes > 0));
+            assert.equal(new Set(mediaTransfers.filter(item => item.url.endsWith('.mp4')).map(item => new URL(item.url).pathname)).size, 4);
+            report.runs.push({ width, images, transfers: mediaTransfers });
+        } finally { await context.close(); }
+        console.log(`PASS all distinct approved images/videos, geometry, accessible Play and cleanup: ${width}px`);
+    }
+    if (values.report) fs.writeFileSync(values.report, JSON.stringify(report, null, 2));
 }
 
 (async () => {
@@ -600,5 +676,6 @@ async function optionalMediaFixture() {
         await responsive();
         await delayedAndBroken();
         await optionalMediaFixture();
+        await distinctMediaDelivery();
     } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });

@@ -24,14 +24,14 @@ export type ProjectVideo = {
 };
 
 const sharedFinanceVideo: ProjectVideo = {
-    src: '/videos/finance_tracker-silent.mp4',
+    src: '/videos/finance_tracker/finance_tracker-silent.mp4',
     description: 'Shared Finance Tracker demo, not a preview of this project. The clip records a grocery expense and shows a daily spending allowance, savings progress, and budget overview using fictional data.',
     sharedPlaceholder: true,
 };
 
 // Owner-approved release exception and exact copy: docs/project-content-34.md.
 const sharedFinancePoster: ProjectImage = {
-    src: '/videos/finance_tracker-poster.webp',
+    src: '/videos/finance_tracker/finance_tracker-poster.webp',
     alt: 'Shared placeholder: Finance Tracker dashboard with a daily spending target and expense list.',
     width: 1280,
     height: 720,
@@ -42,7 +42,7 @@ const sharedFinancePoster: ProjectImage = {
 // "Demonstration · Fictional career materials · Sample provider outputs"
 // — video descriptions below say the same so no clip is mistaken for real output.
 const fermentStationVideo: ProjectVideo = {
-    src: '/videos/fermentStation/fermentStation.mp4',
+    src: '/videos/fermentStation/fermentStation-silent.mp4',
     description: 'FermentStation demonstration: the clip opens on the app icon with the slogan "Good things take time.", skips ahead seven days, and shows the Today view, where the action queue flags a taste-and-smell check due today and Sunday\'s kombucha as ready to open.',
 };
 
@@ -55,7 +55,7 @@ const fermentStationPoster: ProjectImage = {
 };
 
 const jobFinderVideo: ProjectVideo = {
-    src: '/videos/jobFinder/jobFinder.mp4',
+    src: '/videos/jobFinder/jobFinder-silent.mp4',
     description: 'jobFinder demonstration with fictional career materials and sample provider outputs: a job posting is evaluated as a partial match (70 of 100), strengths and gaps are reviewed against saved experience sources, and a tailored CV and cover letter for the fictional candidate are generated, edited, and saved as PDF.',
 };
 
@@ -68,7 +68,7 @@ const jobFinderPoster: ProjectImage = {
 };
 
 const petVideo: ProjectVideo = {
-    src: '/videos/pet/pet.mp4',
+    src: '/videos/pet/pet-silent.mp4',
     description: 'Pet demonstration on macOS: a pixel companion walks on the desktop next to Notes and can be dragged anywhere, a Pokéball-styled Pomodoro panel starts a 10-minute focus session, and a monthly task calendar tracks daily tasks such as reading and walks with streaks.',
 };
 

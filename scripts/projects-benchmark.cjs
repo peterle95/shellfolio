@@ -74,7 +74,7 @@ async function instrument(page) {
             requestAnimationFrame(paint);
         }, true);
         document.addEventListener('click', event => {
-            if (event.target.closest('button[aria-label^="Play shared placeholder video"]')) window.benchmark.plays.push(performance.now());
+            if (event.target.closest('button[aria-label^="Play shared placeholder video"], button[aria-label^="Play demonstration clip"]')) window.benchmark.plays.push(performance.now());
         }, true);
         document.addEventListener('playing', event => {
             if (event.target instanceof HTMLVideoElement) window.benchmark.playing.push(performance.now());
@@ -193,7 +193,7 @@ const videoURL = url => /\.(mp4|webm)(?:[?#]|$)/i.test(url);
                 let playback = null;
                 if (!values.baseline && !values['journey-only']) {
                     const article = page.getByRole('region', { name: 'Projects', exact: true }).last().getByRole('article').first();
-                    const play = article.getByRole('button', { name: /^Play shared placeholder video/ });
+                    const play = article.getByRole('button', { name: /^Play (shared placeholder video|demonstration clip)/ });
                     await expect(play).toBeVisible();
                     assert.equal(await page.locator('video[src], video source[src]').count(), 0);
                     const height = (await article.boundingBox()).height;
