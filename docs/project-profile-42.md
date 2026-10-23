@@ -256,3 +256,13 @@ both historical measurement targets were freshly built with Turbopack and
 their own existing lockfile installations, before all regression work.
 All measured batches and browser checks completed before the production server
 sessions later exited; no interrupted measurement is included.
+
+Independent review against task-start `308c629`, scoped to the investigation
+paths, found zero documented Standards violations and zero Spec findings.
+One low-priority Standards suggestion was addressed: trace marker offsets and
+expected journey length now derive from captured benchmark conditions rather
+than repeating the seed/journey counts. Focused lint passes and all 140 windows
+still regenerate the published summary unchanged. The Spec reviewer separately
+verified all 27 artifact hashes, reported statistics, per-run tuples, matched
+conditions and selected request spans. Unrelated owner commits and continuing
+media/source edits were excluded from both reviews and these verification claims.
