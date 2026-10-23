@@ -1,0 +1,1438 @@
+{
+  "measuredAt": "2026-10-23T10:13:15.820Z",
+  "url": "http://localhost:9421",
+  "baseline": true,
+  "browser": "155.0.8059.86",
+  "node": "v24.18.0",
+  "platform": "win32",
+  "conditions": {
+    "cache": "disabled; fresh context per run",
+    "cpuSlowdown": 4,
+    "latencyMs": 80,
+    "downloadBytesPerSecond": 200000,
+    "uploadBytesPerSecond": 93750,
+    "deviceScaleFactor": 1,
+    "reducedMotion": "reduce",
+    "runsPerViewport": 1,
+    "viewportHeight": 900,
+    "widths": [
+      1600
+    ],
+    "historySeed": [
+      "pwd",
+      "pwd",
+      "pwd",
+      "pwd",
+      "pwd"
+    ],
+    "tracing": true,
+    "journeyOnly": true,
+    "journey": [
+      "projects",
+      "pwd",
+      "portfolio",
+      "about",
+      "projects",
+      "contact",
+      "projects"
+    ],
+    "note": "Input-to-double-RAF and Enter-to-rendered-history-plus-double-RAF command proxies, not INP. Local production server; optional telemetry disabled. Shift sums are not windowed CLS. Incomplete receivedEncodedBytes exclude response headers."
+  },
+  "runs": [
+    {
+      "width": 1600,
+      "run": 1,
+      "phase": "journey",
+      "shifts": 0,
+      "allShifts": 0.09977482161458343,
+      "shiftEntries": [
+        {
+          "startMs": 5842.5,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 6633.5,
+          "value": 0.07469093576388888,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 7798.4000000003725,
+          "value": 0.0017026250000000001,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 8002.800000000745,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 8659.700000001118,
+          "value": 0.0017026250000000001,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 8847.099999999627,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 8976.800000000745,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 9269.5,
+          "value": 0.0017026250000000001,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 9647.300000000745,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 9871.099999999627,
+          "value": 0.0017026250000000001,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 10820.900000000373,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 11863.800000000745,
+          "value": 0.012131203125,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 13830.400000000373,
+          "value": 0.0000011875,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 13979.700000001118,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 14098,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 15933.5,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 16048.099999999627,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 16698.700000001118,
+          "value": 0.0039092109375,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 17801.200000001118,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 17906.300000000745,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 18034.900000000373,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 18669.700000001118,
+          "value": 0.00012452256944444444,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 19670,
+          "value": 0.0000011875,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 19794.800000000745,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 19990.700000001118,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 20634.099999999627,
+          "value": 0.0020821015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 21905.700000001118,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 22027.200000001118,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        }
+      ],
+      "inputs": [
+        {
+          "phase": "populated-history",
+          "startMs": 5025.700000001118,
+          "ms": 449.7999999988824
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 5541.200000001118,
+          "ms": 293.3999999985099
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 5762.800000000745,
+          "ms": 152.7999999988824
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 7109.200000001118,
+          "ms": 108.29999999888241
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 7230.800000000745,
+          "ms": 115.79999999888241
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 7442,
+          "ms": 99.30000000074506
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 7947.300000000745,
+          "ms": 181.19999999925494
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 8082.9000000003725,
+          "ms": 220.40000000037253
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 8256.700000001118,
+          "ms": 129
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 8829.5,
+          "ms": 26.700000001117587
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 8929,
+          "ms": 68.09999999962747
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 9042.300000000745,
+          "ms": 41.40000000037253
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 9420.5,
+          "ms": 46
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 9515.300000000745,
+          "ms": 58
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 9615.5,
+          "ms": 56.90000000037253
+        },
+        {
+          "phase": "journey",
+          "startMs": 10046.700000001118,
+          "ms": 52.19999999925494
+        },
+        {
+          "phase": "journey",
+          "startMs": 10146.700000001118,
+          "ms": 50.899999998509884
+        },
+        {
+          "phase": "journey",
+          "startMs": 10239.200000001118,
+          "ms": 63.899999998509884
+        },
+        {
+          "phase": "journey",
+          "startMs": 10341,
+          "ms": 39
+        },
+        {
+          "phase": "journey",
+          "startMs": 10417.300000000745,
+          "ms": 23.799999998882413
+        },
+        {
+          "phase": "journey",
+          "startMs": 10495.200000001118,
+          "ms": 24.799999998882413
+        },
+        {
+          "phase": "journey",
+          "startMs": 10583,
+          "ms": 225.80000000074506
+        },
+        {
+          "phase": "journey",
+          "startMs": 10767.300000000745,
+          "ms": 106.09999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 12206.700000001118,
+          "ms": 45.29999999888241
+        },
+        {
+          "phase": "journey",
+          "startMs": 12321.900000000373,
+          "ms": 173
+        },
+        {
+          "phase": "journey",
+          "startMs": 12431.800000000745,
+          "ms": 267.19999999925494
+        },
+        {
+          "phase": "journey",
+          "startMs": 13196.200000001118,
+          "ms": 50.09999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 13313.200000001118,
+          "ms": 175.09999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 13449.099999999627,
+          "ms": 198.7000000011176
+        },
+        {
+          "phase": "journey",
+          "startMs": 13608.599999999627,
+          "ms": 207.90000000037253
+        },
+        {
+          "phase": "journey",
+          "startMs": 13747.800000000745,
+          "ms": 115.90000000037253
+        },
+        {
+          "phase": "journey",
+          "startMs": 13913,
+          "ms": 171
+        },
+        {
+          "phase": "journey",
+          "startMs": 14048.200000001118,
+          "ms": 171.09999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 14187,
+          "ms": 151.59999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 14303,
+          "ms": 72.30000000074506
+        },
+        {
+          "phase": "journey",
+          "startMs": 15279.5,
+          "ms": 351.09999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 15586.800000000745,
+          "ms": 110.90000000037253
+        },
+        {
+          "phase": "journey",
+          "startMs": 15832.099999999627,
+          "ms": 211.30000000074506
+        },
+        {
+          "phase": "journey",
+          "startMs": 16008,
+          "ms": 80.30000000074506
+        },
+        {
+          "phase": "journey",
+          "startMs": 16136.800000000745,
+          "ms": 79.40000000037253
+        },
+        {
+          "phase": "journey",
+          "startMs": 17039,
+          "ms": 268.2000000011176
+        },
+        {
+          "phase": "journey",
+          "startMs": 17263.099999999627,
+          "ms": 183.90000000037253
+        },
+        {
+          "phase": "journey",
+          "startMs": 17409.700000001118,
+          "ms": 150.7999999988824
+        },
+        {
+          "phase": "journey",
+          "startMs": 17527.900000000373,
+          "ms": 144.59999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 17638,
+          "ms": 76.09999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 17743.800000000745,
+          "ms": 150.7999999988824
+        },
+        {
+          "phase": "journey",
+          "startMs": 17864.599999999627,
+          "ms": 156
+        },
+        {
+          "phase": "journey",
+          "startMs": 17980.599999999627,
+          "ms": 102.80000000074506
+        },
+        {
+          "phase": "journey",
+          "startMs": 19094.599999999627,
+          "ms": 169.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 19305.200000001118,
+          "ms": 75.69999999925494
+        },
+        {
+          "phase": "journey",
+          "startMs": 19417.099999999627,
+          "ms": 79.80000000074506
+        },
+        {
+          "phase": "journey",
+          "startMs": 19530,
+          "ms": 134
+        },
+        {
+          "phase": "journey",
+          "startMs": 19642.200000001118,
+          "ms": 140.59999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 19746.300000000745,
+          "ms": 230.69999999925494
+        },
+        {
+          "phase": "journey",
+          "startMs": 19947.900000000373,
+          "ms": 89.69999999925494
+        },
+        {
+          "phase": "journey",
+          "startMs": 21008.300000000745,
+          "ms": 174.09999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 21207.700000001118,
+          "ms": 151.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 21324.800000000745,
+          "ms": 221
+        },
+        {
+          "phase": "journey",
+          "startMs": 21495.099999999627,
+          "ms": 211.40000000037253
+        },
+        {
+          "phase": "journey",
+          "startMs": 21657.200000001118,
+          "ms": 230.09999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 21830.300000000745,
+          "ms": 193.19999999925494
+        },
+        {
+          "phase": "journey",
+          "startMs": 22000,
+          "ms": 65.80000000074506
+        },
+        {
+          "phase": "journey",
+          "startMs": 22108.900000000373,
+          "ms": 84.30000000074506
+        }
+      ],
+      "commands": [
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 6358.700000001118,
+          "ms": 337.19999999925494
+        },
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 7689.4000000003725,
+          "ms": 157.40000000037253
+        },
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 8565.400000000373,
+          "ms": 147.30000000074506
+        },
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 9174.099999999627,
+          "ms": 131.60000000149012
+        },
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 9774.800000000745,
+          "ms": 147.59999999962747
+        },
+        {
+          "phase": "journey",
+          "command": "projects",
+          "startMs": 11046.400000000373,
+          "ms": 1025.4000000003725
+        },
+        {
+          "phase": "journey",
+          "command": "pwd",
+          "startMs": 12854.200000001118,
+          "ms": 163.5
+        },
+        {
+          "phase": "journey",
+          "command": "portfolio",
+          "startMs": 14546.5,
+          "ms": 429.59999999962747
+        },
+        {
+          "phase": "journey",
+          "command": "about",
+          "startMs": 16395.700000001118,
+          "ms": 393.59999999962747
+        },
+        {
+          "phase": "journey",
+          "command": "projects",
+          "startMs": 18244.700000001118,
+          "ms": 597.1999999992549
+        },
+        {
+          "phase": "journey",
+          "command": "contact",
+          "startMs": 20196.599999999627,
+          "ms": 545.1000000014901
+        },
+        {
+          "phase": "journey",
+          "command": "projects",
+          "startMs": 22445.599999999627,
+          "ms": 446.5
+        }
+      ],
+      "plays": [],
+      "playing": [],
+      "navigation": {
+        "domContentLoadedMs": 549.5999999996275,
+        "loadMs": 3415.7000000011176
+      },
+      "firstContentfulPaintMs": 1800,
+      "images": [
+        {
+          "url": "http://localhost:9421/images/badge-static.webp",
+          "transferBytes": 31556,
+          "bodyBytes": 31256,
+          "startMs": 544,
+          "responseStartMs": 609.5,
+          "durationMs": 779.9000000003725
+        }
+      ],
+      "commandWork": [
+        {
+          "command": "projects",
+          "metrics": {
+            "Timestamp": 1.2090900000002875,
+            "AudioHandlers": 0,
+            "AudioWorkletProcessors": 0,
+            "Documents": 0,
+            "Frames": 0,
+            "JSEventListeners": 2,
+            "LayoutObjects": 506,
+            "MediaKeySessions": 0,
+            "MediaKeys": 0,
+            "Nodes": 507,
+            "Resources": 1,
+            "ContextLifecycleStateObservers": 1,
+            "V8PerContextDatas": 0,
+            "WorkerGlobalScopes": 0,
+            "UACSSResources": 0,
+            "RTCPeerConnections": 0,
+            "ResourceFetchers": 0,
+            "AdSubframes": 0,
+            "DetachedScriptStates": 0,
+            "ArrayBufferContents": 0,
+            "LayoutCount": 2,
+            "RecalcStyleCount": 14,
+            "LayoutDuration": 0.23108499999999998,
+            "RecalcStyleDuration": 0.08672199999999997,
+            "DevToolsCommandDuration": 0.09877499999999984,
+            "ScriptDuration": 0.3208389999999999,
+            "V8CompileDuration": 0.001268,
+            "TaskDuration": 1.1699980000000014,
+            "TaskOtherDuration": 0.4313089999999997,
+            "ThreadTime": 0.2898329999999998,
+            "ProcessTime": 1.5757850000000015,
+            "JSHeapUsedSize": -403612,
+            "JSHeapTotalSize": -524288,
+            "FirstMeaningfulPaint": 0,
+            "DomContentLoaded": 0,
+            "NavigationStart": 0
+          },
+          "dom": {
+            "nodes": 341,
+            "projects": 0,
+            "articles": 0
+          }
+        },
+        {
+          "command": "pwd",
+          "metrics": {
+            "Timestamp": 0.3847139999998035,
+            "AudioHandlers": 0,
+            "AudioWorkletProcessors": 0,
+            "Documents": 0,
+            "Frames": 0,
+            "JSEventListeners": 1,
+            "LayoutObjects": 20,
+            "MediaKeySessions": 0,
+            "MediaKeys": 0,
+            "Nodes": 20,
+            "Resources": 0,
+            "ContextLifecycleStateObservers": 0,
+            "V8PerContextDatas": 0,
+            "WorkerGlobalScopes": 0,
+            "UACSSResources": 0,
+            "RTCPeerConnections": 0,
+            "ResourceFetchers": 0,
+            "AdSubframes": 0,
+            "DetachedScriptStates": 0,
+            "ArrayBufferContents": 0,
+            "LayoutCount": 1,
+            "RecalcStyleCount": 11,
+            "LayoutDuration": 0.008297999999999917,
+            "RecalcStyleDuration": 0.024002999999999997,
+            "DevToolsCommandDuration": 0.09730799999999995,
+            "ScriptDuration": 0.0777549999999998,
+            "V8CompileDuration": 0,
+            "TaskDuration": 0.368485999999999,
+            "TaskOtherDuration": 0.16112200000000065,
+            "ThreadTime": 0.09051300000000007,
+            "ProcessTime": 0.5036449999999988,
+            "JSHeapUsedSize": 181168,
+            "JSHeapTotalSize": 0,
+            "FirstMeaningfulPaint": 0,
+            "DomContentLoaded": 0,
+            "NavigationStart": 0
+          },
+          "dom": {
+            "nodes": 353,
+            "projects": 0,
+            "articles": 0
+          }
+        },
+        {
+          "command": "portfolio",
+          "metrics": {
+            "Timestamp": 0.6114330000000336,
+            "AudioHandlers": 0,
+            "AudioWorkletProcessors": 0,
+            "Documents": 0,
+            "Frames": 0,
+            "JSEventListeners": 1,
+            "LayoutObjects": 506,
+            "MediaKeySessions": 0,
+            "MediaKeys": 0,
+            "Nodes": 506,
+            "Resources": 0,
+            "ContextLifecycleStateObservers": 0,
+            "V8PerContextDatas": 0,
+            "WorkerGlobalScopes": 0,
+            "UACSSResources": 0,
+            "RTCPeerConnections": 0,
+            "ResourceFetchers": 0,
+            "AdSubframes": 0,
+            "DetachedScriptStates": 0,
+            "ArrayBufferContents": 0,
+            "LayoutCount": 1,
+            "RecalcStyleCount": 10,
+            "LayoutDuration": 0.04182700000000006,
+            "RecalcStyleDuration": 0.08699400000000002,
+            "DevToolsCommandDuration": 0.07871000000000006,
+            "ScriptDuration": 0.189419,
+            "V8CompileDuration": 0,
+            "TaskDuration": 0.599578000000001,
+            "TaskOtherDuration": 0.2026279999999998,
+            "ThreadTime": 0.13634100000000027,
+            "ProcessTime": 0.821593,
+            "JSHeapUsedSize": 319488,
+            "JSHeapTotalSize": 262144,
+            "FirstMeaningfulPaint": 0,
+            "DomContentLoaded": 0,
+            "NavigationStart": 0
+          },
+          "dom": {
+            "nodes": 553,
+            "projects": 0,
+            "articles": 0
+          }
+        },
+        {
+          "command": "about",
+          "metrics": {
+            "Timestamp": 0.5733639999998559,
+            "AudioHandlers": 0,
+            "AudioWorkletProcessors": 0,
+            "Documents": 0,
+            "Frames": 0,
+            "JSEventListeners": 2,
+            "LayoutObjects": 87,
+            "MediaKeySessions": 0,
+            "MediaKeys": 0,
+            "Nodes": 88,
+            "Resources": 1,
+            "ContextLifecycleStateObservers": 1,
+            "V8PerContextDatas": 0,
+            "WorkerGlobalScopes": 0,
+            "UACSSResources": 0,
+            "RTCPeerConnections": 0,
+            "ResourceFetchers": 0,
+            "AdSubframes": 0,
+            "DetachedScriptStates": 0,
+            "ArrayBufferContents": 0,
+            "LayoutCount": 2,
+            "RecalcStyleCount": 14,
+            "LayoutDuration": 0.025600999999999985,
+            "RecalcStyleDuration": 0.044101999999999975,
+            "DevToolsCommandDuration": 0.112228,
+            "ScriptDuration": 0.11028299999999991,
+            "V8CompileDuration": 0.002436,
+            "TaskDuration": 0.5522840000000002,
+            "TaskOtherDuration": 0.2576339999999995,
+            "ThreadTime": 0.13261900000000004,
+            "ProcessTime": 0.7640770000000003,
+            "JSHeapUsedSize": 287836,
+            "JSHeapTotalSize": 524288,
+            "FirstMeaningfulPaint": 0,
+            "DomContentLoaded": 0,
+            "NavigationStart": 0
+          },
+          "dom": {
+            "nodes": 591,
+            "projects": 0,
+            "articles": 0
+          }
+        },
+        {
+          "command": "projects",
+          "metrics": {
+            "Timestamp": 0.8172939999985829,
+            "AudioHandlers": 0,
+            "AudioWorkletProcessors": 0,
+            "Documents": 0,
+            "Frames": 0,
+            "JSEventListeners": 1,
+            "LayoutObjects": 506,
+            "MediaKeySessions": 0,
+            "MediaKeys": 0,
+            "Nodes": 506,
+            "Resources": 0,
+            "ContextLifecycleStateObservers": 0,
+            "V8PerContextDatas": 0,
+            "WorkerGlobalScopes": 0,
+            "UACSSResources": 0,
+            "RTCPeerConnections": 0,
+            "ResourceFetchers": 0,
+            "AdSubframes": 0,
+            "DetachedScriptStates": 0,
+            "ArrayBufferContents": 0,
+            "LayoutCount": 1,
+            "RecalcStyleCount": 12,
+            "LayoutDuration": 0.06693800000000016,
+            "RecalcStyleDuration": 0.13790000000000013,
+            "DevToolsCommandDuration": 0.09333599999999986,
+            "ScriptDuration": 0.2130169999999998,
+            "V8CompileDuration": 0,
+            "TaskDuration": 0.8014359999999989,
+            "TaskOtherDuration": 0.29024500000000053,
+            "ThreadTime": 0.17891199999999952,
+            "ProcessTime": 1.109966,
+            "JSHeapUsedSize": -276648,
+            "JSHeapTotalSize": 786432,
+            "FirstMeaningfulPaint": 0,
+            "DomContentLoaded": 0,
+            "NavigationStart": 0
+          },
+          "dom": {
+            "nodes": 791,
+            "projects": 0,
+            "articles": 0
+          }
+        },
+        {
+          "command": "contact",
+          "metrics": {
+            "Timestamp": 0.7313599999997678,
+            "AudioHandlers": 0,
+            "AudioWorkletProcessors": 0,
+            "Documents": 0,
+            "Frames": 0,
+            "JSEventListeners": 2,
+            "LayoutObjects": 81,
+            "MediaKeySessions": 0,
+            "MediaKeys": 0,
+            "Nodes": 82,
+            "Resources": 1,
+            "ContextLifecycleStateObservers": 1,
+            "V8PerContextDatas": 0,
+            "WorkerGlobalScopes": 0,
+            "UACSSResources": 0,
+            "RTCPeerConnections": 0,
+            "ResourceFetchers": 0,
+            "AdSubframes": 0,
+            "DetachedScriptStates": 0,
+            "ArrayBufferContents": 0,
+            "LayoutCount": 2,
+            "RecalcStyleCount": 15,
+            "LayoutDuration": 0.02805499999999972,
+            "RecalcStyleDuration": 0.04824800000000007,
+            "DevToolsCommandDuration": 0.1083470000000002,
+            "ScriptDuration": 0.16040600000000005,
+            "V8CompileDuration": 0.0009250000000000005,
+            "TaskDuration": 0.7103759999999966,
+            "TaskOtherDuration": 0.364395,
+            "ThreadTime": 0.16827099999999984,
+            "ProcessTime": 0.9771029999999996,
+            "JSHeapUsedSize": -425924,
+            "JSHeapTotalSize": -786432,
+            "FirstMeaningfulPaint": 0,
+            "DomContentLoaded": 0,
+            "NavigationStart": 0
+          },
+          "dom": {
+            "nodes": 829,
+            "projects": 0,
+            "articles": 0
+          }
+        },
+        {
+          "command": "projects",
+          "metrics": {
+            "Timestamp": 0.8403050000015355,
+            "AudioHandlers": 0,
+            "AudioWorkletProcessors": 0,
+            "Documents": 0,
+            "Frames": 0,
+            "JSEventListeners": 1,
+            "LayoutObjects": 506,
+            "MediaKeySessions": 0,
+            "MediaKeys": 0,
+            "Nodes": 506,
+            "Resources": 0,
+            "ContextLifecycleStateObservers": 0,
+            "V8PerContextDatas": 0,
+            "WorkerGlobalScopes": 0,
+            "UACSSResources": 0,
+            "RTCPeerConnections": 0,
+            "ResourceFetchers": 0,
+            "AdSubframes": 0,
+            "DetachedScriptStates": 0,
+            "ArrayBufferContents": 0,
+            "LayoutCount": 1,
+            "RecalcStyleCount": 13,
+            "LayoutDuration": 0.0396399999999999,
+            "RecalcStyleDuration": 0.07339899999999999,
+            "DevToolsCommandDuration": 0.19342199999999998,
+            "ScriptDuration": 0.2317720000000003,
+            "V8CompileDuration": 0,
+            "TaskDuration": 0.8094259999999984,
+            "TaskOtherDuration": 0.27119300000000024,
+            "ThreadTime": 0.19418500000000005,
+            "ProcessTime": 1.145277,
+            "JSHeapUsedSize": 401704,
+            "JSHeapTotalSize": 0,
+            "FirstMeaningfulPaint": 0,
+            "DomContentLoaded": 0,
+            "NavigationStart": 0
+          },
+          "dom": {
+            "nodes": 1029,
+            "projects": 0,
+            "articles": 0
+          }
+        }
+      ],
+      "traceFile": "before-1600-1.trace.json.gz",
+      "initialTransfers": [
+        {
+          "url": "http://localhost:9421/",
+          "type": "Document",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "text/html",
+          "transferBytes": 6045,
+          "startMs": 2.566000001024804,
+          "responseStartMs": 149.9660000008589,
+          "endMs": 179.9140000002808
+        },
+        {
+          "url": "http://localhost:9421/_next/static/media/c9e42e3eae6237c2-s.p.2s-4kwv_nqb0b.woff2",
+          "type": "Font",
+          "receivedEncodedBytes": 21968,
+          "status": 200,
+          "mimeType": "font/woff2",
+          "transferBytes": 22268,
+          "startMs": 255.41200000043318,
+          "responseStartMs": 1335.822000000917,
+          "endMs": 537.4280000014551
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/11wrg8fiv6otf.css",
+          "type": "Stylesheet",
+          "receivedEncodedBytes": 10935,
+          "status": 200,
+          "mimeType": "text/css",
+          "transferBytes": 11300,
+          "startMs": 265.2880000005098,
+          "responseStartMs": 454.59500000106345,
+          "endMs": 464.88400000089314
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/310vm2bl3xxpt.js",
+          "type": "Script",
+          "receivedEncodedBytes": 1987,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 2366,
+          "startMs": 268.77000000058615,
+          "responseStartMs": 1318.8890000001265,
+          "endMs": 585.1920000004611
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/0ufyxag_pxqbt.js",
+          "type": "Script",
+          "receivedEncodedBytes": 7515,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 7901,
+          "startMs": 273.25200000086625,
+          "responseStartMs": 1346.7060000002675,
+          "endMs": 815.2470000004541
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/08ttfj81-47mu.js",
+          "type": "Script",
+          "receivedEncodedBytes": 71666,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 72046,
+          "startMs": 275.38300000014715,
+          "responseStartMs": 1595.6500000011147,
+          "endMs": 1586.2310000011348
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/3l72_erbcyau4.js",
+          "type": "Script",
+          "receivedEncodedBytes": 44805,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 45185,
+          "startMs": 280.47000000151456,
+          "responseStartMs": 1534.483999999793,
+          "endMs": 1446.722000000591
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/turbopack-350sllz-678lp.js",
+          "type": "Script",
+          "receivedEncodedBytes": 3847,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 4226,
+          "startMs": 285.40800000155286,
+          "responseStartMs": 1325.3620000014052,
+          "endMs": 738.5880000001634
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/030-mzdd8231n.js",
+          "type": "Script",
+          "receivedEncodedBytes": 10415,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 10794,
+          "startMs": 286.40900000027614,
+          "responseStartMs": 1357.443000000785,
+          "endMs": 923.1799999997747
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/124ccg6ow23vo.js",
+          "type": "Script",
+          "receivedEncodedBytes": 421,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 799,
+          "startMs": 286.63700000106473,
+          "responseStartMs": 1350.220000000263,
+          "endMs": 861.9610000005196
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/3ihezsi0z91_0.js",
+          "type": "Script",
+          "receivedEncodedBytes": 11064,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 11443,
+          "startMs": 286.85800000130257,
+          "responseStartMs": 1364.1380000008212,
+          "endMs": 1154.975999999806
+        },
+        {
+          "url": "http://localhost:9421/images/badge-static.webp",
+          "type": "Image",
+          "receivedEncodedBytes": 31256,
+          "status": 200,
+          "mimeType": "image/webp",
+          "transferBytes": 31538,
+          "startMs": 543.788000000859,
+          "responseStartMs": 1306.088000001182,
+          "endMs": 1323.9229999999225
+        }
+      ],
+      "beforePlay": [
+        {
+          "url": "http://localhost:9421/",
+          "type": "Document",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "text/html",
+          "transferBytes": 6045,
+          "startMs": 2.566000001024804,
+          "responseStartMs": 149.9660000008589,
+          "endMs": 179.9140000002808
+        },
+        {
+          "url": "http://localhost:9421/_next/static/media/c9e42e3eae6237c2-s.p.2s-4kwv_nqb0b.woff2",
+          "type": "Font",
+          "receivedEncodedBytes": 21968,
+          "status": 200,
+          "mimeType": "font/woff2",
+          "transferBytes": 22268,
+          "startMs": 255.41200000043318,
+          "responseStartMs": 1335.822000000917,
+          "endMs": 537.4280000014551
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/11wrg8fiv6otf.css",
+          "type": "Stylesheet",
+          "receivedEncodedBytes": 10935,
+          "status": 200,
+          "mimeType": "text/css",
+          "transferBytes": 11300,
+          "startMs": 265.2880000005098,
+          "responseStartMs": 454.59500000106345,
+          "endMs": 464.88400000089314
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/310vm2bl3xxpt.js",
+          "type": "Script",
+          "receivedEncodedBytes": 1987,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 2366,
+          "startMs": 268.77000000058615,
+          "responseStartMs": 1318.8890000001265,
+          "endMs": 585.1920000004611
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/0ufyxag_pxqbt.js",
+          "type": "Script",
+          "receivedEncodedBytes": 7515,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 7901,
+          "startMs": 273.25200000086625,
+          "responseStartMs": 1346.7060000002675,
+          "endMs": 815.2470000004541
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/08ttfj81-47mu.js",
+          "type": "Script",
+          "receivedEncodedBytes": 71666,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 72046,
+          "startMs": 275.38300000014715,
+          "responseStartMs": 1595.6500000011147,
+          "endMs": 1586.2310000011348
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/3l72_erbcyau4.js",
+          "type": "Script",
+          "receivedEncodedBytes": 44805,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 45185,
+          "startMs": 280.47000000151456,
+          "responseStartMs": 1534.483999999793,
+          "endMs": 1446.722000000591
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/turbopack-350sllz-678lp.js",
+          "type": "Script",
+          "receivedEncodedBytes": 3847,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 4226,
+          "startMs": 285.40800000155286,
+          "responseStartMs": 1325.3620000014052,
+          "endMs": 738.5880000001634
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/030-mzdd8231n.js",
+          "type": "Script",
+          "receivedEncodedBytes": 10415,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 10794,
+          "startMs": 286.40900000027614,
+          "responseStartMs": 1357.443000000785,
+          "endMs": 923.1799999997747
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/124ccg6ow23vo.js",
+          "type": "Script",
+          "receivedEncodedBytes": 421,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 799,
+          "startMs": 286.63700000106473,
+          "responseStartMs": 1350.220000000263,
+          "endMs": 861.9610000005196
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/3ihezsi0z91_0.js",
+          "type": "Script",
+          "receivedEncodedBytes": 11064,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 11443,
+          "startMs": 286.85800000130257,
+          "responseStartMs": 1364.1380000008212,
+          "endMs": 1154.975999999806
+        },
+        {
+          "url": "http://localhost:9421/images/badge-static.webp",
+          "type": "Image",
+          "receivedEncodedBytes": 31256,
+          "status": 200,
+          "mimeType": "image/webp",
+          "transferBytes": 31538,
+          "startMs": 543.788000000859,
+          "responseStartMs": 1306.088000001182,
+          "endMs": 1323.9229999999225
+        },
+        {
+          "url": "http://localhost:9421/favicon-16x16.png",
+          "type": "Other",
+          "receivedEncodedBytes": 754,
+          "status": 200,
+          "mimeType": "image/png",
+          "transferBytes": 1032,
+          "startMs": 3945.3470000007655,
+          "responseStartMs": 4111.209000000599,
+          "endMs": 4057.2850000007747
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/10_09bgl0p9d0.js",
+          "type": "Script",
+          "receivedEncodedBytes": 15228,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 15607,
+          "startMs": 5097.100000000864,
+          "responseStartMs": 5878.345000000991,
+          "endMs": 5294.526000001497
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/3mfppeouo2w99.js",
+          "type": "Script",
+          "receivedEncodedBytes": 426,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 804,
+          "startMs": 11065.88499999998,
+          "responseStartMs": 11212.230000001,
+          "endMs": 11184.392000001026
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/0egxins7sggd6.js",
+          "type": "Script",
+          "receivedEncodedBytes": 997,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 1344,
+          "startMs": 16426.260000000184,
+          "responseStartMs": 16561.526000001322,
+          "endMs": 16538.367000001017
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/2n08ll8pmll30.js",
+          "type": "Script",
+          "receivedEncodedBytes": 431,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 809,
+          "startMs": 20220.188000001144,
+          "responseStartMs": 20364.997000000585,
+          "endMs": 20341.5700000005
+        }
+      ],
+      "playback": null,
+      "transfers": [
+        {
+          "url": "http://localhost:9421/",
+          "type": "Document",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "text/html",
+          "transferBytes": 6045,
+          "startMs": 2.566000001024804,
+          "responseStartMs": 149.9660000008589,
+          "endMs": 179.9140000002808
+        },
+        {
+          "url": "http://localhost:9421/_next/static/media/c9e42e3eae6237c2-s.p.2s-4kwv_nqb0b.woff2",
+          "type": "Font",
+          "receivedEncodedBytes": 21968,
+          "status": 200,
+          "mimeType": "font/woff2",
+          "transferBytes": 22268,
+          "startMs": 255.41200000043318,
+          "responseStartMs": 1335.822000000917,
+          "endMs": 537.4280000014551
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/11wrg8fiv6otf.css",
+          "type": "Stylesheet",
+          "receivedEncodedBytes": 10935,
+          "status": 200,
+          "mimeType": "text/css",
+          "transferBytes": 11300,
+          "startMs": 265.2880000005098,
+          "responseStartMs": 454.59500000106345,
+          "endMs": 464.88400000089314
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/310vm2bl3xxpt.js",
+          "type": "Script",
+          "receivedEncodedBytes": 1987,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 2366,
+          "startMs": 268.77000000058615,
+          "responseStartMs": 1318.8890000001265,
+          "endMs": 585.1920000004611
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/0ufyxag_pxqbt.js",
+          "type": "Script",
+          "receivedEncodedBytes": 7515,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 7901,
+          "startMs": 273.25200000086625,
+          "responseStartMs": 1346.7060000002675,
+          "endMs": 815.2470000004541
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/08ttfj81-47mu.js",
+          "type": "Script",
+          "receivedEncodedBytes": 71666,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 72046,
+          "startMs": 275.38300000014715,
+          "responseStartMs": 1595.6500000011147,
+          "endMs": 1586.2310000011348
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/3l72_erbcyau4.js",
+          "type": "Script",
+          "receivedEncodedBytes": 44805,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 45185,
+          "startMs": 280.47000000151456,
+          "responseStartMs": 1534.483999999793,
+          "endMs": 1446.722000000591
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/turbopack-350sllz-678lp.js",
+          "type": "Script",
+          "receivedEncodedBytes": 3847,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 4226,
+          "startMs": 285.40800000155286,
+          "responseStartMs": 1325.3620000014052,
+          "endMs": 738.5880000001634
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/030-mzdd8231n.js",
+          "type": "Script",
+          "receivedEncodedBytes": 10415,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 10794,
+          "startMs": 286.40900000027614,
+          "responseStartMs": 1357.443000000785,
+          "endMs": 923.1799999997747
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/124ccg6ow23vo.js",
+          "type": "Script",
+          "receivedEncodedBytes": 421,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 799,
+          "startMs": 286.63700000106473,
+          "responseStartMs": 1350.220000000263,
+          "endMs": 861.9610000005196
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/3ihezsi0z91_0.js",
+          "type": "Script",
+          "receivedEncodedBytes": 11064,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 11443,
+          "startMs": 286.85800000130257,
+          "responseStartMs": 1364.1380000008212,
+          "endMs": 1154.975999999806
+        },
+        {
+          "url": "http://localhost:9421/images/badge-static.webp",
+          "type": "Image",
+          "receivedEncodedBytes": 31256,
+          "status": 200,
+          "mimeType": "image/webp",
+          "transferBytes": 31538,
+          "startMs": 543.788000000859,
+          "responseStartMs": 1306.088000001182,
+          "endMs": 1323.9229999999225
+        },
+        {
+          "url": "http://localhost:9421/favicon-16x16.png",
+          "type": "Other",
+          "receivedEncodedBytes": 754,
+          "status": 200,
+          "mimeType": "image/png",
+          "transferBytes": 1032,
+          "startMs": 3945.3470000007655,
+          "responseStartMs": 4111.209000000599,
+          "endMs": 4057.2850000007747
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/10_09bgl0p9d0.js",
+          "type": "Script",
+          "receivedEncodedBytes": 15228,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 15607,
+          "startMs": 5097.100000000864,
+          "responseStartMs": 5878.345000000991,
+          "endMs": 5294.526000001497
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/3mfppeouo2w99.js",
+          "type": "Script",
+          "receivedEncodedBytes": 426,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 804,
+          "startMs": 11065.88499999998,
+          "responseStartMs": 11212.230000001,
+          "endMs": 11184.392000001026
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/0egxins7sggd6.js",
+          "type": "Script",
+          "receivedEncodedBytes": 997,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 1344,
+          "startMs": 16426.260000000184,
+          "responseStartMs": 16561.526000001322,
+          "endMs": 16538.367000001017
+        },
+        {
+          "url": "http://localhost:9421/_next/static/chunks/2n08ll8pmll30.js",
+          "type": "Script",
+          "receivedEncodedBytes": 431,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 809,
+          "startMs": 20220.188000001144,
+          "responseStartMs": 20364.997000000585,
+          "endMs": 20341.5700000005
+        }
+      ]
+    }
+  ]
+}

@@ -1,9 +1,12 @@
 // Production before/after comparison: npm run build && npm start -- --port 9350
 // node scripts/projects-benchmark.cjs --report=C:/path/to/before.json
 // Use --baseline only for the pre-feature build. Run targets sequentially, not concurrently.
+// Add --trace-dir=<directory> --journey-only for diagnostic traces without opt-in playback.
 /* eslint-disable @typescript-eslint/no-require-imports -- Standalone CommonJS check, matching scripts/*.cjs. */
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
+const path = require('node:path');
+const zlib = require('node:zlib');
 const { parseArgs } = require('node:util');
 const { chromium, expect } = require('@playwright/test');
 
@@ -14,6 +17,8 @@ const { values } = parseArgs({ options: {
     runs: { type: 'string', default: '3' },
     widths: { type: 'string', default: '390,900,1600' },
     revision: { type: 'string' },
+    'trace-dir': { type: 'string' },
+    'journey-only': { type: 'boolean', default: false },
 } });
 const runs = Number(values.runs), widths = values.widths.split(',').map(Number);
 assert.ok(Number.isInteger(runs) && runs > 0, '--runs must be a positive integer');
@@ -47,6 +52,8 @@ async function instrument(page) {
         document.addEventListener('keydown', event => {
             if (event.key !== 'Enter' || event.target.getAttribute('aria-label') !== 'Terminal input') return;
             const start = performance.now(), command = event.target.value, phase = window.benchmark.phase;
+            const mark = `command-${window.benchmark.commands.length}-${command}`;
+            performance.mark(`${mark}-start`);
             // Both revisions have this scroll container; the baseline predates its ARIA name.
             // Observe rendered output insertion, not the earlier sessionStorage write.
             const history = event.target.closest('.overflow-y-auto').firstElementChild;
@@ -57,7 +64,10 @@ async function instrument(page) {
                     requestAnimationFrame(paint);
                 } else {
                     requestAnimationFrame(() => requestAnimationFrame(() => {
-                        window.benchmark.commands.push({ phase, command, startMs: start, ms: performance.now() - start });
+                        const ms = performance.now() - start;
+                        performance.mark(`${mark}-end`);
+                        performance.measure(mark, `${mark}-start`, `${mark}-end`);
+                        window.benchmark.commands.push({ phase, command, startMs: start, ms });
                     }));
                 }
             };
@@ -72,12 +82,23 @@ async function instrument(page) {
     });
 }
 
-async function send(page, command) {
+async function send(page, command, cdp) {
     const input = page.getByRole('textbox', { name: 'Terminal input' });
     await input.pressSequentially(command, { delay: 35 });
+    // CDP counter windows surround the page proxy; protocol overhead is not app cost.
+    const before = cdp ? await cdp.send('Performance.getMetrics') : null;
     const count = await page.evaluate(() => window.benchmark.commands.length);
     await input.press('Enter');
     await page.waitForFunction(n => window.benchmark.commands.length > n, count);
+    if (cdp) {
+        const after = await cdp.send('Performance.getMetrics');
+        const metrics = Object.fromEntries(after.metrics.map(metric => [metric.name,
+            metric.value - before.metrics.find(previous => previous.name === metric.name).value]));
+        const dom = await page.evaluate(() => ({ nodes: document.querySelectorAll('*').length,
+            projects: document.querySelectorAll('section[aria-label="Projects"]').length,
+            articles: document.querySelectorAll('article').length }));
+        return { command, metrics, dom };
+    }
 }
 const phase = (page, name) => page.evaluate(name => { window.benchmark.phase = name; }, name);
 const videoURL = url => /\.(mp4|webm)(?:[?#]|$)/i.test(url);
@@ -90,6 +111,7 @@ const videoURL = url => /\.(mp4|webm)(?:[?#]|$)/i.test(url);
         latencyMs: 80, downloadBytesPerSecond: 200000, uploadBytesPerSecond: 93750,
         deviceScaleFactor: 1, reducedMotion: 'reduce', runsPerViewport: runs, viewportHeight: 900, widths,
         historySeed: Array(5).fill('pwd'),
+        tracing: Boolean(values['trace-dir']), journeyOnly: values['journey-only'],
         journey: ['projects', 'pwd', 'portfolio', 'about', 'projects', 'contact', 'projects'],
         note: 'Input-to-double-RAF and Enter-to-rendered-history-plus-double-RAF command proxies, not INP. Local production server; optional telemetry disabled. Shift sums are not windowed CLS. Incomplete receivedEncodedBytes exclude response headers.',
     }, runs: [] };
@@ -109,6 +131,12 @@ const videoURL = url => /\.(mp4|webm)(?:[?#]|$)/i.test(url);
                     downloadThroughput: 200000, uploadThroughput: 93750 });
                 await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
                 await cdp.send('Performance.enable');
+                const traceEvents = [];
+                if (values['trace-dir']) {
+                    fs.mkdirSync(values['trace-dir'], { recursive: true });
+                    cdp.on('Tracing.dataCollected', event => traceEvents.push(...event.value));
+                    await cdp.send('Tracing.start', { categories: 'devtools.timeline,v8.execute,blink.user_timing,disabled-by-default-devtools.timeline,disabled-by-default-devtools.timeline.stack,disabled-by-default-v8.cpu_profiler', transferMode: 'ReportEvents' });
+                }
                 const requests = new Map();
                 cdp.on('Network.requestWillBeSent', e => requests.set(e.requestId, {
                     url: e.request.url, type: e.type, start: e.timestamp,
@@ -141,8 +169,13 @@ const videoURL = url => /\.(mp4|webm)(?:[?#]|$)/i.test(url);
                 await phase(page, 'populated-history');
                 for (const command of results.conditions.historySeed) await send(page, command);
                 await phase(page, 'journey');
+                const commandWork = [];
                 for (const command of results.conditions.journey) {
-                    await send(page, command);
+                    if (values['trace-dir']) {
+                        commandWork.push(await send(page, command, cdp));
+                    } else {
+                        await send(page, command);
+                    }
                     await page.waitForLoadState('networkidle');
                 }
                 const metrics = await page.evaluate(() => ({
@@ -158,7 +191,7 @@ const videoURL = url => /\.(mp4|webm)(?:[?#]|$)/i.test(url);
                 const beforePlay = transfers();
                 assert.equal(beforePlay.some(request => videoURL(request.url)), false, 'no video requests before Play');
                 let playback = null;
-                if (!values.baseline) {
+                if (!values.baseline && !values['journey-only']) {
                     const article = page.getByRole('region', { name: 'Projects', exact: true }).last().getByRole('article').first();
                     const play = article.getByRole('button', { name: /^Play shared placeholder video/ });
                     await expect(play).toBeVisible();
@@ -190,7 +223,16 @@ const videoURL = url => /\.(mp4|webm)(?:[?#]|$)/i.test(url);
                     assert.equal(transfers().filter(request => videoURL(request.url)).length, media.length, 'repeated output must not start more video requests');
                 }
                 assert.deepEqual(errors, []);
-                results.runs.push({ width, run, ...metrics, initialTransfers, beforePlay, playback, transfers: transfers() });
+                let traceFile = null;
+                if (values['trace-dir']) {
+                    const complete = new Promise(resolve => cdp.once('Tracing.tracingComplete', resolve));
+                    await cdp.send('Tracing.end');
+                    await complete;
+                    assert.ok(traceEvents.some(event => event.name === 'command-5-projects'), 'trace contains first Projects timing marker');
+                    traceFile = `${values.baseline ? 'before' : 'after'}-${width}-${run}.trace.json.gz`;
+                    fs.writeFileSync(path.join(values['trace-dir'], traceFile), zlib.gzipSync(JSON.stringify({ traceEvents })));
+                }
+                results.runs.push({ width, run, ...metrics, commandWork, traceFile, initialTransfers, beforePlay, playback, transfers: transfers() });
                 console.log(`Measured ${width}px run ${run}: ${metrics.commands.filter(e => e.phase === 'journey').map(e => `${e.command}=${e.ms.toFixed(1)}ms`).join(', ')}${playback ? '; real video-loading input/commands and cleanup passed' : ''}`);
                 await context.close();
             }
