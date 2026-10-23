@@ -107,6 +107,7 @@ export function PrivacyConsent() {
     return consent && !open ? (
       <button
         ref={settingsTriggerRef}
+        data-privacy-settings-trigger
         type="button"
         onClick={openSettings}
         className="fixed bottom-3 left-3 z-50 rounded border border-white/30 bg-black/80 px-3 py-2 text-xs text-white underline focus:outline-none focus:ring-2 focus:ring-white"

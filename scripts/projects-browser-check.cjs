@@ -48,13 +48,16 @@ const { portfolioContent } = loadSource(path.join(root, 'src/lib/terminal/vfs-co
 const hash = value => crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
 // Owner-approved records and filenames, repinned with the 2026-10-23 media additions
 // (per-project videos and poster frames, finance placeholder retained on unmedia'd entries).
-assert.equal(hash(data.projectsAsRecords()), 'ae153730e0354bb8ed70ccb60441c11fd52331ba62237e62a6f8e559a4aff331');
-assert.equal(hash(portfolioContent.children.projects), 'd898805a108b20df8aec7327855bf6500e7162279cdaa1ed7bec48fe976c0f60');
+assert.equal(hash(data.projectsAsRecords()), 'b4458cfe30b177ced0f4c0903af0b3cc24521819b316ffb8ae750ef368342817');
+assert.equal(hash(portfolioContent.children.projects), '80f7e7edbd4271708138f7036afff18e2925dfcf5de388c8deb216b6081fb9e7');
+assert.deepEqual(data.portfolioProjects.slice(0, 2).map(p => p.title), [
+    'Pet', 'WEB CONSULTANT & DEVELOPER – I PELOSETTI DI SILVANA ONLUS',
+]);
 const approvedCopy = [
-    'Evaluate job postings and tailor your next application.',
     'Your desktop. Now with company.',
-    'Track fermentation locally, on desktop or Android.',
     'Pro-bono WordPress fixes for animal listings and SEO.',
+    'Evaluate job postings and tailor your next application.',
+    'Track fermentation locally, on desktop or Android.',
     '23 command-line tools for API automation.',
     'A multi-game platform built at 42, currently in development.',
     'A custom HTTP server built in C++98.',
@@ -62,10 +65,10 @@ const approvedCopy = [
     'Explore more projects and contributions on GitHub.',
 ];
 const approvedPosterSources = [
-    '/videos/jobFinder/jobFinder-poster.webp',
     '/videos/pet/pet-poster.webp',
-    '/videos/fermentStation/fermentStation-poster.webp',
     '/images/ipelosetti.png',
+    '/videos/jobFinder/jobFinder-poster.webp',
+    '/videos/fermentStation/fermentStation-poster.webp',
     '/videos/finance_tracker/finance_tracker-poster.webp',
     '/videos/finance_tracker/finance_tracker-poster.webp',
     '/videos/finance_tracker/finance_tracker-poster.webp',
@@ -73,10 +76,10 @@ const approvedPosterSources = [
     '/videos/finance_tracker/finance_tracker-poster.webp',
 ];
 const approvedVideoSources = [
-    '/videos/jobFinder/jobFinder-silent.mp4',
     '/videos/pet/pet-silent.mp4',
-    '/videos/fermentStation/fermentStation-silent.mp4',
     undefined,
+    '/videos/jobFinder/jobFinder-silent.mp4',
+    '/videos/fermentStation/fermentStation-silent.mp4',
     '/videos/finance_tracker/finance_tracker-silent.mp4',
     '/videos/finance_tracker/finance_tracker-silent.mp4',
     '/videos/finance_tracker/finance_tracker-silent.mp4',
@@ -104,6 +107,8 @@ const executablePath = process.env.BROWSER_PATH || [
     'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',
 ].find(file => fs.existsSync(file));
 const alt = data.portfolioProjects[0].image.alt;
+const jobFinder = data.portfolioProjects.find(p => p.title === 'jobFinder');
+const jobFinderArticle = section => section.getByRole('article').filter({ has: section.page().getByRole('heading', { name: 'jobFinder', exact: true }) });
 let browser;
 async function session(width = 1600) {
     const context = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
@@ -157,17 +162,17 @@ async function clickToPlay() {
             await send(page, 'projects');
             await send(page, 'portfolio');
             const section = projects(page).last();
-            const article = section.getByRole('article').first();
+            const article = jobFinderArticle(section);
             const play = article.getByRole('button', { name: 'Play demonstration clip for jobFinder', exact: true });
             await expect(play).toBeVisible();
             assert.equal((await play.textContent()).trim(), '', 'Play is an icon, not a visible text label');
             await expect(play.locator('svg')).toBeVisible();
-            const posterBox = await article.getByRole('img', { name: alt }).boundingBox();
+            const posterBox = await article.getByRole('img', { name: jobFinder.image.alt }).boundingBox();
             const playBox = await play.boundingBox();
             assert.ok(playBox.width >= 44 && playBox.height >= 44, 'visible touch-sized Play action');
             assert.ok(Math.abs(playBox.x + playBox.width / 2 - posterBox.x - posterBox.width / 2) < 1, 'Play is horizontally centered');
             assert.ok(Math.abs(playBox.y + playBox.height / 2 - posterBox.y - posterBox.height / 2) < 1, 'Play is vertically centered');
-            await expect(article.getByText(data.portfolioProjects[0].video.description, { exact: true })).toBeVisible();
+            await expect(article.getByText(jobFinder.video.description, { exact: true })).toBeVisible();
             assert.equal(await page.locator('video[src], video source[src]').count(), 0, 'idle videos have no downloadable source');
             await expect(page.locator('link[rel="preload"][as="video"]')).toHaveCount(0);
             noVideo(requests);
@@ -234,8 +239,8 @@ async function playbackOwnership() {
             await boot(page);
             await send(page, 'projects');
             const original = projects(page).first();
-            const first = original.getByRole('article').first();
-            const second = original.getByRole('article').nth(1);
+            const first = jobFinderArticle(original);
+            const second = original.getByRole('article').first();
             await first.getByRole('button', { name: /^Play demonstration clip for jobFinder$/ }).click();
             await expect.poll(() => first.locator('video').evaluate(el => !el.paused && el.currentTime > 0)).toBe(true);
             await second.getByRole('button', { name: /^Play demonstration clip for Pet$/ }).click();
@@ -262,7 +267,7 @@ async function playbackOwnership() {
             // Clear/reset unmount real players; retained handles let us inspect their release.
             for (const reset of ['clear', 'back']) {
                 await send(page, 'projects');
-                const article = projects(page).last().getByRole('article').first();
+                const article = jobFinderArticle(projects(page).last());
                 await article.getByRole('button', { name: /^Play demonstration clip for jobFinder$/ }).click();
                 await expect.poll(() => article.locator('video').evaluate(el => !el.paused)).toBe(true);
                 const handle = await article.locator('video').elementHandle();
@@ -292,7 +297,7 @@ async function videoFailureAndCancellation() {
                 await boot(page);
                 await send(page, 'projects');
                 const original = projects(page).first();
-                const article = original.getByRole('article').first();
+                const article = jobFinderArticle(original);
                 noVideo(requests);
                 const before = await article.boundingBox();
                 await article.getByRole('button', { name: /^Play demonstration clip for jobFinder$/ }).click();
@@ -336,16 +341,24 @@ async function navigation() {
         try {
             await boot(page);
             const normal = await viewport(page).boundingBox();
+            await expect(page.getByRole('button', { name: 'Privacy settings', exact: true })).toBeVisible();
+            await expect(page.getByRole('link', { name: 'Privacy policy', exact: true })).toBeVisible();
             await expect(page.locator('[data-badge-ready]')).toBeVisible();
             if (method === 'button') await page.getByRole('button', { name: 'projects', exact: true }).click();
             else await send(page, method);
             await expect(projects(page)).toHaveCount(1);
             const expanded = await viewport(page).boundingBox();
             assert.ok(expanded.width > normal.width + 300);
+            assert.ok(expanded.height > normal.height, 'projects uses the freed vertical space');
+            await expect(page.getByRole('button', { name: 'Privacy settings', exact: true })).toBeHidden();
+            await expect(page.getByRole('link', { name: 'Privacy policy', exact: true })).toBeHidden();
+            assert.ok(await viewport(page).evaluate(el => el.scrollHeight > el.clientHeight), 'projects remains scrollable, not scaled to fit');
             await expect(page.locator('[data-badge-ready]')).toHaveCount(0);
             await expect(projects(page).getByRole('heading')).toHaveText(data.portfolioProjects.map(p => p.title));
             const first = await projects(page).getByRole('article').first().boundingBox();
             assert.ok(first.y >= expanded.y && first.y < expanded.y + 100, 'open at first card inside terminal');
+            const second = await projects(page).getByRole('article').nth(1).boundingBox();
+            assert.ok(second.y < expanded.y + expanded.height, 'next card peeks into view');
             await send(page, 'pwd');
             assert.equal((await viewport(page).boundingBox()).width, expanded.width);
             // Every section alias must restore layout, without removing either project output.
@@ -358,6 +371,8 @@ async function navigation() {
                 await expect(page.locator('[data-terminal-entry]').last().locator('pre')).toContainText(content);
                 await expect(page.locator('[data-badge-ready]')).toBeVisible();
                 assert.equal((await viewport(page).boundingBox()).width, normal.width);
+                await expect(page.getByRole('button', { name: 'Privacy settings', exact: true })).toBeVisible();
+                await expect(page.getByRole('link', { name: 'Privacy policy', exact: true })).toBeVisible();
                 await expect(projects(page)).toHaveCount(1);
             }
             await send(page, 'portfolio');
@@ -431,7 +446,7 @@ async function responsive() {
             const link = section.getByRole('link').first();
             await link.focus();
             assert.equal(await link.evaluate(el => getComputedStyle(el).outlineStyle), 'solid');
-            await context.route('https://github.com/**', route => route.fulfill({ contentType: 'text/html', body: '<title>Link destination</title>' }));
+            await context.route('https://pelosettidisilvana.org/**', route => route.fulfill({ contentType: 'text/html', body: '<title>Link destination</title>' }));
             const popupPromise = page.waitForEvent('popup');
             await link.press('Enter');
             const popup = await popupPromise;
@@ -550,7 +565,7 @@ async function delayedAndBroken() {
             else await imageReady(image);
             const after = await article.boundingBox();
             assert.equal(after.height, before.height, 'loading/failure must preserve reserved geometry');
-            await expect(article.getByRole('heading', { name: 'jobFinder' })).toBeVisible();
+            await expect(article.getByRole('heading', { name: 'Pet', exact: true })).toBeVisible();
             await expect(article.getByRole('link')).toHaveCount(0);
             noVideo(requests);
             assert.deepEqual(errors, []);
@@ -563,7 +578,7 @@ async function optionalMediaFixture() {
     // The approved release has media on every entry. Exercise the same production
     // renderer with optional media omitted; no fixture route/flag ships in the app.
     const { ProjectsOutput } = loadSource(path.join(root, 'src/components/shellfolio/terminal/ProjectsOutput.tsx'));
-    const fixture = Array.from({ length: 12 }, (_, i) => ({ ...data.portfolioProjects[i === 11 ? 2 : 0], title: `Image fixture ${i}`, video: undefined }));
+    const fixture = Array.from({ length: 12 }, (_, i) => ({ ...data.portfolioProjects[i === 11 ? 3 : 0], title: `Image fixture ${i}`, video: undefined }));
     fixture.push({ ...data.portfolioProjects[0], title: 'Text-only fixture', image: undefined, video: undefined, repo: '#', live: '#' });
     const markup = renderToString(React.createElement(ProjectsOutput, { projects: fixture }));
     const css = fs.readFileSync(path.join(root, 'src/components/shellfolio/terminal/ProjectsOutput.module.css'), 'utf8');

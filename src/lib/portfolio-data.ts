@@ -103,16 +103,6 @@ export const portfolioProjects: PortfolioProject[] = [
     // jobFinder and Pet: repositories are private for now ('#' = no public link).
     // Confirm the stack strings and add repo URLs before publication.
     {
-        title: 'jobFinder',
-        shortDescription: 'Evaluate job postings and tailor your next application.',
-        image: jobFinderPoster,
-        video: jobFinderVideo,
-        description:
-            'Windows-first assistant with OpenCode connected: add a full job posting, evaluate it against your saved experience sources and corrections, and review what matches and what needs your confirmation — a starting point for the evidence, not a final decision. Then generate an editable tailored CV or cover letter and save it as PDF. The released demo uses fictional career materials and sample provider outputs.',
-        stack: 'TypeScript, React',
-        repo: '#',
-    },
-    {
         title: 'Pet',
         shortDescription: 'Your desktop. Now with company.',
         image: petPoster,
@@ -120,6 +110,26 @@ export const portfolioProjects: PortfolioProject[] = [
         description:
             'Desktop companion for macOS: a pixel pet walks across your desktop while you work and can be dragged anywhere, paired with a Pokéball-styled Pomodoro focus timer and a task calendar that tracks daily tasks with streaks. Repository stays private for now.',
         stack: 'TypeScript',
+        repo: '#',
+    },
+    {
+        title: 'WEB CONSULTANT & DEVELOPER – I PELOSETTI DI SILVANA ONLUS',
+        shortDescription: 'Pro-bono WordPress fixes for animal listings and SEO.',
+        image: pelosettiImage,
+        description:
+            'Provided pro-bono technical consulting for a non-profit animal shelter, diagnosing and resolving critical WordPress/WooCommerce issues affecting animal listing pages and site SEO',
+        stack: 'WordPress, WooCommerce, Elementor',
+        live: 'https://pelosettidisilvana.org/',
+        repo: '#',
+    },
+    {
+        title: 'jobFinder',
+        shortDescription: 'Evaluate job postings and tailor your next application.',
+        image: jobFinderPoster,
+        video: jobFinderVideo,
+        description:
+            'Windows-first assistant with OpenCode connected: add a full job posting, evaluate it against your saved experience sources and corrections, and review what matches and what needs your confirmation — a starting point for the evidence, not a final decision. Then generate an editable tailored CV or cover letter and save it as PDF. The released demo uses fictional career materials and sample provider outputs.',
+        stack: 'TypeScript, React',
         repo: '#',
     },
     {
@@ -132,16 +142,6 @@ export const portfolioProjects: PortfolioProject[] = [
         stack: 'React, TypeScript, Vite, Tauri 2, Capacitor',
         live: '#',
         repo: 'https://github.com/peterle95/fermentstation',
-    },
-    {
-        title: 'WEB CONSULTANT & DEVELOPER – I PELOSETTI DI SILVANA ONLUS',
-        shortDescription: 'Pro-bono WordPress fixes for animal listings and SEO.',
-        image: pelosettiImage,
-        description:
-            'Provided pro-bono technical consulting for a non-profit animal shelter, diagnosing and resolving critical WordPress/WooCommerce issues affecting animal listing pages and site SEO',
-        stack: 'WordPress, WooCommerce, Elementor',
-        live: 'https://pelosettidisilvana.org/',
-        repo: '#',
     },
     {
         title: 'Printing Press CLIs',
