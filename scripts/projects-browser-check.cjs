@@ -48,8 +48,8 @@ const { portfolioContent } = loadSource(path.join(root, 'src/lib/terminal/vfs-co
 const hash = value => crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
 // Owner-approved records and filenames, repinned with the 2026-10-23 media additions
 // (per-project videos and poster frames, finance placeholder retained on unmedia'd entries).
-assert.equal(hash(data.projectsAsRecords()), 'ce23d9e0d3a5763c0114fb1566dca8082523ade3b9f3b6b21710515858f74322');
-assert.equal(hash(portfolioContent.children.projects), 'e2ab6e6fd2c99620507f068e6a95f514bffc83cb7ab6b88354bea4f02c9b5bda');
+assert.equal(hash(data.projectsAsRecords()), '4e82554c742ba613b4769b7e7b7da720052359f30e52f8892645bed92c86753e');
+assert.equal(hash(portfolioContent.children.projects), 'f20eab2a49e0c1edc951701e43877a7ec0784e4ec76c1872ba770c7deb002280');
 assert.deepEqual(data.portfolioProjects.slice(0, 2).map(p => p.title), [
     'Pet', 'WEB CONSULTANT & DEVELOPER – I PELOSETTI DI SILVANA ONLUS',
 ]);
@@ -174,18 +174,17 @@ async function clickToPlay() {
             assert.ok(Math.abs(playBox.x + playBox.width / 2 - posterBox.x - posterBox.width / 2) < 1, 'Play is horizontally centered');
             assert.ok(Math.abs(playBox.y + playBox.height / 2 - posterBox.y - posterBox.height / 2) < 1, 'Play is vertically centered');
             const details = article.locator('figcaption');
-            const info = article.getByRole('button', { name: 'Preview information for jobFinder', exact: true });
+            const preview = article.getByRole('figure', { name: 'Preview information for jobFinder', exact: true });
+            await expect(article.getByRole('button', { name: /^Preview information/ })).toHaveCount(0);
             const previewBefore = await article.locator('figure').boundingBox();
             await expect(details).toHaveCSS('opacity', '0');
-            await info.click();
-            await expect(info).toHaveAttribute('aria-expanded', 'true');
+            await preview.focus();
             await expect(details).toHaveCSS('opacity', '1');
             await expect(details).toHaveText(jobFinder.description);
             await expect(details.locator('p')).toHaveCount(1);
             assert.deepEqual(await article.locator('figure').boundingBox(), previewBefore, 'overlay does not change preview geometry');
-            await info.click();
             await page.mouse.move(0, 0);
-            await info.blur();
+            await preview.blur();
             await expect(details).toHaveCSS('opacity', '0');
             await article.locator('figure').hover();
             await expect(details).toHaveCSS('opacity', '1');
@@ -202,7 +201,6 @@ async function clickToPlay() {
             await expect(player).toBeVisible();
             await expect(player).toBeFocused();
             await expect(details).toBeHidden();
-            await expect(info).toBeHidden();
             await expect.poll(() => player.evaluate(el => !el.paused && el.currentTime > 0)).toBe(true);
             assert.ok(requests.some(url => url.endsWith('/videos/jobFinder/jobFinder-silent.mp4')), 'Play fetches the silent owner-recorded jobFinder clip');
             assert.equal(requests.some(url => /\/finance_tracker\.mp4/.test(url)), false, 'never fetch the audio-bearing original');
@@ -460,9 +458,7 @@ async function responsive() {
             // Empty prompt does not trap Tab; links retain native focus and activation.
             await page.getByRole('textbox', { name: 'Terminal input' }).focus();
             await page.keyboard.press('Shift+Tab');
-            await expect(section.getByRole('button', { name: /^Preview information for / }).last()).toBeFocused();
-            await page.keyboard.press('Shift+Tab');
-            await expect(section.getByRole('button', { name: /^Play (demonstration clip|shared placeholder video)/ }).last()).toBeFocused();
+            await expect(section.getByRole('figure', { name: /^Preview information for / }).last()).toBeFocused();
             await page.keyboard.press('Shift+Tab');
             await expect(section.getByRole('link').last()).toBeFocused();
             const link = section.getByRole('link').first();
@@ -659,6 +655,9 @@ async function distinctMediaDelivery() {
             const images = [];
             for (const [index, project] of data.portfolioProjects.entries()) {
                 const article = articles.nth(index);
+                const publicSource = /^https?:\/\//i.test(project.repo);
+                await expect(article.getByText('Source code not publicly available', { exact: true })).toHaveCount(publicSource ? 0 : 1);
+                await expect(article.getByRole('link', { name: `Repository for ${project.title}`, exact: true })).toHaveCount(publicSource ? 1 : 0);
                 const image = article.getByRole('img');
                 await image.scrollIntoViewIfNeeded();
                 await imageReady(image);

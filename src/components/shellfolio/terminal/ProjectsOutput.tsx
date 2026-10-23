@@ -70,7 +70,12 @@ function ProjectPreview({ image, video, title, description }: { image: ProjectIm
     const [detailsOpen, setDetailsOpen] = useState(false);
 
     return (
-        <figure className={`${styles.preview} ${styles.imageFrame}`} style={{ aspectRatio: `${image.width} / ${image.height}` }}>
+        <figure className={`${styles.preview} ${styles.imageFrame}`} style={{ aspectRatio: `${image.width} / ${image.height}` }}
+            tabIndex={0} aria-label={`Preview information for ${title}`}
+            onFocus={() => setDetailsOpen(true)}
+            onBlur={event => {
+                if (!event.currentTarget.contains(event.relatedTarget)) setDetailsOpen(false);
+            }}>
             {failed ? (
                 <p className={styles.unavailable}>Preview unavailable. Project details and links are still available.</p>
             ) : (
@@ -86,11 +91,6 @@ function ProjectPreview({ image, video, title, description }: { image: ProjectIm
                 />
             )}
             {video && <ProjectVideoPlayer video={video} title={title} descriptionId={detailsId} />}
-            <button type="button" className={styles.info} aria-label={`Preview information for ${title}`}
-                aria-expanded={detailsOpen} aria-controls={detailsId}
-                onClick={() => setDetailsOpen(!detailsOpen)}>
-                <span aria-hidden="true">i</span>
-            </button>
             <figcaption id={detailsId} className={styles.details} data-open={detailsOpen} tabIndex={detailsOpen ? 0 : -1}>
                 <p className={styles.caption}>{description}</p>
             </figcaption>
@@ -111,6 +111,9 @@ export function ProjectsOutput({ projects }: { projects: PortfolioProject[] }) {
                                 <p className={styles.fullDescription}>{project.description}</p>
                                 <p className={styles.stack}><strong>Stack:</strong> {project.stack}</p>
                                 <nav aria-label={`Links for ${project.title}`} className={styles.links}>
+                                    {!/^https?:\/\//i.test(project.repo) && (
+                                        <span className={styles.sourceStatus}>Source code not publicly available</span>
+                                    )}
                                     {([['Repository', project.repo], ['Live site', project.live]] as const).map(([label, href]) => (
                                         href && /^https?:\/\//i.test(href) ? (
                                             <a key={label} href={href} target="_blank" rel="noopener noreferrer"

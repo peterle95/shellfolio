@@ -57,6 +57,13 @@
     text-underline-offset: 0.25rem;
 }
 
+.sourceStatus {
+    align-self: center;
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+    color: var(--terminal-fg);
+}
+
 .link:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 4px;
@@ -133,22 +140,7 @@
     margin: 0;
 }
 
-.info {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    z-index: 2;
-    width: 2.75rem;
-    height: 2.75rem;
-    border: 1px solid #fff;
-    border-radius: 50%;
-    background: rgb(0 0 0 / 85%);
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.info:focus-visible {
+.imageFrame:focus-visible {
     outline: 3px solid var(--terminal-link);
     outline-offset: -4px;
 }
@@ -165,8 +157,7 @@
     pointer-events: none;
 }
 
-.details[data-open="true"],
-.info:focus-visible + .details {
+.details[data-open="true"] {
     opacity: 1;
     pointer-events: auto;
 }
@@ -178,8 +169,7 @@
     }
 }
 
-.imageFrame:has(.player:not([hidden])) .details,
-.imageFrame:has(.player:not([hidden])) .info {
+.imageFrame:has(.player:not([hidden])) .details {
     display: none;
 }
 

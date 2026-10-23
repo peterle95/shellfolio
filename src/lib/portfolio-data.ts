@@ -104,7 +104,7 @@ export const portfolioProjects: PortfolioProject[] = [
         image: petPoster,
         video: petVideo,
         description:
-            'Desktop companion: a pixel pet walks across your desktop while you work and can be dragged anywhere, paired with a Pokéball-styled Pomodoro focus timer and a task calendar that tracks daily tasks with streaks. Repository stays private for now.',
+            'Desktop companion: a pixel pet walks across your desktop while you work and can be dragged anywhere, paired with a Pokéball-styled Pomodoro focus timer and a task calendar that tracks daily tasks with streaks.',
         stack: 'TypeScript',
         repo: '#',
     },
