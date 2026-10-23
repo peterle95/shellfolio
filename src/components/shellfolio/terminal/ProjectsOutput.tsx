@@ -39,16 +39,23 @@ function ProjectVideoPlayer({ video, title, descriptionId }: { video: ProjectVid
         });
     }
 
+    const clipName = video.sharedPlaceholder
+        ? `Shared placeholder video for ${title}`
+        : `Demonstration clip for ${title}`;
+    const playLabel = video.sharedPlaceholder
+        ? `Play shared placeholder video for ${title}`
+        : `Play demonstration clip for ${title}`;
+
     return (
         <>
             <video ref={playerRef} className={styles.player} hidden={!active}
-                controls playsInline preload="none" aria-label={`Shared placeholder video for ${title}`}
+                controls playsInline preload="none" aria-label={clipName}
                 aria-describedby={descriptionId} onError={event => {
                     if (event.currentTarget.hasAttribute('src')) setFailed(true);
                 }} />
             {failed && <p role="status" className={`${styles.unavailable} ${styles.videoError}`}>Video unavailable. Project details and links are still available.</p>}
             {!active && !failed && <button type="button" onClick={play} className={styles.play}
-                aria-label={`Play shared placeholder video for ${title}`}>
+                aria-label={playLabel}>
                 <svg aria-hidden="true" focusable="false" width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
                     <path d="m9 5 11 7-11 7z" />
                 </svg>

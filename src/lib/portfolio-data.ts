@@ -19,11 +19,14 @@ export type ProjectImage = {
 export type ProjectVideo = {
     src: string;
     description: string;
+    /** Marks the approved shared Finance Tracker placeholder (docs/project-content-34.md). */
+    sharedPlaceholder?: boolean;
 };
 
 const sharedFinanceVideo: ProjectVideo = {
     src: '/videos/finance_tracker-silent.mp4',
     description: 'Shared Finance Tracker demo, not a preview of this project. The clip records a grocery expense and shows a daily spending allowance, savings progress, and budget overview using fictional data.',
+    sharedPlaceholder: true,
 };
 
 // Owner-approved release exception and exact copy: docs/project-content-34.md.
@@ -33,6 +36,56 @@ const sharedFinancePoster: ProjectImage = {
     width: 1280,
     height: 720,
     caption: 'Shared placeholder: Finance Tracker, not a preview of this project.',
+};
+
+// Owner-recorded project media. jobFinder's demo footer states:
+// "Demonstration · Fictional career materials · Sample provider outputs"
+// — video descriptions below say the same so no clip is mistaken for real output.
+const fermentStationVideo: ProjectVideo = {
+    src: '/videos/fermentStation/fermentStation.mp4',
+    description: 'FermentStation demonstration: the clip opens on the app icon with the slogan "Good things take time.", skips ahead seven days, and shows the Today view, where the action queue flags a taste-and-smell check due today and Sunday\'s kombucha as ready to open.',
+};
+
+const fermentStationPoster: ProjectImage = {
+    src: '/videos/fermentStation/fermentStation-poster.webp',
+    alt: 'FermentStation illustration: a clip-top jar of fermenting vegetables beside the slogan "Good things take time."',
+    width: 1280,
+    height: 720,
+    caption: 'FermentStation: good things take time.',
+};
+
+const jobFinderVideo: ProjectVideo = {
+    src: '/videos/jobFinder/jobFinder.mp4',
+    description: 'jobFinder demonstration with fictional career materials and sample provider outputs: a job posting is evaluated as a partial match (70 of 100), strengths and gaps are reviewed against saved experience sources, and a tailored CV and cover letter for the fictional candidate are generated, edited, and saved as PDF.',
+};
+
+const jobFinderPoster: ProjectImage = {
+    src: '/videos/jobFinder/jobFinder-poster.webp',
+    alt: 'jobFinder evaluation screen: a 70 out of 100 partial-match recommendation beside a review of established strengths and experience to confirm.',
+    width: 1280,
+    height: 720,
+    caption: 'jobFinder demo, using fictional career materials and sample provider outputs.',
+};
+
+const petVideo: ProjectVideo = {
+    src: '/videos/pet/pet.mp4',
+    description: 'Pet demonstration on macOS: a pixel companion walks on the desktop next to Notes and can be dragged anywhere, a Pokéball-styled Pomodoro panel starts a 10-minute focus session, and a monthly task calendar tracks daily tasks such as reading and walks with streaks.',
+};
+
+const petPoster: ProjectImage = {
+    src: '/videos/pet/pet-poster.webp',
+    alt: 'Pet demonstration desktop: the slogan "Your desktop. Now with company." beside a pixel-art companion on a macOS desktop.',
+    width: 1280,
+    height: 720,
+    caption: 'Pet: your desktop, now with company.',
+};
+
+const pelosettiImage: ProjectImage = {
+    src: '/images/ipelosetti.png',
+    alt: 'I Pelosetti di Silvana Onlus shelter website with sections for temporary fostering, fostering towards adoption, and social volunteering.',
+    width: 1424,
+    height: 728,
+    caption: 'I Pelosetti di Silvana Onlus: the shelter\'s WordPress site for fostering and adoption.',
 };
 
 export type PortfolioProject = {
@@ -47,11 +100,33 @@ export type PortfolioProject = {
 };
 
 export const portfolioProjects: PortfolioProject[] = [
+    // jobFinder and Pet: repositories are private for now ('#' = no public link).
+    // Confirm the stack strings and add repo URLs before publication.
+    {
+        title: 'jobFinder',
+        shortDescription: 'Evaluate job postings and tailor your next application.',
+        image: jobFinderPoster,
+        video: jobFinderVideo,
+        description:
+            'Windows-first assistant with OpenCode connected: add a full job posting, evaluate it against your saved experience sources and corrections, and review what matches and what needs your confirmation — a starting point for the evidence, not a final decision. Then generate an editable tailored CV or cover letter and save it as PDF. The released demo uses fictional career materials and sample provider outputs.',
+        stack: 'TypeScript, React',
+        repo: '#',
+    },
+    {
+        title: 'Pet',
+        shortDescription: 'Your desktop. Now with company.',
+        image: petPoster,
+        video: petVideo,
+        description:
+            'Desktop companion for macOS: a pixel pet walks across your desktop while you work and can be dragged anywhere, paired with a Pokéball-styled Pomodoro focus timer and a task calendar that tracks daily tasks with streaks. Repository stays private for now.',
+        stack: 'TypeScript',
+        repo: '#',
+    },
     {
         title: 'FermentStation',
         shortDescription: 'Track fermentation locally, on desktop or Android.',
-        image: sharedFinancePoster,
-        video: sharedFinanceVideo,
+        image: fermentStationPoster,
+        video: fermentStationVideo,
         description:
             'Local-first fermentation tracker. 70+ tests, desktop + Android packaging',
         stack: 'React, TypeScript, Vite, Tauri 2, Capacitor',
@@ -61,8 +136,7 @@ export const portfolioProjects: PortfolioProject[] = [
     {
         title: 'WEB CONSULTANT & DEVELOPER – I PELOSETTI DI SILVANA ONLUS',
         shortDescription: 'Pro-bono WordPress fixes for animal listings and SEO.',
-        image: sharedFinancePoster,
-        video: sharedFinanceVideo,
+        image: pelosettiImage,
         description:
             'Provided pro-bono technical consulting for a non-profit animal shelter, diagnosing and resolving critical WordPress/WooCommerce issues affecting animal listing pages and site SEO',
         stack: 'WordPress, WooCommerce, Elementor',

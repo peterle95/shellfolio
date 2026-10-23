@@ -44,10 +44,13 @@ function loadSource(base) {
 const data = loadSource(path.join(root, 'src/lib/portfolio-data.ts'));
 const { portfolioContent } = loadSource(path.join(root, 'src/lib/terminal/vfs-content.ts'));
 const hash = value => crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
-// Pre-feature public records and filenames, including their original link semantics.
-assert.equal(hash(data.projectsAsRecords()), 'cf9aeb802b310b26bdbe1cc90c1f8ef8cd4f895ad37c069fffaefaa2f350af92');
-assert.equal(hash(portfolioContent.children.projects), '790334d3e311242a04cf779c9306aa974228f73aca66da92da01e0952ff39d2d');
+// Owner-approved records and filenames, repinned with the 2026-10-23 media additions
+// (per-project videos and poster frames, finance placeholder retained on unmedia'd entries).
+assert.equal(hash(data.projectsAsRecords()), 'ae153730e0354bb8ed70ccb60441c11fd52331ba62237e62a6f8e559a4aff331');
+assert.equal(hash(portfolioContent.children.projects), 'd898805a108b20df8aec7327855bf6500e7162279cdaa1ed7bec48fe976c0f60');
 const approvedCopy = [
+    'Evaluate job postings and tailor your next application.',
+    'Your desktop. Now with company.',
     'Track fermentation locally, on desktop or Android.',
     'Pro-bono WordPress fixes for animal listings and SEO.',
     '23 command-line tools for API automation.',
@@ -56,8 +59,31 @@ const approvedCopy = [
     'An interactive portfolio styled as a command-line shell.',
     'Explore more projects and contributions on GitHub.',
 ];
+const approvedPosterSources = [
+    '/videos/jobFinder/jobFinder-poster.webp',
+    '/videos/pet/pet-poster.webp',
+    '/videos/fermentStation/fermentStation-poster.webp',
+    '/images/ipelosetti.png',
+    '/videos/finance_tracker-poster.webp',
+    '/videos/finance_tracker-poster.webp',
+    '/videos/finance_tracker-poster.webp',
+    '/videos/finance_tracker-poster.webp',
+    '/videos/finance_tracker-poster.webp',
+];
+const approvedVideoSources = [
+    '/videos/jobFinder/jobFinder.mp4',
+    '/videos/pet/pet.mp4',
+    '/videos/fermentStation/fermentStation.mp4',
+    undefined,
+    '/videos/finance_tracker-silent.mp4',
+    '/videos/finance_tracker-silent.mp4',
+    '/videos/finance_tracker-silent.mp4',
+    '/videos/finance_tracker-silent.mp4',
+    '/videos/finance_tracker-silent.mp4',
+];
 assert.deepEqual(data.portfolioProjects.map(p => p.shortDescription), approvedCopy);
-assert.ok(data.portfolioProjects.every(p => p.image?.src === '/videos/finance_tracker-poster.webp'));
+assert.deepEqual(data.portfolioProjects.map(p => p.image?.src), approvedPosterSources);
+assert.deepEqual(data.portfolioProjects.map(p => p.video?.src), approvedVideoSources);
 
 const executablePath = process.env.BROWSER_PATH || [
     'C:/Program Files/Google/Chrome/Application/chrome.exe',
@@ -118,7 +144,7 @@ async function clickToPlay() {
             await send(page, 'portfolio');
             const section = projects(page).last();
             const article = section.getByRole('article').first();
-            const play = article.getByRole('button', { name: 'Play shared placeholder video for FermentStation', exact: true });
+            const play = article.getByRole('button', { name: 'Play demonstration clip for jobFinder', exact: true });
             await expect(play).toBeVisible();
             assert.equal((await play.textContent()).trim(), '', 'Play is an icon, not a visible text label');
             await expect(play.locator('svg')).toBeVisible();
@@ -127,7 +153,7 @@ async function clickToPlay() {
             assert.ok(playBox.width >= 44 && playBox.height >= 44, 'visible touch-sized Play action');
             assert.ok(Math.abs(playBox.x + playBox.width / 2 - posterBox.x - posterBox.width / 2) < 1, 'Play is horizontally centered');
             assert.ok(Math.abs(playBox.y + playBox.height / 2 - posterBox.y - posterBox.height / 2) < 1, 'Play is vertically centered');
-            await expect(article.getByText('Shared Finance Tracker demo, not a preview of this project. The clip records a grocery expense and shows a daily spending allowance, savings progress, and budget overview using fictional data.', { exact: true })).toBeVisible();
+            await expect(article.getByText(data.portfolioProjects[0].video.description, { exact: true })).toBeVisible();
             assert.equal(await page.locator('video[src], video source[src]').count(), 0, 'idle videos have no downloadable source');
             await expect(page.locator('link[rel="preload"][as="video"]')).toHaveCount(0);
             noVideo(requests);
@@ -139,13 +165,15 @@ async function clickToPlay() {
             await expect(player).toBeVisible();
             await expect(player).toBeFocused();
             await expect.poll(() => player.evaluate(el => !el.paused && el.currentTime > 0)).toBe(true);
-            assert.ok(requests.some(url => url.endsWith('/videos/finance_tracker-silent.mp4')), 'Play fetches the real approved clip');
+            assert.ok(requests.some(url => url.endsWith('/videos/jobFinder/jobFinder.mp4')), 'Play fetches the owner-recorded jobFinder clip');
             assert.equal(requests.some(url => /\/finance_tracker\.mp4/.test(url)), false, 'never fetch the audio-bearing original');
             assert.deepEqual(await player.evaluate(el => ({ controls: el.controls, autoplay: el.autoplay, inline: el.playsInline,
-                width: el.videoWidth, height: el.videoHeight, duration: el.duration })),
-            { controls: true, autoplay: false, inline: true, width: 1920, height: 1080, duration: 22 });
+                width: el.videoWidth, height: el.videoHeight })),
+            { controls: true, autoplay: false, inline: true, width: 1920, height: 1080 });
+            const duration = await player.evaluate(el => el.duration);
+            assert.ok(Math.abs(duration - 38.63) < 0.2, `jobFinder clip duration ≈ 38.63s (got ${duration})`);
             assert.equal((await article.boundingBox()).height, before.height, 'poster-to-player geometry is stable');
-            await expect(article.getByRole('link')).toHaveCount(1);
+            await expect(article.getByRole('link')).toHaveCount(0);
             await noOverflow(page);
             await screenshot(page, `${width}-video`);
             // Exercise native keyboard controls, not a custom pause button.
@@ -194,9 +222,9 @@ async function playbackOwnership() {
             const original = projects(page).first();
             const first = original.getByRole('article').first();
             const second = original.getByRole('article').nth(1);
-            await first.getByRole('button', { name: /^Play shared placeholder video/ }).click();
+            await first.getByRole('button', { name: /^Play demonstration clip for jobFinder$/ }).click();
             await expect.poll(() => first.locator('video').evaluate(el => !el.paused && el.currentTime > 0)).toBe(true);
-            await second.getByRole('button', { name: /^Play shared placeholder video/ }).click();
+            await second.getByRole('button', { name: /^Play demonstration clip for Pet$/ }).click();
             await expect.poll(() => second.locator('video').evaluate(el => !el.paused && el.currentTime > 0)).toBe(true);
             await unloaded(first.locator('video'));
             await expect(page.locator('video[src]')).toHaveCount(1);
@@ -209,7 +237,7 @@ async function playbackOwnership() {
             }
             await expect(projects(page)).toHaveCount(3);
             // Retained outputs can be explicitly played again without creating a second owner.
-            await first.getByRole('button', { name: /^Play shared placeholder video/ }).click();
+            await first.getByRole('button', { name: /^Play demonstration clip for jobFinder$/ }).click();
             await expect.poll(() => first.locator('video').evaluate(el => !el.paused)).toBe(true);
             await send(page, 'pwd');
             await expect(page.locator('video[src]')).toHaveCount(1);
@@ -221,7 +249,7 @@ async function playbackOwnership() {
             for (const reset of ['clear', 'back']) {
                 await send(page, 'projects');
                 const article = projects(page).last().getByRole('article').first();
-                await article.getByRole('button', { name: /^Play shared placeholder video/ }).click();
+                await article.getByRole('button', { name: /^Play demonstration clip for jobFinder$/ }).click();
                 await expect.poll(() => article.locator('video').evaluate(el => !el.paused)).toBe(true);
                 const handle = await article.locator('video').elementHandle();
                 if (reset === 'clear') await send(page, 'clear');
@@ -243,7 +271,7 @@ async function videoFailureAndCancellation() {
             let release;
             const pending = new Promise(resolve => { release = resolve; });
             try {
-                await page.route('**/videos/finance_tracker-silent.mp4', async route => {
+                await page.route('**/videos/jobFinder/jobFinder.mp4', async route => {
                     if (broken) await route.abort();
                     else { await pending; await route.continue(); }
                 });
@@ -253,7 +281,7 @@ async function videoFailureAndCancellation() {
                 const article = original.getByRole('article').first();
                 noVideo(requests);
                 const before = await article.boundingBox();
-                await article.getByRole('button', { name: /^Play shared placeholder video/ }).click();
+                await article.getByRole('button', { name: /^Play demonstration clip for jobFinder$/ }).click();
                 await expect.poll(() => requests.some(url => url.endsWith('.mp4'))).toBe(true);
                 const player = article.locator('video');
                 if (broken) {
@@ -264,15 +292,15 @@ async function videoFailureAndCancellation() {
                     assert.equal(await player.evaluate(el => el.readyState), 0, 'request remains held, without decoded video');
                 }
                 assert.equal((await article.boundingBox()).height, before.height, 'pending/failure preserves preview geometry');
-                await expect(article.getByRole('heading', { name: 'FermentStation', exact: true })).toBeVisible();
-                await expect(article.getByRole('link')).toHaveCount(1);
+                await expect(article.getByRole('heading', { name: 'jobFinder', exact: true })).toBeVisible();
+                await expect(article.getByRole('link')).toHaveCount(0);
                 // Typing/execution must finish while video delivery is pending or failed.
                 const input = page.getByRole('textbox', { name: 'Terminal input' });
                 await input.fill('pwd');
                 await expect(input).toHaveValue('pwd');
                 await send(page, 'pwd');
                 const cancelled = broken ? null : page.waitForEvent('requestfailed', {
-                    predicate: request => request.url().endsWith('/videos/finance_tracker-silent.mp4'),
+                    predicate: request => request.url().endsWith('/videos/jobFinder/jobFinder.mp4'),
                 });
                 await send(page, 'portfolio');
                 await unloaded(player);
@@ -341,7 +369,7 @@ async function responsive() {
             await boot(page);
             await page.getByRole('button', { name: 'projects', exact: true }).click();
             const section = projects(page);
-            await expect(section.getByRole('article')).toHaveCount(7);
+            await expect(section.getByRole('article')).toHaveCount(9);
             const sectionWidth = (await section.boundingBox()).width;
             for (const [index, project] of data.portfolioProjects.entries()) {
                 const article = section.getByRole('article').nth(index);
@@ -356,7 +384,7 @@ async function responsive() {
                 const links = article.getByRole('link');
                 const expected = [project.repo, project.live].filter(href => href && href !== '#');
                 assert.deepEqual(await links.evaluateAll(els => els.map(el => el.getAttribute('href'))), expected);
-                await expect(article.getByRole('img', { name: alt })).toHaveAttribute('loading', 'lazy');
+                await expect(article.getByRole('img', { name: project.image.alt })).toHaveAttribute('loading', 'lazy');
                 const copy = await article.locator(':scope > div').boundingBox();
                 const media = await article.locator('figure').boundingBox();
                 if (sectionWidth >= 832) {
@@ -383,7 +411,7 @@ async function responsive() {
             // Empty prompt does not trap Tab; links retain native focus and activation.
             await page.getByRole('textbox', { name: 'Terminal input' }).focus();
             await page.keyboard.press('Shift+Tab');
-            await expect(section.getByRole('button', { name: /^Play shared placeholder video/ }).last()).toBeFocused();
+            await expect(section.getByRole('button', { name: /^Play (demonstration clip|shared placeholder video)/ }).last()).toBeFocused();
             await page.keyboard.press('Shift+Tab');
             await expect(section.getByRole('link').last()).toBeFocused();
             const link = section.getByRole('link').first();
@@ -424,7 +452,7 @@ async function virtualFilesAndRecall() {
         await send(page, 'projects');
         await send(page, 'ls /projects');
         const entries = page.locator('[data-terminal-entry]');
-        // These records are already checked against the pre-feature hash above.
+        // These records are already checked against the approved-content hash above.
         const files = portfolioContent.children.projects.children;
         for (const filename of Object.keys(files)) {
             await expect(entries.last().getByText(filename, { exact: true })).toBeVisible();
@@ -508,8 +536,8 @@ async function delayedAndBroken() {
             else await imageReady(image);
             const after = await article.boundingBox();
             assert.equal(after.height, before.height, 'loading/failure must preserve reserved geometry');
-            await expect(article.getByRole('heading', { name: 'FermentStation' })).toBeVisible();
-            await expect(article.getByRole('link')).toHaveCount(1);
+            await expect(article.getByRole('heading', { name: 'jobFinder' })).toBeVisible();
+            await expect(article.getByRole('link')).toHaveCount(0);
             noVideo(requests);
             assert.deepEqual(errors, []);
         } finally { release(); await context.close(); }
