@@ -10,6 +10,7 @@ export function Telemetry() {
   const [consent, setConsent] = useState<Consent | null>(null);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- Read the initial browser-only consent snapshot before subscribing; SSR must not mount telemetry.
     setConsent(readConsent());
 
     const update = (event: Event) => setConsent((event as CustomEvent<Consent>).detail);

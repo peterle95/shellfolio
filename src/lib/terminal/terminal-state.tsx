@@ -79,7 +79,7 @@ export const TerminalProvider = ({ children }: { children: ReactNode }) => {
         }
     }, []);
 
-    const executeCommand = useCallback((cmdStr: string) => {
+    const executeCommand = useCallback(function executeCommand(cmdStr: string) {
         const execution = commandQueue.current.then(async () => {
             if (!cmdStr.trim()) {
                 pushHistory({ command: '', output: '' });
