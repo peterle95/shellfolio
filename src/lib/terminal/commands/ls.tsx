@@ -1,6 +1,6 @@
 import React from 'react';
 import { Command } from '../types';
-import { OutputError, OutputText } from '@/components/shellfolio/terminal/CommandOutput';
+import { OutputError } from '@/components/shellfolio/terminal/CommandOutput';
 
 export const lsCommand: Command = {
     name: 'ls',
@@ -28,7 +28,7 @@ export const lsCommand: Command = {
             </div>
         );
     },
-    autocomplete: (partial, ctx) => {
+    autocomplete: () => {
         // Need to pass autocomplete function here
         // The AutocompleteEngine is intercepting this though
         return [];

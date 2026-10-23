@@ -14,9 +14,9 @@ import {
 
 export const Welcome = () => (
     <div>
-        <h1 className="text-2xl font-bold text-primary mb-4">Welcome to Peter Mölzer's Shellfolio!</h1>
+        <h1 className="text-2xl font-bold text-primary mb-4">Welcome to Peter Mölzer&apos;s Shellfolio!</h1>
         <p>This is my interactive portfolio.</p>
-        <p className="mt-2">Type <span className="font-bold text-primary">'help'</span> to see a list of available commands.</p>
+        <p className="mt-2">Type <span className="font-bold text-primary">&apos;help&apos;</span> to see a list of available commands.</p>
     </div>
 );
 
@@ -52,7 +52,7 @@ export const NotFound = ({ command }: { command?: string }) => (
             Command not found: <span className="text-destructive">{command}</span>
         </p>
         <p>
-            Type <span className="font-bold text-primary">'help'</span> for a list of available commands.
+            Type <span className="font-bold text-primary">&apos;help&apos;</span> for a list of available commands.
         </p>
     </div>
 );

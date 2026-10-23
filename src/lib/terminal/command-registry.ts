@@ -55,7 +55,7 @@ export class CommandRegistry {
         return allNames.filter(name => name.startsWith(partial));
     }
 
-    suggest(name: string): string[] {
+    suggest(): string[] {
         // Simple Levenshtein distance for typos could be implemented here.
         // For now, return a simple filter or empty array.
         return [];

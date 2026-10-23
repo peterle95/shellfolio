@@ -46,9 +46,9 @@ export function MicrosoftClarity() {
     let delayId: ReturnType<typeof setTimeout> | undefined;
 
     const initialize = async () => {
-      const module = await import('@microsoft/clarity');
+      const clarityModule = await import('@microsoft/clarity');
       if (cancelled || clarityInitialized || !isConsentAllowed('clarity')) return;
-      clarity = module.default;
+      clarity = clarityModule.default;
       clarity.init(projectId);
       clarityInitialized = true;
     };

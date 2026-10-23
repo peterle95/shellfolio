@@ -1,5 +1,6 @@
 import { CommandContext } from './types';
 import { CommandRegistry } from './command-registry';
+import type { VirtualFileSystem } from './virtual-filesystem';
 
 export class AutocompleteEngine {
     private registry: CommandRegistry;
@@ -41,7 +42,7 @@ export class AutocompleteEngine {
     /**
      * Completes file and directory paths in the virtual filesystem.
      */
-    public completePath(partialPath: string, cwd: string, vfs: any): string[] {
+    public completePath(partialPath: string, cwd: string, vfs: VirtualFileSystem): string[] {
         // Find the base directory to search in
         let searchDir = cwd;
         let prefix = partialPath;

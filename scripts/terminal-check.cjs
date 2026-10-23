@@ -1,5 +1,6 @@
 // Run: node scripts/terminal-check.cjs
 // Execute the production provider, registry, lazy loaders and commands; mock React/browser/UI rendering.
+/* eslint-disable @typescript-eslint/no-require-imports -- Standalone Node CommonJS harness, matching scripts/*.cjs. */
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -45,8 +46,8 @@ function terminal() {
             .find(candidate => fs.existsSync(candidate) && fs.statSync(candidate).isFile());
         assert.ok(file, `Cannot resolve ${base}`);
         if (cache.has(file)) return cache.get(file).exports;
-        const module = { exports: {} };
-        cache.set(file, module); // Preserve the help/index cycle.
+        const compiled = { exports: {} };
+        cache.set(file, compiled); // Preserve the help/index cycle.
         const source = ts.transpileModule(fs.readFileSync(file, 'utf8'), {
             compilerOptions: { target: ts.ScriptTarget.ES2020, module: ts.ModuleKind.CommonJS,
                 jsx: ts.JsxEmit.React, esModuleInterop: true }
@@ -69,8 +70,8 @@ function terminal() {
             return load(resolved);
         };
         vm.runInContext(`(function(require, module, exports) { ${source}\n})`, context,
-            { filename: file })(requireSource, module, module.exports);
-        return module.exports;
+            { filename: file })(requireSource, compiled, compiled.exports);
+        return compiled.exports;
     }
     const { TerminalProvider } = load(path.join(__dirname, '../src/lib/terminal/terminal-state'));
     function render(state = slots) {
@@ -176,7 +177,7 @@ const checks = {
     },
     async 'unexpected failure does not poison queue'() {
         const t = terminal(), store = t.api.historyStore, push = store.push;
-        store.push = function (entry) { store.push = push; throw new Error('push failed'); };
+        store.push = function () { store.push = push; throw new Error('push failed'); };
         const failed = assert.rejects(t.api.executeCommand('pwd'), /push failed/);
         const next = t.api.executeCommand('pwd');
         await Promise.all([failed, next]);

@@ -31,7 +31,7 @@ export class VirtualFileSystem {
     public resolve(targetPath: string, cwd: string): string {
         if (targetPath === '~') return '/';
         
-        let basePath = targetPath.startsWith('/') ? '/' : cwd;
+        const basePath = targetPath.startsWith('/') ? '/' : cwd;
         const parts = (basePath === '/' ? targetPath : `${basePath}/${targetPath}`).split('/').filter(p => p !== '');
         
         const stack: string[] = [];

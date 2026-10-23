@@ -1,5 +1,6 @@
 // Run: node scripts/badge-check.cjs
 // Execute production hooks/frame callback, mocking only React and browser/renderer boundaries.
+/* eslint-disable @typescript-eslint/no-require-imports -- Standalone Node CommonJS harness, matching scripts/*.cjs. */
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
