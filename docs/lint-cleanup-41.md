@@ -75,3 +75,68 @@ Use focused lint and typechecks between batches. Final checks: repository-wide
 lint, independent typecheck, production build, history and budget tests, terminal,
 Badge and Grainient harnesses, and the production project browser suite. The user
 approved existing browser/script seams and review against `5b15d33`.
+
+## Results
+
+The clean detached worktree was installed with `npm ci --no-audit --no-fund`.
+Its unchanged baseline independently reproduced **80 errors and 7 warnings**.
+The cleanup has **0 errors and 0 warnings**, including with `--max-warnings=0`.
+The lockfile, dependency versions, ESLint configuration and owner's local edits
+are unchanged. Next's build automatically updates JSX/include settings only in
+the disposable verification worktree; that generated diff is not committed.
+
+### Retained, specific exceptions
+
+- CommonJS imports in standalone Node `.cjs` checks: file-scoped exceptions,
+  consistent with the pre-existing history/project checks. Application imports
+  remain checked, and `tailwind.config.ts` now uses an ES import.
+- `PrivacyConsent.tsx`: hydrate saved browser consent after the SSR-safe initial
+  render without changing the site's existing defaults.
+- `Telemetry.tsx`: initialize from browser consent before subscribing to changes;
+  do not mount optional telemetry during SSR.
+- `VisualEffects.tsx` (two sites): clear eligibility when Badge is excluded and
+  clear readiness when its external renderer unmounts.
+- `carousel.tsx`: read the external Embla selection state before subscribing.
+- `use-mobile.tsx`: hydrate viewport state after the server-safe initial value.
+
+Each effect exception is on one reported line with its reason. No type-check
+suppression remains in Badge: props, physics refs, pointer capture, GLTF nodes,
+and custom Fiber elements use concrete types. Texture configuration uses Drei's
+post-commit setup callback. Stable material constructor arguments avoid renderer
+recreation; texture transforms, curve type, physics and visual values are retained.
+
+### Verification
+
+Passed in the clean verification worktree:
+
+```sh
+npm run lint -- --max-warnings=0
+npm run typecheck
+npm run build
+node --test scripts/history-store.test.cjs scripts/projects-budget-check.test.cjs scripts/ui-render.test.cjs
+node scripts/terminal-check.cjs
+node scripts/badge-check.cjs
+node scripts/grainient-check.cjs
+npm run start -- --hostname 127.0.0.1 --port 9401
+# In a second terminal:
+npm run test:projects -- --url=http://localhost:9401
+node scripts/lint-browser-check.cjs --url=http://localhost:9401
+```
+
+- All 14 Node tests pass. The new server-render regression first failed on
+  differing skeleton widths, then passed with deterministic per-instance widths.
+- Full project browser coverage passes: responsive layouts, virtual files,
+  command recall/reload, actual playback/resource cleanup and media failures.
+- Additional Chrome 155 checks pass: unchanged consent defaults, Escape rejection,
+  focus trapping, saved choices/reload, actual Badge WebGL readiness, resize, and
+  reduced-motion teardown/re-enable. Texture setup and stable material arguments
+  are also asserted by the Badge harness.
+- Standards and Spec reviews against `5b15d33` each report zero findings.
+- No performance measurements or broader cross-browser compliance claims.
+
+The additional browser check exposed a pre-existing privacy focus-return bug:
+the saved trigger is unmounted while settings are open, so synchronous focus
+restoration targets a detached element. It is isolated as
+[#44](https://github.com/peterle95/shellfolio/issues/44), not silently fixed or
+counted as passing in this behavior-preserving lint cleanup. Consent focus
+trapping and persistence are checked independently.
