@@ -30,6 +30,7 @@ const executablePath = process.env.BROWSER_PATH || [
             for (const checkbox of await dialog.getByRole('checkbox').all()) await expect(checkbox).toBeChecked();
             await dialog.press('Escape');
             await expect(dialog).toHaveCount(0);
+            await expect(settings).toBeFocused();
             await settings.click();
             for (const checkbox of await dialog.getByRole('checkbox').all()) await expect(checkbox).not.toBeChecked();
             const reject = dialog.getByRole('button', { name: 'Reject all' });
@@ -41,7 +42,7 @@ const executablePath = process.env.BROWSER_PATH || [
             await analytics.check();
             await dialog.getByRole('button', { name: 'Save choices' }).click();
             await expect(settings).toBeVisible();
-            // Focus return targets an unmounted trigger in the baseline too; tracked separately in #44.
+            await expect(settings).toBeFocused();
             await page.reload({ waitUntil: 'networkidle' });
             await expect(settings).toBeVisible();
             await expect(dialog).toHaveCount(0);
@@ -50,8 +51,21 @@ const executablePath = process.env.BROWSER_PATH || [
             await expect(page.getByRole('checkbox', { name: 'Vercel Speed Insights', exact: true })).not.toBeChecked();
             await expect(page.getByRole('checkbox', { name: 'Microsoft Clarity session insights', exact: true })).not.toBeChecked();
             await reject.click();
+            await expect(settings).toBeFocused();
+            await settings.press('Enter');
+            for (const checkbox of await dialog.getByRole('checkbox').all()) await expect(checkbox).not.toBeChecked();
+            await expect(analytics).toBeFocused();
+            await analytics.check();
+            await dialog.press('Escape');
+            await expect(dialog).toHaveCount(0);
+            await expect(settings).toBeFocused();
+            await page.reload({ waitUntil: 'networkidle' });
+            await settings.click();
+            for (const checkbox of await dialog.getByRole('checkbox').all()) await expect(checkbox).not.toBeChecked();
+            await reject.click();
+            await expect(settings).toBeFocused();
             assert.deepEqual(errors, []);
-            console.log('PASS consent defaults, Escape rejection, focus trap, save and reload');
+            console.log('PASS consent defaults, focus trap, focus return after Save/Reject/Escape, saved choices and reload');
         } finally { await privacy.close(); }
 
         const graphics = await browser.newContext({ viewport: { width: 1600, height: 900 }, reducedMotion: 'no-preference' });

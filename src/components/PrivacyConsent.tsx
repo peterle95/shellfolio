@@ -46,17 +46,15 @@ export function PrivacyConsent() {
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState(DEFAULT_CONSENT);
   const dialogRef = useRef<HTMLElement>(null);
-  const previousFocusRef = useRef<HTMLElement | null>(null);
+  const settingsTriggerRef = useRef<HTMLButtonElement>(null);
 
   const choose = useCallback((value: Omit<Consent, 'updatedAt'>) => {
     saveConsent(value);
     setConsent({ ...value, updatedAt: Date.now() });
     setOpen(false);
-    previousFocusRef.current?.focus();
   }, []);
 
   const openSettings = () => {
-    previousFocusRef.current = document.activeElement as HTMLElement;
     setDraft(consent ?? DEFAULT_CONSENT);
     setOpen(true);
   };
@@ -75,7 +73,10 @@ export function PrivacyConsent() {
   }, []);
 
   useEffect(() => {
-    if (!open) return;
+    if (!open) {
+      settingsTriggerRef.current?.focus();
+      return;
+    }
     const dialog = dialogRef.current;
     if (!dialog) return;
     const focusable = () => Array.from(dialog.querySelectorAll<HTMLElement>('button, input'));
@@ -105,6 +106,7 @@ export function PrivacyConsent() {
   if (consent === undefined || !open) {
     return consent && !open ? (
       <button
+        ref={settingsTriggerRef}
         type="button"
         onClick={openSettings}
         className="fixed bottom-3 left-3 z-50 rounded border border-white/30 bg-black/80 px-3 py-2 text-xs text-white underline focus:outline-none focus:ring-2 focus:ring-white"
