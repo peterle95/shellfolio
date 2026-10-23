@@ -25,9 +25,9 @@ for (const target of ['before', 'after']) {
     for (const run of capture.runs) {
         const events = JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(root, 'traces', run.traceFile)))).traceEvents;
         const commands = run.commands.filter(command => command.phase === 'journey');
-        assert.equal(commands.length, 7);
+        assert.equal(commands.length, capture.conditions.journey.length);
         for (const [index, command] of commands.entries()) {
-            const name = `command-${index + 5}-${command.command}`;
+            const name = `command-${index + capture.conditions.historySeed.length}-${command.command}`;
             const start = events.find(event => event.name === name && event.ph === 'b');
             assert.ok(start, `missing ${name} start`);
             const end = events.find(event => event.name === name && event.ph === 'e' && event.pid === start.pid && event.id2?.local === start.id2.local);

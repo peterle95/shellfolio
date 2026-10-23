@@ -228,7 +228,8 @@ const videoURL = url => /\.(mp4|webm)(?:[?#]|$)/i.test(url);
                     const complete = new Promise(resolve => cdp.once('Tracing.tracingComplete', resolve));
                     await cdp.send('Tracing.end');
                     await complete;
-                    assert.ok(traceEvents.some(event => event.name === 'command-5-projects'), 'trace contains first Projects timing marker');
+                    const firstProjects = `command-${results.conditions.historySeed.length}-${results.conditions.journey[0]}`;
+                    assert.ok(traceEvents.some(event => event.name === firstProjects), 'trace contains first Projects timing marker');
                     traceFile = `${values.baseline ? 'before' : 'after'}-${width}-${run}.trace.json.gz`;
                     fs.writeFileSync(path.join(values['trace-dir'], traceFile), zlib.gzipSync(JSON.stringify({ traceEvents })));
                 }
