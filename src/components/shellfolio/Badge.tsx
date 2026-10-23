@@ -1,19 +1,55 @@
-// @ts-nocheck
 "use client";
 
 import * as THREE from 'three'
 import { Suspense, useCallback, useEffect, useRef, useState } from 'react'
-import { Canvas, extend, useThree, useFrame } from '@react-three/fiber'
-import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier'
+import { Canvas, extend, useThree, useFrame, type ThreeElement } from '@react-three/fiber'
+import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint, type RapierRigidBody, type RigidBodyProps } from '@react-three/rapier'
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline'
 import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei'
+
+declare module '@react-three/fiber' {
+    interface ThreeElements {
+        meshLineGeometry: ThreeElement<typeof MeshLineGeometry>
+        meshLineMaterial: ThreeElement<typeof MeshLineMaterial>
+    }
+}
+
+interface BadgeProps {
+    onReady: () => void
+    onFailure: () => void
+}
+
+interface BandProps extends BadgeProps {
+    maxSpeed?: number
+    minSpeed?: number
+    setInteractive: (interactive: boolean) => void
+    visible: boolean
+}
+
+type SmoothedRigidBody = RapierRigidBody & { lerped?: THREE.Vector3 }
+type CaptureTarget = EventTarget & Pick<Element, 'setPointerCapture' | 'hasPointerCapture' | 'releasePointerCapture'>
+type BadgeModel = ReturnType<typeof useGLTF<string>> & {
+    nodes: { card: THREE.Mesh; clip: THREE.Mesh; clamp: THREE.Mesh }
+    materials: { metal: THREE.MeshStandardMaterial }
+}
+
+function configureProfileTexture(texture: THREE.Texture) {
+    texture.colorSpace = THREE.SRGBColorSpace
+    texture.flipY = false
+    texture.repeat.set(2, 2)
+    texture.offset.set(-0.1, -0.3)
+}
+
+function configureBandTexture(texture: THREE.Texture) {
+    texture.wrapS = texture.wrapT = THREE.RepeatWrapping
+}
 
 extend({ MeshLineGeometry, MeshLineMaterial })
 
 useGLTF.preload('/models/tag.glb')
 useTexture.preload('/images/band.jpg')
 
-export default function Badge({ onReady, onFailure }) {
+export default function Badge({ onReady, onFailure }: BadgeProps) {
     const [interactive, setInteractive] = useState(false)
     const [visible, setVisible] = useState(() => !document.hidden)
     useEffect(() => {
@@ -29,7 +65,6 @@ export default function Badge({ onReady, onFailure }) {
             fallback={null}
             camera={{ position: [0, 0, 13], fov: 25 }}
             style={{ pointerEvents: interactive ? 'auto' : 'none' }}
-            // @ts-ignore
             eventSource={typeof document !== 'undefined' ? document.body : undefined}
             eventPrefix="client"
         >
@@ -49,45 +84,39 @@ export default function Badge({ onReady, onFailure }) {
     )
 }
 
-function ResponsiveBand(props) {
+function ResponsiveBand(props: BandProps) {
     const width = useThree((state) => state.viewport.width)
     // Rapier caches the inverse parent matrix: recreate bodies AND joints when the anchor moves.
     return <Band key={width} {...props} />
 }
 
-function Band({ maxSpeed = 50, minSpeed = 10, setInteractive, visible, onReady, onFailure }: any) {
-    const profileTexture = useTexture('/images/badge-texture.webp')
-    profileTexture.colorSpace = THREE.SRGBColorSpace
-    profileTexture.flipY = false
-    profileTexture.repeat.set(2, 2)
-    profileTexture.offset.set(-0.1, -0.3)
-    // @ts-ignore
-    const band = useRef<any>(null)
-    // @ts-ignore
-    const fixed = useRef<any>(null)
-    // @ts-ignore
-    const j1 = useRef<any>(null)
-    // @ts-ignore
-    const j2 = useRef<any>(null)
-    // @ts-ignore
-    const j3 = useRef<any>(null)
-    // @ts-ignore
-    const card = useRef<any>(null)
+function Band({ maxSpeed = 50, minSpeed = 10, setInteractive, visible, onReady, onFailure }: BandProps) {
+    const profileTexture = useTexture('/images/badge-texture.webp', configureProfileTexture)
+    // Fiber/Rapier populate these refs before their joint and frame callbacks run.
+    const band = useRef<THREE.Mesh<MeshLineGeometry>>(null!)
+    const fixed = useRef<RapierRigidBody>(null!)
+    const j1 = useRef<SmoothedRigidBody>(null!)
+    const j2 = useRef<SmoothedRigidBody>(null!)
+    const j3 = useRef<RapierRigidBody>(null!)
+    const card = useRef<RapierRigidBody>(null!)
     const vec = new THREE.Vector3()
     const ang = new THREE.Vector3()
     const rot = new THREE.Vector3()
     const dir = new THREE.Vector3()
-    // @ts-ignore
-    const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 2, linearDamping: 2 }
-    // @ts-ignore
-    const { nodes, materials } = useGLTF('/models/tag.glb')
-    const texture = useTexture('/images/band.jpg')
+    const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 2, linearDamping: 2 } satisfies RigidBodyProps
+    const { nodes, materials } = useGLTF('/models/tag.glb') as BadgeModel
+    const texture = useTexture('/images/band.jpg', configureBandTexture)
     const { width, height } = useThree((state) => state.size)
     const viewport = useThree((state) => state.viewport)
-    const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]))
+    const [curve] = useState(() => {
+        const curve = new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()])
+        curve.curveType = 'chordal'
+        return curve
+    })
+    const [lineMaterialArgs] = useState<ConstructorParameters<typeof MeshLineMaterial>>(() => [{ resolution: new THREE.Vector2(1, 1) }])
     const [dragged, drag] = useState<false | THREE.Vector3>(false)
     const [hovered, hover] = useState(false)
-    const capture = useRef(null)
+    const capture = useRef<{ target: CaptureTarget; id: number } | null>(null)
     const ready = useRef(false)
     const resting = useRef(false)
     const { invalidate, gl, clock } = useThree()
@@ -98,7 +127,7 @@ function Band({ maxSpeed = 50, minSpeed = 10, setInteractive, visible, onReady, 
         clock.start()
         invalidate()
     }, [clock, invalidate])
-    const release = useCallback((event?) => {
+    const release = useCallback((event?: { pointerId: number }) => {
         const pointer = capture.current
         if (event && (!pointer || pointer.id !== event.pointerId)) return
         capture.current = null
@@ -154,50 +183,35 @@ function Band({ maxSpeed = 50, minSpeed = 10, setInteractive, visible, onReady, 
         delta = Math.min(delta, 1 / 30)
         if (dragged) {
             invalidate()
-            // @ts-ignore
             vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera)
             dir.copy(vec).sub(state.camera.position).normalize()
             vec.add(dir.multiplyScalar(state.camera.position.length()))
                 ;[card, j1, j2, j3].forEach((ref) => ref.current?.wakeUp())
-            // @ts-ignore
             card.current?.setNextKinematicTranslation({ x: vec.x - dragged.x, y: vec.y - dragged.y, z: vec.z - dragged.z })
         }
         if (fixed.current) {
             // Fix most of the jitter when over pulling the card
             ;[j1, j2].forEach((ref) => {
-                // @ts-ignore
                 if (!ref.current.lerped) ref.current.lerped = new THREE.Vector3().copy(ref.current.translation())
-                // @ts-ignore
                 const clampedDistance = Math.max(0.1, Math.min(1, ref.current.lerped.distanceTo(ref.current.translation())))
-                // @ts-ignore
                 if (asleep) ref.current.lerped.copy(ref.current.translation())
                 else ref.current.lerped.lerp(ref.current.translation(), Math.min(1, delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed))))
             })
             // Calculate catmul curve
-            // @ts-ignore
             curve.points[0].copy(j3.current.translation())
-            // @ts-ignore
-            curve.points[1].copy(j2.current.lerped)
-            // @ts-ignore
-            curve.points[2].copy(j1.current.lerped)
-            // @ts-ignore
+            curve.points[1].copy(j2.current.lerped!)
+            curve.points[2].copy(j1.current.lerped!)
             curve.points[3].copy(fixed.current.translation())
-            // @ts-ignore
             band.current.geometry.setPoints(curve.getPoints(32))
             resting.current = asleep
             if (asleep) return
             // Tilt it back towards the screen
-            // @ts-ignore
             ang.copy(card.current.angvel())
-            // @ts-ignore
-            rot.copy(card.current.rotation())
-            // @ts-ignore
+            const rotation = card.current.rotation()
+            rot.set(rotation.x, rotation.y, rotation.z)
             card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z }, false)
         }
     })
-
-    curve.curveType = 'chordal'
-    texture.wrapS = texture.wrapT = THREE.RepeatWrapping
 
     return (
         <>
@@ -212,7 +226,6 @@ function Band({ maxSpeed = 50, minSpeed = 10, setInteractive, visible, onReady, 
                 <RigidBody position={[1.5, 0, 0]} ref={j3} {...segmentProps}>
                     <BallCollider args={[0.1]} />
                 </RigidBody>
-                {/* @ts-ignore */}
                 <RigidBody position={[2, 0, 0]} ref={card} {...segmentProps} type={dragged ? 'kinematicPosition' : 'dynamic'}>
                     <CuboidCollider args={[0.8, 1.125, 0.01]} />
                     <group
@@ -220,13 +233,12 @@ function Band({ maxSpeed = 50, minSpeed = 10, setInteractive, visible, onReady, 
                         position={[0, -1.2, -0.05]}
                         onPointerOver={() => hover(true)}
                         onPointerOut={() => hover(false)}
-                        // @ts-ignore
                         onPointerUp={release}
                         onPointerCancel={release}
-                        // @ts-ignore
                         onPointerDown={(e) => {
-                            e.target.setPointerCapture(e.pointerId)
-                            capture.current = { target: e.target, id: e.pointerId }
+                            const target = e.target as CaptureTarget
+                            target.setPointerCapture(e.pointerId)
+                            capture.current = { target, id: e.pointerId }
                             wake()
                             drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())))
                         }}>
@@ -251,10 +263,8 @@ function Band({ maxSpeed = 50, minSpeed = 10, setInteractive, visible, onReady, 
                 </RigidBody>
             </group>
             <mesh ref={band}>
-                {/* @ts-ignore */}
                 <meshLineGeometry />
-                {/* @ts-ignore */}
-                <meshLineMaterial color="white" depthTest={false} resolution={[width, height]} useMap map={texture} repeat={[-3, 1]} lineWidth={1} />
+                <meshLineMaterial args={lineMaterialArgs} color="white" depthTest={false} resolution={[width, height]} useMap={1} map={texture} repeat={[-3, 1]} lineWidth={1} />
             </mesh>
         </>
     )

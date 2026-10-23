@@ -114,7 +114,12 @@ const state = { size: { width: 1440, height: 900 }, viewport: { width: 9 },
     invalidate: () => invalidations++, gl: { domElement: canvas }, clock: { start() {} },
     pointer: new THREE.Vector2(), camera: new THREE.PerspectiveCamera() };
 state.camera.position.z = 13;
-const texture = () => new THREE.Texture(); texture.preload = () => {};
+const texture = (url, onLoad) => {
+    const value = new THREE.Texture();
+    onLoad?.(value); // Model Drei's texture-setup callback at the renderer boundary.
+    return value;
+};
+texture.preload = () => {};
 const gltf = () => ({ nodes: { card: {}, clip: {}, clamp: {} }, materials: {} }); gltf.preload = () => {};
 const createBandHarness = () => harness('Badge.tsx', { window, document }, {
     three: THREE,
@@ -138,6 +143,17 @@ responsive.cleanup();
 let tree = h.render('Band', props);
 function flatten(node) { return node && typeof node === 'object' ? [node, ...node.children.flatMap(flatten)] : []; }
 let nodes = flatten(tree);
+const profile = nodes.find(n => n.type === 'meshPhysicalMaterial').props.map;
+assert.equal(profile.colorSpace, THREE.SRGBColorSpace);
+assert.equal(profile.flipY, false);
+assert.deepEqual(profile.repeat.toArray(), [2, 2]);
+assert.deepEqual(profile.offset.toArray(), [-0.1, -0.3]);
+const lineMaterial = nodes.find(n => n.type === 'meshLineMaterial');
+assert.equal(lineMaterial.props.map.wrapS, THREE.RepeatWrapping);
+assert.equal(lineMaterial.props.map.wrapT, THREE.RepeatWrapping);
+assert.equal(lineMaterial.props.useMap, 1);
+assert.equal(flatten(h.render('Band', props)).find(n => n.type === 'meshLineMaterial').props.args, lineMaterial.props.args,
+    'stable constructor arguments do not recreate the material on each render');
 const bodies = [];
 for (const node of nodes.filter(n => n.type === 'body')) {
     const body = { asleep: false, lerped: new THREE.Vector3(),
