@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <link rel="icon" href="/favicon-16x16.png" type="image/jpeg" />
+        <link rel="icon" href="/images/blonde.png" type="image/png" />
       </head>
       <body className={`${sourceCodePro.variable} font-body antialiased`}>
         {children} 
