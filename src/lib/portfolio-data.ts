@@ -21,11 +21,6 @@ export type ProjectVideo = {
     sharedPlaceholder?: boolean;
 };
 
-const sharedFinanceVideo: ProjectVideo = {
-    src: '/videos/finance_tracker/finance_tracker-silent.mp4',
-    sharedPlaceholder: true,
-};
-
 // Owner-recorded Finance Tracker media — the real project demo, not a shared
 // placeholder. See docs/project-content-34.md for the media factsheet.
 const financeTrackerVideo: ProjectVideo = {
@@ -39,12 +34,11 @@ const financeTrackerPoster: ProjectImage = {
     height: 720,
 };
 
-// Owner-approved release exception and exact copy: docs/project-content-34.md.
-const sharedFinancePoster: ProjectImage = {
-    src: '/videos/finance_tracker/finance_tracker-poster.webp',
-    alt: 'Shared placeholder: Finance Tracker dashboard with a daily spending target and expense list.',
-    width: 1280,
-    height: 720,
+const shellfolioImage: ProjectImage = {
+    src: '/images/shellfolio.png',
+    alt: 'Shellfolio terminal interface beside a hanging developer badge on a purple and pink background.',
+    width: 1438,
+    height: 735,
 };
 
 // Owner-recorded project media. jobFinder's demo footer states:
@@ -88,6 +82,39 @@ const pelosettiImage: ProjectImage = {
     alt: 'I Pelosetti di Silvana Onlus shelter website with sections for temporary fostering, fostering towards adoption, and social volunteering.',
     width: 1424,
     height: 728,
+};
+
+const printingPressVideo: ProjectVideo = {
+    src: '/videos/printing-press/printing-press-silent.mp4',
+};
+
+const printingPressPoster: ProjectImage = {
+    src: '/videos/printing-press/printing-press-poster.webp',
+    alt: 'Printing Press CLIs project demonstration.',
+    width: 1280,
+    height: 720,
+};
+
+const transcendenceVideo: ProjectVideo = {
+    src: '/videos/transcendence/transcendence-silent.mp4',
+};
+
+const transcendencePoster: ProjectImage = {
+    src: '/videos/transcendence/transcendence-poster.webp',
+    alt: 'Transcendence multi-game platform demonstration.',
+    width: 1280,
+    height: 720,
+};
+
+const webservVideo: ProjectVideo = {
+    src: '/videos/webserv/webserv-silent.mp4',
+};
+
+const webservPoster: ProjectImage = {
+    src: '/videos/webserv/webserv-poster.webp',
+    alt: 'Webserv HTTP server project demonstration.',
+    width: 1280,
+    height: 720,
 };
 
 const githubProfile: ProjectImage = {
@@ -166,10 +193,10 @@ export const portfolioProjects: PortfolioProject[] = [
     {
         title: 'Printing Press CLIs',
         shortDescription: '23 command-line tools for API automation.',
-        image: sharedFinancePoster,
-        video: sharedFinanceVideo,
+        image: printingPressPoster,
+        video: printingPressVideo,
         description:
-            'WSL monorepo of 23 CLI tools wrapping public APIs for agent-friendly automation. Preview: shared Finance Tracker placeholder, not this project, using fictional data.',
+            'WSL monorepo of 23 CLI tools wrapping public APIs for agent-friendly automation.',
         stack: 'Go/Cobra, Python, Node/TypeScript',
         live: '#',
         repo: 'https://github.com/peterle95/printing-press-clis',
@@ -177,10 +204,10 @@ export const portfolioProjects: PortfolioProject[] = [
     {
         title: 'Transcendence',
         shortDescription: 'A multi-game platform built at 42, currently in development.',
-        image: sharedFinancePoster,
-        video: sharedFinanceVideo,
+        image: transcendencePoster,
+        video: transcendenceVideo,
         description:
-            'Final project of 42 Core Curriculum. Together we 4 other fellow 42oers we created a platform for multiple games showcasing different technologies and games. (Currently in development) Preview: shared Finance Tracker placeholder, not this project, using fictional data.',
+            'Final project of 42 Core Curriculum. Together we 4 other fellow 42oers we created a platform for multiple games showcasing different technologies and games. (Currently in development)',
         stack: 'Next.js, TypeScript, React, Prisma, Tailwind CSS',
         live: '#',
         repo: 'https://github.com/transcendence42spacewars/transcendence',
@@ -188,10 +215,10 @@ export const portfolioProjects: PortfolioProject[] = [
     {
         title: 'Webserv',
         shortDescription: 'A custom HTTP server built in C++98.',
-        image: sharedFinancePoster,
-        video: sharedFinanceVideo,
+        image: webservPoster,
+        video: webservVideo,
         description:
-            "Custom HTTP server implemented in C++98. This project aims to provide a deep understanding of how HTTP servers operate, focusing on core network aspects and non-blocking behavior to handle multiple concurrent connections efficiently. The server's primary function is to receive HTTP requests from clients, process these requests, and send appropriate HTTP responses back. Preview: shared Finance Tracker placeholder, not this project, using fictional data.",
+            "Custom HTTP server implemented in C++98. This project aims to provide a deep understanding of how HTTP servers operate, focusing on core network aspects and non-blocking behavior to handle multiple concurrent connections efficiently. The server's primary function is to receive HTTP requests from clients, process these requests, and send appropriate HTTP responses back.",
         stack: 'C++98, Unix, Nginx, JavaScript, HTML, CSS, Python',
         live: '#',
         repo: 'https://github.com/peterle95/webserv',
@@ -199,10 +226,9 @@ export const portfolioProjects: PortfolioProject[] = [
     {
         title: 'Shellfolio',
         shortDescription: 'An interactive portfolio styled as a command-line shell.',
-        image: sharedFinancePoster,
-        video: sharedFinanceVideo,
+        image: shellfolioImage,
         description:
-            'Personal portfolio webpage simulating shell. It makes my projects and other information interactive and fun. Preview: shared Finance Tracker placeholder, not this project, using fictional data.',
+            'Personal portfolio webpage simulating shell. It makes my projects and other information interactive and fun.',
         stack: 'TypeScript, React, Next.js',
         live: 'https://petermoelzer-shellfolio.vercel.app/',
         repo: 'https://github.com/peterle95/shellfolio',
