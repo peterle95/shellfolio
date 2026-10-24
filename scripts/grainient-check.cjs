@@ -1,5 +1,6 @@
 // Run: node scripts/grainient-check.cjs
 // Execute the production component/effects; mock only React and browser/GPU boundaries.
+/* eslint-disable @typescript-eslint/no-require-imports -- Standalone Node CommonJS harness, matching scripts/*.cjs. */
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
@@ -38,7 +39,7 @@ function check({ mobile = false, reduced = false, saveData = false, hidden = fal
     let state = false, dirty = false, index = 0, now = 0, id = 0;
     let allocations = 0, removals = 0, lost = 0, observers = 0, canvasCount = 0;
     const effects = [], frames = new Map(), renders = [];
-    let renderer;
+    const renderers = [];
     const container = {
         appendChild() { canvasCount++; },
         getBoundingClientRect() { return { width: 800, height: 600 }; }
@@ -58,7 +59,7 @@ function check({ mobile = false, reduced = false, saveData = false, hidden = fal
     const ogl = {
         Renderer: class {
             constructor(options) {
-                allocations++; renderer = this; this.dpr = options.dpr;
+                allocations++; renderers.push(this); this.dpr = options.dpr;
                 this.gl = { canvas: { style: {}, remove() { canvasCount--; } },
                     getExtension: () => ({ loseContext() { lost++; } }) };
             }
@@ -97,7 +98,7 @@ function check({ mobile = false, reduced = false, saveData = false, hidden = fal
         motion.emit('change'); connection.emit('change'); flush();
     }
     assert.equal(allocations, 1);
-    assert.equal(renderer.dpr, mobile ? 1.5 : 2);
+    assert.equal(renderers.at(-1).dpr, mobile ? 1.5 : 2);
     if (hidden) assert.equal(frames.size, 0);
     document.hidden = false; document.emit('visibilitychange');
     for (const hz of [60, 120, 144]) {
@@ -109,13 +110,13 @@ function check({ mobile = false, reduced = false, saveData = false, hidden = fal
             `${hz}Hz rendered count: ${renders.length - before}`);
     }
     device.matches = !mobile; device.emit('change');
-    assert.equal(renderer.dpr, mobile ? 2 : 1.5);
+    assert.equal(renderers.at(-1).dpr, mobile ? 2 : 1.5);
     const changedBefore = renders.length, changedStart = now + 100;
     for (let i = 0; i < 240; i++) tick(changedStart + i * 1000 / 120);
     assert.ok(Math.abs(renders.length - changedBefore - (mobile ? 120 : 60)) <= 1,
         'live device classification updates rendered cadence');
     window.devicePixelRatio = 1; resolution.emit('change');
-    assert.equal(renderer.dpr, 1);
+    assert.equal(renderers.at(-1).dpr, 1);
     window.emit('resize');
     document.hidden = true; document.emit('visibilitychange');
     assert.equal(frames.size, 0);

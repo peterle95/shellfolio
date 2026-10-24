@@ -1,0 +1,31 @@
+
+> nextn@0.1.0 test:projects
+> node scripts/projects-browser-check.cjs --url=http://localhost:9390 --screenshots=docs/evidence/projects-39/rerun-39/screenshots
+
+Browser 155.0.8059.86; production target http://localhost:9390
+PASS explicit keyboard Play, actual silent video, native controls/fullscreen and geometry: 390px
+PASS explicit keyboard Play, actual silent video, native controls/fullscreen and geometry: 1600px
+PASS single playback owner, repeated outputs, retained history, section change and reset cleanup: 390px
+PASS single playback owner, repeated outputs, retained history, section change and reset cleanup: 1600px
+PASS usable terminal/links, stable geometry and resource release: pending video cancellation, 390px
+PASS usable terminal/links, stable geometry and resource release: failed video, 390px
+PASS usable terminal/links, stable geometry and resource release: pending video cancellation, 1600px
+PASS usable terminal/links, stable geometry and resource release: failed video, 1600px
+PASS navigation, restoration and retained history: button
+PASS navigation, restoration and retained history: projects
+PASS navigation, restoration and retained history: portfolio
+PASS all virtual project paths/records, relative paths, history recall and reload persistence
+PASS responsive content, geometry, scroll and keyboard: 320px
+PASS responsive content, geometry, scroll and keyboard: 390px
+PASS responsive content, geometry, scroll and keyboard: 768px
+PASS responsive content, geometry, scroll and keyboard: 900px
+PASS responsive content, geometry, scroll and keyboard: 945px
+PASS responsive content, geometry, scroll and keyboard: 960px
+PASS responsive content, geometry, scroll and keyboard: 1024px
+PASS responsive content, geometry, scroll and keyboard: 1399px
+PASS responsive content, geometry, scroll and keyboard: 1400px
+PASS responsive content, geometry, scroll and keyboard: 1600px
+Selected production image URLs: {"320":"http://localhost:9390/_next/image?url=%2Fvideos%2Ffinance_tracker-poster.webp&w=256&q=75","390":"http://localhost:9390/_next/image?url=%2Fvideos%2Ffinance_tracker-poster.webp&w=384&q=75","768":"http://localhost:9390/_next/image?url=%2Fvideos%2Ffinance_tracker-poster.webp&w=640&q=75","900":"http://localhost:9390/_next/image?url=%2Fvideos%2Ffinance_tracker-poster.webp&w=828&q=75","945":"http://localhost:9390/_next/image?url=%2Fvideos%2Ffinance_tracker-poster.webp&w=828&q=75","960":"http://localhost:9390/_next/image?url=%2Fvideos%2Ffinance_tracker-poster.webp&w=640&q=75","1024":"http://localhost:9390/_next/image?url=%2Fvideos%2Ffinance_tracker-poster.webp&w=640&q=75","1399":"http://localhost:9390/_next/image?url=%2Fvideos%2Ffinance_tracker-poster.webp&w=640&q=75","1400":"http://localhost:9390/_next/image?url=%2Fvideos%2Ffinance_tracker-poster.webp&w=640&q=75","1600":"http://localhost:9390/_next/image?url=%2Fvideos%2Ffinance_tracker-poster.webp&w=640&q=75"}
+PASS nonblocking input/commands and stable geometry: delayed image
+PASS nonblocking input/commands and stable geometry: broken image
+PASS text-only full-width rendering and production lazy-image requests in representative fixture

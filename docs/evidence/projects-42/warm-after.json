@@ -1,0 +1,1535 @@
+{
+  "measuredAt": "2026-10-23T10:13:53.386Z",
+  "url": "http://localhost:9420",
+  "baseline": false,
+  "browser": "155.0.8059.86",
+  "node": "v24.18.0",
+  "platform": "win32",
+  "conditions": {
+    "cache": "disabled; fresh context per run",
+    "cpuSlowdown": 4,
+    "latencyMs": 80,
+    "downloadBytesPerSecond": 200000,
+    "uploadBytesPerSecond": 93750,
+    "deviceScaleFactor": 1,
+    "reducedMotion": "reduce",
+    "runsPerViewport": 1,
+    "viewportHeight": 900,
+    "widths": [
+      1600
+    ],
+    "historySeed": [
+      "pwd",
+      "pwd",
+      "pwd",
+      "pwd",
+      "pwd"
+    ],
+    "tracing": true,
+    "journeyOnly": true,
+    "journey": [
+      "projects",
+      "pwd",
+      "portfolio",
+      "about",
+      "projects",
+      "contact",
+      "projects"
+    ],
+    "note": "Input-to-double-RAF and Enter-to-rendered-history-plus-double-RAF command proxies, not INP. Local production server; optional telemetry disabled. Shift sums are not windowed CLS. Incomplete receivedEncodedBytes exclude response headers."
+  },
+  "runs": [
+    {
+      "width": 1600,
+      "run": 1,
+      "phase": "journey",
+      "shifts": 0,
+      "allShifts": 4.234877271701389,
+      "shiftEntries": [
+        {
+          "startMs": 6342.9000000003725,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 7360.699999999255,
+          "value": 0.07469093576388888,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 8388.5,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 9027,
+          "value": 0.0017026250000000001,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 9227.599999999627,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 9404.900000000373,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 9498.599999999627,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 9749.5,
+          "value": 0.0017026250000000001,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 10175.800000000745,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 10294.099999999627,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 10543.900000000373,
+          "value": 0.0017026250000000001,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 11430.099999999627,
+          "value": 0.0017026250000000001,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 12144.300000000745,
+          "value": 0.0000011875,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 12235.699999999255,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 12323.800000000745,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 12410.900000000373,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 14210.699999999255,
+          "value": 0.826025,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 15276.099999999627,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 15859.300000000745,
+          "value": 0.0027162500000000003,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 17334.599999999627,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 17500.699999999255,
+          "value": 0.0000011875,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 19031,
+          "value": 0.0205,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 20143.900000000373,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 20227.599999999627,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 21167.900000000373,
+          "value": 0.826025,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 22122.800000000745,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 22232.400000000373,
+          "value": 0.0000011875,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 22348.099999999627,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 22458,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 23400.5,
+          "value": 0.826025,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 24171,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 24355.5,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 24474.599999999627,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 25576,
+          "value": 0.826025,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 26255.5,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 26367.199999999255,
+          "value": 0.00000141015625,
+          "hadRecentInput": true
+        },
+        {
+          "startMs": 28876.099999999627,
+          "value": 0.826025,
+          "hadRecentInput": true
+        }
+      ],
+      "inputs": [
+        {
+          "phase": "populated-history",
+          "startMs": 5650.300000000745,
+          "ms": 303
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 6073.699999999255,
+          "ms": 263
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 6300.300000000745,
+          "ms": 113.89999999850988
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 8340.099999999627,
+          "ms": 91.40000000037253
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 8490.099999999627,
+          "ms": 105
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 8664.099999999627,
+          "ms": 109.80000000074506
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 9179.900000000373,
+          "ms": 58.5
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 9334.300000000745,
+          "ms": 157.39999999850988
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 9453.300000000745,
+          "ms": 68.29999999888241
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 9974.900000000373,
+          "ms": 180.09999999962747
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 10126.199999999255,
+          "ms": 92.10000000149012
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 10240.800000000745,
+          "ms": 86
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 10756.400000000373,
+          "ms": 174.5
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 10899.699999999255,
+          "ms": 80.40000000037253
+        },
+        {
+          "phase": "populated-history",
+          "startMs": 11054.099999999627,
+          "ms": 70.09999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 11708.800000000745,
+          "ms": 68.09999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 11853.800000000745,
+          "ms": 40.09999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 11939.300000000745,
+          "ms": 38.69999999925494
+        },
+        {
+          "phase": "journey",
+          "startMs": 12035,
+          "ms": 57.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 12114.599999999627,
+          "ms": 37.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 12219.900000000373,
+          "ms": 24.40000000037253
+        },
+        {
+          "phase": "journey",
+          "startMs": 12299,
+          "ms": 42.59999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 12387.400000000373,
+          "ms": 27
+        },
+        {
+          "phase": "journey",
+          "startMs": 14750.900000000373,
+          "ms": 217.69999999925494
+        },
+        {
+          "phase": "journey",
+          "startMs": 15048.800000000745,
+          "ms": 207.2999999988824
+        },
+        {
+          "phase": "journey",
+          "startMs": 15209.099999999627,
+          "ms": 117.40000000037253
+        },
+        {
+          "phase": "journey",
+          "startMs": 16427.099999999627,
+          "ms": 103.09999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 16613.900000000373,
+          "ms": 227.09999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 16808,
+          "ms": 217.69999999925494
+        },
+        {
+          "phase": "journey",
+          "startMs": 16961.300000000745,
+          "ms": 222
+        },
+        {
+          "phase": "journey",
+          "startMs": 17134.400000000373,
+          "ms": 185.40000000037253
+        },
+        {
+          "phase": "journey",
+          "startMs": 17274.900000000373,
+          "ms": 209.90000000037253
+        },
+        {
+          "phase": "journey",
+          "startMs": 17448.400000000373,
+          "ms": 172.09999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 17584.400000000373,
+          "ms": 174.19999999925494
+        },
+        {
+          "phase": "journey",
+          "startMs": 17710.5,
+          "ms": 129.19999999925494
+        },
+        {
+          "phase": "journey",
+          "startMs": 19774.400000000373,
+          "ms": 164
+        },
+        {
+          "phase": "journey",
+          "startMs": 19910.199999999255,
+          "ms": 77.40000000037253
+        },
+        {
+          "phase": "journey",
+          "startMs": 20016.699999999255,
+          "ms": 126.20000000111759
+        },
+        {
+          "phase": "journey",
+          "startMs": 20124.300000000745,
+          "ms": 57.19999999925494
+        },
+        {
+          "phase": "journey",
+          "startMs": 20211.099999999627,
+          "ms": 70.80000000074506
+        },
+        {
+          "phase": "journey",
+          "startMs": 21735.199999999255,
+          "ms": 146.7000000011176
+        },
+        {
+          "phase": "journey",
+          "startMs": 21858.099999999627,
+          "ms": 69.40000000037253
+        },
+        {
+          "phase": "journey",
+          "startMs": 21958.900000000373,
+          "ms": 47.90000000037253
+        },
+        {
+          "phase": "journey",
+          "startMs": 22076.199999999255,
+          "ms": 73
+        },
+        {
+          "phase": "journey",
+          "startMs": 22186.5,
+          "ms": 97.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 22309.599999999627,
+          "ms": 65.30000000074506
+        },
+        {
+          "phase": "journey",
+          "startMs": 22429,
+          "ms": 74.09999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 22559.800000000745,
+          "ms": 84.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 23889.400000000373,
+          "ms": 182.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 24044.099999999627,
+          "ms": 82.40000000037253
+        },
+        {
+          "phase": "journey",
+          "startMs": 24154.699999999255,
+          "ms": 42.30000000074506
+        },
+        {
+          "phase": "journey",
+          "startMs": 24298.699999999255,
+          "ms": 161.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 24426,
+          "ms": 83.59999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 24559.699999999255,
+          "ms": 168.7000000011176
+        },
+        {
+          "phase": "journey",
+          "startMs": 24709.300000000745,
+          "ms": 77.09999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 26213.699999999255,
+          "ms": 80.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 26326.599999999627,
+          "ms": 85.5
+        },
+        {
+          "phase": "journey",
+          "startMs": 26460.400000000373,
+          "ms": 115.19999999925494
+        },
+        {
+          "phase": "journey",
+          "startMs": 26552.900000000373,
+          "ms": 111.09999999962747
+        },
+        {
+          "phase": "journey",
+          "startMs": 26638.400000000373,
+          "ms": 116.29999999888241
+        },
+        {
+          "phase": "journey",
+          "startMs": 26739.900000000373,
+          "ms": 63.29999999888241
+        },
+        {
+          "phase": "journey",
+          "startMs": 26865.900000000373,
+          "ms": 124
+        },
+        {
+          "phase": "journey",
+          "startMs": 26957.599999999627,
+          "ms": 86.09999999962747
+        }
+      ],
+      "commands": [
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 6950.300000000745,
+          "ms": 483.2999999988824
+        },
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 8918.699999999255,
+          "ms": 154.10000000149012
+        },
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 9643.199999999255,
+          "ms": 168.10000000149012
+        },
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 10432.699999999255,
+          "ms": 145.40000000037253
+        },
+        {
+          "phase": "populated-history",
+          "command": "pwd",
+          "startMs": 11265.400000000373,
+          "ms": 233
+        },
+        {
+          "phase": "journey",
+          "command": "projects",
+          "startMs": 12531.800000000745,
+          "ms": 1834.2999999988824
+        },
+        {
+          "phase": "journey",
+          "command": "pwd",
+          "startMs": 15601.599999999627,
+          "ms": 374
+        },
+        {
+          "phase": "journey",
+          "command": "portfolio",
+          "startMs": 18055.699999999255,
+          "ms": 1280.4000000003725
+        },
+        {
+          "phase": "journey",
+          "command": "about",
+          "startMs": 20520.400000000373,
+          "ms": 767.1999999992549
+        },
+        {
+          "phase": "journey",
+          "command": "projects",
+          "startMs": 22807.800000000745,
+          "ms": 791.6999999992549
+        },
+        {
+          "phase": "journey",
+          "command": "contact",
+          "startMs": 25001,
+          "ms": 909.0999999996275
+        },
+        {
+          "phase": "journey",
+          "command": "projects",
+          "startMs": 27227.800000000745,
+          "ms": 2037.7999999988824
+        }
+      ],
+      "plays": [],
+      "playing": [],
+      "navigation": {
+        "domContentLoadedMs": 1977.4000000003725,
+        "loadMs": 4051.300000000745
+      },
+      "firstContentfulPaintMs": 1676,
+      "images": [
+        {
+          "url": "http://localhost:9420/images/badge-static.webp",
+          "transferBytes": 31556,
+          "bodyBytes": 31256,
+          "startMs": 589.3000000007451,
+          "responseStartMs": 621.0999999996275,
+          "durationMs": 761
+        },
+        {
+          "url": "http://localhost:9420/_next/image?url=%2Fvideos%2Ffinance_tracker-poster.webp&w=640&q=75",
+          "transferBytes": 10504,
+          "bodyBytes": 10204,
+          "startMs": 14351.300000000745,
+          "responseStartMs": 14574.300000000745,
+          "durationMs": 301.3999999985099
+        }
+      ],
+      "commandWork": [
+        {
+          "command": "projects",
+          "metrics": {
+            "Timestamp": 1.9574100000008912,
+            "AudioHandlers": 0,
+            "AudioWorkletProcessors": 0,
+            "Documents": 0,
+            "Frames": 0,
+            "JSEventListeners": 198,
+            "LayoutObjects": 213,
+            "MediaKeySessions": 0,
+            "MediaKeys": 0,
+            "Nodes": 1321,
+            "Resources": 3,
+            "ContextLifecycleStateObservers": 22,
+            "V8PerContextDatas": 0,
+            "WorkerGlobalScopes": 0,
+            "UACSSResources": 0,
+            "RTCPeerConnections": 0,
+            "ResourceFetchers": 0,
+            "AdSubframes": 0,
+            "DetachedScriptStates": 0,
+            "ArrayBufferContents": 0,
+            "LayoutCount": 2,
+            "RecalcStyleCount": 20,
+            "LayoutDuration": 0.9162139999999999,
+            "RecalcStyleDuration": 0.18381400000000003,
+            "DevToolsCommandDuration": 0.05343999999999971,
+            "ScriptDuration": 0.33474899999999996,
+            "V8CompileDuration": 0.0003610000000000002,
+            "TaskDuration": 1.9196930000000005,
+            "TaskOtherDuration": 0.43111500000000014,
+            "ThreadTime": 0.43421600000000016,
+            "ProcessTime": 2.4334179999999996,
+            "JSHeapUsedSize": -248300,
+            "JSHeapTotalSize": -262144,
+            "FirstMeaningfulPaint": 0,
+            "DomContentLoaded": 0,
+            "NavigationStart": 0
+          },
+          "dom": {
+            "nodes": 290,
+            "projects": 1,
+            "articles": 7
+          }
+        },
+        {
+          "command": "pwd",
+          "metrics": {
+            "Timestamp": 0.6993450000009034,
+            "AudioHandlers": 0,
+            "AudioWorkletProcessors": 0,
+            "Documents": 0,
+            "Frames": 0,
+            "JSEventListeners": 8,
+            "LayoutObjects": 20,
+            "MediaKeySessions": 0,
+            "MediaKeys": 0,
+            "Nodes": 20,
+            "Resources": 0,
+            "ContextLifecycleStateObservers": 0,
+            "V8PerContextDatas": 0,
+            "WorkerGlobalScopes": 0,
+            "UACSSResources": 0,
+            "RTCPeerConnections": 0,
+            "ResourceFetchers": 0,
+            "AdSubframes": 0,
+            "DetachedScriptStates": 0,
+            "ArrayBufferContents": 0,
+            "LayoutCount": 1,
+            "RecalcStyleCount": 12,
+            "LayoutDuration": 0.023773999999999962,
+            "RecalcStyleDuration": 0.05640500000000004,
+            "DevToolsCommandDuration": 0.11311799999999961,
+            "ScriptDuration": 0.20037300000000036,
+            "V8CompileDuration": 0,
+            "TaskDuration": 0.6722570000000001,
+            "TaskOtherDuration": 0.2785869999999999,
+            "ThreadTime": 0.15999699999999972,
+            "ProcessTime": 0.9420210000000004,
+            "JSHeapUsedSize": 268424,
+            "JSHeapTotalSize": 262144,
+            "FirstMeaningfulPaint": 0,
+            "DomContentLoaded": 0,
+            "NavigationStart": 0
+          },
+          "dom": {
+            "nodes": 302,
+            "projects": 1,
+            "articles": 7
+          }
+        },
+        {
+          "command": "portfolio",
+          "metrics": {
+            "Timestamp": 1.565522000000783,
+            "AudioHandlers": 0,
+            "AudioWorkletProcessors": 0,
+            "Documents": 0,
+            "Frames": 0,
+            "JSEventListeners": 197,
+            "LayoutObjects": 213,
+            "MediaKeySessions": 0,
+            "MediaKeys": 0,
+            "Nodes": 1319,
+            "Resources": 0,
+            "ContextLifecycleStateObservers": 21,
+            "V8PerContextDatas": 0,
+            "WorkerGlobalScopes": 0,
+            "UACSSResources": 0,
+            "RTCPeerConnections": 0,
+            "ResourceFetchers": 0,
+            "AdSubframes": 0,
+            "DetachedScriptStates": 0,
+            "ArrayBufferContents": 0,
+            "LayoutCount": 1,
+            "RecalcStyleCount": 13,
+            "LayoutDuration": 0.1762680000000003,
+            "RecalcStyleDuration": 0.12835099999999988,
+            "DevToolsCommandDuration": 0.12395900000000015,
+            "ScriptDuration": 0.6534709999999997,
+            "V8CompileDuration": 0,
+            "TaskDuration": 1.5262499999999974,
+            "TaskOtherDuration": 0.4442009999999996,
+            "ThreadTime": 0.351248,
+            "ProcessTime": 2.136686000000001,
+            "JSHeapUsedSize": -178544,
+            "JSHeapTotalSize": 0,
+            "FirstMeaningfulPaint": 0,
+            "DomContentLoaded": 0,
+            "NavigationStart": 0
+          },
+          "dom": {
+            "nodes": 457,
+            "projects": 2,
+            "articles": 14
+          }
+        },
+        {
+          "command": "about",
+          "metrics": {
+            "Timestamp": 1.0161759999991773,
+            "AudioHandlers": 0,
+            "AudioWorkletProcessors": 0,
+            "Documents": 0,
+            "Frames": 0,
+            "JSEventListeners": 25,
+            "LayoutObjects": 95,
+            "MediaKeySessions": 0,
+            "MediaKeys": 0,
+            "Nodes": 95,
+            "Resources": 1,
+            "ContextLifecycleStateObservers": 1,
+            "V8PerContextDatas": 0,
+            "WorkerGlobalScopes": 0,
+            "UACSSResources": 0,
+            "RTCPeerConnections": 0,
+            "ResourceFetchers": 0,
+            "AdSubframes": 0,
+            "DetachedScriptStates": 0,
+            "ArrayBufferContents": 0,
+            "LayoutCount": 2,
+            "RecalcStyleCount": 16,
+            "LayoutDuration": 0.15515800000000013,
+            "RecalcStyleDuration": 0.08662400000000003,
+            "DevToolsCommandDuration": 0.15276099999999992,
+            "ScriptDuration": 0.19722099999999987,
+            "V8CompileDuration": 0.001269000000000001,
+            "TaskDuration": 0.9808819999999976,
+            "TaskOtherDuration": 0.387849000000001,
+            "ThreadTime": 0.23000299999999996,
+            "ProcessTime": 1.3622639999999997,
+            "JSHeapUsedSize": 300108,
+            "JSHeapTotalSize": 262144,
+            "FirstMeaningfulPaint": 0,
+            "DomContentLoaded": 0,
+            "NavigationStart": 0
+          },
+          "dom": {
+            "nodes": 502,
+            "projects": 2,
+            "articles": 14
+          }
+        },
+        {
+          "command": "projects",
+          "metrics": {
+            "Timestamp": 0.9703749999989668,
+            "AudioHandlers": 0,
+            "AudioWorkletProcessors": 0,
+            "Documents": 0,
+            "Frames": 0,
+            "JSEventListeners": 209,
+            "LayoutObjects": 213,
+            "MediaKeySessions": 0,
+            "MediaKeys": 0,
+            "Nodes": 1319,
+            "Resources": 0,
+            "ContextLifecycleStateObservers": 21,
+            "V8PerContextDatas": 0,
+            "WorkerGlobalScopes": 0,
+            "UACSSResources": 0,
+            "RTCPeerConnections": 0,
+            "ResourceFetchers": 0,
+            "AdSubframes": 0,
+            "DetachedScriptStates": 0,
+            "ArrayBufferContents": 0,
+            "LayoutCount": 1,
+            "RecalcStyleCount": 13,
+            "LayoutDuration": 0.10944999999999983,
+            "RecalcStyleDuration": 0.10412599999999994,
+            "DevToolsCommandDuration": 0.09384499999999996,
+            "ScriptDuration": 0.31745599999999996,
+            "V8CompileDuration": 0,
+            "TaskDuration": 0.9566629999999989,
+            "TaskOtherDuration": 0.331786000000001,
+            "ThreadTime": 0.2069869999999998,
+            "ProcessTime": 1.2396260000000012,
+            "JSHeapUsedSize": 434084,
+            "JSHeapTotalSize": 262144,
+            "FirstMeaningfulPaint": 0,
+            "DomContentLoaded": 0,
+            "NavigationStart": 0
+          },
+          "dom": {
+            "nodes": 650,
+            "projects": 3,
+            "articles": 21
+          }
+        },
+        {
+          "command": "contact",
+          "metrics": {
+            "Timestamp": 1.167755999998917,
+            "AudioHandlers": 0,
+            "AudioWorkletProcessors": 0,
+            "Documents": 0,
+            "Frames": 0,
+            "JSEventListeners": 32,
+            "LayoutObjects": 89,
+            "MediaKeySessions": 0,
+            "MediaKeys": 0,
+            "Nodes": 89,
+            "Resources": 1,
+            "ContextLifecycleStateObservers": 1,
+            "V8PerContextDatas": 0,
+            "WorkerGlobalScopes": 0,
+            "UACSSResources": 0,
+            "RTCPeerConnections": 0,
+            "ResourceFetchers": 0,
+            "AdSubframes": 0,
+            "DetachedScriptStates": 0,
+            "ArrayBufferContents": 0,
+            "LayoutCount": 2,
+            "RecalcStyleCount": 22,
+            "LayoutDuration": 0.12862100000000032,
+            "RecalcStyleDuration": 0.10814400000000002,
+            "DevToolsCommandDuration": 0.12493900000000036,
+            "ScriptDuration": 0.14711499999999944,
+            "V8CompileDuration": 0.0010519999999999991,
+            "TaskDuration": 1.1493119999999983,
+            "TaskOtherDuration": 0.6394409999999997,
+            "ThreadTime": 0.22726799999999958,
+            "ProcessTime": 1.4413669999999996,
+            "JSHeapUsedSize": 370552,
+            "JSHeapTotalSize": 0,
+            "FirstMeaningfulPaint": 0,
+            "DomContentLoaded": 0,
+            "NavigationStart": 0
+          },
+          "dom": {
+            "nodes": 695,
+            "projects": 3,
+            "articles": 21
+          }
+        },
+        {
+          "command": "projects",
+          "metrics": {
+            "Timestamp": 2.3109590000003664,
+            "AudioHandlers": 0,
+            "AudioWorkletProcessors": 0,
+            "Documents": 0,
+            "Frames": 0,
+            "JSEventListeners": 216,
+            "LayoutObjects": 213,
+            "MediaKeySessions": 0,
+            "MediaKeys": 0,
+            "Nodes": 1319,
+            "Resources": 0,
+            "ContextLifecycleStateObservers": 21,
+            "V8PerContextDatas": 0,
+            "WorkerGlobalScopes": 0,
+            "UACSSResources": 0,
+            "RTCPeerConnections": 0,
+            "ResourceFetchers": 0,
+            "AdSubframes": 0,
+            "DetachedScriptStates": 0,
+            "ArrayBufferContents": 0,
+            "LayoutCount": 1,
+            "RecalcStyleCount": 15,
+            "LayoutDuration": 0.4580549999999999,
+            "RecalcStyleDuration": 0.2936939999999999,
+            "DevToolsCommandDuration": 0.12488900000000003,
+            "ScriptDuration": 0.7635870000000002,
+            "V8CompileDuration": 0,
+            "TaskDuration": 2.2710679999999996,
+            "TaskOtherDuration": 0.6308430000000005,
+            "ThreadTime": 0.5268939999999995,
+            "ProcessTime": 3.188927999999997,
+            "JSHeapUsedSize": -229836,
+            "JSHeapTotalSize": -524288,
+            "FirstMeaningfulPaint": 0,
+            "DomContentLoaded": 0,
+            "NavigationStart": 0
+          },
+          "dom": {
+            "nodes": 843,
+            "projects": 4,
+            "articles": 28
+          }
+        }
+      ],
+      "traceFile": "after-1600-1.trace.json.gz",
+      "initialTransfers": [
+        {
+          "url": "http://localhost:9420/",
+          "type": "Document",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "text/html",
+          "transferBytes": 6072,
+          "startMs": 1.266000001123757,
+          "responseStartMs": 180.60999999943306,
+          "endMs": 209.94299999983923
+        },
+        {
+          "url": "http://localhost:9420/_next/static/media/c9e42e3eae6237c2-s.p.2s-4kwv_nqb0b.woff2",
+          "type": "Font",
+          "receivedEncodedBytes": 21968,
+          "status": 200,
+          "mimeType": "font/woff2",
+          "transferBytes": 22268,
+          "startMs": 251.62400000044727,
+          "responseStartMs": 625.8230000003095,
+          "endMs": 524.0850000009232
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/2kfwp24idcw7k.css",
+          "type": "Stylesheet",
+          "receivedEncodedBytes": 10992,
+          "status": 200,
+          "mimeType": "text/css",
+          "transferBytes": 11357,
+          "startMs": 258.9299999999639,
+          "responseStartMs": 429.0789999995468,
+          "endMs": 473.1050000009418
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/3s6nzrbk-8mnv.js",
+          "type": "Script",
+          "receivedEncodedBytes": 2046,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 2425,
+          "startMs": 261.75900000089314,
+          "responseStartMs": 650.552000000971,
+          "endMs": 611.0110000008717
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/0-ljw4yjmmjzb.js",
+          "type": "Script",
+          "receivedEncodedBytes": 8939,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 9318,
+          "startMs": 264.03600000048755,
+          "responseStartMs": 1580.4189999998925,
+          "endMs": 851.7219999994268
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/4561u0v7ysn3r.js",
+          "type": "Script",
+          "receivedEncodedBytes": 71614,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 71994,
+          "startMs": 266.8759999996837,
+          "responseStartMs": 2029.7449999998207,
+          "endMs": 1580.9819999994943
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/40yvc5291olz9.js",
+          "type": "Script",
+          "receivedEncodedBytes": 43490,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 43870,
+          "startMs": 268.97099999951024,
+          "responseStartMs": 1843.269999999393,
+          "endMs": 1442.49900000068
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/turbopack-2ifmdymbnr2xs.js",
+          "type": "Script",
+          "receivedEncodedBytes": 3850,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 4229,
+          "startMs": 272.0100000005914,
+          "responseStartMs": 1542.8439999996044,
+          "endMs": 718.8669999995909
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/2zrf11hkzrgar.js",
+          "type": "Script",
+          "receivedEncodedBytes": 10404,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 10783,
+          "startMs": 276.0200000011537,
+          "responseStartMs": 1591.110999999728,
+          "endMs": 903.626000001168
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/0f1v3rn6hl5i9.js",
+          "type": "Script",
+          "receivedEncodedBytes": 444,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 822,
+          "startMs": 276.42800000103307,
+          "responseStartMs": 1560.751999999411,
+          "endMs": 842.7540000011504
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/1y28p4907gvx8.js",
+          "type": "Script",
+          "receivedEncodedBytes": 11987,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 12366,
+          "startMs": 276.6360000005079,
+          "responseStartMs": 1595.4030000011699,
+          "endMs": 1196.7189999995753
+        },
+        {
+          "url": "http://localhost:9420/images/badge-static.webp",
+          "type": "Image",
+          "receivedEncodedBytes": 31256,
+          "status": 200,
+          "mimeType": "image/webp",
+          "transferBytes": 31538,
+          "startMs": 584.18200000051,
+          "responseStartMs": 1503.9699999997538,
+          "endMs": 1350.282999999763
+        }
+      ],
+      "beforePlay": [
+        {
+          "url": "http://localhost:9420/",
+          "type": "Document",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "text/html",
+          "transferBytes": 6072,
+          "startMs": 1.266000001123757,
+          "responseStartMs": 180.60999999943306,
+          "endMs": 209.94299999983923
+        },
+        {
+          "url": "http://localhost:9420/_next/static/media/c9e42e3eae6237c2-s.p.2s-4kwv_nqb0b.woff2",
+          "type": "Font",
+          "receivedEncodedBytes": 21968,
+          "status": 200,
+          "mimeType": "font/woff2",
+          "transferBytes": 22268,
+          "startMs": 251.62400000044727,
+          "responseStartMs": 625.8230000003095,
+          "endMs": 524.0850000009232
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/2kfwp24idcw7k.css",
+          "type": "Stylesheet",
+          "receivedEncodedBytes": 10992,
+          "status": 200,
+          "mimeType": "text/css",
+          "transferBytes": 11357,
+          "startMs": 258.9299999999639,
+          "responseStartMs": 429.0789999995468,
+          "endMs": 473.1050000009418
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/3s6nzrbk-8mnv.js",
+          "type": "Script",
+          "receivedEncodedBytes": 2046,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 2425,
+          "startMs": 261.75900000089314,
+          "responseStartMs": 650.552000000971,
+          "endMs": 611.0110000008717
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/0-ljw4yjmmjzb.js",
+          "type": "Script",
+          "receivedEncodedBytes": 8939,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 9318,
+          "startMs": 264.03600000048755,
+          "responseStartMs": 1580.4189999998925,
+          "endMs": 851.7219999994268
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/4561u0v7ysn3r.js",
+          "type": "Script",
+          "receivedEncodedBytes": 71614,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 71994,
+          "startMs": 266.8759999996837,
+          "responseStartMs": 2029.7449999998207,
+          "endMs": 1580.9819999994943
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/40yvc5291olz9.js",
+          "type": "Script",
+          "receivedEncodedBytes": 43490,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 43870,
+          "startMs": 268.97099999951024,
+          "responseStartMs": 1843.269999999393,
+          "endMs": 1442.49900000068
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/turbopack-2ifmdymbnr2xs.js",
+          "type": "Script",
+          "receivedEncodedBytes": 3850,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 4229,
+          "startMs": 272.0100000005914,
+          "responseStartMs": 1542.8439999996044,
+          "endMs": 718.8669999995909
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/2zrf11hkzrgar.js",
+          "type": "Script",
+          "receivedEncodedBytes": 10404,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 10783,
+          "startMs": 276.0200000011537,
+          "responseStartMs": 1591.110999999728,
+          "endMs": 903.626000001168
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/0f1v3rn6hl5i9.js",
+          "type": "Script",
+          "receivedEncodedBytes": 444,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 822,
+          "startMs": 276.42800000103307,
+          "responseStartMs": 1560.751999999411,
+          "endMs": 842.7540000011504
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/1y28p4907gvx8.js",
+          "type": "Script",
+          "receivedEncodedBytes": 11987,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 12366,
+          "startMs": 276.6360000005079,
+          "responseStartMs": 1595.4030000011699,
+          "endMs": 1196.7189999995753
+        },
+        {
+          "url": "http://localhost:9420/images/badge-static.webp",
+          "type": "Image",
+          "receivedEncodedBytes": 31256,
+          "status": 200,
+          "mimeType": "image/webp",
+          "transferBytes": 31538,
+          "startMs": 584.18200000051,
+          "responseStartMs": 1503.9699999997538,
+          "endMs": 1350.282999999763
+        },
+        {
+          "url": "http://localhost:9420/favicon-16x16.png",
+          "type": "Other",
+          "receivedEncodedBytes": 754,
+          "status": 200,
+          "mimeType": "image/png",
+          "transferBytes": 1032,
+          "startMs": 4509.888000000501,
+          "responseStartMs": 4769.959999999628,
+          "endMs": 4627.007999999478
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/10_09bgl0p9d0.js",
+          "type": "Script",
+          "receivedEncodedBytes": 15228,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 15607,
+          "startMs": 5726.485000001048,
+          "responseStartMs": 6388.716999999815,
+          "endMs": 5918.044000000009
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/4088ypmnt4jmo.js",
+          "type": "Script",
+          "receivedEncodedBytes": 7325,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 7704,
+          "startMs": 12541.774999999689,
+          "responseStartMs": 12725.752000000284,
+          "endMs": 12704.744000000574
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/3c0j_kxek-8cg.css",
+          "type": "Stylesheet",
+          "receivedEncodedBytes": 822,
+          "status": 200,
+          "mimeType": "text/css",
+          "transferBytes": 1191,
+          "startMs": 12553.046000000904,
+          "responseStartMs": 12678.270000000339,
+          "endMs": 12674.708000000464
+        },
+        {
+          "url": "http://localhost:9420/_next/image?url=%2Fvideos%2Ffinance_tracker-poster.webp&w=640&q=75",
+          "type": "Image",
+          "receivedEncodedBytes": 10204,
+          "status": 200,
+          "mimeType": "image/webp",
+          "transferBytes": 10644,
+          "startMs": 14350.696999999855,
+          "responseStartMs": 14604.100000000471,
+          "endMs": 14652.62199999961
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/17qmrmdx20lv0.js",
+          "type": "Script",
+          "receivedEncodedBytes": 7313,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 7692,
+          "startMs": 20546.449999999822,
+          "responseStartMs": 20737.605000000258,
+          "endMs": 20703.208000000814
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/2d0r5zffqw72x.js",
+          "type": "Script",
+          "receivedEncodedBytes": 7328,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 7707,
+          "startMs": 25019.580000000133,
+          "responseStartMs": 25193.043000001126,
+          "endMs": 25162.947000000713
+        }
+      ],
+      "playback": null,
+      "transfers": [
+        {
+          "url": "http://localhost:9420/",
+          "type": "Document",
+          "receivedEncodedBytes": 0,
+          "status": 200,
+          "mimeType": "text/html",
+          "transferBytes": 6072,
+          "startMs": 1.266000001123757,
+          "responseStartMs": 180.60999999943306,
+          "endMs": 209.94299999983923
+        },
+        {
+          "url": "http://localhost:9420/_next/static/media/c9e42e3eae6237c2-s.p.2s-4kwv_nqb0b.woff2",
+          "type": "Font",
+          "receivedEncodedBytes": 21968,
+          "status": 200,
+          "mimeType": "font/woff2",
+          "transferBytes": 22268,
+          "startMs": 251.62400000044727,
+          "responseStartMs": 625.8230000003095,
+          "endMs": 524.0850000009232
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/2kfwp24idcw7k.css",
+          "type": "Stylesheet",
+          "receivedEncodedBytes": 10992,
+          "status": 200,
+          "mimeType": "text/css",
+          "transferBytes": 11357,
+          "startMs": 258.9299999999639,
+          "responseStartMs": 429.0789999995468,
+          "endMs": 473.1050000009418
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/3s6nzrbk-8mnv.js",
+          "type": "Script",
+          "receivedEncodedBytes": 2046,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 2425,
+          "startMs": 261.75900000089314,
+          "responseStartMs": 650.552000000971,
+          "endMs": 611.0110000008717
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/0-ljw4yjmmjzb.js",
+          "type": "Script",
+          "receivedEncodedBytes": 8939,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 9318,
+          "startMs": 264.03600000048755,
+          "responseStartMs": 1580.4189999998925,
+          "endMs": 851.7219999994268
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/4561u0v7ysn3r.js",
+          "type": "Script",
+          "receivedEncodedBytes": 71614,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 71994,
+          "startMs": 266.8759999996837,
+          "responseStartMs": 2029.7449999998207,
+          "endMs": 1580.9819999994943
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/40yvc5291olz9.js",
+          "type": "Script",
+          "receivedEncodedBytes": 43490,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 43870,
+          "startMs": 268.97099999951024,
+          "responseStartMs": 1843.269999999393,
+          "endMs": 1442.49900000068
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/turbopack-2ifmdymbnr2xs.js",
+          "type": "Script",
+          "receivedEncodedBytes": 3850,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 4229,
+          "startMs": 272.0100000005914,
+          "responseStartMs": 1542.8439999996044,
+          "endMs": 718.8669999995909
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/2zrf11hkzrgar.js",
+          "type": "Script",
+          "receivedEncodedBytes": 10404,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 10783,
+          "startMs": 276.0200000011537,
+          "responseStartMs": 1591.110999999728,
+          "endMs": 903.626000001168
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/0f1v3rn6hl5i9.js",
+          "type": "Script",
+          "receivedEncodedBytes": 444,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 822,
+          "startMs": 276.42800000103307,
+          "responseStartMs": 1560.751999999411,
+          "endMs": 842.7540000011504
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/1y28p4907gvx8.js",
+          "type": "Script",
+          "receivedEncodedBytes": 11987,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 12366,
+          "startMs": 276.6360000005079,
+          "responseStartMs": 1595.4030000011699,
+          "endMs": 1196.7189999995753
+        },
+        {
+          "url": "http://localhost:9420/images/badge-static.webp",
+          "type": "Image",
+          "receivedEncodedBytes": 31256,
+          "status": 200,
+          "mimeType": "image/webp",
+          "transferBytes": 31538,
+          "startMs": 584.18200000051,
+          "responseStartMs": 1503.9699999997538,
+          "endMs": 1350.282999999763
+        },
+        {
+          "url": "http://localhost:9420/favicon-16x16.png",
+          "type": "Other",
+          "receivedEncodedBytes": 754,
+          "status": 200,
+          "mimeType": "image/png",
+          "transferBytes": 1032,
+          "startMs": 4509.888000000501,
+          "responseStartMs": 4769.959999999628,
+          "endMs": 4627.007999999478
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/10_09bgl0p9d0.js",
+          "type": "Script",
+          "receivedEncodedBytes": 15228,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 15607,
+          "startMs": 5726.485000001048,
+          "responseStartMs": 6388.716999999815,
+          "endMs": 5918.044000000009
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/4088ypmnt4jmo.js",
+          "type": "Script",
+          "receivedEncodedBytes": 7325,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 7704,
+          "startMs": 12541.774999999689,
+          "responseStartMs": 12725.752000000284,
+          "endMs": 12704.744000000574
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/3c0j_kxek-8cg.css",
+          "type": "Stylesheet",
+          "receivedEncodedBytes": 822,
+          "status": 200,
+          "mimeType": "text/css",
+          "transferBytes": 1191,
+          "startMs": 12553.046000000904,
+          "responseStartMs": 12678.270000000339,
+          "endMs": 12674.708000000464
+        },
+        {
+          "url": "http://localhost:9420/_next/image?url=%2Fvideos%2Ffinance_tracker-poster.webp&w=640&q=75",
+          "type": "Image",
+          "receivedEncodedBytes": 10204,
+          "status": 200,
+          "mimeType": "image/webp",
+          "transferBytes": 10644,
+          "startMs": 14350.696999999855,
+          "responseStartMs": 14604.100000000471,
+          "endMs": 14652.62199999961
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/17qmrmdx20lv0.js",
+          "type": "Script",
+          "receivedEncodedBytes": 7313,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 7692,
+          "startMs": 20546.449999999822,
+          "responseStartMs": 20737.605000000258,
+          "endMs": 20703.208000000814
+        },
+        {
+          "url": "http://localhost:9420/_next/static/chunks/2d0r5zffqw72x.js",
+          "type": "Script",
+          "receivedEncodedBytes": 7328,
+          "status": 200,
+          "mimeType": "application/javascript",
+          "transferBytes": 7707,
+          "startMs": 25019.580000000133,
+          "responseStartMs": 25193.043000001126,
+          "endMs": 25162.947000000713
+        }
+      ]
+    }
+  ]
+}

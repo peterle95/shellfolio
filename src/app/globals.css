@@ -85,6 +85,11 @@
 }
 
 @layer utilities {
+  body:has([data-projects-open="true"]) [data-privacy-settings-trigger],
+  body:has([data-projects-open="true"]) [data-legal-links] {
+    display: none;
+  }
+
   .terminal-scrollbar-none::-webkit-scrollbar {
     display: none;
   }

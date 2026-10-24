@@ -1,0 +1,352 @@
+{
+  "measuredAt": "2026-10-23T12:50:55.108Z",
+  "browser": "155.0.8059.86",
+  "conditions": "Local production server; fresh context per width; DPR 1; cache disabled; no network/CPU throttle; reduced motion; telemetry declined. CDP transfer bytes include response overhead. One sample per width; not a comparative benchmark.",
+  "runs": [
+    {
+      "width": 390,
+      "images": [
+        {
+          "project": "jobFinder",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2FjobFinder%2FjobFinder-poster.webp&w=384&q=75",
+          "width": 306,
+          "height": 172
+        },
+        {
+          "project": "Pet",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2Fpet%2Fpet-poster.webp&w=384&q=75",
+          "width": 306,
+          "height": 172
+        },
+        {
+          "project": "FermentStation",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2FfermentStation%2FfermentStation-poster.webp&w=384&q=75",
+          "width": 306,
+          "height": 172
+        },
+        {
+          "project": "WEB CONSULTANT & DEVELOPER – I PELOSETTI DI SILVANA ONLUS",
+          "src": "http://localhost:9350/_next/image?url=%2Fimages%2Fipelosetti.png&w=384&q=75",
+          "width": 306,
+          "height": 156
+        },
+        {
+          "project": "Printing Press CLIs",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2Ffinance_tracker%2Ffinance_tracker-poster.webp&w=384&q=75",
+          "width": 306,
+          "height": 172
+        },
+        {
+          "project": "Transcendence",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2Ffinance_tracker%2Ffinance_tracker-poster.webp&w=384&q=75",
+          "width": 306,
+          "height": 172
+        },
+        {
+          "project": "Webserv",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2Ffinance_tracker%2Ffinance_tracker-poster.webp&w=384&q=75",
+          "width": 306,
+          "height": 172
+        },
+        {
+          "project": "Shellfolio",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2Ffinance_tracker%2Ffinance_tracker-poster.webp&w=384&q=75",
+          "width": 306,
+          "height": 172
+        },
+        {
+          "project": "More Projects",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2Ffinance_tracker%2Ffinance_tracker-poster.webp&w=384&q=75",
+          "width": 306,
+          "height": 172
+        }
+      ],
+      "transfers": [
+        {
+          "url": "http://localhost:9350/_next/image?url=%2Fvideos%2FjobFinder%2FjobFinder-poster.webp&w=384&q=75",
+          "phase": "before-play",
+          "status": 200,
+          "transferBytes": 5675
+        },
+        {
+          "url": "http://localhost:9350/_next/image?url=%2Fvideos%2Fpet%2Fpet-poster.webp&w=384&q=75",
+          "phase": "before-play",
+          "status": 200,
+          "transferBytes": 5239
+        },
+        {
+          "url": "http://localhost:9350/_next/image?url=%2Fvideos%2FfermentStation%2FfermentStation-poster.webp&w=384&q=75",
+          "phase": "before-play",
+          "status": 200,
+          "transferBytes": 5656
+        },
+        {
+          "url": "http://localhost:9350/_next/image?url=%2Fimages%2Fipelosetti.png&w=384&q=75",
+          "phase": "before-play",
+          "status": 200,
+          "transferBytes": 7363
+        },
+        {
+          "url": "http://localhost:9350/_next/image?url=%2Fvideos%2Ffinance_tracker%2Ffinance_tracker-poster.webp&w=384&q=75",
+          "phase": "before-play",
+          "status": 200,
+          "transferBytes": 5319
+        },
+        {
+          "url": "http://localhost:9350/videos/jobFinder/jobFinder-silent.mp4",
+          "phase": "play: jobFinder",
+          "status": 206,
+          "transferBytes": 2388314
+        },
+        {
+          "url": "http://localhost:9350/videos/pet/pet-silent.mp4",
+          "phase": "play: Pet",
+          "status": 206,
+          "transferBytes": 2187889
+        },
+        {
+          "url": "http://localhost:9350/videos/fermentStation/fermentStation-silent.mp4",
+          "phase": "play: FermentStation",
+          "status": 206,
+          "transferBytes": 1638063
+        },
+        {
+          "url": "http://localhost:9350/videos/finance_tracker/finance_tracker-silent.mp4",
+          "phase": "play: Printing Press CLIs",
+          "status": 206,
+          "transferBytes": 3062053
+        }
+      ]
+    },
+    {
+      "width": 900,
+      "images": [
+        {
+          "project": "jobFinder",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2FjobFinder%2FjobFinder-poster.webp&w=828&q=75",
+          "width": 752,
+          "height": 423
+        },
+        {
+          "project": "Pet",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2Fpet%2Fpet-poster.webp&w=828&q=75",
+          "width": 752,
+          "height": 423
+        },
+        {
+          "project": "FermentStation",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2FfermentStation%2FfermentStation-poster.webp&w=828&q=75",
+          "width": 752,
+          "height": 423
+        },
+        {
+          "project": "WEB CONSULTANT & DEVELOPER – I PELOSETTI DI SILVANA ONLUS",
+          "src": "http://localhost:9350/_next/image?url=%2Fimages%2Fipelosetti.png&w=828&q=75",
+          "width": 752,
+          "height": 384
+        },
+        {
+          "project": "Printing Press CLIs",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2Ffinance_tracker%2Ffinance_tracker-poster.webp&w=828&q=75",
+          "width": 752,
+          "height": 423
+        },
+        {
+          "project": "Transcendence",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2Ffinance_tracker%2Ffinance_tracker-poster.webp&w=828&q=75",
+          "width": 752,
+          "height": 423
+        },
+        {
+          "project": "Webserv",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2Ffinance_tracker%2Ffinance_tracker-poster.webp&w=828&q=75",
+          "width": 752,
+          "height": 423
+        },
+        {
+          "project": "Shellfolio",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2Ffinance_tracker%2Ffinance_tracker-poster.webp&w=828&q=75",
+          "width": 752,
+          "height": 423
+        },
+        {
+          "project": "More Projects",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2Ffinance_tracker%2Ffinance_tracker-poster.webp&w=828&q=75",
+          "width": 752,
+          "height": 423
+        }
+      ],
+      "transfers": [
+        {
+          "url": "http://localhost:9350/_next/image?url=%2Fvideos%2FjobFinder%2FjobFinder-poster.webp&w=828&q=75",
+          "phase": "before-play",
+          "status": 200,
+          "transferBytes": 15988
+        },
+        {
+          "url": "http://localhost:9350/_next/image?url=%2Fvideos%2Fpet%2Fpet-poster.webp&w=828&q=75",
+          "phase": "before-play",
+          "status": 200,
+          "transferBytes": 13010
+        },
+        {
+          "url": "http://localhost:9350/_next/image?url=%2Fvideos%2FfermentStation%2FfermentStation-poster.webp&w=828&q=75",
+          "phase": "before-play",
+          "status": 200,
+          "transferBytes": 14255
+        },
+        {
+          "url": "http://localhost:9350/_next/image?url=%2Fimages%2Fipelosetti.png&w=828&q=75",
+          "phase": "before-play",
+          "status": 200,
+          "transferBytes": 24546
+        },
+        {
+          "url": "http://localhost:9350/_next/image?url=%2Fvideos%2Ffinance_tracker%2Ffinance_tracker-poster.webp&w=828&q=75",
+          "phase": "before-play",
+          "status": 200,
+          "transferBytes": 13902
+        },
+        {
+          "url": "http://localhost:9350/videos/jobFinder/jobFinder-silent.mp4",
+          "phase": "play: jobFinder",
+          "status": 206,
+          "transferBytes": 2388314
+        },
+        {
+          "url": "http://localhost:9350/videos/pet/pet-silent.mp4",
+          "phase": "play: Pet",
+          "status": 206,
+          "transferBytes": 2187889
+        },
+        {
+          "url": "http://localhost:9350/videos/fermentStation/fermentStation-silent.mp4",
+          "phase": "play: FermentStation",
+          "status": 206,
+          "transferBytes": 1638063
+        },
+        {
+          "url": "http://localhost:9350/videos/finance_tracker/finance_tracker-silent.mp4",
+          "phase": "play: Printing Press CLIs",
+          "status": 206,
+          "transferBytes": 3062053
+        }
+      ]
+    },
+    {
+      "width": 1600,
+      "images": [
+        {
+          "project": "jobFinder",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2FjobFinder%2FjobFinder-poster.webp&w=640&q=75",
+          "width": 588,
+          "height": 331
+        },
+        {
+          "project": "Pet",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2Fpet%2Fpet-poster.webp&w=640&q=75",
+          "width": 588,
+          "height": 331
+        },
+        {
+          "project": "FermentStation",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2FfermentStation%2FfermentStation-poster.webp&w=640&q=75",
+          "width": 588,
+          "height": 331
+        },
+        {
+          "project": "WEB CONSULTANT & DEVELOPER – I PELOSETTI DI SILVANA ONLUS",
+          "src": "http://localhost:9350/_next/image?url=%2Fimages%2Fipelosetti.png&w=640&q=75",
+          "width": 588,
+          "height": 300
+        },
+        {
+          "project": "Printing Press CLIs",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2Ffinance_tracker%2Ffinance_tracker-poster.webp&w=640&q=75",
+          "width": 588,
+          "height": 331
+        },
+        {
+          "project": "Transcendence",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2Ffinance_tracker%2Ffinance_tracker-poster.webp&w=640&q=75",
+          "width": 588,
+          "height": 331
+        },
+        {
+          "project": "Webserv",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2Ffinance_tracker%2Ffinance_tracker-poster.webp&w=640&q=75",
+          "width": 588,
+          "height": 331
+        },
+        {
+          "project": "Shellfolio",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2Ffinance_tracker%2Ffinance_tracker-poster.webp&w=640&q=75",
+          "width": 588,
+          "height": 331
+        },
+        {
+          "project": "More Projects",
+          "src": "http://localhost:9350/_next/image?url=%2Fvideos%2Ffinance_tracker%2Ffinance_tracker-poster.webp&w=640&q=75",
+          "width": 588,
+          "height": 331
+        }
+      ],
+      "transfers": [
+        {
+          "url": "http://localhost:9350/_next/image?url=%2Fvideos%2FjobFinder%2FjobFinder-poster.webp&w=640&q=75",
+          "phase": "before-play",
+          "status": 200,
+          "transferBytes": 12026
+        },
+        {
+          "url": "http://localhost:9350/_next/image?url=%2Fvideos%2Fpet%2Fpet-poster.webp&w=640&q=75",
+          "phase": "before-play",
+          "status": 200,
+          "transferBytes": 10097
+        },
+        {
+          "url": "http://localhost:9350/_next/image?url=%2Fvideos%2FfermentStation%2FfermentStation-poster.webp&w=640&q=75",
+          "phase": "before-play",
+          "status": 200,
+          "transferBytes": 11155
+        },
+        {
+          "url": "http://localhost:9350/_next/image?url=%2Fimages%2Fipelosetti.png&w=640&q=75",
+          "phase": "before-play",
+          "status": 200,
+          "transferBytes": 16446
+        },
+        {
+          "url": "http://localhost:9350/_next/image?url=%2Fvideos%2Ffinance_tracker%2Ffinance_tracker-poster.webp&w=640&q=75",
+          "phase": "before-play",
+          "status": 200,
+          "transferBytes": 10642
+        },
+        {
+          "url": "http://localhost:9350/videos/jobFinder/jobFinder-silent.mp4",
+          "phase": "play: jobFinder",
+          "status": 206,
+          "transferBytes": 2388314
+        },
+        {
+          "url": "http://localhost:9350/videos/pet/pet-silent.mp4",
+          "phase": "play: Pet",
+          "status": 206,
+          "transferBytes": 2187889
+        },
+        {
+          "url": "http://localhost:9350/videos/fermentStation/fermentStation-silent.mp4",
+          "phase": "play: FermentStation",
+          "status": 206,
+          "transferBytes": 1638063
+        },
+        {
+          "url": "http://localhost:9350/videos/finance_tracker/finance_tracker-silent.mp4",
+          "phase": "play: Printing Press CLIs",
+          "status": 206,
+          "transferBytes": 3062053
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Command } from '../types';
-import { OutputError, OutputText, OutputCode, OutputHeading, OutputLink } from '@/components/shellfolio/terminal/CommandOutput';
+import { OutputError, OutputText, OutputCode, OutputLink } from '@/components/shellfolio/terminal/CommandOutput';
 
 export const catCommand: Command = {
     name: 'cat',

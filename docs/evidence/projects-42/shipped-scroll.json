@@ -1,0 +1,17 @@
+{
+  "note": "Local fresh production chunk byte identity and excerpts near trace-reported scroll-effect columns. Trace stack location conventions are retained unchanged in summary.json.",
+  "targets": {
+    "before": {
+      "chunk": "3ihezsi0z91_0.js",
+      "sha256": "17b26b08a8c00cf82e5930423a3bd104e1ce7011566135622d566651733363f7",
+      "traceColumn": 12856,
+      "excerpt": "\"off\",autoCapitalize:\"off\",autoCorrect:\"off\",spellCheck:\"false\",\"aria-label\":\"Terminal input\"})]})]})},s=({children:e})=>{let{history:i}=(0,r.useTerminal)(),s=(0,n.useRef)(null);return(0,n.useEffect)(()=>{if(s.current){let e=s.current;e.scrollTop=e.scrollHeight}},[i]),(0,t.jsx)(\"div\",{ref:s,className:\"flex-1 h-full w-full overflow-y-auto overflow-x-hidden terminal-scrollbar-none\",style:{scrollbarWidth:\"none\",msOverflowStyle:\"none\"},children:(0,t."
+    },
+    "after": {
+      "chunk": "1y28p4907gvx8.js",
+      "sha256": "eac5db24af8e9f3a89c6f2d0b4e71eaba240bc99fd8dd4236e41402dfbf5e60d",
+      "traceColumn": 13814,
+      "excerpt": ";return(0,n.useEffect)(()=>{if(s.current){let e=s.current,t=i[i.length-1],r=o.CommandParser.parse(t?.command||\"\"),l=e.querySelectorAll(\"[data-terminal-entry]\"),c=l[l.length-1];a.get(r.name)?.name===\"projects\"&&n.default.isValidElement(t?.output)&&c?e.scrollTop+=c.getBoundingClientRect().top-e.getBoundingClientRect().top:e.scrollTop=e.scrollHeight}},[i,a]),(0,t.jsx)(\"div\",{ref:s,role:\"region\",\"aria-label\":\"Terminal history\",tabIndex:0,className:\"f"
+    }
+  }
+}

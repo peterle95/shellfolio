@@ -38,7 +38,7 @@ export const TerminalWelcome = () => {
             </div>
             <div className="space-y-2 opacity-90">
                 <p>Welcome to <strong style={{ color: 'var(--terminal-prompt-user)' }}>Shellfolio OS v3.1.7</strong>.</p>
-                <p>Type <strong style={{ color: 'var(--terminal-prompt-path)' }}>'help'</strong> for shortcuts (about, projects, contact, and more), or use shell commands like <strong style={{ color: 'var(--terminal-prompt-path)' }}>cd</strong>, <strong style={{ color: 'var(--terminal-prompt-path)' }}>ls</strong>, and <strong style={{ color: 'var(--terminal-prompt-path)' }}>cat</strong> to explore the filesystem.</p>
+                <p>Type <strong style={{ color: 'var(--terminal-prompt-path)' }}>&apos;help&apos;</strong> for shortcuts (about, projects, contact, and more), or use shell commands like <strong style={{ color: 'var(--terminal-prompt-path)' }}>cd</strong>, <strong style={{ color: 'var(--terminal-prompt-path)' }}>ls</strong>, and <strong style={{ color: 'var(--terminal-prompt-path)' }}>cat</strong> to explore the filesystem.</p>
                 <p className="text-sm opacity-60 mt-4 mb-2">System booted successfully -- all services running.</p>
             </div>
         </div>

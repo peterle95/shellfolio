@@ -1,0 +1,34 @@
+
+> nextn@0.1.0 benchmark:projects
+> node scripts/projects-benchmark.cjs --url=http://localhost:9390 --runs=10 --revision=dc0f1e60c404e256c74a8c7b6729b0e3f72290c1 --report=docs/evidence/projects-39/rerun-39/after.json
+
+Measured 390px run 1: projects=1740.8ms, pwd=127.8ms, portfolio=967.5ms, about=725.8ms, projects=728.5ms, contact=435.0ms, projects=1116.4ms; real video-loading input/commands and cleanup passed
+Measured 390px run 2: projects=2021.1ms, pwd=280.7ms, portfolio=693.5ms, about=429.3ms, projects=437.1ms, contact=421.1ms, projects=573.7ms; real video-loading input/commands and cleanup passed
+Measured 390px run 3: projects=1129.1ms, pwd=98.3ms, portfolio=197.7ms, about=260.6ms, projects=340.4ms, contact=274.9ms, projects=125.9ms; real video-loading input/commands and cleanup passed
+Measured 390px run 4: projects=526.1ms, pwd=55.6ms, portfolio=214.1ms, about=270.9ms, projects=155.5ms, contact=343.9ms, projects=174.9ms; real video-loading input/commands and cleanup passed
+Measured 390px run 5: projects=1950.5ms, pwd=105.0ms, portfolio=938.4ms, about=500.1ms, projects=934.2ms, contact=638.3ms, projects=984.0ms; real video-loading input/commands and cleanup passed
+Measured 390px run 6: projects=1747.0ms, pwd=148.5ms, portfolio=928.5ms, about=453.2ms, projects=804.3ms, contact=430.7ms, projects=680.1ms; real video-loading input/commands and cleanup passed
+Measured 390px run 7: projects=1308.4ms, pwd=117.0ms, portfolio=558.7ms, about=434.1ms, projects=705.5ms, contact=643.4ms, projects=819.1ms; real video-loading input/commands and cleanup passed
+Measured 390px run 8: projects=1730.0ms, pwd=119.0ms, portfolio=602.1ms, about=397.5ms, projects=366.1ms, contact=584.4ms, projects=486.6ms; real video-loading input/commands and cleanup passed
+Measured 390px run 9: projects=1736.4ms, pwd=98.4ms, portfolio=928.2ms, about=535.6ms, projects=854.6ms, contact=596.5ms, projects=618.8ms; real video-loading input/commands and cleanup passed
+Measured 390px run 10: projects=1130.7ms, pwd=79.0ms, portfolio=332.3ms, about=497.6ms, projects=649.4ms, contact=237.3ms, projects=156.6ms; real video-loading input/commands and cleanup passed
+Measured 900px run 1: projects=572.7ms, pwd=73.4ms, portfolio=254.3ms, about=355.5ms, projects=177.8ms, contact=365.9ms, projects=275.4ms; real video-loading input/commands and cleanup passed
+Measured 900px run 2: projects=583.1ms, pwd=52.1ms, portfolio=142.5ms, about=245.7ms, projects=135.8ms, contact=262.2ms, projects=181.4ms; real video-loading input/commands and cleanup passed
+Measured 900px run 3: projects=604.8ms, pwd=53.4ms, portfolio=174.8ms, about=233.7ms, projects=154.4ms, contact=283.5ms, projects=268.3ms; real video-loading input/commands and cleanup passed
+Measured 900px run 4: projects=582.2ms, pwd=53.3ms, portfolio=138.0ms, about=232.0ms, projects=223.9ms, contact=265.2ms, projects=147.1ms; real video-loading input/commands and cleanup passed
+Measured 900px run 5: projects=607.4ms, pwd=52.8ms, portfolio=181.0ms, about=251.3ms, projects=187.4ms, contact=265.5ms, projects=141.0ms; real video-loading input/commands and cleanup passed
+Measured 900px run 6: projects=2382.4ms, pwd=166.3ms, portfolio=927.6ms, about=393.7ms, projects=443.5ms, contact=418.4ms, projects=465.4ms; real video-loading input/commands and cleanup passed
+Measured 900px run 7: projects=1335.4ms, pwd=122.5ms, portfolio=437.5ms, about=345.7ms, projects=415.2ms, contact=446.9ms, projects=664.6ms; real video-loading input/commands and cleanup passed
+Measured 900px run 8: projects=3430.2ms, pwd=229.6ms, portfolio=1510.8ms, about=670.5ms, projects=1341.6ms, contact=362.7ms, projects=1058.3ms; real video-loading input/commands and cleanup passed
+Measured 900px run 9: projects=2551.7ms, pwd=210.4ms, portfolio=1131.5ms, about=698.0ms, projects=1210.2ms, contact=807.9ms, projects=1167.8ms; real video-loading input/commands and cleanup passed
+Measured 900px run 10: projects=2535.4ms, pwd=182.4ms, portfolio=707.1ms, about=453.8ms, projects=479.9ms, contact=475.4ms, projects=626.7ms; real video-loading input/commands and cleanup passed
+Measured 1600px run 1: projects=1807.1ms, pwd=127.3ms, portfolio=506.0ms, about=489.7ms, projects=763.2ms, contact=654.0ms, projects=608.2ms; real video-loading input/commands and cleanup passed
+Measured 1600px run 2: projects=2788.9ms, pwd=92.0ms, portfolio=1217.9ms, about=804.3ms, projects=1115.1ms, contact=1003.6ms, projects=1298.3ms; real video-loading input/commands and cleanup passed
+Measured 1600px run 3: projects=2785.0ms, pwd=258.5ms, portfolio=231.5ms, about=937.7ms, projects=969.9ms, contact=971.7ms, projects=1231.5ms; real video-loading input/commands and cleanup passed
+Measured 1600px run 4: projects=1401.3ms, pwd=109.1ms, portfolio=600.7ms, about=657.4ms, projects=745.5ms, contact=293.5ms, projects=190.0ms; real video-loading input/commands and cleanup passed
+Measured 1600px run 5: projects=2325.3ms, pwd=205.3ms, portfolio=542.9ms, about=349.2ms, projects=700.5ms, contact=754.2ms, projects=763.2ms; real video-loading input/commands and cleanup passed
+Measured 1600px run 6: projects=1785.1ms, pwd=82.8ms, portfolio=817.2ms, about=656.0ms, projects=724.1ms, contact=617.8ms, projects=687.3ms; real video-loading input/commands and cleanup passed
+Measured 1600px run 7: projects=2104.8ms, pwd=88.5ms, portfolio=312.4ms, about=699.6ms, projects=211.9ms, contact=978.7ms, projects=558.1ms; real video-loading input/commands and cleanup passed
+Measured 1600px run 8: projects=477.7ms, pwd=73.3ms, portfolio=312.3ms, about=448.6ms, projects=979.2ms, contact=1017.3ms, projects=673.0ms; real video-loading input/commands and cleanup passed
+Measured 1600px run 9: projects=2860.1ms, pwd=267.8ms, portfolio=339.0ms, about=954.5ms, projects=1470.9ms, contact=1342.3ms, projects=1424.5ms; real video-loading input/commands and cleanup passed
+Measured 1600px run 10: projects=2797.6ms, pwd=201.2ms, portfolio=1094.0ms, about=940.1ms, projects=1391.9ms, contact=1047.4ms, projects=1877.9ms; real video-loading input/commands and cleanup passed

@@ -13,11 +13,11 @@ export const QuickActions = () => {
                 <button
                     key={cmd}
                     onClick={() => executeCommand(cmd)}
-                    className="w-full sm:w-auto px-3 py-1.5 text-xs sm:text-sm font-medium rounded-md transition-colors border opacity-80 hover:opacity-100"
+                    className={`w-full sm:w-auto px-3 py-1.5 text-xs sm:text-sm font-medium rounded-md transition-colors border ${cmd === 'projects' ? 'opacity-100 hover:brightness-110' : 'opacity-80 hover:opacity-100'}`}
                     style={{ 
-                        borderColor: 'var(--terminal-border)',
-                        backgroundColor: 'var(--terminal-header)',
-                        color: 'var(--terminal-fg)'
+                        borderColor: cmd === 'projects' ? 'var(--terminal-link)' : 'var(--terminal-border)',
+                        backgroundColor: cmd === 'projects' ? 'var(--terminal-link)' : 'var(--terminal-header)',
+                        color: cmd === 'projects' ? 'var(--terminal-header)' : 'var(--terminal-fg)'
                     }}
                 >
                     {cmd}

@@ -10,7 +10,12 @@
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:history": "node --test scripts/history-store.test.cjs",
+    "test:projects": "node scripts/projects-browser-check.cjs",
+    "benchmark:projects": "node scripts/projects-benchmark.cjs",
+    "check:projects-budget": "node scripts/projects-budget-check.cjs",
+    "test:projects-budget": "node --test scripts/projects-budget-check.test.cjs"
   },
   "dependencies": {
     "@genkit-ai/googleai": "^1.13.0",
@@ -66,6 +71,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

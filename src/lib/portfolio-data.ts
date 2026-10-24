@@ -8,25 +8,110 @@ export const aboutParagraphs = [
 
 export const aboutBioPlainText = aboutParagraphs.join('\n\n');
 
+export type ProjectImage = {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+};
+
+export type ProjectVideo = {
+    src: string;
+    /** Marks the approved shared Finance Tracker placeholder (docs/project-content-34.md). */
+    sharedPlaceholder?: boolean;
+};
+
+const sharedFinanceVideo: ProjectVideo = {
+    src: '/videos/finance_tracker/finance_tracker-silent.mp4',
+    sharedPlaceholder: true,
+};
+
+// Owner-approved release exception and exact copy: docs/project-content-34.md.
+const sharedFinancePoster: ProjectImage = {
+    src: '/videos/finance_tracker/finance_tracker-poster.webp',
+    alt: 'Shared placeholder: Finance Tracker dashboard with a daily spending target and expense list.',
+    width: 1280,
+    height: 720,
+};
+
+// Owner-recorded project media. jobFinder's demo footer states:
+// "Demonstration · Fictional career materials · Sample provider outputs"
+// — the project description says the same so no clip is mistaken for real output.
+const fermentStationVideo: ProjectVideo = {
+    src: '/videos/fermentStation/fermentStation-silent.mp4',
+};
+
+const fermentStationPoster: ProjectImage = {
+    src: '/videos/fermentStation/fermentStation-poster.webp',
+    alt: 'FermentStation illustration: a clip-top jar of fermenting vegetables beside the slogan "Good things take time."',
+    width: 1280,
+    height: 720,
+};
+
+const jobFinderVideo: ProjectVideo = {
+    src: '/videos/jobFinder/jobFinder-silent.mp4',
+};
+
+const jobFinderPoster: ProjectImage = {
+    src: '/videos/jobFinder/jobFinder-poster.webp',
+    alt: 'jobFinder evaluation screen: a 70 out of 100 partial-match recommendation beside a review of established strengths and experience to confirm.',
+    width: 1280,
+    height: 720,
+};
+
+const petVideo: ProjectVideo = {
+    src: '/videos/pet/pet-silent.mp4',
+};
+
+const petPoster: ProjectImage = {
+    src: '/videos/pet/pet-poster.webp',
+    alt: 'Pet demonstration desktop: the slogan "Your desktop. Now with company." beside a pixel-art companion on a macOS desktop.',
+    width: 1280,
+    height: 720,
+};
+
+const pelosettiImage: ProjectImage = {
+    src: '/images/ipelosetti.png',
+    alt: 'I Pelosetti di Silvana Onlus shelter website with sections for temporary fostering, fostering towards adoption, and social volunteering.',
+    width: 1424,
+    height: 728,
+};
+
+const githubProfile: ProjectImage = {
+    src: '/images/github_profile.png',
+    alt: 'My GitHub profile screenshot showing repositories, contributions, and pinned projects.',
+    width: 1280,
+    height: 720,
+};
+
 export type PortfolioProject = {
     title: string;
     description: string;
+    shortDescription?: string;
     stack: string;
     live?: string;
     repo: string;
+    image?: ProjectImage;
+    video?: ProjectVideo;
 };
 
 export const portfolioProjects: PortfolioProject[] = [
+    // jobFinder and Pet: repositories are private for now ('#' = no public link).
+    // Confirm the stack strings and add repo URLs before publication.
     {
-        title: 'FermentStation',
+        title: 'Pet',
+        // shortDescription: 'Your desktop. Now with company.',
+        image: petPoster,
+        video: petVideo,
         description:
-            'Local-first fermentation tracker. 70+ tests, desktop + Android packaging',
-        stack: 'React, TypeScript, Vite, Tauri 2, Capacitor',
-        live: '#',
-        repo: 'https://github.com/peterle95/fermentstation',
+            'Desktop companion: a pixel pet walks across your desktop while you work and can be dragged anywhere, paired with a Pokéball-styled Pomodoro focus timer and a task calendar that tracks daily tasks with streaks.',
+        stack: 'TypeScript',
+        repo: '#',
     },
     {
         title: 'WEB CONSULTANT & DEVELOPER – I PELOSETTI DI SILVANA ONLUS',
+        shortDescription: 'Pro-bono WordPress fixes for animal listings and SEO.',
+        image: pelosettiImage,
         description:
             'Provided pro-bono technical consulting for a non-profit animal shelter, diagnosing and resolving critical WordPress/WooCommerce issues affecting animal listing pages and site SEO',
         stack: 'WordPress, WooCommerce, Elementor',
@@ -34,33 +119,66 @@ export const portfolioProjects: PortfolioProject[] = [
         repo: '#',
     },
     {
-        title: 'Printing Press CLIs',
+        title: 'jobFinder',
+        shortDescription: 'Evaluate job postings and tailor your next application.',
+        image: jobFinderPoster,
+        video: jobFinderVideo,
         description:
-            'WSL monorepo of 23 CLI tools wrapping public APIs for agent-friendly automation. ',
+            'Windows-first assistant with OpenCode connected: add a full job posting, evaluate it against your saved experience sources and corrections, and review what matches and what needs your confirmation — a starting point for the evidence, not a final decision. Then generate an editable tailored CV or cover letter and save it as PDF. The released demo uses fictional career materials and sample provider outputs.',
+        stack: 'TypeScript, React',
+        repo: '#',
+    },
+    {
+        title: 'FermentStation',
+        shortDescription: 'Track fermentation locally, on desktop or Android.',
+        image: fermentStationPoster,
+        video: fermentStationVideo,
+        description:
+            'Local-first fermentation tracker. 70+ tests, desktop + Android packaging',
+        stack: 'React, TypeScript, Vite, Tauri 2, Capacitor',
+        live: '#',
+        repo: 'https://github.com/peterle95/fermentstation',
+    },
+    {
+        title: 'Printing Press CLIs',
+        shortDescription: '23 command-line tools for API automation.',
+        image: sharedFinancePoster,
+        video: sharedFinanceVideo,
+        description:
+            'WSL monorepo of 23 CLI tools wrapping public APIs for agent-friendly automation. Preview: shared Finance Tracker placeholder, not this project, using fictional data.',
         stack: 'Go/Cobra, Python, Node/TypeScript',
         live: '#',
         repo: 'https://github.com/peterle95/printing-press-clis',
     },
     {
         title: 'Transcendence',
+        shortDescription: 'A multi-game platform built at 42, currently in development.',
+        image: sharedFinancePoster,
+        video: sharedFinanceVideo,
         description:
-            'Final project of 42 Core Curriculum. Together we 4 other fellow 42oers we created a platform for multiple games showcasing different technologies and games. (Currently in development)',
+            'Final project of 42 Core Curriculum. Together we 4 other fellow 42oers we created a platform for multiple games showcasing different technologies and games. (Currently in development) Preview: shared Finance Tracker placeholder, not this project, using fictional data.',
         stack: 'Next.js, TypeScript, React, Prisma, Tailwind CSS',
         live: '#',
         repo: 'https://github.com/transcendence42spacewars/transcendence',
     },
     {
         title: 'Webserv',
+        shortDescription: 'A custom HTTP server built in C++98.',
+        image: sharedFinancePoster,
+        video: sharedFinanceVideo,
         description:
-            "Custom HTTP server implemented in C++98. This project aims to provide a deep understanding of how HTTP servers operate, focusing on core network aspects and non-blocking behavior to handle multiple concurrent connections efficiently. The server's primary function is to receive HTTP requests from clients, process these requests, and send appropriate HTTP responses back.",
+            "Custom HTTP server implemented in C++98. This project aims to provide a deep understanding of how HTTP servers operate, focusing on core network aspects and non-blocking behavior to handle multiple concurrent connections efficiently. The server's primary function is to receive HTTP requests from clients, process these requests, and send appropriate HTTP responses back. Preview: shared Finance Tracker placeholder, not this project, using fictional data.",
         stack: 'C++98, Unix, Nginx, JavaScript, HTML, CSS, Python',
         live: '#',
         repo: 'https://github.com/peterle95/webserv',
     },
     {
         title: 'Shellfolio',
+        shortDescription: 'An interactive portfolio styled as a command-line shell.',
+        image: sharedFinancePoster,
+        video: sharedFinanceVideo,
         description:
-            'Personal portfolio webpage simulating shell. It makes my projects and other information interactive and fun.',
+            'Personal portfolio webpage simulating shell. It makes my projects and other information interactive and fun. Preview: shared Finance Tracker placeholder, not this project, using fictional data.',
         stack: 'TypeScript, React, Next.js',
         live: 'https://petermoelzer-shellfolio.vercel.app/',
         repo: 'https://github.com/peterle95/shellfolio',
@@ -82,6 +200,8 @@ export const portfolioProjects: PortfolioProject[] = [
     }, */
     {
         title: 'More Projects',
+        shortDescription: 'Explore more projects and contributions on GitHub.',
+        image: githubProfile,
         description: 'Check out my GitHub for more projects and contributions.',
         stack: 'C, C++, JavaScript, TypeScript, React, ...',
         repo: 'https://github.com/peterle95/',

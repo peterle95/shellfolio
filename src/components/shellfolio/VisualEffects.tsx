@@ -17,6 +17,7 @@ function useBadgeEnhancement(showBadge: boolean) {
     const [enabled, setEnabled] = useState(false);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- Reset the browser enhancement lifecycle when the route excludes Badge; never reuse old eligibility.
         if (!showBadge) { setEnabled(false); return; }
         const media = window.matchMedia('(min-width: 1400px)');
         const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -74,7 +75,10 @@ export function VisualEffects({ showBadge = true }: { showBadge?: boolean }) {
     const [badgeFailed, setBadgeFailed] = useState(false);
     const onReady = useCallback(() => setBadgeReady(true), []);
     const onFailure = useCallback(() => { setBadgeFailed(true); setBadgeReady(false); }, []);
-    useEffect(() => { if (!enhanceBadge) setBadgeReady(false); }, [enhanceBadge]);
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- The external renderer was unmounted; its previous readiness cannot survive re-enabling.
+        if (!enhanceBadge) setBadgeReady(false);
+    }, [enhanceBadge]);
     const visibleBadge = enhanceBadge && badgeReady && !badgeFailed;
 
     return (

@@ -1,5 +1,6 @@
 // Run: node scripts/terminal-check.cjs
 // Execute the production provider, registry, lazy loaders and commands; mock React/browser/UI rendering.
+/* eslint-disable @typescript-eslint/no-require-imports -- Standalone Node CommonJS harness, matching scripts/*.cjs. */
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -18,6 +19,7 @@ function terminal() {
     const react = {
         createContext: () => ({ Provider: 'Provider' }),
         createElement: (type, props, ...children) => ({ type, props: { ...props, children } }),
+        isValidElement: value => value !== null && typeof value === 'object' && 'type' in value,
         useState(initial) {
             const slot = index++;
             if (!(slot in slots)) slots[slot] = initial;
@@ -44,8 +46,8 @@ function terminal() {
             .find(candidate => fs.existsSync(candidate) && fs.statSync(candidate).isFile());
         assert.ok(file, `Cannot resolve ${base}`);
         if (cache.has(file)) return cache.get(file).exports;
-        const module = { exports: {} };
-        cache.set(file, module); // Preserve the help/index cycle.
+        const compiled = { exports: {} };
+        cache.set(file, compiled); // Preserve the help/index cycle.
         const source = ts.transpileModule(fs.readFileSync(file, 'utf8'), {
             compilerOptions: { target: ts.ScriptTarget.ES2020, module: ts.ModuleKind.CommonJS,
                 jsx: ts.JsxEmit.React, esModuleInterop: true }
@@ -68,8 +70,8 @@ function terminal() {
             return load(resolved);
         };
         vm.runInContext(`(function(require, module, exports) { ${source}\n})`, context,
-            { filename: file })(requireSource, module, module.exports);
-        return module.exports;
+            { filename: file })(requireSource, compiled, compiled.exports);
+        return compiled.exports;
     }
     const { TerminalProvider } = load(path.join(__dirname, '../src/lib/terminal/terminal-state'));
     function render(state = slots) {
@@ -88,6 +90,47 @@ function terminal() {
 }
 
 const checks = {
+    async 'project video ownership is replaced and cleared by section navigation or reset'() {
+        const t = terminal();
+        assert.equal(t.render().activeProjectVideo, null);
+        await t.api.executeCommand('projects');
+        t.api.playProjectVideo('first');
+        assert.equal(t.render().activeProjectVideo, 'first');
+        t.api.playProjectVideo('second');
+        assert.equal(t.render().activeProjectVideo, 'second');
+        await t.api.executeCommand('pwd');
+        assert.equal(t.render().activeProjectVideo, 'second', 'ordinary commands preserve one active player');
+        await t.api.executeCommand('portfolio');
+        assert.equal(t.render().activeProjectVideo, null, 'repeating the same section still releases playback');
+        t.api.playProjectVideo('retained');
+        await t.api.executeCommand('about');
+        assert.equal(t.render().activeProjectVideo, null);
+        t.api.playProjectVideo('retained');
+        await t.api.executeCommand('clear');
+        assert.equal(t.render().activeProjectVideo, null);
+        t.api.playProjectVideo('retained');
+        t.api.clearHistory();
+        assert.equal(t.render().activeProjectVideo, null);
+        assert.equal(t.render([]).activeProjectVideo, null, 'another provider starts without a playback owner');
+    },
+    async 'latest section controls presentation across aliases and retained history'() {
+        const t = terminal();
+        assert.equal(t.render().activeSection, null);
+        await t.api.executeCommand('portfolio');
+        assert.equal(t.render().activeSection, 'projects');
+        await t.api.executeCommand('pwd');
+        await t.api.executeCommand('not-a-command');
+        assert.equal(t.render().activeSection, 'projects', 'shell commands do not open another section');
+        await t.api.executeCommand('jobs');
+        assert.equal(t.render().activeSection, 'work');
+        assert.deepEqual(t.commands(), ['portfolio', 'pwd', 'not-a-command', 'jobs']);
+        await t.api.executeCommand('projects');
+        await t.api.executeCommand('help');
+        assert.equal(t.render().activeSection, 'help');
+        await t.api.executeCommand('projects');
+        await t.api.executeCommand('clear');
+        assert.equal(t.render().activeSection, null);
+    },
     async 'slow projects then clear'() {
         const t = terminal(), gate = t.gate('projects');
         const first = t.api.executeCommand('projects');
@@ -130,10 +173,11 @@ const checks = {
         assert.deepEqual(t.commands(), ['projects', 'pwd']);
         assert.match(t.api.historyStore.getAll()[0].output, /load failed/);
         assert.equal(t.errors.length, 1);
+        assert.equal(t.render().activeSection, null, 'failed loading must not expand the page');
     },
     async 'unexpected failure does not poison queue'() {
         const t = terminal(), store = t.api.historyStore, push = store.push;
-        store.push = function (entry) { store.push = push; throw new Error('push failed'); };
+        store.push = function () { store.push = push; throw new Error('push failed'); };
         const failed = assert.rejects(t.api.executeCommand('pwd'), /push failed/);
         const next = t.api.executeCommand('pwd');
         await Promise.all([failed, next]);

@@ -1,0 +1,37 @@
+{
+  "approvedBy": "peterle95",
+  "approvedAt": "2026-10-22",
+  "approval": "https://github.com/peterle95/shellfolio/issues/39#issuecomment-6339734130",
+  "scope": "Local Windows 11 10.0.26200 x64 / i7-1355U host; manually confirm host comparability and record power/thermal differences. Approved shared Finance Tracker poster and silent clip only. Event-to-render proxies are not INP; shift sums are not Web Vitals CLS.",
+  "environment": {
+    "browser": "155.0.8059.86",
+    "node": "v24.18.0",
+    "platform": "win32",
+    "conditions": {
+      "cache": "disabled; fresh context per run",
+      "cpuSlowdown": 4,
+      "latencyMs": 80,
+      "downloadBytesPerSecond": 200000,
+      "uploadBytesPerSecond": 93750,
+      "deviceScaleFactor": 1,
+      "reducedMotion": "reduce",
+      "runsPerViewport": 10,
+      "viewportHeight": 900,
+      "widths": [390, 900, 1600],
+      "historySeed": ["pwd", "pwd", "pwd", "pwd", "pwd"],
+      "journey": ["projects", "pwd", "portfolio", "about", "projects", "contact", "projects"]
+    }
+  },
+  "maximums": {
+    "inputP95Ms": 200,
+    "firstProjectsMedianMs": 1500,
+    "repeatedProjectsMedianMs": 500,
+    "restorationP95Ms": 1000,
+    "loadingInputP95Ms": 200,
+    "loadingCommandP95Ms": 500,
+    "playingP95Ms": 2000,
+    "journeyTransferMaxBytes": 300000,
+    "posterBodyMaxBytes": 20000,
+    "videoTransferMaxBytes": 3500000
+  }
+}

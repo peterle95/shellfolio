@@ -1,0 +1,12 @@
+{
+  "os": "Windows_NT",
+  "release": "10.0.26200",
+  "arch": "x64",
+  "cpu": "13th Gen Intel(R) Core(TM) i7-1355U",
+  "logicalProcessors": 12,
+  "measurementBuilds": {
+    "before": "gQ6l0wOvNGuulzZwF88Lw",
+    "after": "pw7oZ52HKPhlC95iQ4s1I"
+  },
+  "note": "Both measured targets freshly built with Next/Turbopack. Reused existing detached lockfile installs. Regression-only task-start checkout built separately with webpack after npm ci timed out; no regression build overlaps the measured cohort."
+}

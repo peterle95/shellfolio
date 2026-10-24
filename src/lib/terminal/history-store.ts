@@ -21,6 +21,7 @@ export class HistoryStore {
                     ...p,
                     output: '' // React nodes can't be serialized to sessionStorage
                 }));
+                this.resetNavigation();
             }
         } catch (e) {
             console.warn('Failed to load history from sessionStorage', e);
@@ -55,7 +56,7 @@ export class HistoryStore {
         }
         
         // Reset navigation index
-        this.currentIndex = this.history.length;
+        this.resetNavigation();
         this.save();
     }
 
