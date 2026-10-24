@@ -61,7 +61,9 @@
     align-self: center;
     padding: 0.5rem 0;
     font-size: 0.875rem;
-    color: var(--terminal-fg);
+    color: var(--terminal-link);
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
 }
 
 .link:focus-visible {

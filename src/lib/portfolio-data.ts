@@ -140,7 +140,7 @@ export const portfolioProjects: PortfolioProject[] = [
     // Confirm the stack strings and add repo URLs before publication.
     {
         title: 'Pet',
-        // shortDescription: 'Your desktop. Now with company.',
+        shortDescription: 'A pixel desktop companion with a Pomodoro timer and daily task tracking.',
         image: petPoster,
         video: petVideo,
         description:
