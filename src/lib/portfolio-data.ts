@@ -26,6 +26,19 @@ const sharedFinanceVideo: ProjectVideo = {
     sharedPlaceholder: true,
 };
 
+// Owner-recorded Finance Tracker media — the real project demo, not a shared
+// placeholder. See docs/project-content-34.md for the media factsheet.
+const financeTrackerVideo: ProjectVideo = {
+    src: '/videos/finance_tracker/finance_tracker-silent.mp4',
+};
+
+const financeTrackerPoster: ProjectImage = {
+    src: '/videos/finance_tracker/finance_tracker-poster.webp',
+    alt: 'Finance Tracker dashboard with a daily spending target and expense list.',
+    width: 1280,
+    height: 720,
+};
+
 // Owner-approved release exception and exact copy: docs/project-content-34.md.
 const sharedFinancePoster: ProjectImage = {
     src: '/videos/finance_tracker/finance_tracker-poster.webp',
@@ -138,6 +151,17 @@ export const portfolioProjects: PortfolioProject[] = [
         stack: 'React, TypeScript, Vite, Tauri 2, Capacitor',
         live: '#',
         repo: 'https://github.com/peterle95/fermentstation',
+    },
+    {
+        title: 'Finance Tracker',
+        shortDescription: 'Track expenses across desktop and Android with Syncthing sync.',
+        image: financeTrackerPoster,
+        video: financeTrackerVideo,
+        description:
+            'Personal finance tracker with Python/Tkinter, Electron/React, and Android/Jetpack Compose clients. All clients use the split JSON directory contract in shared/finance_data_schema.md — one dataset synced across devices with Syncthing.',
+        stack: 'Python, Tkinter, Electron, React, Android, Jetpack Compose',
+        live: '#',
+        repo: 'https://github.com/peterle95/finance-tracker',
     },
     {
         title: 'Printing Press CLIs',
