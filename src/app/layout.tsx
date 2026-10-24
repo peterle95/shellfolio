@@ -13,6 +13,9 @@ const sourceCodePro = Source_Code_Pro({
 export const metadata: Metadata = {
   title: 'Peter Mölzer',
   description: 'An interactive terminal portfolio for Peter Mölzer.',
+  icons: {
+    icon: { url: '/images/blonde.png', type: 'image/png' },
+  },
 };
 
 export default function RootLayout({
@@ -22,9 +25,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <head>
-        <link rel="icon" href="/images/blonde.png" type="image/png" />
-      </head>
       <body className={`${sourceCodePro.variable} font-body antialiased`}>
         {children} 
         <Telemetry />
