@@ -117,7 +117,8 @@ export function VisualEffects({ showBadge = true }: { showBadge?: boolean }) {
                             <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" width={501} height={1411} fetchPriority="high" className="h-full w-full" />
                         </picture>
                     </div>
-                    <div className={`w-full h-full transition-opacity duration-300 motion-reduce:transition-none ${visibleBadge ? 'opacity-100' : 'opacity-0'}`}>
+                    {/* Full-screen so the swinging card is never clipped; Lanyard's passThrough mode only takes the pointer over the card itself. */}
+                    <div className={`w-full h-full transition-opacity duration-300 motion-reduce:transition-none ${visibleBadge ? 'opacity-100' : 'opacity-0 invisible'}`}>
                         {enhanceBadge && !badgeFailed && (
                             <BadgeBoundary onFailure={onFailure}>
                                 <Badge onReady={onReady} onFailure={onFailure} />
