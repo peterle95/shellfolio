@@ -16,7 +16,7 @@ const executablePath = process.env.BROWSER_PATH || [
     try {
         const privacy = await browser.newContext({ reducedMotion: 'reduce' });
         try {
-            // Exercise existing opt-out defaults without sending optional telemetry.
+            // Exercise opt-in defaults without sending optional telemetry.
             await privacy.route('**/*', route => new URL(route.request().url()).origin === new URL(values.url).origin
                 ? route.continue() : route.abort());
             const page = await privacy.newPage();
@@ -27,7 +27,7 @@ const executablePath = process.env.BROWSER_PATH || [
             const settings = page.getByRole('button', { name: 'Privacy settings', exact: true });
             const analytics = page.getByRole('checkbox', { name: 'Vercel Analytics', exact: true });
             await expect(dialog).toBeVisible();
-            for (const checkbox of await dialog.getByRole('checkbox').all()) await expect(checkbox).toBeChecked();
+            for (const checkbox of await dialog.getByRole('checkbox').all()) await expect(checkbox).not.toBeChecked();
             await dialog.press('Escape');
             await expect(dialog).toHaveCount(0);
             await expect(settings).toBeFocused();

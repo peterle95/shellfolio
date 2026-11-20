@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 const CONSENT_KEY = 'shellfolio_privacy_consent';
 const CONSENT_CHANGED = 'shellfolio:consent-changed';
 const CONSENT_MAX_AGE = 180 * 24 * 60 * 60 * 1000;
-const DEFAULT_CONSENT = { analytics: true, performance: true, clarity: true };
+const DEFAULT_CONSENT = { analytics: false, performance: false, clarity: false };
 
 export type Consent = {
   analytics: boolean;
@@ -65,8 +65,8 @@ export function PrivacyConsent() {
       // eslint-disable-next-line react-hooks/set-state-in-effect -- Hydrate browser storage after SSR without changing consent defaults or first-render markup.
       setConsent(stored);
     } else {
-      saveConsent(DEFAULT_CONSENT);
-      setConsent({ ...DEFAULT_CONSENT, updatedAt: Date.now() });
+      // Opt-in default: record no decision and load nothing until the visitor chooses.
+      setConsent(null);
     }
     setDraft(stored ?? DEFAULT_CONSENT);
     setOpen(!stored);
@@ -128,7 +128,7 @@ export function PrivacyConsent() {
     >
       <h2 id="privacy-title" className="mb-2 text-base font-bold">Privacy settings</h2>
       <p id="privacy-description" className="mb-4 text-white/80">
-        This site uses necessary first-party storage for preferences and terminal features. Optional analytics and session insights are enabled by default. You can change this choice anytime.
+        This site uses necessary first-party storage for preferences and terminal features. Optional analytics and session insights stay off until you turn them on. You can change this choice anytime.
       </p>
       <fieldset className="mb-4 space-y-2">
         <legend className="sr-only">Optional services</legend>
