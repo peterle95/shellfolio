@@ -23,8 +23,8 @@ const executablePath = process.env.BROWSER_PATH || [
             const errors = [];
             page.on('pageerror', error => errors.push(error.message));
             await page.goto(values.url, { waitUntil: 'networkidle' });
-            const dialog = page.getByRole('dialog', { name: 'Privacy settings' });
-            const settings = page.getByRole('button', { name: 'Privacy settings', exact: true });
+            const dialog = page.getByRole('dialog', { name: 'Privacy & Security' });
+            const settings = page.getByRole('button', { name: 'Privacy & Security', exact: true });
             const analytics = page.getByRole('checkbox', { name: 'Vercel Analytics', exact: true });
             await expect(dialog).toBeVisible();
             for (const checkbox of await dialog.getByRole('checkbox').all()) await expect(checkbox).not.toBeChecked();
@@ -34,11 +34,14 @@ const executablePath = process.env.BROWSER_PATH || [
             await settings.click();
             for (const checkbox of await dialog.getByRole('checkbox').all()) await expect(checkbox).not.toBeChecked();
             const reject = dialog.getByRole('button', { name: 'Reject all' });
-            await reject.focus();
+            const securityLink = dialog.getByRole('link', { name: 'Security details' });
+            await expect(dialog.getByRole('link', { name: 'moelzerpeter@proton.me' })).toHaveAttribute('href', 'mailto:moelzerpeter@proton.me');
+            await expect(securityLink).toHaveAttribute('href', '/security');
+            await securityLink.focus();
             await page.keyboard.press('Tab');
             await expect(analytics).toBeFocused();
             await page.keyboard.press('Shift+Tab');
-            await expect(reject).toBeFocused();
+            await expect(securityLink).toBeFocused();
             await analytics.check();
             await dialog.getByRole('button', { name: 'Save choices' }).click();
             await expect(settings).toBeVisible();
@@ -67,6 +70,28 @@ const executablePath = process.env.BROWSER_PATH || [
             assert.deepEqual(errors, []);
             console.log('PASS consent defaults, focus trap, focus return after Save/Reject/Escape, saved choices and reload');
         } finally { await privacy.close(); }
+
+        const security = await browser.newContext({ reducedMotion: 'reduce' });
+        try {
+            const page = await security.newPage();
+            const errors = [];
+            page.on('pageerror', error => errors.push(error.message));
+            await page.goto(new URL('/security', values.url).href, { waitUntil: 'networkidle' });
+            await expect(page.getByRole('heading', { level: 1, name: 'Security' })).toBeVisible();
+            for (const name of ['Reporting a vulnerability', 'Encryption', 'Hosting and data location', 'Access controls', 'Incident history', 'Penetration testing', 'Certifications']) {
+                await expect(page.getByRole('heading', { level: 2, name })).toBeVisible();
+            }
+            await page.goto(new URL('/privacy-policy', values.url).href, { waitUntil: 'networkidle' });
+            await expect(page.getByRole('link', { name: 'security page' })).toHaveAttribute('href', '/security');
+            const txt = await page.request.get(new URL('/.well-known/security.txt', values.url).href);
+            assert.equal(txt.status(), 200);
+            const body = await txt.text();
+            assert.match(body, /^Contact: mailto:moelzerpeter@proton\.me$/m);
+            assert.match(body, /^Expires: \d{4}-\d{2}-\d{2}T/m);
+            assert.ok(new Date(body.match(/^Expires: (.+)$/m)[1]) > new Date(), 'security.txt Expires is in the past');
+            assert.deepEqual(errors, []);
+            console.log('PASS security page sections, privacy policy link, security.txt contact and expiry');
+        } finally { await security.close(); }
 
         const graphics = await browser.newContext({ viewport: { width: 1600, height: 900 }, reducedMotion: 'no-preference' });
         try {

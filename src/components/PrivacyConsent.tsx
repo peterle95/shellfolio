@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 const CONSENT_KEY = 'shellfolio_privacy_consent';
@@ -79,7 +80,7 @@ export function PrivacyConsent() {
     }
     const dialog = dialogRef.current;
     if (!dialog) return;
-    const focusable = () => Array.from(dialog.querySelectorAll<HTMLElement>('button, input'));
+    const focusable = () => Array.from(dialog.querySelectorAll<HTMLElement>('button, input, a[href]'));
     focusable()[0]?.focus();
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -112,7 +113,7 @@ export function PrivacyConsent() {
         onClick={openSettings}
         className="fixed bottom-3 left-3 z-50 rounded border border-white/30 bg-black/80 px-3 py-2 text-xs text-white underline focus:outline-none focus:ring-2 focus:ring-white"
       >
-        Privacy settings
+        Privacy &amp; Security
       </button>
     ) : null;
   }
@@ -126,7 +127,7 @@ export function PrivacyConsent() {
       ref={dialogRef}
       className="fixed inset-x-3 bottom-3 z-50 max-w-xl rounded-lg border border-white/30 bg-black p-4 text-sm text-white shadow-2xl sm:left-6"
     >
-      <h2 id="privacy-title" className="mb-2 text-base font-bold">Privacy settings</h2>
+      <h2 id="privacy-title" className="mb-2 text-base font-bold">Privacy &amp; Security</h2>
       <p id="privacy-description" className="mb-4 text-white/80">
         This site uses necessary first-party storage for preferences and terminal features. Optional analytics and session insights stay off until you turn them on. You can change this choice anytime.
       </p>
@@ -147,6 +148,13 @@ export function PrivacyConsent() {
         <button type="button" onClick={() => choose(draft)} className="rounded border border-white px-3 py-2 font-semibold text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-300">Save choices</button>
         <button type="button" onClick={() => choose({ analytics: false, performance: false, clarity: false })} className="rounded border border-white px-3 py-2 font-semibold text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-300">Reject all</button>
       </div>
+      <section aria-labelledby="security-title" className="mt-4 border-t border-white/20 pt-3 text-white/80">
+        <h3 id="security-title" className="mb-1 font-bold text-white">Security</h3>
+        <p>
+          Report a vulnerability: <a className="text-fuchsia-300 underline focus:outline-none focus:ring-2 focus:ring-fuchsia-300" href="mailto:moelzerpeter@proton.me">moelzerpeter@proton.me</a>.{' '}
+          <Link className="text-fuchsia-300 underline focus:outline-none focus:ring-2 focus:ring-fuchsia-300" href="/security" prefetch={false}>Security details</Link>
+        </p>
+      </section>
     </aside>
   );
 }
