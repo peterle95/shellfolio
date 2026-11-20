@@ -111,10 +111,11 @@ export function VisualEffects({ showBadge = true }: { showBadge?: boolean }) {
             </div>
             {showBadge && (
                 <div aria-hidden="true" data-badge-ready={visibleBadge} className="hidden min-[1400px]:block fixed inset-0 z-20 pointer-events-none">
-                    <div className={`absolute left-[29.56vh] top-0 aspect-[250/706] w-[27.83vh] transition-opacity duration-300 motion-reduce:transition-none ${visibleBadge ? 'opacity-0' : 'opacity-100'}`}>
+                    {/* Rest pose of the Lanyard, centred on the badge slot (the middle of the first third of the 80rem layout). */}
+                    <div className={`absolute left-[calc(50%-26.667rem)] -translate-x-1/2 top-0 aspect-[540/1285] w-[29.95vh] transition-opacity duration-300 motion-reduce:transition-none ${visibleBadge ? 'opacity-0' : 'opacity-100'}`}>
                         <picture>
                             <source media="(min-width: 1400px)" srcSet="/images/badge-static.webp" />
-                            <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" width={501} height={1411} fetchPriority="high" className="h-full w-full" />
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" width={540} height={1285} fetchPriority="high" className="h-full w-full" />
                         </picture>
                     </div>
                     {/* Full-screen so the swinging card is never clipped; Lanyard's passThrough mode only takes the pointer over the card itself. */}

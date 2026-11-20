@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: 'Peter Mölzer',
   description: 'An interactive terminal portfolio for Peter Mölzer.',
   icons: {
-    icon: { url: '/images/blonde.png', type: 'image/png' },
+    icon: { url: '/images/favicon.png', type: 'image/png' },
   },
 };
 

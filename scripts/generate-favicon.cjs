@@ -1,11 +1,19 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- Standalone Node CommonJS script, matching scripts/*.cjs. */
 const fs = require('node:fs/promises');
 const assert = require('node:assert/strict');
 const path = require('node:path');
 const sharp = require('sharp');
 
+// Square face crop of the badge portrait, so the tab icon matches the lanyard card.
+const SOURCE = 'public/images/Charcoal Portrait of a Smiling Bearded Man.png';
+const FACE = { left: 120, top: 150, width: 880, height: 880 };
+
 async function main() {
   const root = path.resolve(__dirname, '..');
-  const png = await sharp(path.join(root, 'public/images/blonde.png'))
+  const face = () => sharp(path.join(root, SOURCE)).extract(FACE);
+  await face().resize(192, 192).png().toFile(path.join(root, 'public/images/favicon.png'));
+
+  const png = await face()
     .resize(64, 64)
     .ensureAlpha()
     .png()
