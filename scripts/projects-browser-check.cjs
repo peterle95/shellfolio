@@ -359,7 +359,7 @@ async function navigation() {
         try {
             await boot(page);
             const normal = await viewport(page).boundingBox();
-            await expect(page.getByRole('button', { name: 'Privacy settings', exact: true })).toBeVisible();
+            await expect(page.getByRole('button', { name: 'Privacy & Security', exact: true })).toBeVisible();
             await expect(page.getByRole('link', { name: 'Privacy policy', exact: true })).toBeVisible();
             await expect(page.locator('[data-badge-ready]')).toBeVisible();
             if (method === 'button') await page.getByRole('button', { name: 'projects', exact: true }).click();
@@ -368,7 +368,7 @@ async function navigation() {
             const expanded = await viewport(page).boundingBox();
             assert.ok(expanded.width > normal.width + 300);
             assert.ok(expanded.height > normal.height, 'projects uses the freed vertical space');
-            await expect(page.getByRole('button', { name: 'Privacy settings', exact: true })).toBeHidden();
+            await expect(page.getByRole('button', { name: 'Privacy & Security', exact: true })).toBeHidden();
             await expect(page.getByRole('link', { name: 'Privacy policy', exact: true })).toBeHidden();
             assert.ok(await viewport(page).evaluate(el => el.scrollHeight > el.clientHeight), 'projects remains scrollable, not scaled to fit');
             await expect(page.locator('[data-badge-ready]')).toHaveCount(0);
@@ -389,7 +389,7 @@ async function navigation() {
                 await expect(page.locator('[data-terminal-entry]').last().locator('pre')).toContainText(content);
                 await expect(page.locator('[data-badge-ready]')).toBeVisible();
                 assert.equal((await viewport(page).boundingBox()).width, normal.width);
-                await expect(page.getByRole('button', { name: 'Privacy settings', exact: true })).toBeVisible();
+                await expect(page.getByRole('button', { name: 'Privacy & Security', exact: true })).toBeVisible();
                 await expect(page.getByRole('link', { name: 'Privacy policy', exact: true })).toBeVisible();
                 await expect(projects(page)).toHaveCount(1);
             }

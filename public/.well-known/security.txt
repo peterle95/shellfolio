@@ -1,0 +1,6 @@
+Contact: mailto:moelzerpeter@proton.me
+Contact: https://github.com/peterle95/shellfolio/security/advisories/new
+Expires: 2027-11-20T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://petermoelzer-shellfolio.vercel.app/.well-known/security.txt
+Policy: https://petermoelzer-shellfolio.vercel.app/security
