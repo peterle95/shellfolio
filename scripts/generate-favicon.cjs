@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- Standalone Node CommonJS script, matching scripts/*.cjs. */
 const fs = require('node:fs/promises');
 const assert = require('node:assert/strict');
 const path = require('node:path');
